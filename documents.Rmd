@@ -1,0 +1,18 @@
+---
+title: "Materiale"
+description: |
+  Online apps og tutorials
+---
+
+Mere eller mindre vedligeholdte udviklingsversioner af dokumenter og apps:
+
+- [*k*-nærmeste naboer (dokument)](http://apps.math.aau.dk/AI/k_NN/)
+- [*k*-nærmeste naboer (app)](http://apps.math.aau.dk/AI/kNN/)
+- [Lineær regression (dokument)](http://apps.math.aau.dk/AI/linreg/)
+- [Modelkompleksitet (dokument)](http://apps.math.aau.dk/AI/modelkompleksitet/)
+- [Søgræs og *kNN* (dokument)](http://apps.math.aau.dk/AI/sogras/)
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+

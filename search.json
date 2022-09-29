@@ -2,19 +2,35 @@
   "articles": [
     {
       "path": "about.html",
-      "title": "About this site",
-      "description": "Some additional details about the website",
+      "title": "Om os",
+      "description": "Information om Aalborg Intelligence og folkene bag",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2022-09-05T11:31:52+02:00"
+      "last_modified": "2022-09-29T09:52:12+02:00"
+    },
+    {
+      "path": "documents.html",
+      "title": "Materiale",
+      "description": "Online apps og tutorials",
+      "author": [],
+      "contents": "\nMere eller mindre vedligeholdte udviklingsversioner af dokumenter og apps:\nk-nærmeste naboer (dokument)\nk-nærmeste naboer (app)\nLineær regression (dokument)\nModelkompleksitet (dokument)\nSøgræs og kNN (dokument)\n\n\n\n",
+      "last_modified": "2022-09-29T09:52:13+02:00"
     },
     {
       "path": "index.html",
-      "title": "AI Website",
-      "description": "Welcome to the website. I hope you enjoy it!\n",
+      "title": "AI - Aalborg Intelligence",
+      "description": "Gymnasieundervisning i kunstig intelligens\n",
+      "author": [],
+      "contents": "\nHer på sitet finder du materiale og undervisningsforløb om kunstig intelligens rettet mod danske gymnasieelever.\n\n\n\n",
+      "last_modified": "2022-09-29T09:52:13+02:00"
+    },
+    {
+      "path": "teacher.html",
+      "title": "For lærerne",
+      "description": "Information til lærerne om materialet og mulige elevforløb",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2022-09-05T11:31:53+02:00"
+      "last_modified": "2022-09-29T09:52:14+02:00"
     }
   ],
   "collections": []

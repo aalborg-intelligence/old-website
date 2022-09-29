@@ -1,12 +1,17 @@
 name: "aalborg-intelligence.github.io"
-title: "AI Website"
+title: "AI - Aalborg Intelligence"
 description: |
-  AI Website
+  Gymnasieundervisning i kunstig intelligens
 output_dir: "."
 navbar:
   right:
-    - text: "Home"
+    - text: "Hjem"
       href: index.html
-    - text: "About"
+    - text: "Til læreren"
+      href: teacher.html
+    - text: "Om os"
       href: about.html
+  left:
+    - text: "Materiale"
+      href: documents.html
 output: distill::distill_article

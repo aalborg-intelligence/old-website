@@ -1,7 +1,7 @@
 ---
-title: "Om os"
+title: "For lærerne"
 description: |
-  Information om Aalborg Intelligence og folkene bag
+  Information til lærerne om materialet og mulige elevforløb
 ---
 
 
