@@ -5,32 +5,32 @@
       "title": "Om os",
       "description": "Information om Aalborg Intelligence og folkene bag",
       "author": [],
-      "contents": "\n\n\n\n",
-      "last_modified": "2022-09-29T09:52:12+02:00"
+      "contents": "\nProjektet Aalborg Intelligence, som er finansieret af Novo Nordisk Fonden, er forankret på Institut for Matematiske Fag på Aalborg Universitet (AAU), og inkluderer en repræsentant fra de fem gymnasier i Aalborg.\nForskere fra AAU\nLektor Ege Rubak (projektleder)\nLektor Lisbeth Fajstrup\nLektor Anne Marie Svane\nGymnasielærere:\nMalene Cramer Engebjerg (Aalborghus Gymnasium)\nAllan Frendrup (Nørresundby Gymnasium)\nNikolaj Hess-Nielsen (Aalborg Katedralskole)\nMette Kristensen (Hasseris Gymnasium)\nJan B. Sørensen (Aalborg City Gymnasium)\n\n\n\n",
+      "last_modified": "2022-10-12T12:38:05+02:00"
     },
     {
       "path": "documents.html",
       "title": "Materiale",
-      "description": "Online apps og tutorials",
+      "description": "Noter, online apps og tutorials",
       "author": [],
-      "contents": "\nMere eller mindre vedligeholdte udviklingsversioner af dokumenter og apps:\nk-nærmeste naboer (dokument)\nk-nærmeste naboer (app)\nLineær regression (dokument)\nModelkompleksitet (dokument)\nSøgræs og kNN (dokument)\n\n\n\n",
-      "last_modified": "2022-09-29T09:52:13+02:00"
+      "contents": "\nNoter\nPerceptroner\nKunstige Neurale Netværk\nHer kommer der links til interaktive dokumenter og apps når de er færdig-udviklet.\n\n\n\n\n\n\n\n\n",
+      "last_modified": "2022-10-12T12:38:06+02:00"
     },
     {
       "path": "index.html",
       "title": "AI - Aalborg Intelligence",
       "description": "Gymnasieundervisning i kunstig intelligens\n",
       "author": [],
-      "contents": "\nHer på sitet finder du materiale og undervisningsforløb om kunstig intelligens rettet mod danske gymnasieelever.\n\n\n\n",
-      "last_modified": "2022-09-29T09:52:13+02:00"
+      "contents": "\nHer på sitet finder du materiale og undervisningsforløb om kunstig intelligens rettet mod danske gymnasieelever.\nProjektet “AI - Aalborg Intellgence” er finansieret af Novo Nordisk Fonden og løber frem til 2025.\nSiden her er i et tidligt stadie med ganske få tilgængelige materialer på nuværende tidspunkt (2022), og mere materiale tilføjes løbende.\n\n\n\n",
+      "last_modified": "2022-10-12T12:38:06+02:00"
     },
     {
       "path": "teacher.html",
       "title": "For lærerne",
       "description": "Information til lærerne om materialet og mulige elevforløb",
       "author": [],
-      "contents": "\n\n\n\n",
-      "last_modified": "2022-09-29T09:52:14+02:00"
+      "contents": "\nHer kommer information om hvordan materialerne kan bruges i forskellige typer forløb i gymnasiet.\nVi har på nuværende tidspunkt erfaring med SRO i matematik og samfundsfag samt forskellige typer af SRP.\nKontakt Ege Rubak for nærmere information.\n\n\n\n",
+      "last_modified": "2022-10-12T12:38:07+02:00"
     }
   ],
   "collections": []

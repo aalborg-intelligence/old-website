@@ -1,18 +1,20 @@
 ---
 title: "Materiale"
 description: |
-  Online apps og tutorials
+  Noter, online apps og tutorials
 ---
 
-Mere eller mindre vedligeholdte udviklingsversioner af dokumenter og apps:
+### Noter
 
-- [*k*-nærmeste naboer (dokument)](http://apps.math.aau.dk/AI/k_NN/)
-- [*k*-nærmeste naboer (app)](http://apps.math.aau.dk/AI/kNN/)
-- [Lineær regression (dokument)](http://apps.math.aau.dk/AI/linreg/)
-- [Modelkompleksitet (dokument)](http://apps.math.aau.dk/AI/modelkompleksitet/)
-- [Søgræs og *kNN* (dokument)](http://apps.math.aau.dk/AI/sogras/)
+- [Perceptroner](./pdfs/perceptroner_v2.pdf)
+- [Kunstige Neurale Netværk](./pdfs/neuralenet_v2.pdf)
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
+Her kommer der links til interaktive dokumenter og apps når de er færdig-udviklet.
+
+<!-- - [*k*-nærmeste naboer (dokument)](http://apps.math.aau.dk/AI/k_NN/) -->
+<!-- - [*k*-nærmeste naboer (app)](http://apps.math.aau.dk/AI/kNN/) -->
+<!-- - [Lineær regression (dokument)](http://apps.math.aau.dk/AI/linreg/) -->
+<!-- - [Modelkompleksitet (dokument)](http://apps.math.aau.dk/AI/modelkompleksitet/) -->
+<!-- - [Søgræs og *kNN* (dokument)](http://apps.math.aau.dk/AI/sogras/) -->
+
 

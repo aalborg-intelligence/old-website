@@ -4,8 +4,8 @@ description: |
   Information til lærerne om materialet og mulige elevforløb
 ---
 
+Her kommer information om hvordan materialerne kan bruges i forskellige typer forløb i gymnasiet.
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
+Vi har på nuværende tidspunkt erfaring med SRO i matematik og samfundsfag samt forskellige typer af SRP.
+Kontakt [Ege Rubak](mailto:rubak@math.aau.dk) for nærmere information.
 
