@@ -15,7 +15,7 @@ description: |
 
 ### Videoer
 
-![](https://www.youtube.com/watch?v=09LTr2eVOWg&list=PLIdWoTbMPdkAhk1wbsNx58QadiJ8ghGOg)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLIdWoTbMPdkAhk1wbsNx58QadiJ8ghGOg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <!-- - [*k*-nærmeste naboer (dokument)](http://apps.math.aau.dk/AI/k_NN/) -->
 <!-- - [*k*-nærmeste naboer (app)](http://apps.math.aau.dk/AI/kNN/) -->

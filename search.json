@@ -6,15 +6,15 @@
       "description": "Information om Aalborg Intelligence og folkene bag",
       "author": [],
       "contents": "\nProjektet Aalborg Intelligence, som er finansieret af Novo Nordisk Fonden, er forankret på Institut for Matematiske Fag på Aalborg Universitet (AAU), og inkluderer en repræsentant fra de fem gymnasier i Aalborg.\nForskere fra AAU\nLektor Ege Rubak (projektleder)\nLektor Lisbeth Fajstrup\nLektor Anne Marie Svane\nGymnasielærere:\nMalene Cramer Engebjerg (Aalborghus Gymnasium)\nAllan Frendrup (Nørresundby Gymnasium)\nNikolaj Hess-Nielsen (Aalborg Katedralskole)\nMette Kristensen (Hasseris Gymnasium)\nJan B. Sørensen (Aalborg City Gymnasium)\n\n\n\n",
-      "last_modified": "2022-11-21T22:30:01+01:00"
+      "last_modified": "2022-11-21T22:55:05+01:00"
     },
     {
       "path": "documents.html",
       "title": "Materiale",
       "description": "Noter, online apps og tutorials",
       "author": [],
-      "contents": "\nOnline noter\nPerceptroner\nNoter til download i pdf-format\nPerceptroner\nKunstige Neurale Netværk\nVideoer\n\n\n\n\n\n\n\n\n\n",
-      "last_modified": "2022-11-21T22:30:01+01:00"
+      "contents": "\nOnline noter\nPerceptroner\nNoter til download i pdf-format\nPerceptroner\nKunstige Neurale Netværk\nVideoer\n\n\n\n\n\n\n\n\n\n\n",
+      "last_modified": "2022-11-21T22:55:06+01:00"
     },
     {
       "path": "index.html",
@@ -22,7 +22,7 @@
       "description": "Gymnasieundervisning i kunstig intelligens\n",
       "author": [],
       "contents": "\nHer på sitet finder du materiale og undervisningsforløb om kunstig intelligens rettet mod danske gymnasieelever.\nProjektet “AI - Aalborg Intellgence” er finansieret af Novo Nordisk Fonden og løber frem til 2025.\nSiden her er i et tidligt stadie med ganske få tilgængelige materialer på nuværende tidspunkt (2022), og mere materiale tilføjes løbende.\n\n\n\n",
-      "last_modified": "2022-11-21T22:30:02+01:00"
+      "last_modified": "2022-11-21T22:55:06+01:00"
     },
     {
       "path": "teacher.html",
@@ -30,7 +30,7 @@
       "description": "Information til lærerne om materialet og mulige elevforløb",
       "author": [],
       "contents": "\nHer kommer information om hvordan materialerne kan bruges i forskellige typer forløb i gymnasiet.\nVi har på nuværende tidspunkt erfaring med SRO i matematik og samfundsfag samt forskellige typer af SRP.\nKontakt Ege Rubak for nærmere information.\n\n\n\n",
-      "last_modified": "2022-11-21T22:30:02+01:00"
+      "last_modified": "2022-11-21T22:55:07+01:00"
     }
   ],
   "collections": []
