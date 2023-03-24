@@ -13,8 +13,8 @@
       "title": "Materiale",
       "description": "Noter, online apps og tutorials",
       "author": [],
-      "contents": "\nOnline noter\nPerceptroner\nNoter til download i pdf-format\nPerceptroner\nKunstige Neurale Netværk\nVideoer\n\n\n\n\n\n\n\n\n\n\n",
-      "last_modified": "2022-11-21T22:55:06+01:00"
+      "contents": "\nOnline noter\nPerceptroner\nVideoer\nPlayliste om perceptroner\n{{< video https://www.youtube.com/embed/videoseries?list=PLIdWoTbMPdkAhk1wbsNx58QadiJ8ghGOg >}}\nPlayliste om kunstige neurale netværk\n{{< video https://www.youtube.com/embed/videoseries?list=PLIdWoTbMPdkBdcpyMZYpBkQzRUsSHYXoP >}}\n\n\n\n\n\nNoter til download i pdf-format\nPerceptroner\nKunstige Neurale Netværk\n\n\n\n",
+      "last_modified": "2023-03-24T10:25:47+01:00"
     },
     {
       "path": "index.html",
