@@ -1,0 +1,21 @@
+project:
+  type: website
+
+website:
+  title: "AI - Aalborg Intelligence"
+  description: "Gymnasieundervisning i kunstig intelligens"
+  navbar:
+    right:
+      - text: "Til læreren"
+        href: teacher.qmd
+      - text: "Om os"
+        href: about.qmd
+    left:
+      - text: "Materiale"
+        href: documents.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true

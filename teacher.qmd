@@ -1,7 +1,6 @@
 ---
 title: "For lærerne"
-description: |
-  Information til lærerne om materialet og mulige elevforløb
+description: "Information til lærerne om materialet og mulige elevforløb"
 ---
 
 Her kommer information om hvordan materialerne kan bruges i forskellige typer forløb i gymnasiet.

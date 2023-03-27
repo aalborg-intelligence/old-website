@@ -1,7 +1,5 @@
 ---
 title: "Om os"
-description: |
-  Information om Aalborg Intelligence og folkene bag
 ---
 
 Projektet Aalborg Intelligence, som er finansieret af Novo Nordisk Fonden, er forankret på Institut for Matematiske Fag på Aalborg Universitet (AAU), og inkluderer en repræsentant fra de fem gymnasier i Aalborg.
