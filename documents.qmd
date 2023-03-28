@@ -9,11 +9,11 @@ description: "Noter, online apps og tutorials"
 
 ### Videoer
 
-#### Playliste om perceptroner
+#### Playliste om  kunstige neurale netværk
 
 <iframe data-external="1" width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLIdWoTbMPdkAhk1wbsNx58QadiJ8ghGOg" title="Playliste om perceptroner" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-#### Playliste om kunstige neurale netværk
+#### Playliste om perceptroner
 
 <iframe data-external="1" width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLIdWoTbMPdkBdcpyMZYpBkQzRUsSHYXoP" title="Playliste om kunstige neurale netværk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
