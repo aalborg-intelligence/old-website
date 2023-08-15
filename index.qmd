@@ -1,6 +1,7 @@
 ---
 title: "AI - Aalborg Intelligence"
 listing:
+  id: main-listing-content
   contents:
     - "documents.qmd"
     - "forloeb.qmd"
@@ -11,6 +12,9 @@ listing:
 ---
 
 Her på sitet finder du materiale og undervisningsforløb om kunstig intelligens rettet mod danske gymnasieelever.
+
+::: {#main-listing-content}
+:::
 
 Projektet "AI - Aalborg Intellgence" er finansieret af Novo Nordisk Fonden og løber frem til 2025.
 

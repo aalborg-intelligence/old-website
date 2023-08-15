@@ -11,12 +11,16 @@ format:
       toc-location: left
       
 listing:
+  id: main-listing-content
   contents:
     - "../perceptron-note/perceptron-note.qmd"
     - "../neurale_net-note/neurale_net-note.qmd"
   type: grid
   grid-columns: 2
 ---
+
+::: {#main-listing-content}
+:::
 
 ### Videoer
 

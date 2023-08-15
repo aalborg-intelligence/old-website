@@ -18,7 +18,13 @@ format:
 
 ### Websider
 
-+ DTU har lavet et undervisningsmateriale, som handler om, hvordan kunstig intelligens kan bruges til at genkende lyde:[Regn lyden ud](https://regnlydenud.dtu.dk/)
++ DTU har lavet et undervisningsmateriale, som handler om, hvordan kunstig intelligens kan bruges til at genkende lyde: [Regn lyden ud](https://regnlydenud.dtu.dk/)
+
++ Online kursus hvor man lærer helt grundlæggende om kunstig intelligens (men ikke så matematisk som materialet her på siden): [Elements of AI](https://www.elementsofai.dk/)
 
 ### Bøger
 + Online bog om kunstige neurale netværk af Michael Nielsen (på engelsk): [Neural networks and deep learning](http://neuralnetworksanddeeplearning.com/index.html)
+
+
+### Andet
++ Diplomingeniøruddanelse i kunstig intelligens: [Design og anvendelse af kunstig intelligens](https://www.aau.dk/uddannelser/bachelor/design-og-anvendelse-af-kunstig-intelligens) 
