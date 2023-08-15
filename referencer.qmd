@@ -1,7 +1,24 @@
 ---
 title: "AI referencer"
 description: "Referencer"
-image: "../neurale_net-note/images/generelt_netvaerk.png"
+image: "https://img.freepik.com/free-photo/still-life-books-versus-technology_23-2150062916.jpg?w=1060&t=st=1692100038~exp=1692100638~hmac=6baaa29ac643314083f4a25844614e0213406a5ce92ba3443618a983cc5910fe"
+
+format:
+    html: 
+      self-contained: true
+      toc: true
+      toc-title: Indhold
+      toc-location: left
+
 ---
 
-### AI referencer
+
+
+![](https://img.freepik.com/free-photo/still-life-books-versus-technology_23-2150062916.jpg?w=1060&t=st=1692100038~exp=1692100638~hmac=6baaa29ac643314083f4a25844614e0213406a5ce92ba3443618a983cc5910fe)
+
+### Websider
+
++ DTU har lavet et undervisningsmateriale, som handler om, hvordan kunstig intelligens kan bruges til at genkende lyde:[Regn lyden ud](https://regnlydenud.dtu.dk/)
+
+### Bøger
++ Online bog om kunstige neurale netværk af Michael Nielsen (på engelsk): [Neural networks and deep learning](http://neuralnetworksanddeeplearning.com/index.html)

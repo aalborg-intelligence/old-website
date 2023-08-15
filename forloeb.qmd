@@ -1,7 +1,18 @@
 ---
 title: "AI forløb"
-description: "Diverse AI forløb til brug i undervisningen"
-image: "../neurale_net-note/images/generelt_netvaerk.png"
+description: "Diverse AI forløb til brug i undervisningen herunder idéer til SRO og SRP"
+image: "https://img.freepik.com/premium-photo/3d-rendering-robotic-lecturer-teaching-podium-with-display-monitor_493806-3933.jpg?w=1060"
+
+format:
+    html: 
+      self-contained: true
+      toc: true
+      toc-title: Indhold
+      toc-location: left
 ---
 
+![](https://img.freepik.com/premium-photo/3d-rendering-robotic-lecturer-teaching-podium-with-display-monitor_493806-3933.jpg?w=1060)
+
 ### AI forløb
+
+Siden er under opbygning.

@@ -1,5 +1,11 @@
 ---
 title: "Om os"
+format:
+    html: 
+      self-contained: true
+      toc: true
+      toc-title: Indhold
+      toc-location: left
 ---
 
 Projektet Aalborg Intelligence, som er finansieret af Novo Nordisk Fonden, er forankret på Institut for Matematiske Fag på Aalborg Universitet (AAU), og inkluderer en repræsentant fra de fem gymnasier i Aalborg.
@@ -10,7 +16,7 @@ Projektet Aalborg Intelligence, som er finansieret af Novo Nordisk Fonden, er fo
 - Lektor Lisbeth Fajstrup
 - Lektor Anne Marie Svane
 
-## Gymnasielærere:
+## Gymnasielærere
 
 - Malene Cramer Engebjerg (Aalborghus Gymnasium)
 - Allan Frendrup (Nørresundby Gymnasium)

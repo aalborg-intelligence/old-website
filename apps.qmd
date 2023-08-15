@@ -1,7 +1,18 @@
 ---
 title: "AI apps"
 description: "Apps"
-image: "../perceptron-note/images/perceptron.png"
+image: "https://img.freepik.com/free-photo/programming-background-with-html_23-2150038862.jpg?w=1060&t=st=1692096422~exp=1692097022~hmac=ffc7b1e063b8411b4a7add7f9bf356165e7517b07ee59017a35b150f5f81dfd2"
+
+format:
+    html: 
+      self-contained: true
+      toc: true
+      toc-title: Indhold
+      toc-location: left
 ---
 
+![](https://img.freepik.com/free-photo/programming-background-with-html_23-2150038862.jpg?w=1060&t=st=1692096422~exp=1692097022~hmac=ffc7b1e063b8411b4a7add7f9bf356165e7517b07ee59017a35b150f5f81dfd2)
+
 ### AI apps
+
+Siden er under opbygning.
