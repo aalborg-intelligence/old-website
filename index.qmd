@@ -1,5 +1,9 @@
 ---
 title: "AI - Aalborg Intelligence"
+listing:
+  contents:
+    - "documents.qmd"
+  type: grid
 ---
 
 Her på sitet finder du materiale og undervisningsforløb om kunstig intelligens rettet mod danske gymnasieelever.
