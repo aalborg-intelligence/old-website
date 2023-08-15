@@ -3,6 +3,8 @@ title: "AI - Aalborg Intelligence"
 listing:
   contents:
     - "documents.qmd"
+    - "teacher.qmd"
+    - "about.qmd"
   type: grid
 ---
 
