@@ -3,9 +3,11 @@ title: "AI - Aalborg Intelligence"
 listing:
   contents:
     - "documents.qmd"
-    - "teacher.qmd"
-    - "about.qmd"
+    - "forloeb.qmd"
+    - "apps.qmd"
+    - "referencer.qmd"
   type: grid
+  grid-columns: 2
 ---
 
 Her på sitet finder du materiale og undervisningsforløb om kunstig intelligens rettet mod danske gymnasieelever.

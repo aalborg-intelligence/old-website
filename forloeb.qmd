@@ -1,0 +1,7 @@
+---
+title: "AI forløb"
+description: "Diverse AI forløb til brug i undervisningen"
+image: "../neurale_net-note/images/generelt_netvaerk.png"
+---
+
+### AI forløb

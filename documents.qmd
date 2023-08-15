@@ -1,6 +1,7 @@
 ---
-title: "Materiale"
-description: "Noter, online apps og tutorials"
+title: "AI materiale"
+description: "Noter om diverse AI relaterede emner"
+image: "https://img.freepik.com/free-vector/sphere-grid-wave-with-binary-code-ai-artificial-intelligence-logo-hand-machine-learning-concept_127544-855.jpg"
 ---
 
 ### Online noter
