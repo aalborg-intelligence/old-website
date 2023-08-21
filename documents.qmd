@@ -15,11 +15,17 @@ listing:
   fields: 
     - image
     - title
+    - description
   contents: 
     - path: https://aalborg-intelligence.ai/perceptron-note/perceptron-note.html
       title: "Perceptroner"
-      image: "images/COLOURBOX47937745.jpg"
-  type: grid 
+      image: "https://aalborg-intelligence.ai/perceptron-note/images/perceptron.png"
+      description: Forløberen til kunstige neurale netværk er perceptroner, som du kan læse mere om her.
+    - path: https://aalborg-intelligence.ai/neurale_net-note/neurale_net-note.html
+      title: "Neurale netværk"
+      image: "https://aalborg-intelligence.ai/neurale_net-note/images/generelt_netvaerk.png"
+      description: En grundig gennemgang af matematikken bag kunstige neurale netværk.
+    type: grid 
   grid-columns: 2
 ---
 
