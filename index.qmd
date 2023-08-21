@@ -7,8 +7,7 @@ format:
       toc: true
       toc-title: Indhold
       toc-location: left
-
-  listing:
+listing:
   id: main-listing-content
   contents:
     - "documents.qmd"

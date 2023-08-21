@@ -1,7 +1,7 @@
 ---
 title: "AI materiale"
 description: "Noter om diverse AI relaterede emner"
-image: "images/COLOURBOX60219880.jpg"
+image: "images/COLOURBOX29436877.jpg"
 
 format:
     html: 
@@ -13,8 +13,8 @@ format:
 listing:
   id: main-listing-content
   contents:
-    - "../perceptron-note/perceptron-note.qmd"
-    - "../neurale_net-note/neurale_net-note.qmd"
+    - "../perceptron-note/perceptron-note.html"
+    - "../neurale_net-note/neurale_net-note.html"
   type: grid
   grid-columns: 2
 ---

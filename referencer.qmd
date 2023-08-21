@@ -1,7 +1,7 @@
 ---
 title: "AI referencer"
 description: "Referencer"
-image: "https://img.freepik.com/free-photo/still-life-books-versus-technology_23-2150062916.jpg?w=1060&t=st=1692100038~exp=1692100638~hmac=6baaa29ac643314083f4a25844614e0213406a5ce92ba3443618a983cc5910fe"
+image: "images/COLOURBOX47937745.jpg"
 
 format:
     html: 
@@ -21,6 +21,9 @@ format:
 + DTU har lavet et undervisningsmateriale, som handler om, hvordan kunstig intelligens kan bruges til at genkende lyde: [Regn lyden ud](https://regnlydenud.dtu.dk/)
 
 + Online kursus hvor man lærer helt grundlæggende om kunstig intelligens (men ikke så matematisk som materialet her på siden): [Elements of AI](https://www.elementsofai.dk/)
+
+### Videoer
++ 3Blue1Brown har lavet en række fine videoer, som forklarer, hvad et kunstigt neuralt netværk er, og hvordan det trænes (på engelsk): [Neural networks](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi)
 
 ### Bøger
 + Online bog om kunstige neurale netværk af Michael Nielsen (på engelsk): [Neural networks and deep learning](http://neuralnetworksanddeeplearning.com/index.html)
