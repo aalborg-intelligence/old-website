@@ -12,9 +12,12 @@ format:
       
 listing:
   id: main-listing-content
-  contents:
-    - "../perceptron-note/perceptron-note.html"
-    - "../neurale_net-note/neurale_net-note.html"
+  contents: 
+    - title: "Perceptroner"
+      path: "https://aalborg-intelligence.ai/perceptron-note/perceptron-note.html"
+      image: "images/COLOURBOX47937745.jpg"
+      subtitle: "SUBTITLE"
+      description: "description..."
   type: grid
   grid-columns: 2
 ---
