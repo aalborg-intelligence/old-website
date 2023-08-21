@@ -12,13 +12,14 @@ format:
       
 listing:
   id: main-listing-content
+  fields: 
+    - image
+    - title
   contents: 
-    - title: "Perceptroner"
-      path: "https://aalborg-intelligence.ai/perceptron-note/perceptron-note.html"
+    - path: https://aalborg-intelligence.ai/perceptron-note/perceptron-note.html
+      title: "Perceptroner"
       image: "images/COLOURBOX47937745.jpg"
-      subtitle: "SUBTITLE"
-      description: "description..."
-  type: grid
+  type: grid 
   grid-columns: 2
 ---
 
