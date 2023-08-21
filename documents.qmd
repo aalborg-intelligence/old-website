@@ -25,7 +25,7 @@ listing:
       title: "Neurale netværk"
       image: "images/generelt_netvaerk.png"
       description: En grundig gennemgang af matematikken bag kunstige neurale netværk.
-    type: grid 
+  type: grid 
   grid-columns: 2
 ---
 
