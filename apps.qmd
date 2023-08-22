@@ -1,7 +1,7 @@
 ---
 title: "AI apps"
 description: "Apps"
-image: "images/COLOURBOX35898224.jpg"
+image: "images/COLOURBOX35898224_apps.jpg"
 
 format:
     html: 
