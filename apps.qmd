@@ -11,7 +11,7 @@ format:
       toc-location: left
 ---
 
-![](images/COLOURBOX35898224.jpg)
+![](images/COLOURBOX35898224_apps.jpg)
 
 ### AI apps
 

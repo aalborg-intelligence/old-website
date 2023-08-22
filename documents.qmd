@@ -38,7 +38,7 @@ listing:
 
 ### Videoer
 
-Til en del af materialerne findes en række videoer, hvor teorien forklares. Der er linket til de relevante videoer under de repspektive materialer, men en samlet liste findes også [her](videoer.qmd). 
+Til en del af materialerne findes en række videoer, hvor teorien forklares. Der er linket til de relevante videoer under de respektive materialer, men en samlet liste findes også [her](videoer.qmd). 
 
 
 <!-- - [*k*-nærmeste naboer (dokument)](http://apps.math.aau.dk/AI/k_NN/) -->

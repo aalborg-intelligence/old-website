@@ -11,7 +11,7 @@ format:
       toc-location: left
 ---
 
-![](https://img.freepik.com/premium-photo/3d-rendering-robotic-lecturer-teaching-podium-with-display-monitor_493806-3933.jpg?w=1060)
+![](images/COLOURBOX47937746_forloeb.jpg)
 
 ### AI forløb
 
