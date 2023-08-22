@@ -25,6 +25,10 @@ listing:
       title: "Neurale netværk"
       image: "images/generelt_netvaerk.png"
       description: En grundig gennemgang af matematikken bag kunstige neurale netværk.
+    - path: https://aalborg-intelligence.ai/retningsafledede/retningsafledede.html
+      title: "Retningsafledede og gradientnedstigning"
+      image: "images/minMaxFunc.png"
+      description: En introduktion til retningsafledede og gradientnedstigning.
   type: grid 
   grid-columns: 2
 ---
@@ -34,13 +38,8 @@ listing:
 
 ### Videoer
 
-#### Playliste om  kunstige neurale netværk
+Til en del af materialerne findes en række videoer, hvor teorien forklares. Der er linket til de relevante videoer under de repspektive materialer, men en samlet liste findes også [her](videoer.qmd). 
 
-<iframe data-external="1" width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLIdWoTbMPdkAhk1wbsNx58QadiJ8ghGOg" title="Playliste om perceptroner" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-#### Playliste om perceptroner
-
-<iframe data-external="1" width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLIdWoTbMPdkBdcpyMZYpBkQzRUsSHYXoP" title="Playliste om kunstige neurale netværk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 <!-- - [*k*-nærmeste naboer (dokument)](http://apps.math.aau.dk/AI/k_NN/) -->
 <!-- - [*k*-nærmeste naboer (app)](http://apps.math.aau.dk/AI/kNN/) -->
@@ -49,9 +48,3 @@ listing:
 <!-- - [Søgræs og *kNN* (dokument)](http://apps.math.aau.dk/AI/sogras/) -->
 
 
-
-
-### Noter til download i pdf-format
-
-- [Perceptroner](./pdfs/perceptroner_v2.pdf)
-- [Kunstige Neurale Netværk](./pdfs/neuralenet_v2.pdf)
