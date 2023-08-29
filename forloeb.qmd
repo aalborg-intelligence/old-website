@@ -9,10 +9,16 @@ format:
       toc: true
       toc-title: Indhold
       toc-location: left
+listing:
+  id: main-listing-content
+  contents:
+    - "undervisningsforlob.qmd"
+    - "sro.qmd"
+    - "srp.qmd"
+  type: grid
+  grid-columns: 2
 ---
 
-![](images/COLOURBOX47937746_forloeb.jpg)
 
 ### AI forløb
 
-Siden er under opbygning.
