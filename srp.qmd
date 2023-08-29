@@ -29,11 +29,11 @@ En anden mulighed er at bruge [noten om perceptroner](../perceptron-note/percept
 
 ## Engelsk
 
-+ Redegørelse for hvad et kunstigt neuralt netværk er. I engelsk perspektiveres der til Ian McEwans bog "Machines like me".
++ Redegørelse for hvad et kunstigt neuralt netværk er. I engelsk perspektiveres der til Ian McEwans bog "Machines like me". [engelsk A]
 
 ## Idræt
 
-+ Implementering af et kunstig neuralt netværk, som kan forudsige baseball tegn. Idéen er beskrevet i [Stealing Baseball Signs with a Phone (Machine Learning)](https://www.youtube.com/watch?v=PmlRbfSavbI&t=5s). [idræt C, evt. innovativ]
++ Implementering af et kunstig neuralt netværk, som kan forudsige baseball tegn (app til implementering af netværk er under udarbejdelse). Idéen er beskrevet i [Stealing Baseball Signs with a Phone (Machine Learning)](https://www.youtube.com/watch?v=PmlRbfSavbI&t=5s). [idræt C, evt. innovativ]
 
 ## Biologi
 
