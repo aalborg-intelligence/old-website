@@ -6,13 +6,17 @@ website:
   description: "Gymnasieundervisning i kunstig intelligens"
   navbar:
     right:
-      - text: "Til læreren"
-        href: teacher.qmd
       - text: "Om os"
         href: about.qmd
     left:
       - text: "Materiale"
         href: documents.qmd
+      - text: "Forløb"
+        href: forloeb.qmd
+      - text: "Apps"
+        href: apps.qmd
+      - text: "Referencer"
+        href: referencer.qmd
 
 format:
   html:
