@@ -13,7 +13,7 @@ format:
 
 I arbejdet med studieretningsopgaven kan matematik og AI indgå i et samarbejde med en lang række andre fag. Konkrete forløb er beskrevet herunder.
 
-## Samfundsfag
+## Samfundsfag og matematik
 
 ::: {.callout-note collapse="true" appearance="minimal"}
 ### Ulighed

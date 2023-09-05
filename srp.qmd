@@ -17,33 +17,93 @@ Hvis man ønsker, at inddrage kunstige neurale netværk kan [noten om kunstige n
 
 En anden mulighed er at bruge [noten om perceptroner](../perceptron-note/) - eventuelt kombineret med [noten om retningsafledede og gradientnedstigning](../retningsafledede/).
 
-## Samfundsfag
+## Samfundsfag og matematik
 
-+ Udarbejdelse af kandidattest i forbindelse med valg. [Noten om perceptroner](../perceptron-note/) kan bruges i den forbindelse. [samfundsfag A]
+::: {.callout-note collapse="true" appearance="minimal"}
+### Kandidattest
 
-+ Brugen af kunstig intelligens i forbindelse med ansigtsgenkendelse. Herunder kan emner som persondataloven, retssikkerhed og/eller partiernes holdning til overvågning behandles. [samfundsfag A]
-
-## Dansk
-
-+ Formidlingsopgave hvor AI metoder behandles og derefter formidles f.eks. som en populærvidenskabelig artikel. Eleverne skal skrive en danskfaglig meta-del, hvor de redegør for deres overvejelser og valg med hensyn til målgruppe, virkemidler med videre.
+Udarbejdelse af kandidattest i forbindelse med valg. [samfundsfag A]
 
 
-## Engelsk
+#### Materialer
 
-+ Redegørelse for hvad et kunstigt neuralt netværk er. I engelsk perspektiveres der til Ian McEwans bog "Machines like me". [engelsk A]
+[Noten om perceptroner](../perceptron-note/).
+:::
 
-## Idræt
+::: {.callout-note collapse="true" appearance="minimal"}
+### Overvågning
 
-+ Implementering af et kunstig neuralt netværk, som kan forudsige baseball tegn (app til implementering af netværk er under udarbejdelse). Idéen er beskrevet i [Stealing Baseball Signs with a Phone (Machine Learning)](https://www.youtube.com/watch?v=PmlRbfSavbI&t=5s). [idræt C, evt. innovativ]
+Brugen af kunstig intelligens i forbindelse med ansigtsgenkendelse. Herunder kan emner som persondataloven, retssikkerhed og/eller partiernes holdning til overvågning behandles. [samfundsfag A]
 
-## Biologi
 
-+ Redegørelse for hvordan et kunstigt neuralt netværk kan trænes, så det kan anvendes i forbindelse med diagnosticering af sygdomme - herunder kan opdateringsreglerne for et lille, simpelt netværk udledes. Idéen er beskrevet i [Meet the computer diagnosing cancer](https://www.youtube.com/watch?v=aLSzh_tqwxw&t=140s). [biologi A]
+#### Materialer
+[Noten om kunstige neurale netværk](../neurale_net-note/neurale_net-note.qmd).
+:::
 
-## Informatik
 
-+ Implementering af et kunstig neuralt netværk med ét skjult lag, som kan kende forskel på f.eks. håndskrevne 2- og 9-taller. Netværket kan trænes på en passende delmængde af [MNIST datasættet](https://www.kaggle.com/datasets/oddrationale/mnist-in-csv?resource=download). [informatik B, innovativ opgave]
+## Dansk og matematik
 
-+ Redegørelse for hvordan et kunstigt neuralt netværk trænes. Diskussion af de etiske problemstillinger, som kan opstå i forbindelse med anvendelsen af kunstig intelligens og/eller diskussion af de muligheder og begrænsninger, der er ved brugen kunstig intelligens. [informatik C]
+::: {.callout-note collapse="true" appearance="minimal"}
+### AI og anvendelser
+
+Formidlingsopgave hvor AI metoder behandles og derefter formidles f.eks. som en populærvidenskabelig artikel. Eleverne skal skrive en danskfaglig meta-del, hvor de redegør for deres overvejelser og valg med hensyn til målgruppe, virkemidler med videre.
+
+:::
+
+## Engelsk og matematik
+
+::: {.callout-note collapse="true" appearance="minimal"}
+### Machines like me
+
+Redegørelse for hvad et kunstigt neuralt netværk er. I engelsk perspektiveres der til Ian McEwans bog "Machines like me". [engelsk A]
+
+:::
+
+
+## Idræt og matematik
+
+::: {.callout-note collapse="true" appearance="minimal"}
+### Baseball og machine learning
+
+Implementering af et kunstig neuralt netværk, som kan forudsige baseball tegn (app til implementering af netværk er under udarbejdelse). [idræt C, evt. innovativ]
+
+
+#### Materialer
+[Stealing Baseball Signs with a Phone (Machine Learning)](https://www.youtube.com/watch?v=PmlRbfSavbI&t=5s). 
+:::
+
+
+## Biologi og matematik
+
+::: {.callout-note collapse="true" appearance="minimal"}
+### Diagnosticering af sygdomme
+
+Redegørelse for hvordan et kunstigt neuralt netværk kan trænes, så det kan anvendes i forbindelse med diagnosticering af sygdomme - herunder kan opdateringsreglerne for et lille, simpelt netværk udledes. [biologi A]
+
+
+#### Materialer
+[Meet the computer diagnosing cancer](https://www.youtube.com/watch?v=aLSzh_tqwxw&t=140s). 
+:::
+
+## Informatik og matematik
+
+::: {.callout-note collapse="true" appearance="minimal"}
+### Genkendelse af håndskrevne tal
+
+Implementering af et kunstig neuralt netværk med ét skjult lag, som kan kende forskel på f.eks. håndskrevne 2- og 9-taller. [informatik B, innovativ opgave]
+
+
+#### Materialer
+Netværket kan trænes på en passende delmængde af [MNIST datasættet](https://www.kaggle.com/datasets/oddrationale/mnist-in-csv?resource=download). 
+:::
+
+
+::: {.callout-note collapse="true" appearance="minimal"}
+### Kunstig intelligens - muligheder og begrænsninger
+
+Redegørelse for hvordan et kunstigt neuralt netværk trænes. Diskussion af de etiske problemstillinger, som kan opstå i forbindelse med anvendelsen af kunstig intelligens og/eller diskussion af de muligheder og begrænsninger, der er ved brugen kunstig intelligens. [informatik C]
+
+
+:::
 
 
