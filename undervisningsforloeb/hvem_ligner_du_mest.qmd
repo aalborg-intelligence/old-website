@@ -6,7 +6,7 @@ description: |
   på en cykel og en knallert eller på om en person er en kvinde eller en
   mand. Som regel kan vi endda med stor sikkerhed kende forskel blot med
   et hurtigt blik og uden at se hele objektet, men en sjælden gang tager
-  vi dog fejl, hvilke kan føre til pinlige situationer.
+  vi dog fejl, hvilket kan føre til pinlige situationer.
 
 image: "media/image1.png"
 
@@ -35,13 +35,13 @@ overhovedet muligt, ville det nok betyde et langt studie på
 universitetet og sikkert mere end dette, men lad os starte med et meget
 simpelt eksempel, og tage den derfra.
 
-Vi får brug bruge din viden om afstande mellem punkter, men kommer også
-til senere at se på andre former for afstand. Det er en fordel af lave
+Vi får brug for din viden om afstande mellem punkter, men kommer også
+til senere at se på andre former for afstande. Det er en fordel af lave
 opgaverne i grupper, da der kan blive en del af diskutere.
 
 ## VIDEO: Hvem ligner du mest?
 
-I denne video gives en introduktion til forløbet.
+I denne video gives en kort introduktion til forløbet.
 
 {{< video https://www.youtube.com/embed/vZAgZiSAhrc?si=t1Ugj1m4I7Y-QQ5a >}}
 
@@ -74,7 +74,7 @@ Det går nok ikke i længden blot at ville vurdere på øjemål, så du må til
 at regne lidt. Her er koordinater og farver på de 10 punkter, der ligger
 tættest på det grå punkt i opgave 2. 
 
-Udregn afstanden fra det grå punkt P(15 ; 15) til hver af disse 10 punkter. 
+Udregn afstanden fra det grå punkt $P(15,15)$ til hver af disse 10 punkter. 
 
 | Farve | 1 | 2 | 3 | 4 |
 |:---:|:---:|:---:|:---:|:---:|
@@ -98,7 +98,7 @@ Tabellen viser koordinater og farver på 27 andre punkter. Lav et punktplot i di
   | Rød |   (30, 5)  | (18,18) |  (21,9) |    (6,24) |   (25,25) |  (18,16)  | (12,11) |   (8,10)  |  (16,13)  | 
   | Grøn  | (8,28)  |   (12,20) |  (16,20)  |  (21,14)  | (13,10) |  (12,13)  | (20,18) |   (14,16) |  (18,10)  |
 
-Indtegn en cirkel omkring det grå punkt P(15,15) og brug cirklen til at
+Indtegn en cirkel omkring det grå punkt $P(15,15)$ og brug cirklen til at
 vurdere, hvilken farve punktet bør have. Ændr på radius af cirklen og
 se, om det gør en forskel.
 
@@ -106,8 +106,7 @@ Diskutér, hvilken radius, der er bedst.
 
 **Afslutning på case 1**
 
-Der bliver nok klart, at der er brug for en metode til at beslutte, hvor stor radius skal være for at få det bedste resultat. Kort og lidt simpelt forklaret, involverer det noget, som man kalder træningsdata, hvor man har en række grå punkter, som man faktisk godt kender den rigtige farve på. Lad os sige, at træningsdata er 50 grå punkter. Så afprøver man forskellige værdier af radius, f.eks. 5, 10 og 20. Hvis metoden med radius 5 "gætter" rigtige for 35 af de 50 punkter, med radius 10 "gætter" 31 korrekt og med radius 20 "gætter" 39 korrekt, ja så er radius 20 jo bedst. Helt så simpelt er det ikke, men hvis du eller I har lyst til at blive klogere på dette, så vil jeg henvise til vores
-materiale på <https://aalborg-intelligence.ai/>.
+Der bliver nok klart, at der er brug for en metode til at beslutte, hvor stor radius skal være for at få det bedste resultat. Kort og lidt simpelt forklaret, involverer det noget, som man kalder træningsdata, hvor man har en række grå punkter, som man faktisk godt kender den rigtige farve på. Lad os sige, at træningsdata er 50 grå punkter. Så afprøver man forskellige værdier af radius, f.eks. 5, 10 og 20. Hvis metoden med radius 5 "gætter" rigtigt for 35 af de 50 punkter, med radius 10 "gætter" 31 korrekt og med radius 20 "gætter" 39 korrekt, ja så er radius 20 jo bedst. Helt så simpelt er det ikke, men hvis du eller I har lyst til at blive klogere på dette, så vil vi henvise til vores side med yderligere [materiale](https://aalborg-intelligence.ai/documents.html).
 
 
 ## Case 2 -- Manhattan afstand
@@ -117,7 +116,7 @@ god mening. F.eks. er de fleste veje på Manhattan i New York enten
 nord-syd eller øst-vest, så man kan ikke bare gå eller køre "på skrå",
 men kun lodret eller vandret.
 
-Hvis vi ser på punkterne P(2,3) og Q(5,7), så er den almindelige afstand
+Hvis vi ser på punkterne $P(2,3)$ og $Q(5,7)$, så er den almindelige afstand
 5 vha. Pythagoras, mens Manhattan afstanden er 3+4=7.
 
 ![](media/image3.png){width="4in" height="4in"}
