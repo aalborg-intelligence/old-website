@@ -1,6 +1,6 @@
 ---
 title: "Materialer"
-description: "Noter om diverse AI relaterede emner"
+description: "Noter om diverse AI relaterede emner."
 image: "images/COLOURBOX29436877_materiale.jpg"
 
 format:

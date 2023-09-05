@@ -11,9 +11,6 @@ format:
       toc-location: left
 ---
 
-
-# SRP med matematik og AI
-
 I arbejdet med studieretningsprojektet kan matematik og AI indgå i et samarbejde med en lang række andre fag. Idéer til sådanne samarbejder findes herunder.
 
 Hvis man ønsker, at inddrage kunstige neurale netværk kan [noten om kunstige neurale netværk](../neurale_net-note/neurale_net-note.qmd) benyttes. En mulig fremgangsmåde er at bede eleven udlede opdateringsreglerne for et konkret, *lille* netværk med f.eks. ét skjult lag.
