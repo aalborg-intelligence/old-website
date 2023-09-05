@@ -1,0 +1,14 @@
+---
+title: "AI forløb 4"
+description: "I forløbet anvendes lineær regression..."
+image: "../images/COLOURBOX41626170.jpg"
+
+format:
+    html: 
+      self-contained: true
+      toc: true
+      toc-title: Indhold
+      toc-location: left
+categories:
+  - A-niveau
+---

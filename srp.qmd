@@ -26,6 +26,10 @@ En anden mulighed er at bruge [noten om perceptroner](../perceptron-note/) - eve
 
 + Brugen af kunstig intelligens i forbindelse med ansigtsgenkendelse. Herunder kan emner som persondataloven, retssikkerhed og/eller partiernes holdning til overvågning behandles. [samfundsfag A]
 
+## Dansk
+
++ Formidlingsopgave hvor AI metoder behandles og derefter formidles f.eks. som en populærvidenskabelig artikel. Eleverne skal skrive en danskfaglig meta-del, hvor de redegør for deres overvejelser og valg med hensyn til målgruppe, virkemidler med videre.
+
 
 ## Engelsk
 

@@ -2,18 +2,25 @@
 title: "Undervisningsforløb"
 description: "Forskellige undervisningsforløb til matematik i gymnasiet, som inddrager AI. Der findes forløb til både A-, B- og C-niveau."
 image: "images/COLOURBOX48220017.jpg"
-
 format:
     html: 
       self-contained: true
       toc: true
       toc-title: Indhold
       toc-location: left
+listing:
+  id: main-listing-content
+  fields: [image, title, categories, description]
+  contents: undervisningsforloeb
+  type: grid
+  grid-columns: 2
+  categories: true
+  sort:
+    - "title desc"
+
 ---
 
-
-
-![](images/COLOURBOX48220017.jpg)
-
-# Undervisningsforløb
 Siden er under opbygning, men vil komme til at indholde undervisningsforløb til alle niveauer.
+
+::: {#main-listing-content}
+:::

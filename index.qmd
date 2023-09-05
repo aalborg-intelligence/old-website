@@ -9,11 +9,12 @@ format:
       toc-location: left
 listing:
   id: main-listing-content
+  sort: false
   contents:
     - "undervisningsforlob.qmd"
+    - "documents.qmd"
     - "sro.qmd"
     - "srp.qmd"
-    - "documents.qmd"
     - "apps.qmd"
     - "referencer.qmd"
   type: grid

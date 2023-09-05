@@ -9,10 +9,14 @@ website:
       - text: "Om os"
         href: about.qmd
     left:
-      - text: "Materiale"
+      - text: "Undervisningsforløb"
+        href: undervisningsforlob.qmd
+      - text: "Materialer"
         href: documents.qmd
-      - text: "Forløb"
-        href: forloeb.qmd
+      - text: "SRO"
+        href: sro.qmd
+      - text: "SRP"
+        href: srp.qmd
       - text: "Apps"
         href: apps.qmd
       - text: "Referencer"
