@@ -1,5 +1,5 @@
 ---
-title: "AI referencer"
+title: "Referencer"
 description: "Referencer"
 image: "images/COLOURBOX47937745_referencer.jpg"
 
@@ -28,5 +28,3 @@ format:
 + Online bog om kunstige neurale netværk af Michael Nielsen (på engelsk): [Neural networks and deep learning](http://neuralnetworksanddeeplearning.com/index.html)
 
 
-### Andet
-+ Diplomingeniøruddanelse i kunstig intelligens: [Design og anvendelse af kunstig intelligens](https://www.aau.dk/uddannelser/bachelor/design-og-anvendelse-af-kunstig-intelligens) 

@@ -1,5 +1,5 @@
 ---
-title: "AI apps"
+title: "Apps"
 description: "Apps"
 image: "images/COLOURBOX35898224_apps.jpg"
 

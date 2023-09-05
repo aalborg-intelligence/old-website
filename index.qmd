@@ -10,8 +10,10 @@ format:
 listing:
   id: main-listing-content
   contents:
+    - "undervisningsforlob.qmd"
+    - "sro.qmd"
+    - "srp.qmd"
     - "documents.qmd"
-    - "forloeb.qmd"
     - "apps.qmd"
     - "referencer.qmd"
   type: grid
