@@ -11,7 +11,7 @@ format:
       toc-location: left
 ---
 
-I arbejdet med studieretningsprojektet kan matematik og AI indgå i et samarbejde med en lang række andre fag. Idéer til sådanne samarbejder findes herunder.
+I arbejdet med studieretningsprojektet kan matematik og AI indgå i et samarbejde med en lang række andre fag. Idéer til sådanne samarbejder findes herunder. Under nogle af emnerne er der også indsat konkrete forslag til problemformuleringer.
 
 Hvis man ønsker, at inddrage kunstige neurale netværk kan [noten om kunstige neurale netværk](../neurale_net-note/neurale_net-note.qmd) benyttes. En mulig fremgangsmåde er at bede eleven udlede opdateringsreglerne for et konkret, *lille* netværk med f.eks. ét skjult lag.
 
@@ -34,7 +34,6 @@ Udarbejdelse af kandidattest i forbindelse med valg. [samfundsfag A]
 ### Overvågning
 
 Brugen af kunstig intelligens i forbindelse med ansigtsgenkendelse. Herunder kan emner som persondataloven, retssikkerhed og/eller partiernes holdning til overvågning behandles. [samfundsfag A]
-
 
 #### Materialer
 [Noten om kunstige neurale netværk](../neurale_net-note/neurale_net-note.qmd).
@@ -92,6 +91,14 @@ Redegørelse for hvordan et kunstigt neuralt netværk kan trænes, så det kan a
 
 Implementering af et kunstig neuralt netværk med ét skjult lag, som kan kende forskel på f.eks. håndskrevne 2- og 9-taller. [informatik B, innovativ opgave]
 
+#### Problemformulering
+
+Udarbejd et løsningsforslag til hvordan man oversætter håndskrevne tal, så de kan genkendes af en computer. I den forbindelse skal du:
+
++ Redegør for hvad der forstås ved et kunstigt neuralt netværk, hvor du tager udgangspunkt i et netværk med ét skjult lag. Kom herunder ind på feedforward og backpropagation.
++ Implementer et kunstig neuralt netværk med ét skjult lag, som kan bruges til at kende forskel på 2- og 9-taller (brug en passende delmængde af MNIST train-datasættet).
++ Vurder dit løsningsforslag i forhold til styrker og svagheder samt graden af innovation. Inddrag i den forbindelse en passende delmængde af MNIST test-datasættet.
+
 
 #### Materialer
 Netværket kan trænes på en passende delmængde af [MNIST datasættet](https://www.kaggle.com/datasets/oddrationale/mnist-in-csv?resource=download). 
@@ -102,6 +109,22 @@ Netværket kan trænes på en passende delmængde af [MNIST datasættet](https:/
 ### Kunstig intelligens - muligheder og begrænsninger
 
 Redegørelse for hvordan et kunstigt neuralt netværk trænes. Diskussion af de etiske problemstillinger, som kan opstå i forbindelse med anvendelsen af kunstig intelligens og/eller diskussion af de muligheder og begrænsninger, der er ved brugen kunstig intelligens. [informatik C]
+
+#### Problemformulering 1
+
++ Redegør kort for begrebet ”kunstig intelligens” - herunder ”deep learning”.
++ Forklar hvordan et kunstig neuralt netværk virker. Herunder ønskes en redegørelse for hvordan et kunstigt neuralt netværk lærer vha. backpropagation og hvordan kædereglen benyttes i den forbindelse. 
++ Diskuter de etiske problemstillinger som kan opstå i anvendelsen af kunstig intelligens. 
+
+
+#### Problemformulering 2
+
++ Redegør for udviklingen inden for kunstig intelligens. Inddrag begreberne machine learning, deep learning samt supervised og unsupervised learning.
++ Redegør for teorien bag kunstige neurale netværk herunder hvordan kunstige neurale netværk lærer vha. backpropagation og costfunktionen. Forklar også hvordan kædereglen benyttes i den forbindelse.
++ Diskuter hvilke muligheder og begrænsninger der er ved brugen af machine learning. Inddrag bilag 1.
+
+[Bilag 1](https://medium.com/@hussain.tibacademy/advantages-and-disadvantages-of-machine-learning-language-ad11badda9e5)
+
 
 
 :::
