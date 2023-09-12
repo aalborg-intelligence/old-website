@@ -422,8 +422,7 @@ Afstanden mellem to svar regnes som antal "felter" i tabellen, så
 afstanden mellem Uenig og Enig er $2$, mens afstanden mellem Enig og Helt
 enig er $1$, og den største afstand er $4$.
 
-I @fig-kommunalvalg ses en persons svar og et partis svar på $23$ spørgsmål til
-kommunalvalget i 2021. Ved et partis svar forstås det svar, som flest af
+I @fig-kommunalvalg ses en persons svar og et partis svar på $23$ spørgsmål til kommunalvalget i 2021. Ved et partis svar forstås det svar, som flest af
 kandidaterne fra partiet har givet (ved lighed afgjort ud af, hvilken
 kandidat, der står først på listen). Så det er typetallet (typesvaret),
 der er anvendt for partierne, ikke gennemsnittet af svarene fra partiets
@@ -431,7 +430,7 @@ kandidater. Figuren er fra testen på Altinget. Bemærk, at antallet af
 spørgsmål kan variere fra kommune til kommune, så du har måske færre
 eller flere spørgsmål.
 
-![En persons svar og et partis svar på $23$ spørgsmål til kommunalvalget i 2021.](media/image5.png){#fig-kommunalvalg}
+![En persons svar (sort) og et partis svar (rød) på $23$ spørgsmål til kommunalvalget i 2021.](media/image5.png){#fig-kommunalvalg}
 
 Afstanden i det første spørgsmål er $1$, afstanden i det andet spørgsmål
 også $1$ og afstanden i det tredje spørgsmål er $2$ pga. den skjulte "neutral" mulighed i midten.
