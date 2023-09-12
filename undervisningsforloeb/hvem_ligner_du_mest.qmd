@@ -65,15 +65,18 @@ I denne video gives en kort introduktion til forløbet.
 
 ## Case 1 -- Afstand mellem to punkter
 
-**Opgave 1**
+::: {.callout-note collapse="true" appearance="minimal"}
+### Opgave 1
 
 På @fig-opg1 nedenfor er der $10$ røde punkter, $10$ blå punkter og $10$ grønne
 punkter -- samt et enkelt gråt punkt $P$. Vurdér ud fra placeringen af det grå punkt $P$, om du synes, at dette punkt bør være rødt, blåt eller grønt for at passe bedst ind.
 
+:::
+
 ![Koordinatsystem med $10$ røde punkter, $10$ blå punkter og $10$ grønne punkter -- samt et enkelt gråt punkt $P$.](media/image1.png){#fig-opg1}
 
-
-**Opgave 2**
+::: {.callout-note collapse="true" appearance="minimal"}
+### Opgave 2
 
 På @fig-opg2 er der andre $31$ punkter, samt en cirkel med radius $10$ omkring
 det grå punkt $P(15,15)$.
@@ -81,10 +84,16 @@ det grå punkt $P(15,15)$.
 Tæl hvor mange røde, blå og grønne punkter, der ligger inde i cirklen.
 Kan det bruges til at beslutte, hvilken farve det grå punkt bør have?
 
+:::
+
 ![Koordinatsystem med $31$ punkter, samt en cirkel med radius $10$ omkring det grå punkt $P(15,15)$](media/image2.png){#fig-opg2}
 
+::: {.callout-note collapse="true" appearance="minimal"}
+### Opgave 2, fortsat
 Hvilket resultat giver det, hvis cirklens radius kun var halvt så stor?
 Brug app'en nedenfor.
+
+:::
 
 ```{=html}
  <!DOCTYPE html>
@@ -147,13 +156,20 @@ applet.setPreviewImage('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8gAAAJOCA
 
 ```
 
-**Opgave 3**
+::: {.callout-note collapse="true" appearance="minimal"}
+### Opgave 3
 
 Det går nok ikke i længden blot at ville vurdere på øjemål, så du må til
-at regne lidt. Her er koordinater og farver på de $10$ punkter, der ligger
+at regne lidt. I tabellen herunder er koordinater og farver på de $10$ punkter, der ligger
 tættest på det grå punkt i opgave 2. 
 
 Udregn afstanden fra det grå punkt $P(15,15)$ til hver af disse $10$ punkter. 
+
+Afgør så, hvor mange af hver farve, der ligger indenfor en cirkel med radius $5$ omkring det grå punkt. 
+
+Hvilken farve tyder det på, at det grå punkt bør have? 
+
+:::
 
 | Farve | 1 | 2 | 3 | 4 |
 |:---:|:---:|:---:|:---:|:---:|
@@ -161,30 +177,29 @@ Udregn afstanden fra det grå punkt $P(15,15)$ til hver af disse $10$ punkter.
 | Rød | $(10,6 ; 16,0)$ | $(16,3 ; 15,2)$ | $(15,6 ; 11,3)$ | |
 | Grøn | $(11,1 ; 18,6)$ | $(16,4 ; 17,5)$ | $(21,7 ; 13,4)$ | |
 
-Afgør så, hvor mange af hver farve, der ligger indenfor en cirkel med radius $5$ omkring det grå punkt. Hvilken farve tyder det på, at det grå punkt bør have? 
 
-**Opgave 4**
+::: {.callout-note collapse="true" appearance="minimal"}
+### Opgave 4
 
 Overvej, hvad der sker, hvis cirklens radius vælges som en meget lille værdi eller som en meget stor værdi i forhold til at bruge metoden til at bestemme, hvilken farve det grå punkt bør have.
+:::
 
-**Opgave 5**
+::: {.callout-note collapse="true" appearance="minimal"}
+### Opgave 5
 
-Tabellen viser koordinater og farver på $27$ andre punkter. 
-<!-- Jans oprindelige opgave: Lav et punktplot i dit CAS-værktøj med disse punkter. -->
-
+<!-- Jans oprindelige opgave: Lav et punktplot i dit CAS-værktøj med disse punkter.
 | Farve | 1 | 2 | 3 | 4| 5| 6| 7| 8| 9| 
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
   | Blå  |  $(15,25)$ |   $(10,20)$ |  $(15,30)$ |  $(8,16)$ |   $(6,10)$  |  $(17,15)$  | $(23,17)$  | $(15,14)$ |  $(14,4)$ | 
   | Rød |   $(30, 5)$  | $(18,18)$ |  $(21,9)$ |    $(6,24)$ |   $(25,25)$ |  $(18,16)$  | $(12,11)$ |   $(8,10)$  |  $(16,13)$  | 
   | Grøn  | $(8,28)$  |   $(12,20)$ |  $(16,20)$  |  $(21,14)$  | $(13,10)$ |  $(12,13)$  | $(20,18)$ |   $(14,16)$ |  $(18,10)$  |
-
-<!--Jans: Indtegn en cirkel omkring det grå punkt $P(15,15)$ og brug cirklen til at
+Jans: Indtegn en cirkel omkring det grå punkt $P(15,15)$ og brug cirklen til at
 vurdere, hvilken farve punktet bør have.--> 
 
-I app'en herunder er punkterne indsat i et koordinatsystem, og der er tegnet en cirkel med centrum i det grå punkt $P(15,15)$. Ændr på radius af cirklen og se, om det gør en forskel.
+I app'en herunder er $27$ andre punkter indsat i et koordinatsystem, og der er tegnet en cirkel med centrum i det grå punkt $P(15,15)$. Ændr på radius af cirklen og se, om det gør en forskel.
 
 Diskutér, hvilken radius, der er bedst.
-
+:::
 
 ```{=html}
 <!DOCTYPE html>
@@ -261,32 +276,45 @@ nord-syd eller øst-vest, så man kan ikke bare gå eller køre "på skrå",
 men kun lodret eller vandret.
 
 Hvis vi ser på punkterne $P(2,3)$ og $Q(5,7)$, så er den almindelige afstand
-$5$ vha. Pythagoras, mens Manhattan afstanden er $3+4=7$.
+$5$ vha. Pythagoras, mens Manhattan afstanden er $3+4=7$. Dette er illustreret på @fig-case2.
 
-![](media/image3.png){width="4in" height="4in"}
+![Den almindelige afstand mellem punkterne $P(2,3)$ og $Q(5,7)$ er $5$, mens Manhattan afstanden er $7$.](media/image3.png){#fig-case2}
 
-**Opgave 6**
+::: {.callout-note collapse="true" appearance="minimal"}
+### Opgave 6
 
 Indtegn punkterne $A(1,7)$, $B(3,4)$ og $C(5,7)$ i et koordinatsystem.
 
 Udregn både almindelig afstand og Manhattan afstand mellem hvert par af punkter.
 
-**Opgave 7**
+:::
+
+::: {.callout-note collapse="true" appearance="minimal"}
+### Opgave 7
 
 I eksemplet og i opgave 6 var Manhattan afstanden større end den almindelige afstand, men kan Manhattan afstanden være mindre end den almindelige afstand eller kan de to afstande være ens?
 
-**Opgave 8**
+:::
 
-Se på figuren i opgave 2 igen. Punkterne inde i cirklen har en almindelig afstand på under $10$ til det grå punkt, men hvilke af punkterne har en Manhattan afstand på under $10$ til det grå punkt?
 
-Hvilken farve bør det grå punkt have, hvis Manhattan afstanden benyttes?
-Giver det samme resultatet, som du fik i opgave 2?
+::: {.callout-note collapse="true" appearance="minimal"}
+### Opgave 8
 
-**Opgave 9**
+Se på @fig-opg8 fra opgave 2 igen. 
+
+Punkterne inde i cirklen har en almindelig afstand på under $10$ til det grå punkt, men hvilke af punkterne har en Manhattan afstand på under $10$ til det grå punkt? Hvilken farve bør det grå punkt have, hvis Manhattan afstanden benyttes? Giver det samme resultatet, som du fik i opgave 2?
+
+:::
+
+![Koordinatsystem med $31$ punkter, samt en cirkel med radius $10$ omkring det grå punkt $P(15,15)$](media/image2.png){#fig-opg8}
+
+::: {.callout-note collapse="true" appearance="minimal"}
+### Opgave 9
 
 Opstil en formlen for den almindelige afstand mellem to punkter med koordinaterne $(x_1, y_1)$ og $(x_2, y_2)$. Det er en formel, du kender i forvejen.
 
 Opstil tilsvarende en formel for Manhattan afstanden. Det er nok ikke en formel, du har set før.
+:::
 
 ## Case 3 -- Hvor ens er to tekster?
 
@@ -294,19 +322,38 @@ I forbindelse med at undersøge om en tekst, f.eks. en dansk stil, er plagiat, b
 
 Vi vil kun se meget simpelt på ord med $5$ bogstaver, og hvordan man f.eks. kan måle afstande mellem forskellige ord. Vi vil se på alle kombinationer af $5$ bogstaver, også f.eks. xtmsp, selvom de ikke er normale ord.
 
-**Opgave 10**
+::: {.callout-note collapse="true" appearance="minimal"}
+### Opgave 10
 
-Hvilket af ordene "model", "metal" og "nudts" synes du, at ordet "nedes" ligner mest? Begrund dit svar.
+I tabellen herunder ses ordet "nedes" sammen med ordene "model", "metal" og "nudts".  
 
-**Opgave 11**
+| | n | e | d | e | s | |
+|------------------------------|:-:|:-:|:-:|:-:|:-:|------------------------------|
+| | m | o | d | e | l | |
+| | m | e | t | a | l | |
+| | n | u | d | t | s | |
+
+Hvilket af ordene "model", "metal" og "nudts" synes du, at ordet "nedes" ligner mest. Begrund dit svar.
+
+:::
+
+
+
+
+::: {.callout-note collapse="true" appearance="minimal"}
+### Opgave 11
 
 Hvis vi vælger, at afstanden mellem to ord er antallet af bogstaver, som er forskellige incl. placering, så er afstanden mellem "xtmsp" og "xmtsq" $3$, da kun $2$ af de $5$ bogstaver matcher incl. placering i de to ord, nemlig x og s.
 
 Udregn med den metode afstanden mellem "nedes" og hver af de $3$ ord i opgave 10. Var det sådan du allerede havde gjort det i opgave 10, eller gav dette et andet resultat?
 
-**Opgave 12**
+:::
+
+::: {.callout-note collapse="true" appearance="minimal"}
+### Opgave 12
 
 Overvej og diskuter andre måder at regne afstand mellem to ord på hver $5$ bogstaver. Det kunne f.eks. være noget, hvor ombytning af to nabobogstaver giver mindre afstand end helt tilfældige andre bogstaver, så f.eks. "kolon" og "kloon" er tættere på hinanden end "kolon" og "kston".
+:::
 
 ## Case 4 -- DNA-strenge og alignment
 
@@ -317,26 +364,28 @@ Følgende eksempel, der viser et meget lille udsnit af DNA fra mus, rotter, menn
 
 | Dyr | Kode |
 |:---:|:---:|
-| Mus| SWAWAEGWTRYGP|
-| Rotte | KWVWAEGWTRYGP |
-| Menneske | AWAWAEGWTRYGP |    
-| Gær | EWLRKPGWVKYVP |
+| Mus| S W A W A E G W T R Y G P|
+| Rotte | K W V W A E G W T R Y G P |
+| Menneske | A W A W A E G W T R Y G P |    
+| Gær | E W L R K P G W V K Y V P |
 
 Hvis afstanden her regnes som antal bogstaver, der er forskellige, ses det at afstanden mellem mus og rotte er på $2$, som vist nedenfor.
 
 | Dyr | Kode |
 |:---:|:---:|
-|Mus| <b>S</b>W<b>A</b>WAEGWTRYGP |
-| Rotte| <b>K</b>W<b>V</b>WAEGWTRYGP|
+|Mus| <b>S </b>W <b>A </b>W A E G W T R Y G P |
+| Rotte| <b>K </b>W <b>V </b>W A E G W T R Y G P|
 
-**Opgave 13**
+::: {.callout-note collapse="true" appearance="minimal"}
+### Opgave 13
 
 Udregn på tilsvarende vis afstandene mellem mus-menneske, mus-gær, rotte-menneske, rotte-gær og menneske-gær.
 
-Når resultatet sikkert virker overraskende, skyldes det, at vi kun har set på et meget lille udsnit af DNA for de fire. Hvis man ser på hele det protein, som udsnittet stammer fra, bliver resultatet mere som forventet.
+:::
 
-![](media/image4.png){width="6.6930555555555555in"
-height="1.582638888888889in"}
+Når resultatet sikkert virker overraskende, skyldes det, at vi kun har set på et meget lille udsnit af DNA for de fire. I @fig-DNAafstand har man set på hele det protein, som udsnittet stammer fra, og her bliver resultatet mere som forventet.
+
+![De faktiske afstande mellem mus-menneske, mus-gær, rotte-menneske, rotte-gær og menneske-gær.](media/image4.png){#fig-DNAafstand}
 
 ## Case 5 -- Hvilken politiker er du mest enig med?
 
@@ -350,10 +399,13 @@ Her er et eksempel fra kommunal- og regionalvalget i 2021.
 [Tag kandidattesten Kommunalvalg 2021 - Altinget - Alt om politik:
 altinget.dk](https://www.altinget.dk/valg/KV21/kandidattest)
 
-**Opgave 14**
+::: {.callout-note collapse="true" appearance="minimal"}
+### Opgave 14
 
 Vælg din egen kommune i testen og besvar spørgsmålene. Se derefter, hvem
 dine svar er mest enige med, og hvor mange procent enige I er.
+
+:::
 
 Men hvordan virker det mon? Hvordan vurderes, hvilken kandidat du er
 mest enig med, og hvordan udregnes, hvor mange procent enige I er?
@@ -370,9 +422,7 @@ Afstanden mellem to svar regnes som antal "felter" i tabellen, så
 afstanden mellem Uenig og Enig er $2$, mens afstanden mellem Enig og Helt
 enig er $1$, og den største afstand er $4$.
 
-**Opgave 15**
-
-Figuren viser en persons svar og et partis svar på $23$ spørgsmål til
+I @fig-kommunalvalg ses en persons svar og et partis svar på $23$ spørgsmål til
 kommunalvalget i 2021. Ved et partis svar forstås det svar, som flest af
 kandidaterne fra partiet har givet (ved lighed afgjort ud af, hvilken
 kandidat, der står først på listen). Så det er typetallet (typesvaret),
@@ -381,11 +431,13 @@ kandidater. Figuren er fra testen på Altinget. Bemærk, at antallet af
 spørgsmål kan variere fra kommune til kommune, så du har måske færre
 eller flere spørgsmål.
 
-![](media/image5.png){width="8in" height="2in"}
-
+![En persons svar og et partis svar på $23$ spørgsmål til kommunalvalget i 2021.](media/image5.png){#fig-kommunalvalg}
 
 Afstanden i det første spørgsmål er $1$, afstanden i det andet spørgsmål
 også $1$ og afstanden i det tredje spørgsmål er $2$ pga. den skjulte "neutral" mulighed i midten.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+### Opgave 15
 
 Udregn afstanden i hver af de øvrige $20$ spørgsmål.
 
@@ -393,25 +445,32 @@ Læg så afstandene sammen, hvilket svarer til en form for Manhattan
 afstand, da afstanden regnes for hvert enkelt spørgsmål for sig. Hvilken
 samlet afstand giver det?
 
-**Opgave 16**
+:::
+
+::: {.callout-note collapse="true" appearance="minimal"}
+### Opgave 16
 
 Hvad er den mindst mulig afstand samlet for de $23$ spørgsmål? Hvordan
 skal svarene for partiet og for vælgeren se ud fra at få denne afstand?
 
 Hvad er den størst mulige afstand, og hvordan skal svarene så se ud?
+:::
 
-**Opgave 17**
+::: {.callout-note collapse="true" appearance="minimal"}
+### Opgave 17
 
-![](media/image7.png){width="6.6930555555555555in"
-height="1.7013888888888888in"}
-
-Siden angiver, at enigheden med Socialdemokratiet er på 79%.
+På @fig-enighed ses det, at siden angiver, at enigheden med Socialdemokratiet er på $79 \%$.
 
 Overvej, hvordan den afstand du udregnede i opgave 14 og den største
 mulige afstand, som du fandt i opgave 15, kan betyde, at enigheden er
 $79 \%$.
 
-**Opgave 18**
+:::
+
+![På siden angives det, at enigheden med Socialdemokratiet er på $79 \%$.](media/image7.png){#fig-enighed}
+
+::: {.callout-note collapse="true" appearance="minimal"}
+### Opgave 18
 
 Vend tilbage til dine egne svar på testen.
 
@@ -422,8 +481,10 @@ Beregn desuden afstand og procent til det parti, du var mest enig med,
 og til det parti, du var mest uenig med.
 
 Passer dine udregninger med sidens procenter?
+:::
 
-**Opgave 19 (svær)**
+::: {.callout-note collapse="true" appearance="minimal"}
+### Opgave 19 (svær)
 
 Den kandidat, som svarene i opgave 15 var mest enig med, giver en
 procent på $76 \%$, så procenten for samtlige kandidater fra
@@ -434,3 +495,5 @@ korrekt ud fra den metode, som siden anvender til beregningerne.
 
 Diskutér derefter, om procenten for partiet kunne være beregnet
 anderledes.
+
+:::
