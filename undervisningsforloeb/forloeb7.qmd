@@ -1,7 +1,7 @@
 ---
 title: "AI forløb 7"
 description: "I forløbet anvendes lineær regression..."
-image: "../images/COLOURBOX41626170.jpg"
+image: "../images/COLOURBOX47937746_forloeb.jpg"
 
 format:
     html: 
