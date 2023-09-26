@@ -95,7 +95,7 @@ Brug app'en nedenfor.
 
 :::
 
-{{< include _hvem_ligner_du_mest_geogebra.qmd >}}
+{{< include _geogebra/_hvem_ligner_du_mest_geogebra.qmd >}}
 
 ::: {#ggbApplet1}
 :::
