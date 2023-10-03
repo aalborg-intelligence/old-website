@@ -12,7 +12,7 @@ listing:
   sort: false
   contents:
     - "undervisningsforlob.qmd"
-    - "documents.qmd"
+    - "materialer.qmd"
     - "sro.qmd"
     - "srp.qmd"
     - "apps.qmd"

@@ -8,7 +8,7 @@ description: |
   et hurtigt blik og uden at se hele objektet, men en sjælden gang tager
   vi dog fejl, hvilket kan føre til pinlige situationer.
 
-image: "media/image1.png"
+image: "hvem_ligner_du_mest_filer/image1.png"
 
 format:
     html: 
@@ -73,7 +73,7 @@ punkter -- samt et enkelt gråt punkt $P$. Vurdér ud fra placeringen af det gr�
 
 :::
 
-![Koordinatsystem med $10$ røde punkter, $10$ blå punkter og $10$ grønne punkter -- samt et enkelt gråt punkt $P$.](media/image1.png){#fig-opg1}
+![Koordinatsystem med $10$ røde punkter, $10$ blå punkter og $10$ grønne punkter -- samt et enkelt gråt punkt $P$.](hvem_ligner_du_mest_filer/image1.png){#fig-opg1}
 
 ::: {.callout-note collapse="true" appearance="minimal"}
 ### Opgave 2
@@ -86,7 +86,7 @@ Kan det bruges til at beslutte, hvilken farve det grå punkt bør have?
 
 :::
 
-![Koordinatsystem med $31$ punkter, samt en cirkel med radius $10$ omkring det grå punkt $P(15,15)$](media/image2.png){#fig-opg2}
+![Koordinatsystem med $31$ punkter, samt en cirkel med radius $10$ omkring det grå punkt $P(15,15)$](hvem_ligner_du_mest_filer/image2.png){#fig-opg2}
 
 ::: {.callout-note collapse="true" appearance="minimal"}
 ### Opgave 2, fortsat
@@ -163,7 +163,7 @@ men kun lodret eller vandret.
 Hvis vi ser på punkterne $P(2,3)$ og $Q(5,7)$, så er den almindelige afstand
 $5$ vha. Pythagoras, mens Manhattan afstanden er $3+4=7$. Dette er illustreret på @fig-case2.
 
-![Den almindelige afstand mellem punkterne $P(2,3)$ og $Q(5,7)$ er $5$, mens Manhattan afstanden er $7$.](media/image3.png){#fig-case2}
+![Den almindelige afstand mellem punkterne $P(2,3)$ og $Q(5,7)$ er $5$, mens Manhattan afstanden er $7$.](hvem_ligner_du_mest_filer/image3.png){#fig-case2}
 
 ::: {.callout-note collapse="true" appearance="minimal"}
 ### Opgave 6
@@ -191,7 +191,7 @@ Punkterne inde i cirklen har en almindelig afstand på under $10$ til det grå p
 
 :::
 
-![Koordinatsystem med $31$ punkter, samt en cirkel med radius $10$ omkring det grå punkt $P(15,15)$](media/image2.png){#fig-opg8}
+![Koordinatsystem med $31$ punkter, samt en cirkel med radius $10$ omkring det grå punkt $P(15,15)$](hvem_ligner_du_mest_filer/image2.png){#fig-opg8}
 
 ::: {.callout-note collapse="true" appearance="minimal"}
 ### Opgave 9
@@ -270,7 +270,7 @@ Udregn på tilsvarende vis afstandene mellem mus-menneske, mus-gær, rotte-menne
 
 Når resultatet sikkert virker overraskende, skyldes det, at vi kun har set på et meget lille udsnit af DNA for de fire. I @fig-DNAafstand har man set på hele det protein, som udsnittet stammer fra, og her bliver resultatet mere som forventet.
 
-![De faktiske afstande mellem mus-menneske, mus-gær, rotte-menneske, rotte-gær og menneske-gær.](media/image4.png){#fig-DNAafstand}
+![De faktiske afstande mellem mus-menneske, mus-gær, rotte-menneske, rotte-gær og menneske-gær.](hvem_ligner_du_mest_filer/image4.png){#fig-DNAafstand}
 
 ## Case 5 -- Hvilken politiker er du mest enig med?
 
@@ -315,7 +315,7 @@ kandidater. Figuren er fra testen på Altinget. Bemærk, at antallet af
 spørgsmål kan variere fra kommune til kommune, så du har måske færre
 eller flere spørgsmål.
 
-![En persons svar (sort) og et partis svar (rød) på $23$ spørgsmål til kommunalvalget i 2021.](media/image5.png){#fig-kommunalvalg}
+![En persons svar (sort) og et partis svar (rød) på $23$ spørgsmål til kommunalvalget i 2021.](hvem_ligner_du_mest_filer/image5.png){#fig-kommunalvalg}
 
 Afstanden i det første spørgsmål er $1$, afstanden i det andet spørgsmål
 også $1$ og afstanden i det tredje spørgsmål er $2$ pga. den skjulte "neutral" mulighed i midten.
@@ -351,7 +351,7 @@ $79 \%$.
 
 :::
 
-![På siden angives det, at enigheden med Socialdemokratiet er på $79 \%$.](media/image7.png){#fig-enighed}
+![På siden angives det, at enigheden med Socialdemokratiet er på $79 \%$.](hvem_ligner_du_mest_filer/image7.png){#fig-enighed}
 
 ::: {.callout-note collapse="true" appearance="minimal"}
 ### Opgave 18
