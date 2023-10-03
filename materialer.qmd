@@ -16,23 +16,23 @@ listing:
     - image
     - title
     - description
-#  contents: 
-#    - path: https://aalborg-intelligence.ai/perceptron-note/perceptron-note.html
-#      title: "Perceptroner"
-#      image: "images/perceptron.png"
-#      description: Forløberen til kunstige neurale netværk er perceptroner, som du kan læse mere om her.
-#    - path: https://aalborg-intelligence.ai/neurale_net-note/neurale_net-note.html
-#      title: "Neurale netværk"
-#      image: "images/generelt_netvaerk.png"
-#      description: En grundig gennemgang af matematikken bag kunstige neurale netværk.
-#    - path: https://aalborg-intelligence.ai/retningsafledede/retningsafledede.html
-#      title: "Retningsafledede og gradientnedstigning"
-#      image: "images/minMaxFunc.png"
-#      description: En introduktion til retningsafledede og gradientnedstigning.
-#    - path: ...
-#      title: "Afstande og feature skalering"
-#      image: "afstande/images/fig_min_max_skalering.png"
-#      description: Noget om afstande mellem punkter og feature skalering
+  contents: 
+    - path: https://aalborg-intelligence.ai/perceptron-note/perceptron-note.html
+      title: "Perceptroner"
+      image: "images/perceptron.png"
+      description: Forløberen til kunstige neurale netværk er perceptroner, som du kan læse mere om her.
+    - path: https://aalborg-intelligence.ai/neurale_net-note/neurale_net-note.html
+      title: "Neurale netværk"
+      image: "images/generelt_netvaerk.png"
+      description: En grundig gennemgang af matematikken bag kunstige neurale netværk.
+    - path: materialer/retningsafledede/retningsafledede.qmd
+      title: "Retningsafledede og gradientnedstigning"
+      image: "materialer/retningsafledede/images/minMaxFunc.png"
+      description: En introduktion til retningsafledede og gradientnedstigning.
+    - path: materialer/afstande/index.qmd
+      title: "Afstande og feature skalering"
+      image: "materialer/afstande/images/fig_min_max_skalering.png"
+      description: Lidt om afstande mellem punkter og feature skalering.
   type: grid 
   grid-columns: 2
 ---
