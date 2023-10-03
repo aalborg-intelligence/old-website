@@ -6,3 +6,8 @@
 
 /.quarto/
 /_site/
+
+*.log
+*.aux
+*.tex
+*_files/

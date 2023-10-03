@@ -17,7 +17,7 @@ listing:
     - title
     - description
   contents: 
-    - path: https://aalborg-intelligence.ai/perceptron-note/perceptron-note.html
+    - path: materialer/perceptron/perceptron.qmd
       title: "Perceptroner"
       image: "images/perceptron.png"
       description: Forløberen til kunstige neurale netværk er perceptroner, som du kan læse mere om her.
