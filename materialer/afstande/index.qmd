@@ -1,10 +1,24 @@
-Metrikker og afstand
-====================
+---
+title: "Afstande"
+description: | 
+  Det er ikke altid helt klart, hvordan man skal bestemme afstanden mellem to datapunkter, hvis koordinaterne i hvert datapunkter beskriver vidt forskellige ting. Vi vil her se nærmere på, hvilke problemer, der kan opstå, hvis man ikke tænker sig om -- og hvad man kan gøre for at løse dem.
 
-- [Afstand](afstand.qmd)
-- [Afstand udfra data](feature_scaling.qmd)
-- [Afstande mellem DNA](AfstandeMellemDNA.qmd)
+format:
+    html: 
+      self-contained: true
+      toc: true
+      toc-title: Indhold
+      toc-location: left
+reference-location: margin
+---
+
+
+# Metrikker og afstand
+
+<!-- - [Afstande](afstand.qmd) -->
+- [Feature scaling](feature_scaling.qmd)
+<!-- - [Afstande mellem DNA](AfstandeMellemDNA.qmd) -->
 - [Afstande mellem punkter i planen](AfstandeMellemPunkteriPlanen.qmd)
-- [Afstande mellem Strenge](AfstandeMellemStrenge.qmd)
-- [Metrik - Det abstrakte afstandsbegreb](MetrikDetAbstrakteAfstandsBegreb.qmd)
+<!-- - [Afstande mellem Strenge](AfstandeMellemStrenge.qmd) -->
+<!-- - [Metrik - Det abstrakte afstandsbegreb](MetrikDetAbstrakteAfstandsBegreb.qmd) -->
 

@@ -27,7 +27,7 @@ listing:
       description: En grundig gennemgang af matematikken bag kunstige neurale netværk.
     - path: materialer/retningsafledede/retningsafledede.qmd
       title: "Retningsafledede og gradientnedstigning"
-      image: "materialer/retningsafledede/images/minMaxFunc.png"
+      image: "images/minMaxFunc.png"
       description: En introduktion til retningsafledede og gradientnedstigning.
     - path: materialer/afstande/index.qmd
       title: "Afstande og feature skalering"
