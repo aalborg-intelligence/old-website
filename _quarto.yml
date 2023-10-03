@@ -14,7 +14,7 @@ website:
       - text: "Undervisningsforløb"
         href: undervisningsforlob.qmd
       - text: "Materialer"
-        href: documents.qmd
+        href: materialer.qmd
       - text: "SRO"
         href: sro.qmd
       - text: "SRP"

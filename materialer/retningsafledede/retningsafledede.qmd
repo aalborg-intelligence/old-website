@@ -267,8 +267,8 @@ Hvis man ser lidt på forskriften, kan man måske overbevise sig selv om, at fun
 
 Grafen ses herunder.
 
-<!-- ::: {#ggbApplet2} -->
-<!-- ::: -->
+::: {#ggbApplet}
+:::
 
 Man kan lave en iterativ metode til at finde minimumspunktet ved at udnytte egenskaben ved gradientvektoren:
 

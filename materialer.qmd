@@ -17,14 +17,14 @@ listing:
     - title
     - description
   contents: 
-    - path: https://aalborg-intelligence.ai/perceptron-note/perceptron-note.html
-      title: "Perceptroner"
-      image: "images/perceptron.png"
-      description: Forløberen til kunstige neurale netværk er perceptroner, som du kan læse mere om her.
-    - path: https://aalborg-intelligence.ai/neurale_net-note/neurale_net-note.html
-      title: "Neurale netværk"
-      image: "images/generelt_netvaerk.png"
-      description: En grundig gennemgang af matematikken bag kunstige neurale netværk.
+#    - path: https://aalborg-intelligence.ai/perceptron-note/perceptron-note.html
+#      title: "Perceptroner"
+#      image: "images/perceptron.png"
+#      description: Forløberen til kunstige neurale netværk er perceptroner, som du kan læse mere om her.
+#    - path: https://aalborg-intelligence.ai/neurale_net-note/neurale_net-note.html
+#      title: "Neurale netværk"
+#      image: "images/generelt_netvaerk.png"
+#      description: En grundig gennemgang af matematikken bag kunstige neurale netværk.
     - path: materialer/retningsafledede/retningsafledede.qmd
       title: "Retningsafledede og gradientnedstigning"
       image: "materialer/retningsafledede/images/minMaxFunc.png"

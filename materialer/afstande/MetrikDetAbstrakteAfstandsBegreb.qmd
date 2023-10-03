@@ -1,0 +1,105 @@
+Definition af en metrik- det abstrakte afstandsbegreb {#definition-af-en-metrik--det-abstrakte-afstandsbegreb .unnumbered}
+=====================================================
+
+Man har ikke frit valg til at bestemme, hvad man vil bruge som
+afstandsmål. Hvis det skal give mening, skal man have en *metrik* -
+afstanden skal opfylde nogle betingelser:
+
+En metrik på en mængde $M$ er en funktion $d$ fra $M\times M$ til
+$\mathbb{R}$ - altså en funktion, som tager to elementer i $M$ og giver
+et reelt tal.
+
+$d$ skal opfylde følgende for alle $p,q,r$ i $M$:
+
+1.  $d(p,q)\geq 0$. Med ord: Alle afstande er positive.
+
+2.  $d(p,p)=0$ og $d(p,q)=0$ hvis og kun hvis $p=q$. Med ord: Afstanden
+    fra et punkt til sig selv er $0$ og ingen andre afstande er $0$
+
+3.  $d(p,q)=d(q,p)$ Afstanden er *symmetrisk*. Med ord: Der er lige så
+    langt fra $p$ til $q$ som fra $q$ til $p$.
+
+4.  $d(p,q)+d(q,r)\geq d(p,r)$. *Trekantsuligheden*. Med ord: Der er
+    mindst lige så langt fra $p$ til $r$ via $q$, som direkte fra $p$
+    til $r$.
+
+Det er en meget kort definition. Og meget, meget generel. $M$ er en
+*mængde* - der er en strengt logisk måde at gå til mængder på, men lad
+os her sige en samling af objekter, som vi også kalder elementer af
+mængden. Læg mærke til, at vi her bare graver problemet lidt længere ned
+i sandet - fejer det ind under gulvtæppet - for hvad er \"objekter\"?
+Det kommer vi ikke nærmere her.
+
+Det er ret nemt at acceptere, at de tre krav er rimelige. Men er det
+nok? Og er det nu alligevel rimeligt? Hvad med symmetrien? Der er vel
+længere 10 km op ad bakke end 10 km ned ad bakke, hvis man tænker på
+arbejdsindsats. Så måske giver det ikke altid mening?[^1]
+
+Definitionen af metrik som her, er den, vi bruger i matematik. Den har
+vist sig nyttig. Der er en skov af artikler og bøger, hvor man kan se,
+hvad man ved, når man har en metrik. En mængde med en metrik kaldes et
+*metrisk rum*.[^2]
+
+Den diskrete metrik: På en mængde $M$ er funktionen $d$ givet ved.
+
+-   $d(p,p)=0$
+
+-   Hvis $p\neq q$ er $d(p,q)=1$.
+
+Det er en metrik - den opfylder definitionen ovenfor. Men det er ikke
+nogen specielt nyttig metrik. Alle elementer ligger lige tæt på alle
+andre, så der er ikke ny information - udover, om to elementer er ens
+eller ikke.
+
+[\[Opg:Levensh\]]{#Opg:Levensh label="Opg:Levensh"} Vis, at
+Levenshteinafstanden giver en metrik.
+
+-   Hvilken mængde er det mon en metrik på? Her kan man vælge - hvilke
+    bogstaver må bruges? Vil I begrænse længden på de ord, der kan
+    optræde?
+
+-   Overvej, at afstanden mellem to ord er længden af den (en - der kan
+    være flere veje, som er lige lange) korteste mulige vej fra det ene
+    til det andet i et netværk (en graf) som på FIGUREN
+
+Nu skulle det være til at indse, at de fire betingelser er opfyldt.
+
+[\[ex:ikke-metrik\]]{#ex:ikke-metrik label="ex:ikke-metrik"} En elev er
+træt af kvadratrødder og tænker, at man vel kan lave sig en afstand i
+planen som følger:
+
+$D((x_1,y_1),(x_2,y_2))=(x_2-x_1)^2+(y_2-y_1)^2$. Problem: $D$ er ikke
+en metrik. Den opfylder ikke trekantsuligheden.
+
+Hvordan kan man se det? Husk, at vi bare skal finde ét eksempel - tre
+punkter $p,q,r$, hvor trekantsuligheden ikke holder. Så har vi vist, at
+$D$ ikke er en metrik.
+
+Et konkret eksempel: $p=(0,0)$, $q=(2,0)$, $r=(4,0)$. Afstand fra $p$
+til $r$ er $4^2+0^2=16$. Afstanden fra $p$ til $q$ er $2^2=4$ og det
+samme gælder afstand fra $q$ til $r$, så $D(p,q)+D(q,r)=8$, mens
+$D(p,r)=16$.
+
+Et andet eksempel, som ligner en rigtig trekant: $p=(0,0)$ $q=(2,1)$,
+$r=(4,0)$. Her er $D(p,q)=2^2+1^2=5$ og $D(q,r)=(4-2)^2+1^2=5$, så
+$D(p,q)+D(q,r)=10$, mens $D(p,r)=16$. Der er kortere at gå fra $p$ til
+$r$ via $q$ end at gå direkte.
+
+Brug $D(p,q)$ fra
+Eksempel [\[ex:ikke-metrik\]](#ex:ikke-metrik){reference-type="ref"
+reference="ex:ikke-metrik"}. Her regner vi på trekanter, hvor
+midterpunktet $q$ flyttes længere væk fra førsteaksen: $p=(0,0)$
+$q=(2,y)$, $r=(4,0)$. Udregn $D(p,q)+D(q,r)$ og find det $y$, hvor
+$D(p,q)+D(q,r)=D(p,r)$. Hvad er vinklen $pqr$, når den ligning er
+opfyldt? Kunne man have indset det uden at regne?
+
+[^1]: Hvis funktionen $d$ opfylder 1,2,4, er det en *quasimetrik*.
+    Opfylder den 1,2,3, er det en *semimetrik*. Opfylder den 1, 3 og 4,
+    og første del af 2 ($d(p,p)=0$, men der kan være andre afstande, der
+    er $0$) er det en *pseudometrik*. Der findes såmænd også
+    præmetrikker, metametrikker, pseudoquasimetrikker og sikkert andre -
+    \"falske metrikker\".
+
+[^2]: Ordet \"rum\" skal man ikke lægge for meget i. Det er ikke anden
+    information i det end definitionen. Intution skal man være varsom
+    med.

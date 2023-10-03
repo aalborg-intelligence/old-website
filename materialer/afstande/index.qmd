@@ -1,0 +1,10 @@
+Metrikker og afstand
+====================
+
+- [Afstand](afstand.qmd)
+- [Afstand udfra data](feature_scaling.qmd)
+- [Afstande mellem DNA](AfstandeMellemDNA.qmd)
+- [Afstande mellem punkter i planen](AfstandeMellemPunkteriPlanen.qmd)
+- [Afstande mellem Strenge](AfstandeMellemStrenge.qmd)
+- [Metrik - Det abstrakte afstandsbegreb](MetrikDetAbstrakteAfstandsBegreb.qmd)
+
