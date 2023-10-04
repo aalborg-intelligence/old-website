@@ -304,4 +304,4 @@ At lede efter et globalt minimumspunkt eller i det mindste et brugbart lokalt mi
 
 Det kan ikke gøres analytisk, så derfor bruger man netop en iterativ proces baseret på gradientnedstigning som metode til at finde frem til minimumspunktet. Eksemplet ovenfor illustrerer derfor idéen bag en central del af træningen af et neuralt netværk.
 
-Læs mere om hvordan gradientnedstigning konkret bruges her: [Perceptroner](../perceptron/perceptron.html) og [Kunstige neurale netværk](../neurale_net/neurale_net.html).
+Læs mere om hvordan gradientnedstigning konkret bruges her: [Perceptroner](../perceptron/perceptron.qmd) og [Kunstige neurale netværk](../neurale_net/neurale_net.qmd).

@@ -34,7 +34,7 @@ Hvad er ulighed, og er det et problem i Danmark?
 
 #### Materialer
 
-[Noten om perceptroner](../perceptron-note/).
+[Noten om perceptroner](../materialer/perceptron/perceptron.qmd).
 
 [Perceptron app - under udarbejdelse](apps.qmd).
 
