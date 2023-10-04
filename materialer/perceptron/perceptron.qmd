@@ -8,6 +8,7 @@ format:
       toc: true
       toc-title: Indhold
       toc-location: left
+      related-formats-title: "Andre formater"
     pdf: default
 reference-location: margin
 bibliography: perceptron-referencer.bib
@@ -689,12 +690,8 @@ grunde til:
 #| message: false
 #| warning: false
 #| fig-cap-location: margin
-#| fig-cap: Træningsdata som ikke er lineært separable.
-#| fig-subcap:
-#|   - Træningsdata hvor et af datapunkterne ved en fejl har fået en forkert targetværdi.
-#|   - Træningsdata hvor stort set alle datapunkterne er klassificeret korrekt.
-#| label: fig-punkter_graf4_5
-#| layout-ncol: 2
+#| fig-cap: Træningsdata hvor et af datapunkterne ved en fejl har fået en forkert targetværdi.
+#| label: fig-punkter_graf4_5-1
 library(aai)
 #perceptron31$colfactor <- factor(perceptron31$col,labels=c("Rød blok","Blå blok"))
 fig2 <- ggplot(perceptron31, aes(x=x1, y=x2)) +
@@ -718,8 +715,18 @@ fig2 + geom_label(
     fill="lightgray"
   )
 
+```
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-cap-location: margin
+#| fig-cap: Træningsdata hvor stort set alle datapunkterne er klassificeret korrekt.
+#| label: fig-punkter_graf4_5-2
 fig2 + geom_abline(slope = 5.25, intercept = 0)
 ```
+
 
 Der er derfor brug for noget lidt andet end den klassiske perceptron,
 som Rosenblatt foreslog. Eller rettere sagt: perceptronen er god nok,
@@ -1095,8 +1102,7 @@ I denne video forklarer vi, hvad gradientnedstigning går ud på, og hvordan gra
 
 {{< video https://www.youtube.com/embed/4YMzpNP4wnA >}}
 
-# Noten som pdf
-[Perceptron note](./perceptron.pdf).
+
 
 # Videre læsning 
 
