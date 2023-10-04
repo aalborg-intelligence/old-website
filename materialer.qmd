@@ -21,7 +21,7 @@ listing:
       title: "Perceptroner"
       image: "images/perceptron.png"
       description: Forløberen til kunstige neurale netværk er perceptroner, som du kan læse mere om her.
-    - path: https://aalborg-intelligence.ai/neurale_net-note/neurale_net-note.html
+    - path: materialer/neurale_net/neurale_net.qmd
       title: "Neurale netværk"
       image: "images/generelt_netvaerk.png"
       description: En grundig gennemgang af matematikken bag kunstige neurale netværk.
