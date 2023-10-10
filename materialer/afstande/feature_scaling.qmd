@@ -1,6 +1,5 @@
 ---
 title: "Feature-skalering"
-author: 'Aalborg Intelligence'
 description: "Hvis de data, man arbejder med, måler vidt forskellige ting -- måske endda på vidt forskellige skalaer -- så vil man som oftest have brug for at \"justere\" data, så de er på samme skala."
 image: "images/fig_min_max_skalering.png"
 format:
@@ -42,7 +41,7 @@ hvor $v$ er den pågældende persons vægt og $h$ er højden. Her er det faktisk
 hvad afstanden mellem to punkter $(v_1,h_1)$ og $(v_2,h_2)$ skal være.
 Altså, hvornår to punkter ligger tæt på hinanden.
 
-Et første bud kunne være at bestemme den [euklidske afstand](AfstandeMellemPunkteriPlanen.qmd) mellem de to punkter -- det der bare svarer til at bruge Pythagoras. Gør vi det får vi følgende afstandsmål mellem punkterne $(v_1,h_1)$ og $(v_2,h_2)$:
+Et første bud kunne være at bestemme den [euklidske afstand](AfstandeMellemPunkteriPlanen.qmd#sec-euklidisk_afstand) mellem de to punkter -- det der bare svarer til at bruge Pythagoras. Gør vi det får vi følgende afstandsmål mellem punkterne $(v_1,h_1)$ og $(v_2,h_2)$:
 
 $$\sqrt{(v_2-v_1)^2+(h_2-h_1)^2}$$
 

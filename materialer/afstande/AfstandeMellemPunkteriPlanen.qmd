@@ -1,6 +1,5 @@
 ---
 title: "Afstande mellem punkter i planen"
-author: 'Aalborg Intelligence'
 image: "images/manhattan_afstand.png"
 description: "Afstande mellem punkter i planen er ikke entydigt -- faktisk kan man måle afstanden mellem to punkter i planen på mange forskellige måder."
 format:
@@ -36,7 +35,7 @@ Du har ikke nødvendigvis tænkt over det før, men hvordan måler man egentlig 
 
 For at blive lidt mere præcis forestiller vi os, at vi har to punkter i planen, som vi kalder for $P(x_1,y_1)$ og $Q(x_2,y_2)$.
 
-## Euklidisk afstand
+## Euklidisk afstand{#sec-euklidisk_afstand}
 Den euklidisk afstand mellem $P$ og $Q$ er
 $$\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$$ 
 Det er det, vi kender mest -- og som formentlig er den afstand, du lige har tænkt på. Formlen ovenfor fremkommer ved at bruge Pythagoras.
@@ -48,7 +47,7 @@ I app'en herunder er den euklidiske afstand illustreret. Du kan flytte rundt på
 ::: {#ggbApplet1}
 :::
 
-## Manhattanafstanden
+## Manhattanafstanden{#sec-manhattan_afstand}
 Manhattanafstanden er den afstand, man får, når man er tvunget til at bevæge sig langs akserne, som vi kender det fra vejene i mange amerikanske byer, herunder på Manhattan. Den kaldes også taxi-afstanden. Formlen for at bestemme Manhattanafstanden er:
 $$|x_2-x_1|+|y_2-y_1|$$
 I app'en herunder er Manhattanafstanden illustreret. Du kan flytte rundt på punkterne og se, hvordan afstanden ændrer sig.

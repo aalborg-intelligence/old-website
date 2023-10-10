@@ -1,7 +1,7 @@
 ---
 title: "Afstande og feature-skalering"
 image: "images/fig_min_max_skalering.png"
-description: "Lidt om afstande mellem punkter og feature-skalering."
+description: "Lidt om afstande mellem punkter, ord, DNA-strenge og feature-skalering."
 format:
     html: 
       self-contained: true
@@ -15,10 +15,10 @@ listing:
   contents:
     - "feature_scaling.qmd"
     - "AfstandeMellemPunkteriPlanen.qmd"
+    - "AfstandeMellemStrenge.qmd"
+    - "AfstandeMellemDNA.qmd"
+    - "MetrikDetAbstrakteAfstandsBegreb.qmd"
 #   - "afstand.qmd"
-#   - "AfstandeMellemDNA.qmd"
-#   - "AfstandeMellemStrenge.qmd"
-#   - "MetrikDetAbstrakteAfstandsBegreb.qmd"
   type: grid
   grid-columns: 2
 ---
