@@ -1,10 +1,8 @@
 ---
-title: "Feature scaling"
-description: | 
-  Det er ikke altid helt klart, hvordan man skal bestemme afstanden mellem to datapunkter, hvis koordinaterne i hvert datapunkter beskriver vidt forskellige ting. Vi vil her se nærmere på, hvilke problemer, der kan opstå, hvis man ikke tænker sig om -- og hvad man kan gøre for at løse dem.
-
-# image: "media/image1.png"
-
+title: "Feature-skalering"
+author: 'Aalborg Intelligence'
+description: "Hvis de data, man arbejder med, måler vidt forskellige ting -- måske endda på vidt forskellige skalaer -- så vil man som oftest have brug for at \"justere\" data, så de er på samme skala."
+image: "images/fig_min_max_skalering.png"
 format:
     html: 
       self-contained: true
@@ -36,6 +34,7 @@ execute:
 ---
 
 ## Afstand med hovedet under armen
+Det er ikke altid helt klart, hvordan man skal bestemme afstanden mellem to datapunkter, hvis koordinaterne i hvert datapunkter beskriver vidt forskellige ting. Vi vil her se nærmere på, hvilke problemer, der kan opstå, hvis man ikke tænker sig om -- og hvad man kan gøre for at løse dem.
 
 Lad os forestille os, at data består af vægt og højde for nogle personer, så hvert datapunkt er på formen
 $$(v,h)$$
@@ -148,12 +147,12 @@ $$\sqrt{\left(\frac{x_2-a}{b-a}-\frac{x_1-a}{b-a}\right)^2 +\left(\frac{y_2-c}{d
 
 Bemærk, at det præcis er afstandsmålet i (@eq-min_max_skalering), som vi startede ud med.  
 
-## Mindre naivt, mere bøvlet: Feature scaling
+## Mindre naivt, mere bøvlet: Feature-skaling
 
 Den skalering vi har præsenteret i (@eq-norm) benytter ikke som sådan information om data, men kun om den mindste og største værdi, som henholdsvis $x$- og $y$-værdierne ligger imellem (nemlig $a$ og $b$ for $x$-værdierne og $c$ og $d$ for $y$-værdierne).
 
 Et alternativ til dette er at bruge *alle* data til at bestemme
-skaleringen (og ikke kun den største og den mindste værdi). Dette kaldes for *feature scaling*, når vi arbejder med perceptroner eller neurale netværk. 
+skaleringen (og ikke kun den største og den mindste værdi). Dette kaldes for *feature-skaling*, når vi arbejder med perceptroner eller neurale netværk. 
 
 Hvis de data, der skal læres fra -- det vil sige træningsdata -- er 
 $$(x_1,y_1), (x_2,y_2),\ldots, (x_n,y_n)$$ 
@@ -165,11 +164,10 @@ så skalerer vi langs førsteaksen ved, at
 * og et estimat for denne variabels spredning:
     $$s_x=\sqrt{\frac{\Sigma_{i=1}^n(x_i-\bar{x})^2}{n-1}}$$ {#eq-spredning}
 
-Feature scaling af $x_i$ er da 
+Feature-skaling af $x_i$ er da 
 $$\hat{x}_i=\frac{x_i-\bar{x}}{s_x}$$ {#eq-feature_scaling_x}
 
-Tilsvarende estimeres middelværdi og spredning for $y$ og feature
-scaling udregnes: 
+Tilsvarende estimeres middelværdi og spredning for $y$ og feature-skaling udregnes: 
 $$\hat{y}_i= \frac{y_i-\bar{y}}{s_y}$$ {#eq-feature_scaling_y}
 
 Resultatet af at lave denne feature skalering af punkterne fra @fig-min_max_skalering ses i @fig-feature_scaling.

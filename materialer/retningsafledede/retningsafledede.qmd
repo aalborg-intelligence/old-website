@@ -1,6 +1,8 @@
 ---
 title: "Retningsafledede og gradientnedstigning"
 author: 'Aalborg Intelligence'
+image: "images/minMaxFunc.png"
+description: En introduktion til retningsafledede og gradientnedstigning.
 date: ''
 format:
     html:

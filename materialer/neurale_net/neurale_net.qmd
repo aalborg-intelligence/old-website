@@ -1,6 +1,8 @@
 ---
-title: "Kunstige Neurale Netværk"
+title: "Kunstige neurale netværk"
 author: 'Aalborg Intelligence'
+image: "images/generelt_netvaerk.png"
+description: En grundig gennemgang af matematikken bag kunstige neurale netværk.
 date: ''
 format:
     html:

@@ -12,27 +12,16 @@ format:
       
 listing:
   id: main-listing-content
+  sort: false
   fields: 
     - image
     - title
     - description
   contents: 
     - path: materialer/perceptron/perceptron.qmd
-      title: "Perceptroner"
-      image: "images/perceptron.png"
-      description: Forløberen til kunstige neurale netværk er perceptroner, som du kan læse mere om her.
     - path: materialer/neurale_net/neurale_net.qmd
-      title: "Neurale netværk"
-      image: "images/generelt_netvaerk.png"
-      description: En grundig gennemgang af matematikken bag kunstige neurale netværk.
     - path: materialer/retningsafledede/retningsafledede.qmd
-      title: "Retningsafledede og gradientnedstigning"
-      image: "images/minMaxFunc.png"
-      description: En introduktion til retningsafledede og gradientnedstigning.
-    - path: materialer/afstande/index.qmd
-      title: "Afstande og feature skalering"
-      image: "materialer/afstande/images/fig_min_max_skalering.png"
-      description: Lidt om afstande mellem punkter og feature skalering.
+    - path: materialer/afstande/index_afstande.qmd
   type: grid 
   grid-columns: 2
 ---

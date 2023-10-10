@@ -1,6 +1,8 @@
 ---
 title: "Perceptroner"
 author: 'Aalborg Intelligence'
+image: "images/perceptron.png"
+description: Forløberen til kunstige neurale netværk er perceptroner, som du kan læse mere om her.
 date: ''
 format:
     html: 

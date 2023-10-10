@@ -161,7 +161,7 @@ nord-syd eller øst-vest, så man kan ikke bare gå eller køre "på skrå",
 men kun lodret eller vandret.
 
 Hvis vi ser på punkterne $P(2,3)$ og $Q(5,7)$, så er den almindelige afstand
-$5$ vha. Pythagoras, mens Manhattan afstanden er $3+4=7$. Dette er illustreret på @fig-case2.
+$5$ vha. Pythagoras, mens [Manhattan afstanden](../materialer/afstande/AfstandeMellemPunkteriPlanen.qmd) er $3+4=7$. Dette er illustreret på @fig-case2.
 
 ![Den almindelige afstand mellem punkterne $P(2,3)$ og $Q(5,7)$ er $5$, mens Manhattan afstanden er $7$.](hvem_ligner_du_mest_filer/image3.png){#fig-case2}
 
@@ -170,7 +170,7 @@ $5$ vha. Pythagoras, mens Manhattan afstanden er $3+4=7$. Dette er illustreret p
 
 Indtegn punkterne $A(1,7)$, $B(3,4)$ og $C(5,7)$ i et koordinatsystem.
 
-Udregn både almindelig afstand og Manhattan afstand mellem hvert par af punkter.
+Udregn både almindelig afstand og [Manhattan afstand](../materialer/afstande/AfstandeMellemPunkteriPlanen.qmd) mellem hvert par af punkter.
 
 :::
 
