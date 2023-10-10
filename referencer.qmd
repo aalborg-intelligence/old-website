@@ -1,7 +1,7 @@
 ---
 title: "Referencer"
 description: "Diverse referencer til andre AI materialer."
-image: "images/COLOURBOX47937745_referencer.jpg"
+image: "images/image11.jpg"
 
 format:
     html: 

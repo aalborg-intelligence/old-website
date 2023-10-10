@@ -1,7 +1,7 @@
 ---
 title: "SRP"
 description: "Idéer til hvordan AI kan inddrages i SRP."
-image: "images/COLOURBOX43859532.jpg"
+image: "images/image6.jpg"
 
 format:
     html: 
