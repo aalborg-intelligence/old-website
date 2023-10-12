@@ -159,10 +159,12 @@ I dette tilfælde oversætter man ofte de to udfald til hhv $0$ og $1$, eller i 
 For en Bayes klassifikation betyder det at $C(\mathbf{x}) = 0$ hvis $P(Y = 0 \mid \mathbf{X} = \mathbf{x}) > P(Y = 1 \mid \mathbf{X} = \mathbf{x})$ og ellers $C(\mathbf{x}) = 1$.
 
 Dette kan også udtrykkes på anden vis:
-$$\begin{align}
+$$
+\begin{aligned}
 P(Y = 0 \mid \mathbf{X} = \mathbf{x}) > P(Y = 1 \mid \mathbf{X} = \mathbf{x}) \Leftrightarrow
 \frac{P(Y = 0 \mid \mathbf{X} = \mathbf{x})}{P(Y = 1 \mid \mathbf{X} = \mathbf{x})} > 1.
-\end{align}$$
+\end{aligned}
+$$
 Her antager vi dog lige at $$P(Y = 1 \mid \mathbf{X} = \mathbf{x})\neq 0.$$
 
 Her vil vi benytte os af **Bayes sætning** til at se på hvordan denne brøk kan beregnes.
@@ -215,12 +217,12 @@ Denne forsimplende antagelse har medvirket til metodens navn:
 
 Det betyder ifølge vores tidligere definition af uafhængighed at
 $$
-\begin{align}
+\begin{aligned}
 P(\mathbf{X} = \mathbf{x} \mid Y = y) &= 
 P(X_1 = x_1, X_2 = x_2, \dots, X_q = x_q \mid Y = y)\\ 
 &= P(X_1 = x_1\mid Y = y)P(X_2 = x_2\mid Y = y)\cdots P(X_q = x_q \mid Y = y)\\
 &= \prod_{i=1}^q P(X_i = x_i\mid Y = y),
-\end{align}
+\end{aligned}
 $$
 hvor $\prod$-symbolet i sidste linje betyder at vi tager produktet af alle leddene 
 på formen $P(X_i = x_i\mid Y = y)$ fra $i=1$ op til $q$ - altså præcist det som står i linjen over.
@@ -245,11 +247,11 @@ visse tal (fx 1/3) bliver afrundet efter et vist antal decimaler. Derfor kan der
 enten ganger eller adderer meget små (eller store) tal sammen. For at undgå dette i udtrykket ovenfor,
 er det derfor tit en god idé at benytte sig af logaritmen på begge sider af lighedstegnet:
 $$
-\begin{align}
+\begin{aligned}
 \ln \left(\frac{P(Y = 0 \mid \mathbf{X} = \mathbf{x})}{P(Y = 1 \mid \mathbf{X} = \mathbf{x})}\right) &= 
 \ln \left(\frac{P(Y = 0)}{P(Y = 1)}\right) + 
 \sum_{i=1}^q \ln \left(\frac{P(X_i = x_i \mid Y = 0)}{P(X_i = x_i \mid Y = 1)}\right),
-\end{align}
+\end{aligned}
 $$
 hvor vi brugte regneregler for logaritmen, $\ln(x\cdot y) = \ln(x) + \ln(y)$, gentagende gange.
 
