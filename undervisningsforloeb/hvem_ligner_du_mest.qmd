@@ -65,7 +65,7 @@ I denne video gives en kort introduktion til forløbet.
 
 ## Case 1 -- Afstand mellem to punkter
 
-::: {.callout-note collapse="true" appearance="minimal"}
+::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 1
 
 På @fig-opg1 nedenfor er der $10$ røde punkter, $10$ blå punkter og $10$ grønne
@@ -75,7 +75,7 @@ punkter -- samt et enkelt gråt punkt $P$. Vurdér ud fra placeringen af det gr�
 
 ![Koordinatsystem med $10$ røde punkter, $10$ blå punkter og $10$ grønne punkter -- samt et enkelt gråt punkt $P$.](hvem_ligner_du_mest_filer/image1.png){#fig-opg1}
 
-::: {.callout-note collapse="true" appearance="minimal"}
+::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 2
 
 På @fig-opg2 er der andre $31$ punkter, samt en cirkel med radius $10$ omkring
@@ -88,7 +88,7 @@ Kan det bruges til at beslutte, hvilken farve det grå punkt bør have?
 
 ![Koordinatsystem med $31$ punkter, samt en cirkel med radius $10$ omkring det grå punkt $P(15,15)$](hvem_ligner_du_mest_filer/image2.png){#fig-opg2}
 
-::: {.callout-note collapse="true" appearance="minimal"}
+::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 2, fortsat
 Hvilket resultat giver det, hvis cirklens radius kun var halvt så stor?
 Brug app'en nedenfor.
@@ -100,7 +100,7 @@ Brug app'en nedenfor.
 ::: {#ggbApplet1}
 :::
 
-::: {.callout-note collapse="true" appearance="minimal"}
+::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 3
 
 Det går nok ikke i længden blot at ville vurdere på øjemål, så du må til
@@ -122,13 +122,13 @@ Hvilken farve tyder det på, at det grå punkt bør have?
 | Grøn | $(11,1 ; 18,6)$ | $(16,4 ; 17,5)$ | $(21,7 ; 13,4)$ | |
 
 
-::: {.callout-note collapse="true" appearance="minimal"}
+::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 4
 
 Overvej, hvad der sker, hvis cirklens radius vælges som en meget lille værdi eller som en meget stor værdi i forhold til at bruge metoden til at bestemme, hvilken farve det grå punkt bør have.
 :::
 
-::: {.callout-note collapse="true" appearance="minimal"}
+::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 5
 
 <!-- Jans oprindelige opgave: Lav et punktplot i dit CAS-værktøj med disse punkter.
@@ -165,7 +165,7 @@ $5$ vha. Pythagoras, mens Manhattan afstanden er $3+4=7$. Dette er illustreret p
 
 ![Den almindelige afstand mellem punkterne $P(2,3)$ og $Q(5,7)$ er $5$, mens Manhattan afstanden er $7$.](hvem_ligner_du_mest_filer/image3.png){#fig-case2}
 
-::: {.callout-note collapse="true" appearance="minimal"}
+::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 6
 
 Indtegn punkterne $A(1,7)$, $B(3,4)$ og $C(5,7)$ i et koordinatsystem.
@@ -174,7 +174,7 @@ Udregn både almindelig afstand og Manhattan afstand mellem hvert par af punkter
 
 :::
 
-::: {.callout-note collapse="true" appearance="minimal"}
+::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 7
 
 I eksemplet og i opgave 6 var Manhattan afstanden større end den almindelige afstand, men kan Manhattan afstanden være mindre end den almindelige afstand eller kan de to afstande være ens?
@@ -182,7 +182,7 @@ I eksemplet og i opgave 6 var Manhattan afstanden større end den almindelige af
 :::
 
 
-::: {.callout-note collapse="true" appearance="minimal"}
+::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 8
 
 Se på @fig-opg8 fra opgave 2 igen. 
@@ -193,7 +193,7 @@ Punkterne inde i cirklen har en almindelig afstand på under $10$ til det grå p
 
 ![Koordinatsystem med $31$ punkter, samt en cirkel med radius $10$ omkring det grå punkt $P(15,15)$](hvem_ligner_du_mest_filer/image2.png){#fig-opg8}
 
-::: {.callout-note collapse="true" appearance="minimal"}
+::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 9
 
 Opstil en formlen for den almindelige afstand mellem to punkter med koordinaterne $(x_1, y_1)$ og $(x_2, y_2)$. Det er en formel, du kender i forvejen.
@@ -209,7 +209,7 @@ I forbindelse med at undersøge om en tekst, f.eks. en dansk stil, er plagiat, b
 
 Vi vil kun se meget simpelt på ord med $5$ bogstaver, og hvordan man f.eks. kan måle afstande mellem forskellige ord. Vi vil se på alle kombinationer af $5$ bogstaver, også f.eks. xtmsp, selvom de ikke er normale ord.
 
-::: {.callout-note collapse="true" appearance="minimal"}
+::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 10
 
 I tabellen herunder ses ordet "nedes" sammen med ordene "model", "metal" og "nudts".  
@@ -227,7 +227,7 @@ Hvilket af ordene "model", "metal" og "nudts" synes du, at ordet "nedes" ligner 
 
 
 
-::: {.callout-note collapse="true" appearance="minimal"}
+::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 11
 
 Hvis vi vælger, at afstanden mellem to ord er antallet af bogstaver, som er forskellige incl. placering, så er afstanden mellem "xtmsp" og "xmtsq" $3$, da kun $2$ af de $5$ bogstaver matcher incl. placering i de to ord, nemlig x og s.
@@ -236,7 +236,7 @@ Udregn med den metode afstanden mellem "nedes" og hver af de $3$ ord i opgave 10
 
 :::
 
-::: {.callout-note collapse="true" appearance="minimal"}
+::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 12
 
 Overvej og diskuter andre måder at regne afstand mellem to ord på hver $5$ bogstaver. Det kunne f.eks. være noget, hvor ombytning af to nabobogstaver giver mindre afstand end helt tilfældige andre bogstaver, så f.eks. "kolon" og "kloon" er tættere på hinanden end "kolon" og "kston".
@@ -263,7 +263,7 @@ Hvis afstanden her regnes som antal bogstaver, der er forskellige, ses det at af
 |Mus| <b>S </b>W <b>A </b>W A E G W T R Y G P |
 | Rotte| <b>K </b>W <b>V </b>W A E G W T R Y G P|
 
-::: {.callout-note collapse="true" appearance="minimal"}
+::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 13
 
 Udregn på tilsvarende vis afstandene mellem mus-menneske, mus-gær, rotte-menneske, rotte-gær og menneske-gær.
@@ -286,7 +286,7 @@ Her er et eksempel fra kommunal- og regionalvalget i 2021.
 [Tag kandidattesten Kommunalvalg 2021 - Altinget - Alt om politik:
 altinget.dk](https://www.altinget.dk/valg/KV21/kandidattest)
 
-::: {.callout-note collapse="true" appearance="minimal"}
+::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 14
 
 Vælg din egen kommune i testen og besvar spørgsmålene. Se derefter, hvem
@@ -322,7 +322,7 @@ eller flere spørgsmål.
 Afstanden i det første spørgsmål er $1$, afstanden i det andet spørgsmål
 også $1$ og afstanden i det tredje spørgsmål er $2$ pga. den skjulte "neutral" mulighed i midten.
 
-::: {.callout-note collapse="true" appearance="minimal"}
+::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 15
 
 Udregn afstanden i hver af de øvrige $20$ spørgsmål.
@@ -333,7 +333,7 @@ samlet afstand giver det?
 
 :::
 
-::: {.callout-note collapse="true" appearance="minimal"}
+::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 16
 
 Hvad er den mindst mulig afstand samlet for de $23$ spørgsmål? Hvordan
@@ -342,7 +342,7 @@ skal svarene for partiet og for vælgeren se ud fra at få denne afstand?
 Hvad er den størst mulige afstand, og hvordan skal svarene så se ud?
 :::
 
-::: {.callout-note collapse="true" appearance="minimal"}
+::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 17
 
 På @fig-enighed ses det, at siden angiver, at enigheden med Socialdemokratiet er på $79 \%$.
@@ -355,7 +355,7 @@ $79 \%$.
 
 ![På siden angives det, at enigheden med Socialdemokratiet er på $79 \%$.](hvem_ligner_du_mest_filer/image7.png){#fig-enighed}
 
-::: {.callout-note collapse="true" appearance="minimal"}
+::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 18
 
 Vend tilbage til dine egne svar på testen.
@@ -369,7 +369,7 @@ og til det parti, du var mest uenig med.
 Passer dine udregninger med sidens procenter?
 :::
 
-::: {.callout-note collapse="true" appearance="minimal"}
+::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 19 (svær)
 
 Den kandidat, som svarene i opgave 15 var mest enig med, giver en

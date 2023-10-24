@@ -109,10 +109,10 @@ hvis outputværdien $o \geq 0,5$, så er svaret \"ja\" (det er en hund) og
 hvis $o<0.5$, så er svaret \"nej\". Vi kunne altså bruge outputværdien
 til at lave følgende forudsigelse/prædiktion: 
 $$
-\texttt{prædiktion}=
+\textrm{prædiktion}=
 \begin{cases}
-\texttt{ja} & \texttt{hvis } o \geq 0,5 \\
-\texttt{nej} & \texttt{hvis } o < 0,5 \\
+\textrm{ja} & \textrm{hvis } o \geq 0,5 \\
+\textrm{nej} & \textrm{hvis } o < 0,5 \\
 \end{cases}
 $$ {#eq-prediktion} 
 Så i et lidt forenklet setup leder vi altså efter en
@@ -350,8 +350,8 @@ $\vec{x}$, giver vi også en såkaldt *target*-værdi $t$. Her sætter vi:
 $$
 t=
 \begin{cases}
-1 & \texttt{hvis billedet er af en hund} \\
-0 & \texttt{ellers} \\
+1 & \textrm{hvis billedet er af en hund} \\
+0 & \textrm{ellers} \\
 \end{cases}
 $$ {#eq-target}
 Sender vi inputværdierne repræsenteret ved vektoren
@@ -929,7 +929,7 @@ $$
 Hvis man tænker på, at vi skal *til* række $j$ i *lag*
 $k$ *fra* række $i$, så kan man måske huske på notationen sådan her:
 $$
-w_{\texttt{til fra}}^{(\texttt{lag})}
+w_{\textrm{til fra}}^{(\textrm{lag})}
 $$ 
 Se også hvordan det passer med @fig-w_jik.
 

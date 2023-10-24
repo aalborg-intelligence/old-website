@@ -21,6 +21,7 @@ listing:
     - path: materialer/perceptron/perceptron.qmd
     - path: materialer/neurale_net/neurale_net.qmd
     - path: materialer/retningsafledede/retningsafledede.qmd
+    - path: materialer/naivbayes/NaivBayes.qmd
     - path: materialer/afstande/index_afstande.qmd
   type: grid 
   grid-columns: 2
