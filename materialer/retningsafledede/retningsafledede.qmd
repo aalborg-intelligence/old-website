@@ -1,6 +1,5 @@
 ---
 title: "Retningsafledede og gradientnedstigning"
-author: 'Aalborg Intelligence'
 image: "images/minMaxFunc.png"
 description: En introduktion til retningsafledede og gradientnedstigning.
 date: ''
@@ -167,23 +166,23 @@ som er det, vi får brug for. Middelværdisætningen virker indlysende korrekt, 
 Inden vi går til argumentet for formlen for de retningsafledede, vil vi se på et enkelt eksempel med middelværdisætningen.
 
 ::: {#exm-middelvaerdisaetningen}
-*Funktionen* $f\left( x \right) = \sqrt{x}$ *er kontinuert på $\left\lbrack 0;4 \right\rbrack$ og differentiabel i $\left\rbrack 0;4 \right\lbrack$, så betingelserne for at bruge middelværdisætningen er opfyldt.*
+Funktionen $f\left( x \right) = \sqrt{x}$ er kontinuert på $\left\lbrack 0;4 \right\rbrack$ og differentiabel i $\left\rbrack 0;4 \right\lbrack$, så betingelserne for at bruge middelværdisætningen er opfyldt.
 
-*Der findes så et tal $c$ mellem 0 og 4, så $f^{'}\left( c \right) = \frac{f\left( 4 \right) - f(0)}{4 - 0}$.*
+Der findes så et tal $c$ mellem 0 og 4, så $f^{'}\left( c \right) = \frac{f\left( 4 \right) - f(0)}{4 - 0}$.
 
-*Vi ved, at $f^{'}\left( x \right) = \frac{1}{2\sqrt{x}}$ så ligningen ovenfor bliver*
+Vi ved, at $f^{'}\left( x \right) = \frac{1}{2\sqrt{x}}$ så ligningen ovenfor bliver
 $$
 \frac{1}{2\sqrt{c}} = \frac{\sqrt{4} - \sqrt{0}}{4 - 0}
 $$ 
-*Det vil sige, at*
+Det vil sige, at
 $$
 \frac{1}{2\sqrt{c}} = \frac{1}{2}
 $$ 
-*hvilket giver $c = 1$.*
+hvilket giver $c = 1$.
 
-*Tangenthældningen af grafen for $f\left( x \right) = \sqrt{x}$ i $c = 1$ er altså det samme som middelværdien af hældningen af grafen på hele intervallet $\left\lbrack a;b \right\rbrack = \left\lbrack 0;4 \right\rbrack$, det vil sige hældningen af den sekant, der forbinder startpunktet $(0,f\left( 0 \right))$ og slutpunktet $(4,f\left( 4 \right))$.*
+Tangenthældningen af grafen for $f\left( x \right) = \sqrt{x}$ i $c = 1$ er altså det samme som middelværdien af hældningen af grafen på hele intervallet $\left\lbrack a;b \right\rbrack = \left\lbrack 0;4 \right\rbrack$, det vil sige hældningen af den sekant, der forbinder startpunktet $(0,f\left( 0 \right))$ og slutpunktet $(4,f\left( 4 \right))$.
 
-*På @fig-middelvaerdisaetningen illustreres dette princip.*
+På @fig-middelvaerdisaetningen illustreres dette princip.
 :::
 
 ![Illustration af middelværdisætningen. Her har tangenten i $(1,f(1))$ (den grønne linje) samme hældning som sekanten gennem $(0,f(0))$ og $(4,f(4))$ (den blå linje).](images/middelvaerdisaetningen.png){#fig-middelvaerdisaetningen}

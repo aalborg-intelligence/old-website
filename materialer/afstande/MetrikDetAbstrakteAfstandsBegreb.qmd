@@ -58,9 +58,9 @@ Lad os tage et velkendt eksempel.
 :::{#exm-euklid}
 ## Euklidsk afstand som metrik
 
-*Lad $M$ være alle punkter i planen og lad metrikken være den [euklidske afstand](AfstandeMellemPunkteriPlanen.qmd), som vi kender. Funktionen $d$ vil så tage to punkter $P(x_1,y_1)$ og $Q(x_2,y_2)$ i planen og give et reelt tal som output svarende til den euklidiske afstand mellem $P$ og $Q$. Det vil sige, at*
+Lad $M$ være alle punkter i planen og lad metrikken være den [euklidske afstand](AfstandeMellemPunkteriPlanen.qmd), som vi kender. Funktionen $d$ vil så tage to punkter $P(x_1,y_1)$ og $Q(x_2,y_2)$ i planen og give et reelt tal som output svarende til den euklidiske afstand mellem $P$ og $Q$. Det vil sige, at
 $$ d(P,Q) = \sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$$
-*Vi vil senere vise, at denne funktion opfylder betingelserne for en metrik, som defineret ovenfor.*
+Vi vil senere vise, at denne funktion opfylder betingelserne for en metrik, som defineret ovenfor.
 
 :::
 
@@ -84,27 +84,27 @@ hvad man ved, når man har en metrik. En mængde med en metrik kaldes et
 :::{#exm-diskret_metrik}
 ## Den diskrete metrik 
 
-*På en mængde $M$ er funktionen $d$ givet ved.*
+På en mængde $M$ er funktionen $d$ givet ved.
 
 -   $d(p,p)=0$
 
--   *Hvis $p\neq q$ er $d(p,q)=1$.*
+-   Hvis $p\neq q$ er $d(p,q)=1$.
 
-*Det er en metrik -- den opfylder definitionen ovenfor. Men det er ikke
+Det er en metrik -- den opfylder definitionen ovenfor. Men det er ikke
 nogen specielt nyttig metrik. Alle elementer ligger lige tæt på alle
 andre, så der er ikke ny information -- udover, om to elementer er ens
-eller ej.*
+eller ej.
 
 :::
 
 :::{#exm-euklid}
 ## Euklidsk afstand som metrik, fortsat
 
-*Vi vil vise, at den euklidiske afstand mellem to punkter rent faktisk opfylder betingelserne for en metrik, som vi definerede dem ovenfor:*
+Vi vil vise, at den euklidiske afstand mellem to punkter rent faktisk opfylder betingelserne for en metrik, som vi definerede dem ovenfor:
 
-- *Den første betingelse er opfyldt, da $$d(P,Q)=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2} \geq 0$$*
+- Den første betingelse er opfyldt, da $$d(P,Q)=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2} \geq 0$$
 
-- *I den anden betingelse er der to ting at vise. For det første ses det nemt, at 
+- I den anden betingelse er der to ting at vise. For det første ses det nemt, at 
 $$d(P,P)=\sqrt{(x_1-x_1)^2+(y_1-y_1)^2} = \sqrt{0}=0$$
 For det andet -- hvis
 $$d(P,Q)=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}=0$$
@@ -112,13 +112,13 @@ så kan det kun lade sig gøre, hvis både
 $$(x_2-x_1)^2=0 \quad \textrm{og} \quad (y_2-y_1)^2=0$$
 Det kan igen kun lade sig gøre[^3], hvis 
 $$x_1=x_2 \quad \textrm{og} \quad y_1=y_2$$
-Det vil sige, at $P=Q$, og den anden betingelse er således også opfyldt.*
+Det vil sige, at $P=Q$, og den anden betingelse er således også opfyldt.
 
-- *Da $(a-b)^2=(b-a)^2$ får vi, at
+- Da $(a-b)^2=(b-a)^2$ får vi, at
 $$d(P,Q)=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}=\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}=d(Q,P)$$
-og den tredje betingelse er opfyldt.*
+og den tredje betingelse er opfyldt.
 
-- *Det kræver lidt mere at bevise trekantsuligheden, men intuitivt virker det fornuftigt nok. Hvis du i trekant $PQR$, skal fra $P$ til $R$, så bliver turen dertil ikke kortere, hvis du først går om $Q$.*
+- Det kræver lidt mere at bevise trekantsuligheden, men intuitivt virker det fornuftigt nok. Hvis du i trekant $PQR$, skal fra $P$ til $R$, så bliver turen dertil ikke kortere, hvis du først går om $Q$.
 :::
 
 ::: {.callout-note collapse="true" appearance="minimal"}
@@ -140,36 +140,36 @@ Nu skulle det være til at indse, at de fire betingelser er opfyldt.
 :::{#exm-ikke_metrik}
 ## Ikke-metrik
 
-*En elev er træt af kvadratrødder og tænker, at man vel kan droppe den euklidske afstand og i stedet definere en afstand mellem to punkter $p(x_1,y_1)$  og $q(x_2,y_2)$ i planen som følger:*
+En elev er træt af kvadratrødder og tænker, at man vel kan droppe den euklidske afstand og i stedet definere en afstand mellem to punkter $p(x_1,y_1)$  og $q(x_2,y_2)$ i planen som følger:
 
 $$D(p,q)=(x_2-x_1)^2+(y_2-y_1)^2$${#eq-ikke_metrik}
 
-*Der er bare et lille problem: $D$ er ikke en metrik! Den opfylder nemlig ikke trekantsuligheden. Men hvordan kan man se det? Husk på, at vi bare skal finde ét eksempel -- det vil sige tre
-punkter $p,q,r$, hvor trekantsuligheden ikke holder. Så har vi vist, at $D$ ikke er en metrik.*
+Der er bare et lille problem: $D$ er ikke en metrik! Den opfylder nemlig ikke trekantsuligheden. Men hvordan kan man se det? Husk på, at vi bare skal finde ét eksempel -- det vil sige tre
+punkter $p,q,r$, hvor trekantsuligheden ikke holder. Så har vi vist, at $D$ ikke er en metrik.
 
-*Et konkret eksempel: $p=(0,0)$, $q=(2,0)$, $r=(4,0)$. Se @fig-ikke_metrik.*
+Et konkret eksempel: $p=(0,0)$, $q=(2,0)$, $r=(4,0)$. Se @fig-ikke_metrik.
 
 ![Koordinatsystem med punkterne $p=(0,0)$, $q=(2,0)$ og $r=(4,0)$.](images/ikke_metrik.png){#fig-ikke_metrik}
 
-*Afstanden fra $p$ til $r$ er $D(p,r)=4^2+0^2=16$, mens afstanden fra $p$ til $q$ er $D(p,q)=2^2+0^2=4$ og det samme gælder afstanden fra $q$ til $r$: $D(q,r)=2^2+0^2=4$ så* 
+Afstanden fra $p$ til $r$ er $D(p,r)=4^2+0^2=16$, mens afstanden fra $p$ til $q$ er $D(p,q)=2^2+0^2=4$ og det samme gælder afstanden fra $q$ til $r$: $D(q,r)=2^2+0^2=4$ så
 $$D(p,q)+D(q,r)=8$$ 
-*mens*
+mens
 $$D(p,r)=16$$
-*Altså er
-$$ D(p,q)+D(q,r) \ngeq D(p,r) $$*
+Altså er
+$$ D(p,q)+D(q,r) \ngeq D(p,r) $$
 
 
-*Et andet eksempel, som ligner en rigtig trekant: $p=(0,0)$ $q=(2,1)$,
-$r=(4,0)$. Se @fig-ikke_metrik2.*
+Et andet eksempel, som ligner en rigtig trekant: $p=(0,0)$ $q=(2,1)$,
+$r=(4,0)$. Se @fig-ikke_metrik2.
 
 ![Koordinatsystem med punkterne $p=(0,0)$, $q=(2,1)$ og $r=(4,0)$.](images/ikke_metrik2.png){#fig-ikke_metrik2} 
 
 
-*Her er $D(p,q)=2^2+1^2=5$ og $D(q,r)=(4-2)^2+1^2=5$ så*
+Her er $D(p,q)=2^2+1^2=5$ og $D(q,r)=(4-2)^2+1^2=5$ så
 $$D(p,q)+D(q,r)=10$$ 
-*mens* 
+mens 
 $$D(p,r)=4^2+0^2=16$$ 
-*Igen er det med dette afstandsmål kortere at gå fra $p$ til $r$ via $q$ end at gå direkte. Og det er altså derfor ikke en metrik.*
+Igen er det med dette afstandsmål kortere at gå fra $p$ til $r$ via $q$ end at gå direkte. Og det er altså derfor ikke en metrik.
 
 :::
 

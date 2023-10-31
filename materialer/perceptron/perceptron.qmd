@@ -1,6 +1,5 @@
 ---
 title: "Perceptroner"
-author: 'Aalborg Intelligence'
 image: "images/perceptron.png"
 description: Forløberen til kunstige neurale netværk er perceptroner, som du kan læse mere om her.
 date: ''
@@ -258,14 +257,14 @@ eller i kategorien \"Rød blok\" ($o=-1$). Grafisk svarer det til, at man
 indtegner sit $(x_1, x_2)$-punkt i koordinatsystemet i @fig-punkter_kandidattest_graf2 og ser så på om punkt ligger over eller under linjen (ligger det over skal vi stemme blå blok).
 
 :::{#exm-Rosenblatts}
-*Lad os sige at en vælger hverken er enig eller uenig i, at indkomstskatten skal
+Lad os sige at en vælger hverken er enig eller uenig i, at indkomstskatten skal
 sættes ned. Det vil sige, at $x_1=0$. Samtidig er denne vælger meget enig i,
 at danske virksomheder ikke skal pålægges en CO2-afgift. Altså er
 $x_2=2$. Vi udregner nu:
 $$
 -1.5+1.2 \cdot x_1+x_2=-1.5+1.2 \cdot 0+2=0.5
 $$
-Og da denne værdi er større end $0$, sætter vi $o=1$. Det vil sige, at vi vil anbefale denne vælger at stemme blå blok.*
+Og da denne værdi er større end $0$, sætter vi $o=1$. Det vil sige, at vi vil anbefale denne vælger at stemme blå blok.
 :::
 
 Det er da smart! Og det her er faktisk lige præcis idéen bag perceptroner, som den amerikanske psykolog Frank Rosenblatt foreslog helt tilbage i $1958$. Den klassiske perceptron er defineret ved, at perceptronen kan modtage input
@@ -507,14 +506,14 @@ vi vil i det tilfælde ende med den sorte linje som output fra
 algoritmen.
 
 :::{#exm-Rosenblatts2}
-*Vi vil nu se på, hvilken betydning de nye vægte får for vælgeren i
+Vi vil nu se på, hvilken betydning de nye vægte får for vælgeren i
 @exm-Rosenblatts. Vi har stadig, at $x_1=0$ og $x_2=2$. Vi udregner nu med de nye vægte:
 $$
 -0.5+1.5 \cdot x_1-0.5 \cdot x_2=-0.5+1.5 \cdot 0-0.5 \cdot 2=-1.5
 $$
 Nu har vi en værdi, som er mindre end $0$, og derfor sætter vi $o=-1$. Det vil
 sige, at vores anbefaling til denne vælger nu vil være at stemme på rød
-blok! Det kan måske virke overraskende, men @fig-punkter_kandidattest_graf4 illustrerer hvorfor, vi ikke får det samme i de to tilfælde.*
+blok! Det kan måske virke overraskende, men @fig-punkter_kandidattest_graf4 illustrerer hvorfor, vi ikke får det samme i de to tilfælde.
 
 ```{r}
 #| echo: false
@@ -525,12 +524,12 @@ blok! Det kan måske virke overraskende, men @fig-punkter_kandidattest_graf4 ill
 fig + geom_abline(slope=-1.2,intercept=1.5,size=1) + geom_abline(slope=3,intercept=-1,colour='green',size=1)+geom_point(aes(x=0,y=2),colour="black",size=4)
 ```
 
-*Det sorte punkt i $(0,2)$ repræsenterer vælgerens svar på de to
+Det sorte punkt i $(0,2)$ repræsenterer vælgerens svar på de to
 spørgsmål. Her kan vi se, at punktet ligger over den sorte linje
 svarende til, at vi med denne klassificering anbefaler vælgeren at
 stemme på blå blok. Samtidig ligger punktet til venstre for den grønne linje og
 bruges denne linje til klassificering, vil vi nu anbefale vælgeren at
-stemme på rød blok.*
+stemme på rød blok.
 :::
 
 
@@ -1060,13 +1059,13 @@ ligegyldigt hvor du bliver placeret i landskabet i
 du hele tiden går små skridt i den negative gradients retning.
 
 :::{#exm-Rosenblatts3}
-*Vi ser igen på @exm-Rosenblatts og @exm-Rosenblatts2, hvor $x_1=0$ og $x_2=1$. Baseret på
+Vi ser igen på @exm-Rosenblatts og @exm-Rosenblatts2, hvor $x_1=0$ og $x_2=1$. Baseret på
 vægtene fra gradientnedstigning, får vi:
 $$
 -0.0769+0.6410 \cdot x_1 -0.0598 \cdot x_2=-0.0769+0.6410 \cdot 0 -0.0598 \cdot 1=-0.1367
 $$
 Da denne værdi er mindre end $0$, sætter vi $o=-1$. Altså er vi tilbage
-til at befale vælgeren at stemme på rød blok.*
+til at befale vælgeren at stemme på rød blok.
 :::
 
 ## Forskel på perceptron learning og gradientnedstigning 

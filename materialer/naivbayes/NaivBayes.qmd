@@ -1,6 +1,5 @@
 ---
 title: "Naiv Bayes klassifier"
-author: 'Aalborg Intelligence'
 image: "images/bayes_thm.png"
 description: "Beskrivelse af naiv Bayes klassifier."
 date: ''

@@ -36,7 +36,9 @@ Udarbejdelse af kandidattest i forbindelse med valg. [samfundsfag A]
 Brugen af kunstig intelligens i forbindelse med ansigtsgenkendelse. Herunder kan emner som persondataloven, retssikkerhed og/eller partiernes holdning til overvågning behandles. [samfundsfag A]
 
 #### Materialer
+
 [Noten om kunstige neurale netværk](../materialer/neurale_net/neurale_net.qmd).
+
 :::
 
 
@@ -46,6 +48,13 @@ Brugen af kunstig intelligens i forbindelse med ansigtsgenkendelse. Herunder kan
 ### AI og anvendelser
 
 Formidlingsopgave hvor AI metoder behandles og derefter formidles f.eks. som en populærvidenskabelig artikel. Eleverne skal skrive en danskfaglig meta-del, hvor de redegør for deres overvejelser og valg med hensyn til målgruppe, virkemidler med videre.
+
+### Materialer
+[Noten om kunstige neurale netværk](../materialer/neurale_net/neurale_net.qmd).
+
+[Noten om perceptroner](../materialer/perceptron/perceptron.qmd).
+
+[Noten om naiv Bayes klassifier](../materialer/naivbayes/NaivBayes.qmd).
 
 :::
 
@@ -125,7 +134,21 @@ Redegørelse for hvordan et kunstigt neuralt netværk trænes. Diskussion af de 
 
 [Bilag 1](https://medium.com/@hussain.tibacademy/advantages-and-disadvantages-of-machine-learning-language-ad11badda9e5)
 
+:::
 
+## Psykologi og matematik
+
+::: {.callout-note collapse="true" appearance="minimal"}
+### Prediktion af psykisk sygdom ved hjælp af deep learning
+
+Forklare hvordan kunstige neurale netværk kan bruges til at prediktere psykisk sygdom baseret på register og genetiske data.
+
+
+#### Materialer
+
+[Noten om kunstige neurale netværk](../materialer/neurale_net/neurale_net.qmd).
+
+[Deep Learning for Cross-Diagnostic Prediction of Mental Disorder Diagnosis and Prognosis Using Danish Nationwide Register and Genetic Data](https://jamanetwork.com/journals/jamapsychiatry/article-abstract/2799270).
 
 :::
 

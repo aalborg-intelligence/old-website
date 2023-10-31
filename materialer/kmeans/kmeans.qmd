@@ -1,8 +1,7 @@
 ---
 title: "Clustering med K-means"
-author: 'Aalborg Intelligence'
 image: "images/kmeansbil.png"
-description: "Beskrivelse af K-means"
+description: "Beskrivelse af hvordan K-means kan bruges til at opdele observationer i et antal grupper. Clustering med K-means er et eksempel på *unsupervised learning*."
 date: ''
 format:
     html: 
@@ -33,146 +32,368 @@ fig-cap-location: margin
 
 ## K-means
 
-Ved $K$-means er målet at inddele nogle observationer i nogle grupper, så observationerne i grupperne minder meget om hinanden.
+Når $K$-means metoden bruges, er målet at inddele nogle observationer i grupper, så observationerne i hver gruppe minder meget om hinanden.
 
-![Punkter som ønskes delt op i 3 grupper](images/kmeansbil.jpg)
+![Til venstre ses en række observationer, som ønskes inddel i $3$ grupper. Til højre ses et bud på en sådan inddeling.](images/kmeansbil.jpg){#fig-kmeansbil}
 
-På figur til venstre ses et plots af punkter hvor vi ønsker at inddele punkterne i 3 grupper. Man kan helt sikkert få en ide om hvordan grupperne skal laves, og figuren til højre giver en løsning som ser fornuftig ud, men ved nogle punkter tænker man nok alligevel lidt om de lige skal være i den orange eller blå gruppe.
+På @fig-kmeansbil til venstre ses en række punkter, hvor vi ønsker at inddele punkterne i $3$ grupper. Man kan nok godt få en idé om, hvordan grupperne kan laves alene ved at se på billedet til venstre. På @fig-kmeansbil til højre ses et bud på en løsning, som ser fornuftig ud, men ved nogle punkter tænker man nok alligevel lidt, om de nu skulle have været i den orange eller blå gruppe. Når vi arbejder med $K$-means, så er idéen, at vi ikke på forhånd har nogle observationer, hvor vi *ved* hvilken gruppe, de tilhører. Med andre ord har vi altså ikke et træningsdatasæt at gå ud fra her. Derfor taler man også om *unsupervised learning*. Det eneste vi ved, om vores punkter i @fig-kmeansbil er deres $x$- og $y$-koordinat og ud fra det, skal vi så prøve at danne nogle grupper. Antallet af grupper ved man faktisk heller ikke nødvendigvis noget om -- så her er det et valg, at vi har besluttet at prøve at inddele data i $3$ grupper. Det kunne i princippet lige så godt have været $2$ eller $4$ grupper eller noget helt andet! 
 
 
-Observationerne vil her noteres som  $x_1,x_2,....,x_n$ hvorved der ialt er $n$ observationer.
-Hver af observationer er et punkt med $d$ koordianter (som dog behandles som var det vektorer/stedevektorer), og som udgangspunkt benyttes [euklidisk afstand](../afstande/AfstandeMellemPunkteriPlanen.qmd#sec-euklidisk_afstand) til at bestemme afstand mellem punkter.
+Observationerne vil vi her kalde for  $\vec{x_1}, \vec{x_2},....,\vec{x_n}$, så der ialt er $n$ observationer.
+Hver observation er et punkt med $d$ koordinater (som dog behandles, som var det vektorer/stedvektorer), og som udgangspunkt benyttes [euklidisk afstand](../afstande/AfstandeMellemPunkteriPlanen.qmd#sec-euklidisk_afstand) til at bestemme afstand mellem punkter. I eksemplet i @fig-kmeansbil er $d=2$, fordi alle punkter i planen har $2$ koordinater.
 
 Givet et heltal $k$, så ønsker vi at opdele de $n$ observationer
-$x_{1},x_{2},....,x_{n}$ i $k$ grupper kaldet $S_1,S_2,....,S_k$. Antallet af observationer i gruppen $S_i$ betegnes med $|S_i|$ (en gruppe $S_i$ er egentlig en mængde, og $|S_i|$ er kardinaliteten deraf, altså antal elementer deri). 
+$\vec{x_1}, \vec{x_2},....,\vec{x_n}$ i $k$ grupper, som vi kalder for $S_1,S_2,....,S_k$. Antallet af observationer i gruppen[^1] $S_i$ betegnes med $|S_i|$. 
 
-Det skal være sådan at observationerne i samme
-gruppe ligger tæt på hinanden og vi ønsker at minimere følgende sum
+Hele idéen i $K$-means metoden, er at det skal være sådan, at observationerne i samme
+gruppe ligger tæt på hinanden. Det er også sådan, at vi har farvet punkterne til højre i @fig-kmeansbil. Vi ønsker derfor at minimere følgende sum
 
-$$SUMPAR=\Sigma_{i=1}^{k}\frac{1}{|S_i|}\Sigma_{p\in S_i}\Sigma_{q\in S_i}\|p-q\|^2$$
-Denne giver summen af hvert punkts gennemsnitlige kvadrerede afstand til alle punkter i samme gruppe som sig selv (inklusiv sig selv).
+$$SUMPAR=\sum_{i=1}^{k}\frac{1}{|S_i|}\sum_{\vec p\in S_i}\sum_{\vec q\in S_i}\|\vec p-\vec q\|^2$$
+Det ser måske lidt voldsomt ud, men lad os prøve at nedbryde ovenstående lidt. Vi forestiller os, at vi har de $k$ grupper $S_1, S_2, \dots , S_k$. Udtrykket
 
-Det er desværre ikke lige til at finde den optimale løsning på problemet, men her angives en metode/algoritme som forhåbentlig finder en god løsning.
+$$ \|\vec p- \vec q\|^2 $$
+er den kvadrerede afstand mellem to punkter[^3] $\vec p$ og $\vec q$. Det vil sige, den [euklidiske afstand](../afstande/AfstandeMellemPunkteriPlanen.qmd#sec-euklidisk_afstand) mellem $\vec p$ og $\vec q$ opløftet i anden. Men her er vi kun interesseret i at se på kvadrerede afstande mellem punkter i samme gruppe. Derfor lægger vi kun kvadrerede afstand samme, hvis $\vec p$ og $\vec q$ er i samme gruppe -- alstå $\vec p\in S_i$ og $\vec q \in S_i$. Det er udtrykt i 
+
+$$ \sum_{\vec p\in S_i}\sum_{\vec q\in S_i}\|\vec p-\vec q\|^2 $$
+
+Nu kan der være nogle grupper med mange punkter og andre grupper med få punkter. For at tage højde for det dividerer vi lige ovenstående udtryk med antallet af punkter i gruppe $S_i$: $|S_i|$. Det kommer til at se sådan her ud
+
+$$\frac{1}{|S_i|}\sum_{\vec p\in S_i}\sum_{\vec q\in S_i}\|\vec p-\vec q\|^2$$
+Det her vil vi gerne gøre for alle grupper og derfor ender vi samlet set med
+
+$$
+SUMPAR=\sum_{i=1}^{k}\frac{1}{|S_i|}\sum_{\vec p\in S_i}\sum_{\vec q\in S_i}\|\vec p-\vec q\|^2
+$${#eq-SUMPAR}
+
+Alt i alt får vi altså, at $SUMPAR$ giver summen af hvert punkts gennemsnitlige kvadrerede afstand til alle punkter i samme gruppe som sig selv (inklusiv sig selv).
+
+Idéen er så nu, at vi vil prøve at bestemme grupperne $S_1, S_2, \dots, S_k$ sådan, at denne sum bliver så lille så muligt. Det vil nemlig svare til, at de punkter, der ligger tæt på hinanden, kommer i samme gruppe, og punkter, som ligger langt væk fra hinanden, kommer i forskellige grupper.
+
+Det er desværre ikke lige til at finde den optimale løsning på problemet, men her angives en metode/algoritme, som forhåbentlig finder en god løsning.
 
 ## Algoritme
 
 Her ses på en metode til at finde en god løsning til $K$-means problemet. 
-Her benytter man sig af "midterpunkter" for
-grupperne, disse kaldes $\mu_1,\mu_2,...,\mu_k$ og ved algoritmen prøves umiddelbart på at minimere følgende sum
-$$SUMMIDT=\Sigma_{i=1}^{k}\Sigma_{p\in S_i}\|p-\mu_i\|^2$$.
+Vi får her brug for "midterpunktet" for hver gruppe, som vi vil kalde for $\vec{\mu_1},\vec{\mu_2},...,\vec{\mu_k}$. Ved midterpunktet vil vi simpelthen bare forstå gennemsnittet af alle punkter i den pågældende gruppe.
 
-Her summeres den kvadreret afstand fra hvert punkt til midterpunktet for gruppen, som punktet er i. Senere vil vi se på sammenhæng mellem summen $SUMPAR$ og $SUMMIDT$.
+I algoritmen vil vi prøve at minimere følgende sum
 
-Her er spørgsmålet så lige med hvordan man kommer igang med at fastlægge grupper og midterpunkter, for vi kender hverken mængderne $S_1,S_2,....,S_k$ eller midterpunkterne $\mu_1,\mu_2,...,\mu_k$. Til dette kan følgende fremgansmåde/algoritme
-benyttes.
+$$
+SUMMIDT=\sum_{i=1}^{k}\sum_{\vec p\in S_i}\|\vec p-\vec{\mu_i}\|^2
+$$ {#eq-SUMMIDT}
 
-1\. Start med at tage hver eneste observation og tilføj den til en tilfældig
+Her summeres altså den kvadrerede afstand fra hvert punkt til midterpunktet for gruppen, som punktet er i. Og det gør man så for alle grupper og lægger alle de kvadredede afstande sammen. Senere vil vi se på sammenhængen mellem summen $SUMPAR$ og summen $SUMMIDT$.
+
+Spørgsmålet er nu, hvordan man kommer igang med at fastlægge grupper og midterpunkter, for vi kender hverken mængderne $S_1,S_2,....,S_k$ og dermed heller ikke midterpunkterne $\vec{\mu_1},\vec{\mu_2},...,\vec{\mu_k}$. 
+
+For at løse det problem vil vi bruge følgende fremgangsmåde/algoritme:
+
+1) Start med at tage hver eneste observation og tilføj den til en tilfældig
 gruppe (der skal mindst være en observation i hver gruppe).
 
-2\. Midterpunkterne bestemmes ved at lade
-$$\mu_i=\frac{\Sigma_{p\in S_i}(p)}{|S_i|}.$$
-3\. For hvert af de $n$ observationer findes det midterpunkt der har
-mindst afstand til punktet. Hvis det for en observation $x_i$ er
-midterpunktet $\mu_a$ der er nærmest skal $x_i$ være i mængden $S_a$.
+2) Midterpunkterne bestemmes ved at lade
 
-4\. Gentag trin 2 og 3 indtil vi kommer til et tidspunkt hvor ingen
+$$
+\vec{\mu_i}=\frac{1}{|S_i|}\sum_{\vec p\in S_i}\vec p
+$$
+3) For hvert af de $n$ observationer findes det midterpunkt, der har
+den mindste afstand til punktet. Hvis det for en observation $\vec{x_i}$ er
+midterpunktet $\vec{\mu_a}$, der er nærmest, skal $\vec{x_i}$ være i mængden $S_a$.
+
+4) Gentag trin 2 og 3 indtil vi kommer til et tidspunkt, hvor ingen
 punkter kommer til at skifte til en anden gruppe.
 
-
-Så er spørgsmålet bare med om denne fremgansmåde virkelig fungerer. 
+Det virker jo meget rimeligt. Så er spørgsmålet bare, om denne fremgangsmåde virkelig fungerer! Det vil vi se nærmere på i det følgende.
 
 ### Fornuftigt valg af midterpunkter og grupper
 
-Først kunne det måske være rart at få en fornemmelse af hvorfor $\mu_1,\mu_2,...,\mu_k$ betegnes som midterpunkter. Prøv selv at beregne midterpunktet vha. formlen når en gruppe indeholder hhv.
-a) de to punkter (3,9) og (7,11).
-b) de fire punkter (10,30), (17,34), (12,27) og (11,32).
-
-For de de fire punkter fra b) kan man ligeledes finde gennemsnittet af 1.koordinaterne og gennemsnittet af 2.koordinaterne og se at dette netop stemmer overnes med midterpunktet.
+Først kunne det måske være rart at få en fornemmelse af hvorfor $\vec{\mu_1},\vec{\mu_2},...,\vec{\mu_k}$ betegnes som midterpunkter. 
 
 
-Her ser vi på hvorfor det er fornuftgt at vælge midterpunkterne som det
-sker i trin 2 af algoritmen. Siden vi ønsker at summen kaldet SUMMIDT skal minimeres vil vi se at valget $\mu_1,\mu_2,...,\mu_k$ netop minimerer denne sum når vi tænker at grupperne er fastlagt.  
+::: {#exm-midterpunkter}
+Vi forestiller os, at vi har to grupper med følgende punkter:
 
-Ved summen SUMMIDT har $\mu_i$ kun en effekt på delen hørende til gruppen $S_i$, altså
-$$\Sigma_{p\in S_i}\|p-\mu_i\|^2.$$
+- Gruppe 1) med punkterne $(3,9)$ og $(7,11)$.
 
-For en vektor $v$, har vi følgende sammenhæng mellem længde og skalarprodukt/prikprodukt.
-$$\|v\|^2=v\cdot v.$$
-Dette gør at vi kan omskrive vores sum for gruppen $S_i$ til
+- Gruppe 2) med punkterne $(10,30)$, $(17,34)$, $(12,27)$ og $(11,32)$.
 
-$$\Sigma_{p\in S_i}{(p-\mu_i)\cdot (p-\mu_i)}$$
-Skalarproduktet udregnes ved at tage summen af produktet af tilsvarende koordinater for vektorerne. Hvis vi lige lader $p_m$ og $\mu_{i,m}$ betegne  den $m.$-koordinat af hhv. $p$ og $\mu_i$ så kan ovenstående sum skrives som  
+Som nævnt tidligere kan vi tænke på hvert punkt som stedvektoren til punktet.[^2] Vi kan nu finde midterpunktet for den første gruppe:
 
-$$\Sigma_{m=1}^{d}\Sigma_{p\in S_{i}}{(p_m-\mu_{i,m})\cdot (p_m-\mu_{i,m})}$$
+$$\vec{\mu_1}=\frac{\sum_{\vec p\in S_1}(\vec p)}{|S_1|} = \frac{\begin{pmatrix} 
+3 \\ 9\end{pmatrix} + \begin{pmatrix} 
+7 \\ 11\end{pmatrix}}{2}= \frac{\begin{pmatrix} 
+10 \\ 20\end{pmatrix} }{2} = \begin{pmatrix} 
+5 \\ 10\end{pmatrix}$$
+
+Midterpunktet for den første gruppe har altså koordinatsæt $(5,10)$.
+
+Midterpunktet for den anden gruppe bliver tilsvarende
+
+$$\vec{\mu_2}=\frac{\sum_{\vec p\in S_2}(\vec p)}{|S_2|} = \frac{\begin{pmatrix} 
+10 \\ 30\end{pmatrix} + \begin{pmatrix} 
+17 \\ 34\end{pmatrix} + \begin{pmatrix} 
+12 \\ 27\end{pmatrix} + \begin{pmatrix} 
+11 \\ 32\end{pmatrix}}{4}= \frac{\begin{pmatrix} 
+50 \\ 123 \end{pmatrix} }{4} = \begin{pmatrix} 
+12.5 \\ 30.75 \end{pmatrix}$$
+
+Midterpunktet for den anden gruppe har så koordinatsæt $(12.5, 30.75)$. 
+
+Dette er illustreret i @fig-midterpunkter.
+
+![To grupper af punkter (orange og blå) sammen med de tilhørende midterpunkter $\vec{\mu_1}$ og $\vec{\mu_2}$.](images/eks_midterpunkter.png){#fig-midterpunkter}
+
+På @fig-midterpunkter bliver det tydeligt, hvorfor det er fornuftigt at vælge midterpunkterne, som det sker i trin 2 i algoritmen.
+::: 
+
+Da vi ønsker, at summen kaldet $SUMMIDT$ skal minimeres vil vi se, at valget af $\vec{\mu_1},\vec{\mu_2},...,\vec{\mu_k}$ netop minimerer denne sum, når vi tænker, at grupperne er fastlagt.  
+
+Ved summen $SUMMIDT$ har $\vec{\mu_i}$ kun en effekt på delen hørende til gruppen $S_i$, altså
+$$\sum_{\vec p\in S_i}\|\vec p-\vec{\mu_i}\|^2$$
+
+For en vektor $\vec v$, har vi følgende sammenhæng mellem længde og skalarprodukt/prikprodukt:
+
+$$\|\vec v\|^2=\vec v\cdot \vec v$$ {#eq-skalar}
+
+Dette gør, at vi kan omskrive vores sum for gruppen $S_i$ til
+
+$$\sum_{\vec p\in S_i}{(\vec  p-\vec{\mu_i})\cdot (\vec p-\vec{\mu_i})}$$
+Skalarproduktet udregnes ved at tage summen af produktet af tilsvarende koordinater for vektorerne. Hvis vi lader $p_m$ og $\mu_{i,m}$ betegne den $m$'te koordinat af henholdsvis $\vec p$ og $\vec{\mu_i}$, så kan ovenstående sum skrives som  
+
+$$\sum_{\vec p\in S_{i}}\sum_{m=1}^{d}{(p_m-\mu_{i,m})\cdot (p_m-\mu_{i,m})} = \sum_{m=1}^{d} \sum_{\vec p\in S_{i}} {(p_m-\mu_{i,m})\cdot (p_m-\mu_{i,m})}$$
 Her vil valget af $\mu_{i,m}$ kun have effekt på 
-$$\Sigma_{p\in S_{i}}{(p_m-\mu_{i,m})\cdot (p_m-\mu_{i,m})}.$$
-Ved denne sum har vi ikke længere vektorer og vi kan benytte kvadratsætning til at få
+$$\sum_{\vec  p\in S_{i}}{(p_m-\mu_{i,m})\cdot (p_m-\mu_{i,m})}$$
+I denne sum har vi ikke længere vektorer, og vi kan derfor benytte anden kvadratsætning til at få
 
-$$\Sigma_{p\in S_i}{(p_i^2-2\cdot p_i\cdot \mu_{i,m}+\mu_{i,m}^2)}$$
-For at finde ud af hvordan $\mu_{i,m}$ skal vælges for at lave summen mindst mulig differentieres med hensyn til $\mu_{i,m}$ og udtrykket sættes lig 0. 
+$$\sum_{\vec p\in S_i}{(p_m^2-2\cdot p_m\cdot \mu_{i,m}+\mu_{i,m}^2)}$$
+For at finde ud af hvordan $\mu_{i,m}$ skal vælges for at lave summen mindst mulig, differentieres ovenstående udtryk med hensyn til $\mu_{i,m}$ og udtrykket sættes lig med $0$: 
 
-$$\Sigma_{p\in S_i}{(-2\cdot p_m+2\cdot \mu_{i,m})}=0$$ 
-Ved at benytte at hver led af denne sum vil indeholde $2\cdot \mu_{i,m}$ og der ialt er $|S_i|$ fås
-$$\mu_{i,m}=\frac{\Sigma_{p\in S_i}(p_m)}{|S_i|}.$$
-Hvis dette valg tages for alle koordinater for $\mu_i$ svarer det til
-$$\mu_{i}=\frac{\Sigma_{p\in S_i}(p)}{|S_i|}$$
-som netop er den måde $\mu_i$ vælges på ved step 2 af algoritmen.
-Her glemte vi måske lidt at argumentere for at valet af $\mu_{i,m}$ faktisk gav et lokalt minimum, men det må være oplagt at hvis $\mu_{i,m}$ enten vælges alt for lille eller stor vil afstanden til punkterne i gruppen $S_i$ blive store.
+\begin{align}
+\frac{\partial}{\partial \mu_{i,m}} \sum_{\vec p\in S_i}{(p_m^2-2\cdot p_m\cdot \mu_{i,m}+\mu_{i,m}^2)} 
+&= \sum_{\vec p\in S_i} \frac{\partial}{\partial \mu_{i,m}} {(p_m^2-2\cdot p_m\cdot \mu_{i,m}+\mu_{i,m}^2)}\\
+&= \sum_{\vec p\in S_i}{(-2\cdot p_m+2\cdot \mu_{i,m})}=0
+\end{align}
 
-Lad os nu se på valget af grupper ved step 3 af algoritmen. For en punkt $p$ vælges den gruppe $S_i$ hvor midtpunktet $\mu_i$ er tættest på $p$. Derved er det oplagt at denne proces minimerer summen SUMMIDT når vi har fastholdt midterpunkterne $\mu_1,\mu_2,...,\mu_k$. 
+Den sidste ligning kan omskrives til
+$$ \sum_{\vec p\in S_i}{2\cdot \mu_{i,m}} = \sum_{\vec p\in S_i}{2\cdot p_m}$$
+Ved division med $2$ fås
+$$ \sum_{\vec p\in S_i}{\mu_{i,m}} = \sum_{\vec p\in S_i}{p_m}$$
 
-Når et punkt skifter gruppe vil SUMMIDT ikke længere være optimal i forhold til $\mu_1,\mu_2,...,\mu_k$ før de bliver opdateret igen og som ved algoritmen kan disse to steps gentages indtil ingen punkter skifter gruppen hvorved SUMMIDT har ramt et lokalt minimum i forhold til valg af gruppe for det enkelt punkt og valg af midterpunkt for hver gruppe.
+Vi kan nu udnytte at hvert led i den første sum slet ikke afhænger af $\vec p$, og da summen består af$|S_i|$ led fås
+$$|S_i| \cdot  \mu_{i,m}= \sum_{\vec p\in S_i}{p_m}$$
 
-## Sammenhæng mellem summer
-Nu vil vi endelig se på sammenhængen mellem de to summer og derved opnå at ideen med at minimere summen SUMMIDT faktisk også minimerer summen SUMPAR. 
+Altså er
+$$\mu_{i,m}=\frac{1}{|S_i|} \sum_{\vec p\in S_i}p_m$$
+Hvis dette valg tages for alle koordinater for $\vec{\mu_i}$ svarer det til
+$$\vec{\mu_{i}}=\frac{1}{|S_i|} \sum_{\vec p\in S_i} \vec p$$
+som netop er den måde $\vec{\mu_i}$ vælges på ved trin $2$ i algoritmen.
 
-Her vises at $$SUMPAR=2\cdot SUMMIDT$$ når midterpunkterne er valgt så er
+Her glemte vi at argumentere for, at valget af $\mu_{i,m}$ rent faktisk gav et lokalt minimum, men lidt løst kan man sige, at hvis $\mu_{i,m}$ enten vælges alt for lille eller stor, vil afstanden og dermed også den kvadrerede afstand til punkterne i gruppen $S_i$ blive store. Det kan selvfølgelig også bevises helt formelt.
+
+Lad os nu se på valget af grupper ved trin $3$ i algoritmen. For en punkt $\vec p$ vælges den gruppe $S_i$, hvor midtpunktet $\vec{\mu_i}$ er tættest på $\vec p$. Derved er det oplagt, at denne proces minimerer summen $SUMMIDT$, når vi har fastholdt midterpunkterne $\vec{\mu_1},\vec{\mu_2},...,\vec{\mu_k}$. 
+
+Når et punkt skifter gruppe vil $SUMMIDT$ ikke længere være optimal i forhold til $\vec{\mu_1},\vec{\mu_2},...,\vec{\mu_k}$ før de bliver opdateret igen. I algoritmen bliver disse to trin netop gentaget, indtil ingen punkter skifter gruppe, hvorved $SUMMIDT$ har ramt et lokalt minimum i forhold til valg af gruppe for det enkelt punkt og valg af midterpunkt for hver gruppe.
+
+## Sammenhængen mellem SUMPAR og SUMMIDT
+
+Nu vil vi endelig se på sammenhængen mellem de to summer $SUMMIDT$ og $SUMPAR$. Vi vil vise, at 
+$$SUMPAR=2\cdot SUMMIDT$$ 
+når midterpunkterne er valgt på denne måde
+
 $$
-\mu_{i}=\frac{\Sigma_{p\in S_i}(p)}{|S_i|} \text{  } \text{  } \text{  } \text{   og derved  } \text{  } \text{  } \text{  } \text{  } |S_i|\cdot \mu_{i}=\Sigma_{p\in S_i}(p).
+\vec{\mu_{i}}=\frac{1}{|S_i|} \sum_{\vec p\in S_i}\vec p \quad \quad \textrm{og derved} \quad \quad |S_i|\cdot \vec{\mu_{i}}=\sum_{\vec p\in S_i} \vec p
+$$ {#eq-midtpunkt}
+
+Det betyder, at hvis vi minimerer summen $SUMMIDT$, så har vi også minimeret summen $SUMPAR$, som var det vi oprindeligt ønskede.
+
+Vi starter med at se på summen $SUMPAR$ i (@eq-SUMPAR) dog kun for en af grupperne $S_a$ og uden faktoren $\frac{1}{|S_i|}$. Altså ser vi på
+summen 
+$$
+\sum_{\vec p\in S_a}\sum_{\vec q\in S_a}\|\vec p-\vec q\|^2
+$${#eq-del_SUMPAR}
+
+Ved at bruge sammenhængen mellem længde af vektor og skalarprodukt får vi
+
+$$
+\sum_{\vec p\in S_a}\sum_{\vec q\in S_a}(\vec p-\vec q)\cdot(\vec p-\vec q)
 $$
 
-Vi ser på summen SUMPAR dog kun for en af grupperne $S_a$ og uden faktoren $\frac{1}{|S_i|}$. Altså ses på
-summen $$\Sigma_{p\in S_a}\Sigma_{q\in S_a}\|p-q\|^2.$$
-Ved at bruge sammenhængen mellem længde af vektor og skalarprodukt fås
-$$\Sigma_{p\in S_a}\Sigma_{q\in S_a}(p-q)\cdot(p-q).$$
-Her benyttes det som svarer til kvadratsætning og der omskrives til længder
-$$\Sigma_{p\in S_a}\Sigma_{q\in S_a}(\|p\|^2+\|q\|^2-2\cdot p\cdot q).$$
-Denne opdeles i tre dobbeltsummer og $-2$ kan trækkes ud af den ene 
-$$\Sigma_{p\in S_a}\Sigma_{q\in S_a}\|p\|^2+\Sigma_{p\in S_a}\Sigma_{q\in S_a}\|q\|^2-2\cdot \Sigma_{p\in S_a}\Sigma_{q\in S_a} p\cdot q.$$
-De to første dobbeltsummer er egentlig ens
-$$2\cdot \Sigma_{p\in S_a}\Sigma_{q\in S_a}\|p\|^2-2\cdot \Sigma_{p\in S_a}\Sigma_{q\in S_a}p\cdot q.$$
-Fra valget af $\mu_a$ ved vi at $$\Sigma_{p\in S_a}\Sigma_{q\in S_a}p\cdot q=|S_a|^2\cdot \|\mu_a\|^2 \Leftrightarrow 2|S_a|^2\cdot \|\mu_a\|^2-2\cdot\Sigma_{p\in S_a}\Sigma_{q\in S_a}p\cdot q=0.$$
+Her bruger vi nu, hvad der svarer til anden kvadratsætning for vektorer og vi omskriver tilbage til længder ved at bruge (@eq-skalar)
 
-Da dette giver 0 kan det tilføjes til udtrykket fra før 
+$$
+\sum_{\vec p\in S_a}\sum_{\vec q\in S_a}(\|\vec p\|^2+\|\vec q\|^2-2\cdot \vec p\cdot \vec q)
+$$
 
-$$2\cdot \Sigma_{p\in S_a}\Sigma_{q\in S_a}(\|p\|^2)+2|S_a|^2\cdot \|\mu_a\|^2-4\cdot \Sigma_{p\in S_a}\Sigma_{q\in S_a}(p\cdot q).$$
-I den sidste dobbeltsum kan p tages ud af den inderste sum og den inderste sum kan da omskrives til $|S_a|\cdot \mu_{a}$. Derved fås
-$$2\cdot \Sigma_{p\in S_a}\Sigma_{q\in S_a}\|p\|^2+2|S_a|^2\cdot \|\mu_a\|^2-4\cdot \Sigma_{p\in S_a}(p\cdot |S_a|\cdot \mu_a).$$
-Ved den første dobbeltsum ses at ledene ikke afhænger af $q$ hvorved vi får
-$$2\cdot \Sigma_{p\in S_a}(|S_{a}|\cdot \|p\|^2)+2|S_a|^2\cdot \|\mu_a\|^2-4\cdot \Sigma_{p\in S_a}(p\cdot |S_a|\cdot \mu_a).$$
-Her kan $|S_a|$ tages ud af summer og sættes udenfor en parentes sammen med 2
-$$2\cdot |S_a|\cdot (\Sigma_{p\in S_a}(\|p\|^2)+|S_a|\cdot \|\mu_a\|^2-2\cdot \Sigma_{p\in S_a}(p\cdot \mu_a)).$$
-Her kan $|S_a|\cdot \|\mu_a\|^2$ laves om til en sum hvor 
-alle led er $\|\mu_a\|^2$ hvorved alt kan samles i en sum
+Denne dobbeltsum opdeles nu i tre dobbeltsummer og $-2$ kan trækkes ud af den ene 
 
-$$2\cdot |S_a|\cdot \Sigma_{p\in S_a}(\|p\|^2+\|\mu_a\|^2-2\cdot\mu_a).$$
+$$
+\sum_{\vec p\in S_a}\sum_{\vec q\in S_a}\|\vec p\|^2+\sum_{\vec p\in S_a}\sum_{\vec q\in S_a}\|\vec q\|^2-2\cdot \sum_{\vec p\in S_a}\sum_{\vec q\in S_a} \vec p\cdot \vec q
+$$
 
-Ved brug af kvadratsætning kan dette omskrives til
+De to første dobbeltsummer er faktisk ens og derfor får vi
 
-$$2\cdot |S_a|\cdot \Sigma_{p\in S_a}\|p-\mu_a\|^2.$$
+$$
+2\cdot \sum_{\vec p\in S_a}\sum_{\vec q\in S_a}\|\vec p\|^2-2\cdot \sum_{\vec p\in S_a}\sum_{\vec q\in S_a}\vec p\cdot \vec q
+$$ {#eq-vilde_summer}
+
+For at komme videre med ovenstående vælger vi at se på dobbeltsummen
+
+$$
+\sum_{\vec p\in S_a}\sum_{\vec q\in S_a}\vec p\cdot \vec q
+$$
+Den inderste sum afhænger ikke af $\vec p$ og derfor kan $\vec p$ sættes uden for sumtegnet[^4]:
+
+$$
+\sum_{\vec p\in S_a}\sum_{\vec q\in S_a}\vec p\cdot \vec q = \sum_{\vec p\in S_a}\vec p\cdot \sum_{\vec q\in S_a} \vec q
+$$
 
 
-Dette svarer netop til delen af SUMMIDT med gruppen $S_a$ ganget med $2\cdot|S_a|$. Derved følger den ønskede sammenhæng mellem de to summer.
+Fra valget af $\vec{\mu_a}$ ved vi fra (@eq-midtpunkt), at $|S_a|\cdot \vec{\mu_{a}}=\sum_{\vec q \in S_a} \vec q$. Bruger vi det får vi
 
-# Eksempel med mulighed for at se steps
+$$
+\sum_{\vec p\in S_a}\sum_{\vec q\in S_a}\vec p\cdot \vec q = \sum_{\vec p\in S_a}\vec p\cdot |S_a|\cdot \vec{\mu_{a}}
+$$
+Sætter vi $|S_a|\cdot \vec{\mu_{a}}$ uden for den inderste sum og udnytter ovenstående én gang til, får vi:
+
+
+\begin{align}
+\sum_{\vec p\in S_a}\sum_{\vec q\in S_a} \vec p\cdot \vec q &= |S_a|\cdot \vec{\mu_{a}} \cdot \sum_{\vec p\in S_a}\vec p \\
+&= |S_a|\cdot \vec{\mu_{a}} \cdot |S_a|\cdot \vec{\mu_{a}} \\
+&= |S_a|^2 \cdot \| \vec{\mu_{a}} \|^2
+\end{align}
+
+Det må derfor betyde, at
+$$
+|S_a|^2\cdot \|\vec{\mu_a}\|^2-\sum_{\vec p\in S_a}\sum_{\vec q\in S_a}\vec p\cdot \vec q=0 \quad \Leftrightarrow  \quad 
+2 \cdot |S_a|^2\cdot \|\vec{\mu_a}\|^2-2\cdot\sum_{\vec p\in S_a}\sum_{\vec q\in S_a}\vec p\cdot \vec q=0
+$$
+
+
+Da dette giver $0$, kan det tilføjes til udtrykket i (@eq-vilde_summer):
+
+\begin{align}
+2\cdot \sum_{\vec p\in S_a}\sum_{\vec q\in S_a}\|\vec p\|^2&-2\cdot \sum_{\vec p\in S_a}\sum_{\vec q\in S_a}\vec p\cdot \vec q = \\
+2\cdot \sum_{\vec p\in S_a}\sum_{\vec q\in S_a}\|\vec p\|^2-2\cdot \sum_{\vec p\in S_a}\sum_{\vec q\in S_a}\vec p\cdot \vec q &+
+2 \cdot |S_a|^2\cdot \|\vec{\mu_a}\|^2-2\cdot\sum_{\vec p\in S_a}\sum_{\vec q\in S_a}\vec p\cdot \vec q = \\
+2\cdot \sum_{\vec p\in S_a}\sum_{\vec q\in S_a}\|\vec p\|^2 +
+2 \cdot |S_a|^2 &\cdot \|\vec{\mu_a}\|^2-4\cdot\sum_{\vec p\in S_a}\sum_{\vec q\in S_a}\vec p\cdot \vec q
+\end{align}
+
+
+
+I den sidste dobbeltsum kan $\vec p$ igen tages ud af den inderste sum og vi kan igen udnytte at $|S_a|\cdot \vec{\mu_{a}}=\sum_{\vec q \in S_a} \vec q$. Derved får vi
+
+$$
+2\cdot \sum_{\vec p\in S_a}\sum_{\vec q\in S_a}\|\vec p\|^2 +
+2 \cdot |S_a|^2\cdot \|\vec{\mu_a}\|^2-4\cdot\sum_{\vec p\in S_a}\vec p\cdot |S_a|\cdot \vec{\mu_{a}}
+$$
+
+Ved den første dobbeltsum ses det, at leddene ikke afhænger af $\vec q$ og derfor er $\sum_{\vec q\in S_a}\|\vec p\|^2 = |S_a| \cdot \|\vec p\|^2$ (fordi der er $|S_a|$ led i summen). Det vil sige, at vi kan omskrive til
+
+$$
+2\cdot \sum_{\vec p\in S_a}|S_a| \cdot \|\vec p\|^2 +
+2 \cdot |S_a|^2\cdot \|\vec{\mu_a}\|^2-4\cdot\sum_{\vec p\in S_a}\vec p\cdot |S_a|\cdot \vec{\mu_{a}}
+$$
+
+Vi kan nu se, at $2 \cdot |S_a|$ indgår i alle led og vi kan derfor skrive:
+
+$$
+2\cdot |S_a| \cdot \left ( \sum_{\vec p\in S_a} \|\vec p\|^2  +
+|S_a|\cdot \|\vec{\mu_a}\|^2-2\cdot\sum_{\vec p\in S_a}\vec p\cdot \vec{\mu_{a}} \right )
+$$
+
+Her kan $|S_a|\cdot \|\mu_a\|^2$ laves om til en sum, hvor 
+alle led er $\|\mu_a\|^2$. Det vil sige
+
+$$
+2\cdot |S_a| \cdot \left ( \sum_{\vec p\in S_a} \|\vec p\|^2  +
+\sum_{\vec p\in S_a} \|\vec{\mu_a}\|^2-2\cdot\sum_{\vec p\in S_a}\vec p\cdot \vec{\mu_{a}} \right )
+$$
+
+
+Hele udtrykket kan nu samles i én sum:
+
+$$
+2\cdot |S_a| \sum_{\vec p\in S_a} \left (  \|\vec p\|^2  +
+ \|\vec{\mu_a}\|^2-2\cdot\vec p\cdot \vec{\mu_{a}} \right )
+$$
+Ved brug af anden kvadratsætning for vektorer får vi
+
+$$
+2\cdot |S_a| \sum_{\vec p\in S_a}   (\vec p - \vec{\mu_a}) \cdot (\vec p - \vec{\mu_a}) = 2\cdot |S_a| \sum_{\vec p\in S_a} \| \vec p - \vec{\mu_a} \|^2
+$$
+Nu kan man jo godt have glemt, hvad det overhovedet var, vi var igang med at regne på! Men vi minder om, at det var udtrykket i (@eq-del_SUMPAR). Det vil sige, at vi er kommet frem til, at
+
+$$
+\sum_{\vec p\in S_a}\sum_{\vec q\in S_a}\|\vec p-\vec q\|^2 = 2\cdot |S_a| \sum_{\vec p\in S_a} \| \vec p - \vec{\mu_a} \|^2
+$$
+Eller skrevet på en anden måde:
+
+$$
+\frac{1}{|S_i|}\sum_{\vec p\in S_i}\sum_{\vec q\in S_i}\|\vec p-\vec q\|^2 = 2 \sum_{\vec p\in S_i} \| \vec p - \vec{\mu_i} \|^2
+$$
+Summerer vi over alle $k$ grupper får vi:
+$$
+\sum_{i=1}^k \frac{1}{|S_i|}\sum_{\vec p\in S_i}\sum_{\vec q\in S_i}\|\vec p-\vec q\|^2 = 2 \sum_{i=1}^k \sum_{\vec p\in S_i} \| \vec p - \vec{\mu_i} \|^2
+$$
+Sammenligner vi med (@eq-SUMPAR) og (@eq-SUMMIDT) har vi netop vist, at
+
+$$ 
+SUMPAR = 2 \cdot SUMMIDT
+$$
+
+# Eksempel på algoritmen
+
+Lad os prøve at bruge algoritmen på punkterne fra @exm-midterpunkter. I @fig-punkter_to_grupper_1 ses punkterne indtegnet, men uden angivelse af hvilken gruppe hvert enkelt punkt tilhører.
+
+```{r}
+#| include=FALSE
+library(plotly)
+library(ggplot2)
+dat <- data.frame(
+  x = c(3,7,10,17,12,11),
+  y = c(9,11,30,34,27,32),
+  t = c(1,2,1,2,1,2))
+dat$tfactor <- factor(dat$t,labels=c("Gruppe 1","Gruppe 2"))
+```
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-cap: Tilfældig inddeling af punkterne i $2$ grupper.
+#| label: fig-punkter_to_grupper_1
+fig <- ggplot(dat, aes(x=x, y=y)) + 
+  geom_point(size=3) +
+  guides(color=guide_legend(title=NULL)) +
+  theme_minimal() 
+fig
+```
+
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-cap: Illustration af punkter som ønskes inddelt i $2$ grupper.
+#| label: fig-punkter_to_grupper_2
+fig <- ggplot(dat, aes(x=x, y=y)) + 
+  geom_point(aes(color=tfactor), size=3) +
+  guides(color=guide_legend(title=NULL)) +
+  theme_minimal() 
+fig
+```
 
 # Opsummering/optimal løsning
 
-Nu har vi set på selve algoritmen, og fundet ud af, at den finder et lokalt minimum for summen man ønsker minimeret. Der er dog ingen garanti for man opnår et globalt minimum eller hvor lang tid algoritmen er om at finde en løsning.
+Nu har vi set på selve algoritmen og fundet ud af, at den finder et lokalt minimum for summen $SUMPAR$, som man ønsker minimeret. Der er dog ingen garanti for, at man opnår et globalt minimum, eller hvor lang tid algoritmen er om at finde en løsning.
 
-Det er helle ikke noget problem at få lavet en algoritme der finder en optimal løsning, problemet er blot at den vil køre alt for langsomt. Algoritmen laves ved blot at undersøge hver inddeling i grupper hvilken der giver det bedste resultat, dog vil det være sådan at selv ved blot $2$ grupper og $100$ punkter vil der være $2^{100}$ muligheder der skal tjekkes (for hvert punkt kan punkt enten være i den ene eller den anden gruppe) som ikke er praktisk muligt selv på en computer.
+Det er egentlig heller ikke noget problem at få lavet en algoritme, der finder en optimal løsning, problemet er blot, at den vil køre alt for langsomt. En sådan optimal algoritme kan laves ved blot at undersøge hver mulig inddeling i grupper og så finde den inddeling, der giver den mindste værdi af $SUMPAR$. Dog vil det være sådan, at selv ved blot $2$ grupper og $100$ punkter vil der være $2^{100}$ muligheder, der skal tjekkes (fordi for hvert punkt kan punkt enten være i den ene eller den anden gruppe). At undersøge så mange muligheder er ikke praktisk muligt -- selv ikke på en computer!
 
-# Kmeans ikke blot med punkter
-Indtil videre har vi udelukkende set data som værende punkter hvor vi skulle kunne anvende euklidisk afstand. 
-Det kunne dog være langt mere interessant f.eks. at arbejde med mennesker og information om dem (alder, køn, forbrug,  mm.) og statigvæk ønske at inddele i et bestemt antal gruppe hvor der er stor ligmed mellem dem indenfor samme gruppe.
-Her skal man selvfølgelig have tænkt lidt over hvordan man kommer fra mennesker til punkter og efterfølgende får noget der svarer til euklidisk afstand. Henvisning til dokument med normalisering + andet.
+# K-means ikke blot med punkter
+Indtil videre har vi udelukkende set på data som værende punkter, hvor vi skulle kunne anvende euklidisk afstand for at måle afstanden mellem punkterne. Det kunne dog være langt mere interessant f.eks. at arbejde med mennesker og information om dem (f.eks. alder, køn, forbrug og så videre) og stadigvæk med et ønske om at inddele disse mennesker i et bestemt antal grupper, hvor der er stor ligmed mellem dem indenfor samme gruppe. Her skal man selvfølgelig have tænkt lidt over, hvordan man kommer fra mennesker til punkter og efterfølgende får noget, der svarer til euklidisk afstand. Det kan man læse meget mere om under [feature-skalering](../afstande/feature_scaling.qmd).
+
+[^1]: En gruppe $S_i$ er egentlig en mængde, og $|S_i|$ er kardinaliteten af denne mængde -- altså antallet elementer i mængden. 
+[^2]: Husk at et punkt og stedvektoren til punktet har samme koordinater.
+[^3]: Eller rettere mellem to stedvektorer.
+[^4]: Husk på at den distributive regel også gælder for vektorer: $\vec a \cdot \vec b + \vec a \cdot \vec c = \vec a \cdot \left (\vec b + \vec c \right)$
