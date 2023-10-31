@@ -96,6 +96,7 @@ gruppe (der skal mindst være en observation i hver gruppe).
 $$
 \vec{\mu_i}=\frac{1}{|S_i|}\sum_{\vec p\in S_i}\vec p
 $$
+
 3) For hvert af de $n$ observationer findes det midterpunkt, der har
 den mindste afstand til punktet. Hvis det for en observation $\vec{x_i}$ er
 midterpunktet $\vec{\mu_a}$, der er nærmest, skal $\vec{x_i}$ være i mængden $S_a$.
@@ -361,7 +362,7 @@ dat$tfactor <- factor(dat$t,labels=c("Gruppe 1","Gruppe 2"))
 #| echo: false
 #| message: false
 #| warning: false
-#| fig-cap: Tilfældig inddeling af punkterne i $2$ grupper.
+#| fig-cap: Illustration af punkter som ønskes inddelt i $2$ grupper.
 #| label: fig-punkter_to_grupper_1
 fig <- ggplot(dat, aes(x=x, y=y)) + 
   geom_point(size=3) +
@@ -370,12 +371,13 @@ fig <- ggplot(dat, aes(x=x, y=y)) +
 fig
 ```
 
+I trin $1$ skal vi tilføje hver observation i en tilfældig gruppe. Et sådant valg ses i @fig-punkter_to_grupper_2.
 
 ```{r}
 #| echo: false
 #| message: false
 #| warning: false
-#| fig-cap: Illustration af punkter som ønskes inddelt i $2$ grupper.
+#| fig-cap: Tilfældig inddeling af punkterne i $2$ grupper.
 #| label: fig-punkter_to_grupper_2
 fig <- ggplot(dat, aes(x=x, y=y)) + 
   geom_point(aes(color=tfactor), size=3) +
@@ -383,6 +385,29 @@ fig <- ggplot(dat, aes(x=x, y=y)) +
   theme_minimal() 
 fig
 ```
+
+Vi skal nu have beregnet midtpunkterne i hver af de to grupper. Gør man det fås:
+
+$$
+\vec{\mu_1} = \begin{pmatrix} 8.33 \\ 22.00 \end{pmatrix} \quad \textrm{og} \quad \vec{\mu_2} = \begin{pmatrix} 11.67 \\ 25.67 \end{pmatrix}
+$$
+Disse to punkter er indtegnet i @fig-punkter_to_grupper_3.
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-cap: Tilfældig inddeling af punkterne i $2$ grupper og med tilhørende midtpunkter.
+#| label: fig-punkter_to_grupper_3
+midt1 <- c(mean(dat$x[which(dat$t==1)]),mean(dat$y[which(dat$t==1)]))
+midt2 <- c(mean(dat$x[which(dat$t==2)]),mean(dat$y[which(dat$t==2)]))
+fig <- ggplot(dat, aes(x=x, y=y)) + 
+  geom_point(aes(color=tfactor), size=3) +
+  guides(color=guide_legend(title=NULL)) +
+  #geom_point(midt1, aes(color="red"), size=4) +
+  theme_minimal() 
+fig
+```
+
 
 # Opsummering/optimal løsning
 
