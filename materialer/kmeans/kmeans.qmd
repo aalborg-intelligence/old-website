@@ -349,8 +349,8 @@ Lad os prøve at bruge algoritmen på punkterne fra @exm-midterpunkter. I @fig-p
 
 ```{r}
 #| include=FALSE
-library(plotly)
 library(ggplot2)
+library(dplyr)
 dat <- data.frame(
   x = c(3,7,10,17,12,11),
   y = c(9,11,30,34,27,32),
@@ -379,11 +379,9 @@ I trin $1$ skal vi tilføje hver observation i en tilfældig gruppe. Et sådant 
 #| warning: false
 #| fig-cap: Tilfældig inddeling af punkterne i $2$ grupper.
 #| label: fig-punkter_to_grupper_2
-fig <- ggplot(dat, aes(x=x, y=y)) + 
-  geom_point(aes(color=tfactor), size=3) +
-  guides(color=guide_legend(title=NULL)) +
-  theme_minimal() 
-fig
+fig2 <- fig +
+  geom_point(aes(color=tfactor), size=3)
+fig2
 ```
 
 Vi skal nu have beregnet midtpunkterne i hver af de to grupper. Gør man det fås:
@@ -398,14 +396,11 @@ Disse to punkter er indtegnet i @fig-punkter_to_grupper_3.
 #| warning: false
 #| fig-cap: Tilfældig inddeling af punkterne i $2$ grupper og med tilhørende midtpunkter.
 #| label: fig-punkter_to_grupper_3
-midt1 <- c(mean(dat$x[which(dat$t==1)]),mean(dat$y[which(dat$t==1)]))
-midt2 <- c(mean(dat$x[which(dat$t==2)]),mean(dat$y[which(dat$t==2)]))
-fig <- ggplot(dat, aes(x=x, y=y)) + 
-  geom_point(aes(color=tfactor), size=3) +
-  guides(color=guide_legend(title=NULL)) +
-  #geom_point(midt1, aes(color="red"), size=4) +
-  theme_minimal() 
-fig
+midt <- dat |> group_by(tfactor) |> 
+  summarise(x = mean(x), y = mean(y))
+fig3 <- fig2 + 
+  geom_point(data = midt, aes(color = tfactor), size=4, shape = 3)
+fig3
 ```
 
 
