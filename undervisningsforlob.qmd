@@ -10,15 +10,18 @@ format:
       toc-location: left
 listing:
   id: main-listing-content
-  fields: [image, title, categories, description]
-  contents: undervisningsforloeb
+  sort: false
+  fields: 
+    - image
+    - title
+    - description
+  contents: 
+    - path: undervisningsforloeb/hvem_ligner_du_mest.qmd
   type: grid
   grid-columns: 2
   categories: true
-  sort:
-    - "title desc"
-
 ---
+
 
 Siden er under opbygning, men vil komme til at indholde undervisningsforløb til alle niveauer.
 
