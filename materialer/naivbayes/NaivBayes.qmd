@@ -187,7 +187,7 @@ P(Y = 0 \mid \mathbf{X} = \mathbf{x}) > P(Y = 1 \mid \mathbf{X} = \mathbf{x}) \L
 \frac{P(Y = 0 \mid \mathbf{X} = \mathbf{x})}{P(Y = 1 \mid \mathbf{X} = \mathbf{x})} > 1.
 \end{aligned}
 $$
-Her vi dog nødt til at antage, at $$P(Y = 1 \mid \mathbf{X} = \mathbf{x})\neq 0,$$ så vi ikke kommer til at dividere med $0$. 
+Her er vi dog nødt til at antage, at $$P(Y = 1 \mid \mathbf{X} = \mathbf{x})\neq 0,$$ så vi ikke kommer til at dividere med $0$. 
 
 Bruger vi denne omskrivning, kan vi udtrykke den binære Bayes klassifikation i (@eq-binar_bayes_klassifikation1) på denne måde:
 
@@ -242,7 +242,7 @@ $$
 \end{aligned}
 $$
 
-Vi kan sammenfatte udtrykket i (@eq-forhold_posterior_ssh) det således til det såkaldte *posterior forhold*:
+Vi kan sammenfatte udtrykket i (@eq-forhold_posterior_ssh) til det såkaldte *posterior forhold*:
 $$
 \underbrace{\frac{P(Y = 0 \mid \mathbf{X} = \mathbf{x})}{P(Y = 1 \mid \mathbf{X} = \mathbf{x})}}_\text{Posterior forhold} = 
 \underbrace{\frac{P(\mathbf{X} = \mathbf{x} \mid Y = 0)}{P(\mathbf{X} = \mathbf{x} \mid Y = 1)}}_\text{Likelihood forhold} \cdot
@@ -276,11 +276,11 @@ $$
 hvor $\prod$-symbolet i sidste linje betyder, at vi tager produktet af alle faktorerne 
 på formen $P(X_i = x_i\mid Y = y)$ fra $i=1$ op til $q$ -- altså præcist det som står i linjen over.
 Det minder således om sum-tegnet $$\sum_{i=1}^n x_i = x_1 + x_2 + \cdots + x_n,$$ 
-men blot for gange i stedet for addition.
+men blot for multiplikation i stedet for addition.
 
 ## Posterior forholdet, score og vægte
 
-Samler vi nu udtrykkene, som indgår i vores posterior forhold i (@eq-forhold_posterior_ssh), samtidig med at vi antager, at $X_1, X_2, \cdots, X_q$ er uafhængige af hinanden giver $Y$, får vi nedenstående:
+Samler vi nu udtrykkene, som indgår i vores posterior forhold i (@eq-forhold_posterior_ssh), samtidig med at vi antager, at $X_1, X_2, \cdots, X_q$ er uafhængige af hinanden givet $Y$, får vi nedenstående:
 
 $$
 \begin{aligned}
@@ -312,7 +312,7 @@ hvor vi har brugt logaritmeregnereglen
 $$\ln(a\cdot b) = \ln(a) + \ln(b)$$ 
 gentagende gange.
 
-Vi minder om, at forholdet mellem $P(Y = 0 \mid \mathbf{X} = \mathbf{x})$ og $P(Y = 1 \mid \mathbf{X} = \mathbf{x})$ var af særlig interesse omkring værdien 1 -- se (@eq-binar_bayes_klassifikation2). Når forholdet er $1$ betyder det, at de to klasser er lige sandsynlige givet $\mathbf{x}$. Endvidere, når forholdet var er $1$, er $Y=0$ mere sandsynlig end $Y=1$, og når det er under $1$, er det omvendte tilfældet.
+Vi minder om, at forholdet mellem $P(Y = 0 \mid \mathbf{X} = \mathbf{x})$ og $P(Y = 1 \mid \mathbf{X} = \mathbf{x})$ er af særlig interesse omkring værdien 1 -- se (@eq-binar_bayes_klassifikation2). Når forholdet er $1$ betyder det, at de to klasser er lige sandsynlige givet $\mathbf{x}$. Endvidere, når forholdet er over $1$, er $Y=0$ mere sandsynlig end $Y=1$, og når det er under $1$, er det omvendte tilfældet.
 
 Lad os nu se på hvilken effekt det får, at vi ikke længere ser direkte på det posterior forhold 
 $$ \frac{P(Y = 0 \mid \mathbf{X} = \mathbf{x})}{P(Y = 1 \mid \mathbf{X} = \mathbf{x})}$$
@@ -330,9 +330,11 @@ $$\ln \left(\frac{P(Y = 0 \mid \mathbf{X} = \mathbf{x})}{P(Y = 1 \mid \mathbf{X}
 bliver det vigtige nu, om denne størrelse er positiv eller negativ. 
 
 Lad os derfor indføre $S$ som en *score*, der er lig med logaritmen til posterior forholdet:
+
 $$
 S = \ln \left(\frac{P(Y = 0 \mid \mathbf{X} = \mathbf{x})}{P(Y = 1 \mid \mathbf{X} = \mathbf{x})}\right)
-$$
+$${#eq-scoreS}
+
 Den binære Bayes klassifikation i (@eq-binar_bayes_klassifikation2) kan derfor i stedet skrives ved hjælp af scoren $S$ på denne måde:
 
 $$ C(\mathbf{x}) = \begin{cases}
@@ -342,13 +344,23 @@ $$ C(\mathbf{x}) = \begin{cases}
 
 Vi ved således, at hvis $S>0$, så klassificerer vi $\mathbf{x}$, som $C(x)=0$ og ellers $C(x)=1$.
 
-Indfører vi ligeledes bidragene til $S$ som $w_0$ og $w_i(x_i)$ således
+Sammenholder vi definitionen af $S$ i (@eq-scoreS) med udtrykket i (@eq-posterior_forhold_ln), ser vi, at $S$ også kan skrives som
+
+$$
+\begin{aligned}
+S &= \ln \left(\frac{P(Y = 0 \mid \mathbf{X} = \mathbf{x})}{P(Y = 1 \mid \mathbf{X} = \mathbf{x})}\right) \\&= 
+\ln \left(\frac{P(Y = 0)}{P(Y = 1)}\right) + 
+\sum_{i=1}^q \ln \left(\frac{P(X_i = x_i \mid Y = 0)}{P(X_i = x_i \mid Y = 1)}\right),
+\end{aligned} 
+$${#eq-scoreS2}
+
+Indfører vi nu bidragene til $S$ som $w_0$ og $w_i(x_i)$ således
 $$
 w_0 = \ln \left(\frac{P(Y = 0)}{P(Y = 1)}\right) 
 \quad\text{og}\quad
 w_i(x_i) = \ln \left(\frac{P(X_i = x_i \mid Y = 0)}{P(X_i = x_i \mid Y = 1)}\right)
 $$
-kan vi således skrive udtrykket for $S$ i (@eq-posterior_forhold_ln) som 
+kan vi skrive udtrykket for $S$ i (@eq-scoreS2) som 
 $$
 S = w_0 + \sum_{i = 1}^q w_i(x_i),
 $$ {#eq-score_ved_vaegte}
@@ -473,7 +485,7 @@ Herunder ses vægtene for alle grupper:
 Tidligere havde vi indset, at når $w_i(x_i)>0$, så understøtter bidraget fra den $i$'te 
 oplysning $x_i$, at $Y=0$ (altså at stemme på rød blok). I tabellen ovenfor ses det derfor, at oplysningerne kvinde, ung, Sjælland og anden bopæl gør det mere sandsynligt med en stemme på rød blok, mens oplysningerne mand, ældre og Jylland gør det mere sandsynligt med en stemme på blå blok.
 
-Vi kan nu beregnes scoren $S$ for en kvinde, som er ældre og fra Sjælland, altså hvor $x=(kvinde,ældre,Sjælland)$.
+Vi kan nu beregne scoren $S$ for en kvinde, som er ældre og fra Sjælland, altså hvor $x=(kvinde,ældre,Sjælland)$.
 \begin{equation}
 \begin{split}
 S &  = w_0 + \sum_{i = 1}^q w_i(x_i)=w_0+w_1(kvinde)+w_2(ældre)+w_3(Sjælland) \\
