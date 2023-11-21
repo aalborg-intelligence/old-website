@@ -1,0 +1,60 @@
+---
+title: "Overvågning i Monitorbian"
+description: |
+  Nogle lande overvåger deres borgere. Men hvordan gør man det? I dette forløb bliver I ansatte af efterretningstjenesten i landet Monitorbian for at hjælpe dem med at overvåge deres borgere. Metoden, I skal bruge, kaldes for "k nærmeste naboer" (forkortet kNN), men det lærer I meget mere om her!
+#image: "hvem_ligner_du_mest_filer/image1.png"
+
+format:
+    html: 
+      self-contained: true
+      toc: true
+      toc-title: Indhold
+      toc-location: left
+categories:
+  - C-niveau
+crossref:
+  fig-prefix: figur   # (default is "Figure")
+  tbl-prefix: tabel    # (default is "Table")
+  exm-prefix: eksempel
+  thm-prefix: sætning
+  sec-prefix: afsnit
+  eq-prefix: ''
+  fig-title: Figur
+  exm-title: Eksempel
+  thm-title: Sætning
+  tbl-title: Tabel
+label:
+    fig: Figur
+fig-cap-location: margin
+tab-cap-location: margin
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.callout-tip collapse="true" appearance="minimal"}
+### Forudsætninger
+Forløbet kræver kendskab til:
+
++ Koordinatsystemer
++ Punkter og afstande mellem punkter
++ Procentregning
+
+:::
+
+## Velkommen til Monitorbian
+
+Landet *Monitorbian* ønsker at blive en vaskeægte overvågningsstat! Men efterretningstjeneste i Monitorbian ved meget lidt om overvågning. Derfor har de ansat jer som intelligence officerer til at løse denne opgave. Tillykke med jeres nye job!
+
+I Monitorbian findes der to forskellige slags indbyggere: Nogle nedstammer fra Anders And, mens andre nedstammer fra Fedtmule. På @fig-indbyggere kan du se, hvordan de forskellige indbyggere ser ud.
+
+![Billede af de to slags indbyggere i Monitorbian.](images/indbyggere.png){#fig-indbyggere}
+
+For at overvåge indbyggerne er vi nødt til at identificere nogle egenskaber ved indbyggerne, som vi kan bruge til at adskille dem fra hinanden. Sådan en egenskab kaldes for en *feature*. En feature kunne for eksempel være en indbyggers vægt. 
+
+::: {.callout-note collapse="false" appearance="minimal"}
+### Features
+
+Se på billedet i @fig-indbyggere og find på nogle flere features.
+
+:::
