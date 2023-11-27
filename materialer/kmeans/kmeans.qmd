@@ -52,20 +52,28 @@ gruppe ligger tæt på hinanden. Det er også sådan, at vi har farvet punkterne
 Hvis man skal oversætte det til matematik, så betyder det, at vi ønsker at minimere følgende sum (som vi kalder for $SUMPAR$)
 
 $$SUMPAR=\sum_{i=1}^{k}\frac{1}{|S_i|}\sum_{\vec p\in S_i}\sum_{\vec q\in S_i}\|\vec p-\vec q\|^2$$
-Det ser måske lidt voldsomt ud, men lad os prøve at nedbryde ovenstående lidt. Vi forestiller os, at vi har de $k$ grupper $S_1, S_2, \dots , S_k$. Udtrykket
+Det ser måske lidt voldsomt ud, men lad os prøve at nedbryde ovenstående lidt. Vi forestiller os, at vi har de $k$ grupper $S_1, S_2, \dots , S_k$. Vi ser først på et punkt $\vec p \in S_i$. Den kvadrerede afstand til et andet punkt $\vec q$ i samme gruppe er givet ved udtrykket
 
-$$ \|\vec p- \vec q\|^2 $$
-er den kvadrerede afstand mellem to punkter repræsenteret ved stedvektorerne $\vec p$ og $\vec q$. Det vil sige, den [euklidiske afstand](../afstande/AfstandeMellemPunkteriPlanen.qmd#sec-euklidisk_afstand) mellem $\vec p$ og $\vec q$ opløftet i anden. Men her er vi kun interesseret i at se på kvadrerede afstande mellem punkter i samme gruppe. Derfor lægger vi kun kvadrerede afstand samme, hvis $\vec p$ og $\vec q$ er i samme gruppe -- alstå $\vec p\in S_i$ og $\vec q \in S_i$. Det er udtrykt i 
+$$
+\|\vec p- \vec q\|^2
+$$
 
-$$ \sum_{\vec p\in S_i}\sum_{\vec q\in S_i}\|\vec p-\vec q\|^2 $$
+Det vil sige, den [euklidiske afstand](../afstande/AfstandeMellemPunkteriPlanen.qmd#sec-euklidisk_afstand) mellem $\vec p$ og $\vec q$ opløftet i anden. Den *gennemsnitlige* kvadrerede afstand til alle punkter i samme gruppe $S_i$ vil derfor være
 
-Nu kan der være nogle grupper med mange punkter og andre grupper med få punkter. For at tage højde for det dividerer vi ovenstående udtryk med antallet af punkter i gruppe $S_i$: $|S_i|$. Dette giver os en gennemsnitlig kvadreret afstand fra et punkt $\vec p$ til alle andre punkter $\vec q$ i samme gruppe som $\vec p$. Gør vi det, får vi
+$$\frac{1}{|S_i|} \sum_{\vec q \in S_i} \|\vec p- \vec q\|^2 $$
+
+
+Det er altså den gennemsnitlige kvadrerede afstand fra ét punkt $\vec p$ til alle andre punkter i samme gruppe. Vi vil nu lægge alle disse gennemsnitlige kvadrerede afstande sammen for *alle* punkter i $S_i$. Gør vi det får vi:
+
+$$ \sum_{\vec p\in S_i}\frac{1}{|S_i|}\sum_{\vec q\in S_i}\|\vec p-\vec q\|^2 $$
+
+Da størrelsen $\frac{1}{|S_i|}$ indgår i alle led i den yderste sum, kan vi sætte $\frac{1}{|S_i|}$ uden for det yderste sumtegn[^6]. Derfor kan vi omskrive ovenstående til
 
 $$
 \frac{1}{|S_i|}\sum_{\vec p\in S_i}\sum_{\vec q\in S_i}\|\vec p-\vec q\|^2
 $$
 
-Det her vil vi gerne gøre for alle grupper og derfor ender vi samlet set med
+Det her vil vi gerne gøre for alle grupper, og derfor ender vi samlet set med
 
 $$
 SUMPAR=\sum_{i=1}^{k}\frac{1}{|S_i|}\sum_{\vec p\in S_i}\sum_{\vec q\in S_i}\|\vec p-\vec q\|^2
@@ -401,7 +409,7 @@ For at komme videre med ovenstående vælger vi at se på dobbeltsummen
 $$
 \sum_{\vec p\in S_a}\sum_{\vec q\in S_a}\vec p\cdot \vec q
 $$
-Den inderste sum afhænger ikke af $\vec p$ og derfor kan $\vec p$ sættes uden for sumtegnet[^4]:
+Den inderste sum afhænger ikke af $\vec p$ og derfor kan $\vec p$ sættes uden for sumtegnet[^3]:
 
 $$
 \sum_{\vec p\in S_a}\sum_{\vec q\in S_a}\vec p\cdot \vec q = \sum_{\vec p\in S_a}\vec p\cdot \left (\sum_{\vec q\in S_a} \vec q \right )
@@ -413,14 +421,19 @@ Fra valget af $\vec{\mu_a}$ ved vi fra (@eq-midtpunkt), at $|S_a|\cdot \vec{\mu_
 $$
 \sum_{\vec p\in S_a}\sum_{\vec q\in S_a}\vec p\cdot \vec q = \sum_{\vec p\in S_a}\vec p\cdot |S_a|\cdot \vec{\mu_{a}}
 $$
-Sætter vi $|S_a|\cdot \vec{\mu_{a}}$ uden for den inderste sum og udnytter ovenstående én gang til, får vi:
+Sætter vi $|S_a|\cdot \vec{\mu_{a}}$ uden for summmen[^4] og udnytter ovenstående én gang til, får vi:
 
 
 \begin{align}
 \sum_{\vec p\in S_a}\sum_{\vec q\in S_a} \vec p\cdot \vec q &= |S_a|\cdot \vec{\mu_{a}} \cdot \left ( \sum_{\vec p\in S_a}\vec p \right ) \\
-&= |S_a|\cdot \vec{\mu_{a}} \cdot |S_a|\cdot \vec{\mu_{a}} \\
-&= |S_a|^2 \cdot \| \vec{\mu_{a}} \|^2
+&= \left ( |S_a|\cdot \vec{\mu_{a}} \right ) \cdot \left ( |S_a|\cdot \vec{\mu_{a}} \right ) 
 \end{align}
+
+Vi har nu et prikprodukt mellem to vektorer, som hver især er ganget med en skalar (her $|S_a|$). Bruger vi den kommutative lov[^5] for at gange med en skalar, får vi
+
+$$
+\sum_{\vec p\in S_a}\sum_{\vec q\in S_a} \vec p\cdot \vec q = |S_a|^2 \cdot \| \vec{\mu_{a}} \|^2
+$$
 
 Det må derfor betyde, at
 $$
@@ -515,4 +528,7 @@ Indtil videre har vi udelukkende set på data som værende punkter, hvor vi kan 
 
 [^1]: En gruppe $S_i$ er egentlig en mængde, og $|S_i|$ er kardinaliteten af denne mængde -- altså antallet af elementer i mængden. 
 [^2]: Husk at et punkt og stedvektoren til punktet har samme koordinater.
-[^4]: Husk på at den distributive regel også gælder for vektorer: $\vec a \cdot \vec b + \vec a \cdot \vec c = \vec a \cdot \left (\vec b + \vec c \right)$
+[^3]: Husk på at den distributive regel også gælder for vektorer: $\vec a \cdot \vec b + \vec a \cdot \vec c = \vec a \cdot \left (\vec b + \vec c \right)$
+[^4]: Bemærk, at vi igen her benytter den distributive regel for vektorer. 
+[^5]: Den kommutative lov siger, at $k \cdot (\vec a \cdot \vec b) =  (k \cdot\vec a) \cdot (\vec b) =  (\vec a ) \cdot (k \cdot\vec b)$
+[^6]: Det svarer bare til at sætte uden for en parentes.
