@@ -36,7 +36,7 @@ execute:
 
 # Introduktion
 
-I det almindelige gymnasiepensum indgår nogle vigtige begreber indenfor infinitesimalregningen for funktioner af en og to variable. For funktioner af en variabel siges en funktion $f$ at være kontinuert i et punkt $x_{0}$, hvis funktionsværdien $f(x)$ nærmer sig funktionsværdien $f(x_{0})$ når $x$ nærmer sig $x_{0}$. Det vil sige, at
+I det almindelige gymnasiepensum indgår nogle vigtige begreber indenfor infinitesimalregningen for funktioner af én og to variable. For funktioner af én variabel siges en funktion $f$ at være kontinuert i et punkt $x_{0}$, hvis funktionsværdien $f(x)$ nærmer sig funktionsværdien $f(x_{0})$ når $x$ nærmer sig $x_{0}$. Det vil sige, at
 
 $$
 \lim_{x \rightarrow x_{0}}{f\left( x \right) = f(x_{0})}
@@ -78,13 +78,13 @@ $$
 \lim_{(x,y) \rightarrow (x_{0},y_{0})}{f\left( x,y \right) = f(x_{0},y_{0})}
 $$
 
-Definitionen er direkte overført fra den tilsvarende definition for funktioner af en variabel. Men man kan desværre *ikke* tilsvarende genbruge differentiabilitetsbegrebet fra funktioner af en variabel på denne måde
+Definitionen er direkte overført fra den tilsvarende definition for funktioner af én variabel. Men man kan desværre *ikke* tilsvarende genbruge differentiabilitetsbegrebet fra funktioner af én variabel på denne måde
 
 $$
 \lim_{(x,y) \rightarrow (x_{0},y_{0})}{\frac{f\left( x,y \right) - f\left( x_{0},y_{0} \right)}{\left( x,y \right) - {(x}_{0},y_{0})} = f'(x_{0},y_{0})}
 $$
 
-Her giver brøken på venstre side repræsenterende sekanthældningen *ikke mening*, da man ikke kan dividere med et punkt eller en vektor. I stedet tager man udgangspunkt i en alternativ definition af differentiabilitet for funktioner af en variabel, hvor man har kaldt skridtet fra $x_{0}$ til $x$ for $h$:
+Her giver brøken på venstre side repræsenterende sekanthældningen *ikke mening*, da man ikke kan dividere med et punkt eller en vektor. I stedet tager man udgangspunkt i en alternativ definition af differentiabilitet for funktioner af én variabel, hvor man har kaldt skridtet fra $x_{0}$ til $x$ for $h$:
 
 $$
 \lim_{h \rightarrow 0}{\frac{f\left( x_{0} + h \right) - f(x_{0})}{h} = f'(x_{0})}
@@ -95,7 +95,7 @@ Man bruger det til at definere de to første ordens partielle afledede for en fu
 &\lim_{h \rightarrow 0} \frac{f\left( x_{0} + h,y_{0} \right) - f(x_{0},y_{0})}{h} = f_{x}^{'}(x_{0},y_{0})\\
 &\lim_{h \rightarrow 0} \frac{f\left( x_{0},y_{0} + h \right) - f(x_{0},y_{0})}{h} = f_{y}^{'}(x_{0},y_{0})
 \end{aligned}
-$$ hvis grænserne eksisterer. Her tager man et skridt $h$ i enten $x$-aksens eller $y$-aksens retning ud fra punktet $(x_{0},y_{0})$ og beregner en hældning af grafen i den retning ved hjælp af en grænseværdi af sekanthældninger for snitfunktionerne $f(x,y_{0})$ og $f(x_{0},y)$, som hver for sig er almindelige funktioner af en variabel, da man kun ændrer enten $x$-koordinaten eller $y$-koordinaten.
+$$ hvis grænserne eksisterer. Her tager man et skridt $h$ i enten $x$-aksens eller $y$-aksens retning ud fra punktet $(x_{0},y_{0})$ og beregner en hældning af grafen i den retning ved hjælp af en grænseværdi af sekanthældninger for snitfunktionerne $f(x,y_{0})$ og $f(x_{0},y)$, som hver for sig er almindelige funktioner af én variabel, da man kun ændrer enten $x$-koordinaten eller $y$-koordinaten.
 
 Gradientvektoren defineres som vektoren med de partielle afledede som koordinater:
 
@@ -165,7 +165,7 @@ når $v = 180^{{^\circ}}$. Det var netop, hvad vi gerne ville vise.
 
 # Middelværdisætningen
 
-For at argumentere for formlen for de retningsafledede udregnet som et prikprodukt, skal vi bruge middelværdisætningen for funktioner af en variabel:
+For at argumentere for formlen for de retningsafledede udregnet som et prikprodukt, skal vi bruge middelværdisætningen for funktioner af én variabel:
 
 > ::: {#thm-middelvaerdisaetningen}
 > ## Middelværdisætningen
