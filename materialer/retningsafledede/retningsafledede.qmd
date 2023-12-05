@@ -220,7 +220,7 @@ f\left( x_{0} + h \cdot u_{1},y_{0} + h \cdot u_{2} \right) - f(x_{0},y_{0})   &
 \end{aligned}
 $$ {#eq-funktionstilvaekst}
 
-Ved at bruge den omkskrevne middelværdisætning i (@eq-middel_omskrevet) på de to snitfunktioner $f\left( x,y_{0} + h \cdot u_{2} \right)$ som en funktion af $x$ og $f(x_{0},y)$ som en funktion af $y$, får vi nu følgende:
+Ved at bruge den omskrevne middelværdisætning i (@eq-middel_omskrevet) på de to snitfunktioner $f\left( x,y_{0} + h \cdot u_{2} \right)$ som en funktion af $x$ og $f(x_{0},y)$ som en funktion af $y$, får vi nu følgende:
 
 $$
 \color{blue} f\left( x_{0} + h \cdot u_{1},y_{0} + h \cdot u_{2} \right) - f\left( x_{0},y_{0} + h \cdot u_{2} \right) = f_{x}^{'}(c_{1},y_{0} + h \cdot u_{2}) \cdot h \cdot u_{1}
