@@ -289,6 +289,7 @@ Hvis man ser lidt på forskriften, kan man måske overbevise sig selv om, at fun
 
 Grafen ses herunder.
 
+{{< include _geogebra/_geogebra.qmd >}}
 ::: {#ggbApplet}
 :::
 

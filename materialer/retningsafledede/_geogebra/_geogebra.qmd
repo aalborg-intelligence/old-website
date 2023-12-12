@@ -153,8 +153,8 @@ var applet = new GGBApplet(parameters, '5.0', views);
 
 <script>
 window.onload = function() {
-  applet1.inject('ggbApplet1');
-  applet4.inject('ggbApplet4');
+  // applet1.inject('ggbApplet1');
+  // applet4.inject('ggbApplet4');
   applet.inject('ggbApplet');
   // indsæt her hvis der er flere apps på samme side
   // appletZZZ.inject('ggbAppletZZZ');
