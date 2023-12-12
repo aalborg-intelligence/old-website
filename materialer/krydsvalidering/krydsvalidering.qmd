@@ -1,7 +1,7 @@
 ---
-title: "Polynomiel regression og modeludvælgelse "
-author: 'Aalborg Intelligence'
+title: "Overfitting, modeludvælgelse og krydsvalidering"
 image: "images/overfitting.png"
+description: "Hvordan vælger man den bedste model til beskrivelse af data? Skal man bare vælge den mest komplicerede? Eller kan der mon gå noget galt? Det handler overfitting og krydsvalidering om."
 date: ''
 format:
     html: 
@@ -519,7 +519,7 @@ vælges derfor som den bedste.
 
 Eksempler her fra siden, hvor krydsvalidering kan benyttes:
 
--   I forløbet [Hvem ligner du mest](../undervisningsforloeb/hvem_ligner_du_mest.qmd) sammenligner man et gråt punkt
+-   I forløbet [Hvem ligner du mest](../../undervisningsforloeb/hvem_ligner_du_mest.qmd) sammenligner man et gråt punkt
     med alle punkter inden for en radius $r$ for at forudsige farven.
     Det er ikke oplagt, hvordan man skal vælge denne radius. En mulighed er
     at komme med nogle gode bud $r_1,\ldots, r_N$ på radier og så bruge
@@ -532,7 +532,7 @@ Eksempler her fra siden, hvor krydsvalidering kan benyttes:
     farve. Dette gentages for alle datapunkter og fejlraten (@eq-fejl)
     beregnes til sidst. Vi vælger så den radius, der har lavest fejlrate.
     
-- I noten om [Kunstige neurale nerværk](neurale_net/neurale_net.qmd) beskrives det, hvordan man træner et kunstigt neuralt netværk. Men når man gør det, skal man på forhånd have besluttet sig for, hvor mange skjulte lag der skal være i netværket, og hvor mange neuroner, der skal være i hvert skjult lag. Jo flere skjulte lag og jo flere neuroner -- desto større fleksibilitet. Her vil krydsvalidering være oplagt til at afgøre, hvor *fleksibelt* netværket skal være samtidig med, at man undgår *overfitting*.
+- I noten om [Kunstige neurale nerværk](../neurale_net/neurale_net.qmd) beskrives det, hvordan man træner et kunstigt neuralt netværk. Men når man gør det, skal man på forhånd have besluttet sig for, hvor mange skjulte lag der skal være i netværket, og hvor mange neuroner, der skal være i hvert skjult lag. Jo flere skjulte lag og jo flere neuroner -- desto større fleksibilitet. Her vil krydsvalidering være oplagt til at afgøre, hvor *fleksibelt* netværket skal være samtidig med, at man undgår *overfitting*.
     
     
 ```{r unused-code}
