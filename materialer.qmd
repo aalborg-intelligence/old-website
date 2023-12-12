@@ -23,6 +23,7 @@ listing:
     - path: materialer/retningsafledede/retningsafledede.qmd
     - path: materialer/naivbayes/NaivBayes.qmd
     - path: materialer/kmeans/kmeans.qmd
+    - path: materialer/krydsvalidering/krydsvalidering.qmd
     - path: materialer/afstande/index_afstande.qmd
   type: grid 
   grid-columns: 2
