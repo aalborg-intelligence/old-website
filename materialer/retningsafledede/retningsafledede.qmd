@@ -119,6 +119,11 @@ hvis grænsen eksisterer.
 
 Bemærk, at hvis $\vec{u}$ peger i $x$-aksens retning, så bliver den retningsafledede til $f_{x}^{'}(x_{0},y_{0})$, og hvis den peger i $y$-aksens retning, bliver den til $f_{y}^{'}(x_{0},y_{0})$. Man udregner en sekanthældning ved at tage et skridt $h$ i $\vec{u}$'s retning og dividere den fundne funktionstilvækst med $h$. Derefter lader man $h$ gå mod 0. Det giver hældningen af grafen for $f$ i punktet $(x_{0},y_{0})$ i retningen $\vec{u}$.
 
+{{< include _geogebra/_geogebra.qmd >}}
+
+::: {#ggbApplet_retning}
+:::
+
 Det viser sig, at man kan udregne de retningsafledede med et prikprodukt:
 
 $$
@@ -289,7 +294,6 @@ Hvis man ser lidt på forskriften, kan man måske overbevise sig selv om, at fun
 
 Grafen ses herunder.
 
-{{< include _geogebra/_geogebra.qmd >}}
 ::: {#ggbApplet}
 :::
 
