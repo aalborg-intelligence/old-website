@@ -13,12 +13,12 @@ website:
     left:
       - text: "Undervisningsforløb"
         href: undervisningsforlob.qmd
-      - text: "Materialer"
-        href: materialer.qmd
       - text: "SRO"
         href: sro.qmd
       - text: "SRP"
         href: srp.qmd
+      - text: "Materialer"
+        href: materialer.qmd
       - text: "Apps"
         href: apps.qmd
       - text: "Referencer"

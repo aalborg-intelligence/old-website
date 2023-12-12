@@ -1,7 +1,7 @@
 ---
 title: "Naiv Bayes klassifier"
 image: "images/bayes_thm.png"
-description: "Beskrivelse af naiv Bayes klassifier."
+description: "Beskrivelse af naiv Bayes klassifikation."
 date: ''
 format:
     html: 
@@ -36,13 +36,13 @@ title-block-author-single: "Forfatter"
 
 
 ## Bayes klassifikation 
-For at introducere teorien om Bayes naive klassifikation, vil vi starte med at se på et eksempel for at få en idé om, hvad Bayes klassifickation går ud på.
+For at introducere teorien om Bayes naive klassifikation, vil vi starte med at se på et eksempel for at få en idé om, hvad Bayes klassifikation går ud på.
 
-Vi vil se på en person, og vi ønsker at give et bud på om vedkommende stemmer på rød eller blå blok. Vi har på forhånd oplysninger om en del andre personer og ønsker at bruge den viden til at give det bedste bud på, om personen stemmer på rød eller blå blok.
+Vi vil se på en person, og vi ønsker at give et bud på, om vedkommende stemmer på rød eller blå blok. Vi har på forhånd oplysninger om en del andre personer og ønsker at bruge den viden til at give det bedste bud på, om personen stemmer på rød eller blå blok.
 
 Her har vi følgende data, der viser, hvem der stemmer på rød og blå blok.
 
-|       | Alle   | Mænd   | Kvinder | Ung    | Ældre  | Sjælland | Jylland | Anden bopæl  |
+|       | Alle   | Mænd   | Kvinder | Unge    | Ældre  | Sjælland | Jylland | Anden bopæl  |
 |-------|--------|--------|---------|--------|--------|----------|---------|--------|
 | Rød   | $51.85 \%$ | $48.00 \%$ | $55.00 \%$  | $65.00 \%$ | $47.47 \%$ | $54.00 \%$   | $49.90 \%$  | $52.78 \%$ |
 | Blå   | $48.15 \%$ | $52.00 \%$ | $45.00 \%$  | $35.00 \%$ | $52.53 \%$ | $46.00 \%$   | $50.10 \%$  | $47.22 \%$ |
@@ -59,12 +59,12 @@ b) Hvis det er en mand.
 
 :::
 
-Fra skemaet med oplysninger kan det være svære at give et bud på, hvad en ældre kvinde fra Sjælland vil stemme på, da oplysningen om køn tyder på personen vil stemme på rød, mens information om, at det er en ældre person, tyder på personen vil stemme på blå. Endelig vil oplysningen om, at kvinden bor på Sjælland igen få os til at tænke, at hun stemmer på rød blok.
+Fra skemaet med oplysninger kan det være svære at give et bud på, hvad en ældre kvinde fra Sjælland vil stemme på, da oplysningen om køn tyder på personen vil stemme på rød, mens information om, at det er en ældre person, tyder på, at personen vil stemme på blå. Endelig vil oplysningen om, at kvinden bor på Sjælland igen få os til at tænke, at hun stemmer på rød blok.
 
 Her kunne vi selvfølgelig løse problemet ved at få information for hver kombination af køn, aldersgruppe og bopæl. Men det viser sig ikke at være en helt gangbar fremgangsmåde. Forklaringen følger her: Hvis vi ser på kombinationer af køn, aldersgruppe og bopæl vil det i dette eksempel give $2\cdot 2\cdot 3=12$ kombinationer, og hvis
 vi i stedet havde set på, om man svarer ja eller nej til $50$ spørgsmål, vil man kunne få $2^{50}$ forskellige kombinationer af svar. Hvis man ser på en person, der har svaret på de $50$ spørgsmål, kan man her forvente, at man i ens data kun har ganske få eller måske slet ingen personer, der har svaret på fuldstændig samme måde, og der vil ikke være meget at basere ens bud på.
 
-Derfor ønsker vi en metode, hvor vores bud på hvad en ny person vil stemme på udelukkende baseres på information svarende til det fra skemaet ovenfor, hvor vi ikke ser på alle de forskellige kombinationer. Det er *det* Naive Bayes klassifikation kan.
+Derfor ønsker vi en metode, hvor vores bud, på hvad en ny person vil stemme på, udelukkende baseres på information svarende til det fra skemaet ovenfor, hvor vi ikke ser på alle de forskellige kombinationer. Det er *det* Naive Bayes klassifikation kan.
 
 
 ## Bayes klassifier 
@@ -77,7 +77,7 @@ bestemt antal mulige udfald, og der behøver altså ikke nødvendigvis kun at v�
 
 Derudover indfører vi en stokastisk variabel $\mathbf{X}$, hvor de mulige udfald er alle kombinationer af informationer. Her kan vi tænke $\mathbf{X}$ som en stokastisk vektor $\mathbf{X} =(X_1,X_2,…,X_q)$, hvor man ved eksemplet kunne sige $X_1$:køn, $X_2$:aldersgruppe og $X_3$:bopæl, og et udfald kunne være $\mathbf{x}=(kvinde,ældre,Sjælland)$. 
 
-For hvert udfald af $Y$ ønsker vi at bestemme sandsynligheden for at værdien $y$ antages, når vi allerede har observeret, at $\mathbf{X}=\mathbf{x}$.
+For hvert udfald af $Y$ ønsker vi, at bestemme sandsynligheden for at værdien $y$ antages, når vi allerede har observeret, at $\mathbf{X}=\mathbf{x}$.
 
 Sandsynligheden vil vi skrive som
 $$P(Y = y \mid \mathbf{X} = \mathbf{x})$$
@@ -101,7 +101,7 @@ Et banalt eksempel kunne være at $Y$ angiver antal ben på et givent dyr, mens 
 Formelt defineres betinget sandsynlighed for to *hændelser* $A$ og $B$ som:
 $$P(A\mid B) = \frac{P(A \cap B)}{P(B)}$${#eq-betinget_ssh}
 
-Udtrykket $P(A \cap B)$ i tælleren er sandsynligheden for *fælleshændelsen* mellem $A$ og $B$ -- det vil sige hændelsen at både $A$ og $B$ omtræffer -- og i nævneren sørger vi for, at man kun ser på de udfald, hvor $B$ er givet[^1].
+Udtrykket $P(A \cap B)$ i tælleren er sandsynligheden for *fælleshændelsen* mellem $A$ og $B$ -- det vil sige hændelsen, at både $A$ og $B$ indtræffer -- og i nævneren sørger vi for, at man kun ser på de udfald, hvor $B$ er givet[^1].
 
 ### Eksempel med betinget sandsynlighed
 
@@ -166,7 +166,7 @@ Dette resultat er netop **Bayes' sætning**:
 Vi kan altså ved at kende $P(B\mid A)$, $P(B)$ og $P(A)$ udtrykke den betingede sandsynlighed
 $P(A\mid B)$. Vi vender lige om lidt tilbage til, hvad vi kan bruge det til.
 
-Som sidste bemærkning er det væsenligt at understrege at $P(A\mid B) \neq P(B\mid A)$ med mindre 
+Som sidste bemærkning er det væsentligt at understrege, at $P(A\mid B) \neq P(B\mid A)$ med mindre 
 $P(A) = P(B)$ jævnfør (@eq-betinget_ssh) ovenfor. F.eks. er sandsynligheden for et tilfældigt dyr er en elefant, givet dyret har fire ben ikke den samme som sandsynligheden for, at dyret har fire ben givet, at dyret er en elefant!
 
 ## Binær Bayes klassifier
@@ -187,7 +187,7 @@ P(Y = 0 \mid \mathbf{X} = \mathbf{x}) > P(Y = 1 \mid \mathbf{X} = \mathbf{x}) \L
 \frac{P(Y = 0 \mid \mathbf{X} = \mathbf{x})}{P(Y = 1 \mid \mathbf{X} = \mathbf{x})} > 1.
 \end{aligned}
 $$
-Her vi dog nødt til at antage, at $$P(Y = 1 \mid \mathbf{X} = \mathbf{x})\neq 0,$$ så vi ikke kommer til at dividere med $0$. 
+Her er vi dog nødt til at antage, at $$P(Y = 1 \mid \mathbf{X} = \mathbf{x})\neq 0,$$ så vi ikke kommer til at dividere med $0$. 
 
 Bruger vi denne omskrivning, kan vi udtrykke den binære Bayes klassifikation i (@eq-binar_bayes_klassifikation1) på denne måde:
 
@@ -242,7 +242,7 @@ $$
 \end{aligned}
 $$
 
-Vi kan sammenfatte udtrykket i (@eq-forhold_posterior_ssh) det således til det såkaldte *posterior forhold*:
+Vi kan sammenfatte udtrykket i (@eq-forhold_posterior_ssh) til det såkaldte *posterior forhold*:
 $$
 \underbrace{\frac{P(Y = 0 \mid \mathbf{X} = \mathbf{x})}{P(Y = 1 \mid \mathbf{X} = \mathbf{x})}}_\text{Posterior forhold} = 
 \underbrace{\frac{P(\mathbf{X} = \mathbf{x} \mid Y = 0)}{P(\mathbf{X} = \mathbf{x} \mid Y = 1)}}_\text{Likelihood forhold} \cdot
@@ -274,13 +274,13 @@ P(X_1 = x_1, X_2 = x_2, \dots, X_q = x_q \mid Y = y)\\
 \end{aligned}
 $$
 hvor $\prod$-symbolet i sidste linje betyder, at vi tager produktet af alle faktorerne 
-på formen $P(X_i = x_i\mid Y = y)$ fra $i=1$ op til $q$ -- altså præcist det som står i linjen over.
+på formen $P(X_i = x_i\mid Y = y)$ fra $i=1$ op til $q$ -- altså præcist det, som står i linjen over.
 Det minder således om sum-tegnet $$\sum_{i=1}^n x_i = x_1 + x_2 + \cdots + x_n,$$ 
-men blot for gange i stedet for addition.
+men blot for multiplikation i stedet for addition.
 
 ## Posterior forholdet, score og vægte
 
-Samler vi nu udtrykkene, som indgår i vores posterior forhold i (@eq-forhold_posterior_ssh), samtidig med at vi antager, at $X_1, X_2, \cdots, X_q$ er uafhængige af hinanden giver $Y$, får vi nedenstående:
+Samler vi nu udtrykkene, som indgår i vores posterior forhold i (@eq-forhold_posterior_ssh), samtidig med at vi antager, at $X_1, X_2, \cdots, X_q$ er uafhængige af hinanden givet $Y$, får vi nedenstående:
 
 $$
 \begin{aligned}
@@ -312,7 +312,7 @@ hvor vi har brugt logaritmeregnereglen
 $$\ln(a\cdot b) = \ln(a) + \ln(b)$$ 
 gentagende gange.
 
-Vi minder om, at forholdet mellem $P(Y = 0 \mid \mathbf{X} = \mathbf{x})$ og $P(Y = 1 \mid \mathbf{X} = \mathbf{x})$ var af særlig interesse omkring værdien 1 -- se (@eq-binar_bayes_klassifikation2). Når forholdet er $1$ betyder det, at de to klasser er lige sandsynlige givet $\mathbf{x}$. Endvidere, når forholdet var er $1$, er $Y=0$ mere sandsynlig end $Y=1$, og når det er under $1$, er det omvendte tilfældet.
+Vi minder om, at forholdet mellem $P(Y = 0 \mid \mathbf{X} = \mathbf{x})$ og $P(Y = 1 \mid \mathbf{X} = \mathbf{x})$ er af særlig interesse omkring værdien 1 -- se (@eq-binar_bayes_klassifikation2). Når forholdet er $1$ betyder det, at de to klasser er lige sandsynlige givet $\mathbf{x}$. Endvidere, når forholdet er over $1$, er $Y=0$ mere sandsynlig end $Y=1$, og når det er under $1$, er det omvendte tilfældet.
 
 Lad os nu se på hvilken effekt det får, at vi ikke længere ser direkte på det posterior forhold 
 $$ \frac{P(Y = 0 \mid \mathbf{X} = \mathbf{x})}{P(Y = 1 \mid \mathbf{X} = \mathbf{x})}$$
@@ -330,9 +330,11 @@ $$\ln \left(\frac{P(Y = 0 \mid \mathbf{X} = \mathbf{x})}{P(Y = 1 \mid \mathbf{X}
 bliver det vigtige nu, om denne størrelse er positiv eller negativ. 
 
 Lad os derfor indføre $S$ som en *score*, der er lig med logaritmen til posterior forholdet:
+
 $$
 S = \ln \left(\frac{P(Y = 0 \mid \mathbf{X} = \mathbf{x})}{P(Y = 1 \mid \mathbf{X} = \mathbf{x})}\right)
-$$
+$${#eq-scoreS}
+
 Den binære Bayes klassifikation i (@eq-binar_bayes_klassifikation2) kan derfor i stedet skrives ved hjælp af scoren $S$ på denne måde:
 
 $$ C(\mathbf{x}) = \begin{cases}
@@ -342,13 +344,23 @@ $$ C(\mathbf{x}) = \begin{cases}
 
 Vi ved således, at hvis $S>0$, så klassificerer vi $\mathbf{x}$, som $C(x)=0$ og ellers $C(x)=1$.
 
-Indfører vi ligeledes bidragene til $S$ som $w_0$ og $w_i(x_i)$ således
+Sammenholder vi definitionen af $S$ i (@eq-scoreS) med udtrykket i (@eq-posterior_forhold_ln), ser vi, at $S$ også kan skrives som
+
+$$
+\begin{aligned}
+S &= \ln \left(\frac{P(Y = 0 \mid \mathbf{X} = \mathbf{x})}{P(Y = 1 \mid \mathbf{X} = \mathbf{x})}\right) \\&= 
+\ln \left(\frac{P(Y = 0)}{P(Y = 1)}\right) + 
+\sum_{i=1}^q \ln \left(\frac{P(X_i = x_i \mid Y = 0)}{P(X_i = x_i \mid Y = 1)}\right),
+\end{aligned} 
+$${#eq-scoreS2}
+
+Indfører vi nu bidragene til $S$ som $w_0$ og $w_i(x_i)$ således
 $$
 w_0 = \ln \left(\frac{P(Y = 0)}{P(Y = 1)}\right) 
 \quad\text{og}\quad
 w_i(x_i) = \ln \left(\frac{P(X_i = x_i \mid Y = 0)}{P(X_i = x_i \mid Y = 1)}\right)
 $$
-kan vi således skrive udtrykket for $S$ i (@eq-posterior_forhold_ln) som 
+kan vi skrive udtrykket for $S$ i (@eq-scoreS2) som 
 $$
 S = w_0 + \sum_{i = 1}^q w_i(x_i),
 $$ {#eq-score_ved_vaegte}
@@ -425,7 +437,7 @@ Lad os se på eksemplet fra tidligere med at stemme på rød eller blå blok, hv
 Vi havde allerede følgende information fra træningsdata:
 
 
-|       | Alle   | Mænd   | Kvinder | Ung    | Ældre  | Sjælland | Jylland | Anden bopæl  |
+|       | Alle   | Mænd   | Kvinder | Unge    | Ældre  | Sjælland | Jylland | Anden bopæl  |
 |-------|--------|--------|---------|--------|--------|----------|---------|--------|
 | Rød   | $51.85 \%$ | $48.00 \%$ | $55.00 \%$  | $65.00 \%$ | $47.47 \%$ | $54.00 \%$   | $49.90 \%$  | $52.78 \%$ |
 | Blå   | $48.15 \%$ | $52.00 \%$ | $45.00 \%$  | $35.00 \%$ | $52.53 \%$ | $46.00 \%$   | $50.10 \%$  | $47.22 \%$ |
@@ -452,9 +464,9 @@ Derfor får vi
 $$P(X_1 = kvinde \mid Y = 1)=\frac{45\%\cdot 5500}{4815}= 51.40 \%$$
 og
 $$P(X_1 = mand \mid Y = 1)=100\%-51.40 \%=48.60\%$$
-Alle tilsvarende sandsynligheder kan beregnes, så man kan se hvor stor en andel af stemmerne på de to blokke, der komme fra hver gruppe. Resultatet ses i nedenstående tabel:
+Alle tilsvarende sandsynligheder kan beregnes, så man kan se hvor stor en andel af stemmerne på de to blokke, der kommer fra hver gruppe. Resultatet ses i nedenstående tabel:
 
-|     | Mænd   | Kvinder | Ung    | Ældre  | Sjælland | Jylland | Anden bopæl  |
+|     | Mænd   | Kvinder | Unge    | Ældre  | Sjælland | Jylland | Anden bopæl  |
 |-----|--------|---------|--------|--------|----------|---------|--------|
 | Rød | $41.66 \%$ | $58.34 \%$  | $31.34 \%$ | $68.66 \%$ | $31.24 \%$   | $43.31 \%$  | $25.45 \%$ |
 | Blå | $48.60 \%$ | $51.40 \%$  | $18.17 \%$ | $81.83 \%$ | $28.66 \%$   | $46.82 \%$  | $24.52 \%$ |
@@ -467,17 +479,17 @@ Herunder ses vægtene for alle grupper:
 
 | $w_0$| $w_1$ |       | $w_2$ |       | $w_3$ |       |       |
 |--------|--------|--------|--------|--------|--------|--------|--------|
-|       | Mænd  |Kvinder| Ung   | Ældre |Sjælland|Jylland|Anden bopæl|
+|       | Mænd  |Kvinder| Unge   | Ældre |Sjælland|Jylland|Anden bopæl|
 | $0.074$ | $-0.154$ | $0.127$ | $0.545$ | $-0.175$ | $0.086$ | $-0.078$ | $0.037$ |
 
 Tidligere havde vi indset, at når $w_i(x_i)>0$, så understøtter bidraget fra den $i$'te 
 oplysning $x_i$, at $Y=0$ (altså at stemme på rød blok). I tabellen ovenfor ses det derfor, at oplysningerne kvinde, ung, Sjælland og anden bopæl gør det mere sandsynligt med en stemme på rød blok, mens oplysningerne mand, ældre og Jylland gør det mere sandsynligt med en stemme på blå blok.
 
-Vi kan nu beregnes scoren $S$ for en kvinde, som er ældre og fra Sjælland, altså hvor $x=(kvinde,ældre,Sjælland)$.
+Vi kan nu beregne scoren $S$ for en kvinde, som er ældre og fra Sjælland, altså hvor $x=(kvinde,ældre,Sjælland)$.
 \begin{equation}
 \begin{split}
 S &  = w_0 + \sum_{i = 1}^q w_i(x_i)=w_0+w_1(kvinde)+w_2(ældre)+w_3(Sjælland) \\
- & =0.074+0.127+(-0.175)+0.086=0.11
+ & =0.074+0.127+(-0.175)+0.086=0.112
 \end{split}
 \end{equation}
 

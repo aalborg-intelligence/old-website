@@ -56,9 +56,9 @@ For alle $p,q,r$ i $M$ skal der gælde, at
 Lad os tage et velkendt eksempel. 
 
 :::{#exm-euklid}
-## Euklidsk afstand som metrik
+## Euklidisk afstand som metrik
 
-Lad $M$ være alle punkter i planen og lad metrikken være den [euklidske afstand](AfstandeMellemPunkteriPlanen.qmd), som vi kender. Funktionen $d$ vil så tage to punkter $P(x_1,y_1)$ og $Q(x_2,y_2)$ i planen og give et reelt tal som output svarende til den euklidiske afstand mellem $P$ og $Q$. Det vil sige, at
+Lad $M$ være alle punkter i planen og lad metrikken være den [euklidiske afstand](AfstandeMellemPunkteriPlanen.qmd), som vi kender. Funktionen $d$ vil så tage to punkter $P(x_1,y_1)$ og $Q(x_2,y_2)$ i planen og give et reelt tal som output svarende til den euklidiske afstand mellem $P$ og $Q$. Det vil sige, at
 $$ d(P,Q) = \sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$$
 Vi vil senere vise, at denne funktion opfylder betingelserne for en metrik, som defineret ovenfor.
 
@@ -98,7 +98,7 @@ eller ej.
 :::
 
 :::{#exm-euklid}
-## Euklidsk afstand som metrik, fortsat
+## Euklidisk afstand som metrik, fortsat
 
 Vi vil vise, at den euklidiske afstand mellem to punkter rent faktisk opfylder betingelserne for en metrik, som vi definerede dem ovenfor:
 
@@ -140,7 +140,7 @@ Nu skulle det være til at indse, at de fire betingelser er opfyldt.
 :::{#exm-ikke_metrik}
 ## Ikke-metrik
 
-En elev er træt af kvadratrødder og tænker, at man vel kan droppe den euklidske afstand og i stedet definere en afstand mellem to punkter $p(x_1,y_1)$  og $q(x_2,y_2)$ i planen som følger:
+En elev er træt af kvadratrødder og tænker, at man vel kan droppe den euklidiske afstand og i stedet definere en afstand mellem to punkter $p(x_1,y_1)$  og $q(x_2,y_2)$ i planen som følger:
 
 $$D(p,q)=(x_2-x_1)^2+(y_2-y_1)^2$${#eq-ikke_metrik}
 

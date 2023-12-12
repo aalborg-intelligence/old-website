@@ -1,0 +1,171 @@
+---
+title: "Overvågning i Monitorbian"
+description: |
+  Nogle lande overvåger deres borgere. Men hvordan gør man mon det? I dette forløb bliver I ansatte af efterretningstjenesten i landet Monitorbian for at hjælpe dem med at overvåge deres borgere. Metoden, I skal bruge, kaldes for "k nærmeste naboer" (forkortet kNN), men det lærer I meget mere om her!
+#image: "hvem_ligner_du_mest_filer/image1.png"
+
+format:
+    html: 
+      self-contained: true
+      toc: true
+      toc-title: Indhold
+      toc-location: left
+from: markdown+emoji
+reference-location: margin
+categories:
+  - C-niveau
+crossref:
+  fig-prefix: figur   # (default is "Figure")
+  tbl-prefix: tabel    # (default is "Table")
+  exm-prefix: eksempel
+  thm-prefix: sætning
+  sec-prefix: afsnit
+  eq-prefix: ''
+  fig-title: Figur
+  exm-title: Eksempel
+  thm-title: Sætning
+  tbl-title: Tabel
+label:
+    fig: Figur
+fig-cap-location: margin
+tab-cap-location: margin
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.callout-tip collapse="true" appearance="minimal"}
+### Forudsætninger
+Forløbet kræver kendskab til:
+
++ Koordinatsystemer
++ Punkter og afstande mellem punkter
++ Procentregning
+
+:::
+
+
+## Velkommen til Monitorbian
+
+Landet *Monitorbian* ønsker at blive en vaskeægte overvågningsstat! Men efterretningstjenesten i Monitorbian ved meget lidt om overvågning. Derfor har de ansat jer som intelligence officerer til at løse denne opgave. Tillykke med jeres nye job! Lad os smøge ærmerne op og komme i gang! :smile:
+
+I Monitorbian findes der to forskellige slags indbyggere: Nogle nedstammer fra Anders And, mens andre nedstammer fra Fedtmule. På @fig-indbyggere kan du se, hvordan de forskellige indbyggere ser ud.
+
+![Billede af de to slags indbyggere i Monitorbian.](images/indbyggere.png){#fig-indbyggere}
+
+### Features
+
+For at overvåge indbyggerne er vi nødt til at identificere nogle egenskaber ved indbyggerne, som kan bruges til at adskille dem fra hinanden. Sådan en egenskab kaldes for en *feature*. En feature kunne for eksempel være en indbyggers vægt. Det vil være en god feature, hvis de to forskellige slags indbyggere har forholdsvis forskellig vægt. En anden feature kunne være øjenfarve, men hvis det ikke på en eller anden måde kan være med til at skelne de to slags indbyggere fra hinanden, så vil øjenfarve være et dårlig valg af feature i denne sammenhæng.  
+
+::: {.callout-note collapse="true" appearance="minimal"}
+### Opgave: Features
+
+Se på billedet i @fig-indbyggere og find på nogle flere features.
+
+:::
+
+### Træningsdata
+
+Som I lige har set, er der rigtig mange egenskaber ved indbyggerne, der kan bruges som features. Men som intelligence officerer er vi nødt til at træffe et valg og beslutte os for, hvad vi vil gå videre med. I har derfor netop været til møde i sikkerhedsudvalget, hvor det er blevet besluttet at højde og ørelængde er de to features, som I skal arbejde videre med. Fremadrettet bliver det sådan, at hver gang en indbygger i Monitorbian går ind i en offentlig bygning, så bliver vedkommende scannet og højde og ørelængde bliver målt.  
+
+I skal nu have lavet en algoritme, som kan forudsige, hvilken slags indbygger der er tale om -- alene baseret på viden om en given indbyggers højde og ørelængde. Man siger, at vi gerne vil *klassificere* indbyggerne -- her i to klasser: Anders And og Fedtmule. 
+
+For at gøre det har vi brug for *træningsdata*. Træningsdata består af en masse data fra forskellige indbyggere, hvor de to features er blevet målt samtidig med, at det for hver indbygger er angivet om vedkommende nedstammer fra Anders And eller fra Fedtmule. Denne sidste oplysning er jo lige præcis den oplysning, som vi gerne fremadrettet vil kunne forudsige[^1]. I træningsdata angiver vi altså den værdi, som vi gerne vil prædiktere. Derfor kalder man også denne værdi for en *targetværdi*.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+### Opgave: Træningsdata
+
+Nedenstående viser en tabel med træningsdata, men targetværdien mangler. Angiv targetværdien:
+
+*Tabel med 20 datapunkter. Højde og ørelængde er angivet samt et billede. Eleverne skal derefter vinke af om der er tale om en Anders And eller en Fedtmule indbygger. A la [det her](http://apps.math.aau.dk/AI/k_NN/#section-klassifikation-1).* 
+
+:::
+
+### Nærmeste naboer (kNN)
+
+Der findes en lang række af metoder til at lave klassifikation, som er det vi har brug for her. Nogle af dem bruger meget avanceret matematik og enorme computerkrafter, og kan anvendes til diagnosticering af sygdomme, klassificere dokumenter i forskellig type, genkende objekter i billeder og videoer. Helt så avancerede metoder får vi dog ikke brug for her.
+
+Vi vil i stedet fokusere på én af de simpleste, men alligevel effektive metoder til at klassificere observationer. Metoden kaldes på engelsk *k-nearest neighbors* eller på dansk *k-nærmeste naboer*, og forkortes ofte som *kNN*. *kNN* beror på den simple antagelse, at observationer, som er tæt på hinanden, også ligner hinanden. I vores eksempel vil det være, at indbyggere, som har cirka samme højde og ørelængde, vil vi antage hører til i den samme klasse. 
+
+For at bestemme hvilke naboer, der ligger tæt på hinanden, er vi nødt til at kunne beregne afstanden mellem to punkter. Du husker nok, at afstanden $d$ mellem punktet $P(x_1,y_1)$ og punktet $Q(x_2,y_2)$ er
+
+$$
+d = \sqrt{(x_2-x_1)^2+(y_2-y_1)^2}
+$$
+På figuren nedenfor ser I de træningsdata, som I selv angav en targetværdi for i den foregående opgave.
+
+*Figur her med data.*
+
+::: {.callout-note collapse="true" appearance="minimal"}
+### Opgave: Afstand 
+
+Beregn afstande mellem nogle af punkterne.
+
+*Eleverne skal selv beregne afstanden mellem nogle af punkterne. A la [det her](http://apps.math.aau.dk/AI/k_NN/#section-eksempel). Men det skal kun være euklidisk afstand og ikke multiple choice og med flere eksempler.* 
+
+:::
+
+Når *k*-nærmeste naboer bruges til at klassificere en ny indbygger benyttes en *flertalsafstemning* (også kaldet *majoritetsbeslutning*). Det vil sige, at en ny indbygger bliver prædikteret til at tilhøre den klasse, som de fleste af indbyggerens *k*-nærmeste naboer tilhører. Hvis for eksempel $k=5$, og vi har en ny indbygger, som vi gerne vil afgøre klassen for, så ser på simpelthen på de $5$ nærmeste naboer til denne indbygger og tæller op, hvilke klasser de tilhører. Hvis to af dem nedstammer fra Anders And og tre fra Fedtmule, så vil en flertalsafstemning sige, at den nye indbygger nok er i Fedtmule-klassen. 
+
+Denne idé vil vi nu bruge.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+### Opgave: Afstand til ny og ukendt indbygger
+
+Lav på baggrund af træningsdata et eksempel, hvor en ny indbygger skal klassificeres. Man skal kunne trykke på den nye indbygger og ethvert af punkterne fra træningsdata og få vist afstanden (samt klassen), som overføres til et ”regneark”. I regnearket skal der kunne sorteres på afstand. 
+:::
+
+::: {.callout-note collapse="true" appearance="minimal"}
+### Opgave: Flertalsafstemning for forskellige værdier af *k* 
+
+På baggrund af ovenstående skal eleven prøve at klassificere med forskellige værdier af k. De skal udfylde en tabel a la 
+
+|$k$ |	Blå/Rød /Uafklaret (prædiktion)	| Procentsats |
+|---|---|---|
+| 1	| Blå |	100% |
+| 2 |	Uafklaret |	50% |
+| 3 |	Rød	| 67% |
+		
+[Måske kan det her bruges](http://apps.math.aau.dk/AI/k_NN/#section-k-n%C3%A6rmeste-naboer)
+
+:::
+
+
+### Valg af *k* og testdata
+
+Som du har set ovenfor, vil forskellige valg af *k* give forskellige resultater. Så hvordan vælger vi mon den bedst mulige værdi af *k*? For at afgøre det vil vi opdele vores data i to dele: *træningsdata* og *testdata*. Det kunne for eksempel være sådan, at af alle de data vi har, så bruger vi $80 \%$ som træningsdata. Det er træningsdata, som vi bruger til at lave prædiktionen med. De resterende $20 \%$ af data vil vi lade være *testdata*, hvor vi bruger testdata til at måle hvor nøjagtig vores algoritme er. Idéen er nu denne: Vi vælger en værdi af *k* -- det kunne for eksempel være $k=5$. Vi ser så på hver eneste indbygger i testdata, og bruger træningsdata til at lave en prædiktion for denne indbygger. I testdata kender vi den rigtige klasse for hver indbygger. Det betyder, at vi kan afgøre om prædiktionen er rigtig eller forkert. På den baggrund kan man opstille en *confusion tabel*. Et eksempel på en sådan ses her:
+
+* Her skal være en confusion tabel/matrix *
+
+Vi kan her se, at med $k=5$ har vores *kNN* algoritme lavet en fejl i $xx \%$ af tilfældene. Vi kan nu lave tilsvarende beregninger for forskellige værdier af *k* og helt enkelt vælg den værdi af *k*, som giver den mindste fejlprocent, når vi tester på vores testdata.
+
+
+::: {.callout-note collapse="true" appearance="minimal"}
+### Opgave: Valg af *k*
+
++ Opgave hvor de skal vælge *k* og får vist en confusion tabel. Herefter udregner de selv fejlprocent, som gemmes, så der kan laves et diagram a la [det der er her](http://apps.math.aau.dk/AI/k_NN/#section-v%C3%A6lge-k) -- obs! Vi skal bare have binær klassifikation.
+
++ Hvilken værdi af *k* giver den mindste fejlprocent? (her kunne der være et konkurrenceelement - de elever der først finder den rigtige værdi af *k* har vundet?!)
+
+:::
+
+::: {.callout-note collapse="true" appearance="minimal"}
+### Bonusopgave (svær): Hvilke muligheder er der?
+
+Se på tabellen i opgaven **Flertalsafstemning for forskellige værdier af *k* ** ovenfor.
+
++ Hvilke procentsatser kan optræde i tabel? 
++ Kan der står blå ved $k=1$ og rød ved $k=2$? 
++ For hvilke værdier af $k$ kan der stå uafklaret? 
++ Får man altid den samme prædiktion for alle værdier af $k$? 
++ Prøv at opstille alle muligheder for tabeller (med $k=1, 2, 3, 4$). [Her skal facit ikke vises!]
+
+*Måske skal denne opgave stå til sidst.*
+
+:::
+
+Evt. ekstra opgave som tjekker forståelse ved at bruge [det her](http://apps.math.aau.dk/AI/k_NN/#section-interaktiv-k-n%C3%A6rmeste-naboer).
+
+Noget perspektivering til sidst... Hvad talte vi lige om her, Jan?
+
+[^1]: Man siger også, at vi gerne vil *prædiktere* hvilken slags indbygger, der er tale om.
