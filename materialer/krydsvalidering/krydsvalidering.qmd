@@ -26,6 +26,7 @@ label:
     fig: Figur
 title-block-author-single: "Forfatter"
 fig-cap-location: margin
+#keep-md: true
 ---
 
 
