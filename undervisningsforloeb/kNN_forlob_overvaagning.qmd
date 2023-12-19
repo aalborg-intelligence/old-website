@@ -2,7 +2,7 @@
 title: "Overvågning i Monitorbian"
 description: |
   Nogle lande overvåger deres borgere. Men hvordan gør man mon det? I dette forløb bliver I ansatte af efterretningstjenesten i landet Monitorbian for at hjælpe dem med at overvåge deres borgere. Metoden, I skal bruge, kaldes for "k nærmeste naboer" (forkortet kNN), men det lærer I meget mere om her!
-#image: "hvem_ligner_du_mest_filer/image1.png"
+image: "kNN_forlob_overvaagning_filer/images/to_indbyggere.png"
 
 format:
     html: 
@@ -51,7 +51,9 @@ Landet *Monitorbian* ønsker at blive en vaskeægte overvågningsstat! Men efter
 
 I Monitorbian findes der to forskellige slags indbyggere: Nogle nedstammer fra Anders And, mens andre nedstammer fra Fedtmule. På @fig-indbyggere kan du se, hvordan de forskellige indbyggere ser ud.
 
-![Billede af de to slags indbyggere i Monitorbian.](images/indbyggere.png){#fig-indbyggere}
+
+![Billede af de to slags indbyggere i Monitorbian. Indbyggeren til venstre nedstammer fra Anders And, mens indbyggeren til højre nedstammer af Fedtmule.](kNN_forlob_overvaagning_filer/images/to_indbyggere.png){#fig-indbyggere}
+
 
 ### Features
 
