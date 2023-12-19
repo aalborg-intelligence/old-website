@@ -25,6 +25,8 @@ format:
 
 + Den Store Danske har skrevet lidt om, hvad kunstig intelligens er - herunder også et historisk oprids af udviklingen inden for kunstig intelligens. [Kunstig intelligens](https://denstoredanske.lex.dk/kunstig_intelligens)
 
++ På siden [dataekspeditioner](https://www.dataekspeditioner.dk/) findes en række forløb hvoraf flere omhandler AI.
+
 ### Videoer
 + 3Blue1Brown har lavet en række fine videoer, som forklarer, hvad et kunstigt neuralt netværk er, og hvordan det trænes (på engelsk): [Neural networks](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi)
 
