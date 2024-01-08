@@ -17,6 +17,7 @@ listing:
     - description
   contents: 
     - path: undervisningsforloeb/hvem_ligner_du_mest.qmd
+    - path: undervisningsforloeb/polynomium.qmd
   type: grid
   grid-columns: 2
   categories: true
