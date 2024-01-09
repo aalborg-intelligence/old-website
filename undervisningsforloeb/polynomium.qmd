@@ -11,6 +11,8 @@ format:
       toc-location: left
       related-formats-title: "Andre formater"
 reference-location: margin
+categories:
+  - B-niveau
 nocite: | 
   @*
 editor_options: 
