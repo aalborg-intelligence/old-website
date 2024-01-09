@@ -34,11 +34,13 @@ execute:
 ---
 
 ::: {.callout-tip collapse="true" appearance="minimal"}
-### Forudsætninger
+### Forudsætninger og tidsforbrug
 Forløbet kræver kendskab til:
 
 + Sandsynlighedsregning
 + Betingede sandsynligheder
+
+**Tidsforbrug:** Ca. 2 x 90 minutter.
 
 :::
 

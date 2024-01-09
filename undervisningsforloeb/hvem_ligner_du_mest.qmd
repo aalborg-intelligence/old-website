@@ -38,6 +38,16 @@ execute:
   warning: false
 ---
 
+::: {.callout-tip collapse="true" appearance="minimal"}
+### Forudsætninger og tidsforbrug
+Forløbet kræver kendskab til:
+
++ Afstand mellem to punkter
+
+**Tidsforbrug:** Ca. 1 x 90 minutter.
+
+:::
+
 Vi har også apps på vores telefoner eller computere, som ud fra et
 billede kan genkende personer eller fra nogle få strofer kan genkende en
 sang. Der er scannere i lufthavne og andre steder, som kan genkende

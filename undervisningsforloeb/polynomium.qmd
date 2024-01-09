@@ -35,6 +35,16 @@ tbl-cap-location: margin
 title-block-author-single: "Forfatter"
 ---
 
+::: {.callout-tip collapse="true" appearance="minimal"}
+### Forudsætninger og tidsforbrug
+Forløbet kræver kendskab til:
+
++ Andengradspolynomier og rødder
+
+**Tidsforbrug:** Ca. 1 x 90 minutter.
+
+:::
+
 ## Hvad er en perceptron?
 
 I dette forløb skal vi arbejde med perceptoner, og det har du nok aldrig hørt om før! Start derfor med at se videoen herunder, hvor vi kort forklarer, hvad en perceptron er.
