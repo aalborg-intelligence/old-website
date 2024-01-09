@@ -33,9 +33,17 @@ tbl-cap-location: margin
 title-block-author-single: "Forfatter"
 ---
 
+## Hvad er en perceptron?
+
+I dette forløb skal vi arbejde med perceptoner, og det har du nok aldrig hørt om før! Start derfor med at se videoen herunder, hvor vi kort forklarer, hvad en perceptron er.
+
+{{< video https://www.youtube.com/embed/1WTZZCx-pRY >}}
+
+Du kan også læse meget mere om [perceptroner her](../materialer/perceptron/perceptron.qmd).
+
 ## Andengradspolynomier og rødder
 
-Lad os for en god ordens skyld minde om, at et andengradspolynomium er en funktion med en forskrift på formen
+Nu tilbage til vores eksempel om andengradspolynomier og rødder! Lad os for en god ordens skyld minde om, at et andengradspolynomium er en funktion med en forskrift på formen
 $$
 f(x)=ax^2 + bx + c, \quad a \neq 0
 $$
@@ -146,7 +154,7 @@ ggplot(data.frame(b = c(0,2), c = c(-1,4), rødder = factor(c("ja", "nej")))) +
 ## Træning af perceptron
 
 Vi skal nu overveje, hvordan perceptronen kan trænes. 
-Perceptronen[^2] gør dybest set det, at den prøver at bestemme en ret linje, som kan bruges til at adskille de røde punkter fra de blå punkter i punktplottet ovenfor. 
+Perceptronen gør dybest set det, at den prøver at bestemme en ret linje, som kan bruges til at adskille de røde punkter fra de blå punkter i punktplottet ovenfor. 
 En ret linje i et 2-dimensionalt koordinatsystem har helt generelt en ligning på formen[^4]
 
 $$
@@ -174,6 +182,10 @@ Her tænker vi altså på $b$ og $c$ som de variable.
 
 Når man træner en perceptron, gør man det ved hjælp af en algoritme, som løbende opdaterer vægtene $w_0, w_1$ og $w_2$, så den linje, vægtene giver, bliver bedre og bedre til at adskille de røde punkter fra de blå. 
 Hver gang man opdaterer vægtene, siger man, at algoritmen har foretaget én iteration[^3]. 
+
+Du kan godt løse resten af opgaverne uden at forstå, hvorfor vægtene opdateres, som de gør. Men hvis du gerne vil have en forklaring så se videoen herunder.
+
+{{< video https://www.youtube.com/embed/xCeSZgdU3jc >}}
 
 ::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 3: Træning af perceptron
@@ -253,6 +265,5 @@ Men vi kan ikke finde nogle værdier af $w_0, w_1$ og $w_2$, så udtrykket i (@e
 
 
 [^1]: Det er klart, at der er intet nyt under solen her. Vi kan jo bare selv beregne diskriminanten og svare på spørgsmålet. Men formålet er her at lære lidt om, hvad det vil sige at træne en perceptron i et tilfælde, hvor vi allerede selv kender svaret. Desuden findes der ingen lukkede løsningsformler for at bestemme rødder i et polynomium, så snart graden af polynomiet er $5$ eller derover. Så idéen kan generaliseres, og så er den måske slet ikke så tosset endda! 
-[^2]: Du kan læse meget mere om [perceptroner her](../materialer/perceptron/perceptron.qmd).
 [^3]: En iteration betyder en gentagelse.
 [^4]: Du er nok vant til at møde linjens ligning på denne form: $a \cdot x+b \cdot y+c=0$. Skrivemåden, vi bruger her, er $w_0+w_1 \cdot x + w_2 \cdot y=0$. Det vil sige i forhold til den skrivemåde, som du kender, så er $w_0=c, w_1=a$ og $w_2=b$. 
