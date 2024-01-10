@@ -341,7 +341,7 @@ også $1$ og afstanden i det tredje spørgsmål er $2$ pga. den skjulte "neutral
 ::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 15
 
-Udregn afstanden i hver af de øvrige $20$ spørgsmål.
+De 3 første afstand er altså 1, 1 og 2. Udregn afstanden i hver af de øvrige $20$ spørgsmål.
 
 Læg så afstandene sammen, hvilket svarer til en form for Manhattan
 afstand, da afstanden regnes for hvert enkelt spørgsmål for sig. Hvilken
@@ -352,7 +352,7 @@ samlet afstand giver det?
 ::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 16
 
-Hvad er den mindst mulig afstand samlet for de $23$ spørgsmål? Hvordan
+Hvad er den mindst mulig samlede afstand for de $23$ spørgsmål? Hvordan
 skal svarene for partiet og for vælgeren se ud fra at få denne afstand?
 
 Hvad er den størst mulige afstand, og hvordan skal svarene så se ud?
