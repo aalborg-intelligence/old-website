@@ -44,7 +44,7 @@ Forløbet kræver kendskab til:
 
 + Afstand mellem to punkter
 
-**Tidsforbrug:** Ca. 1 x 90 minutter.
+**Tidsforbrug:** Ca. 90 minutter.
 
 :::
 
@@ -79,7 +79,7 @@ I denne video gives en kort introduktion til forløbet.
 ### Opgave 1
 
 På @fig-opg1 nedenfor er der $10$ røde punkter, $10$ blå punkter og $10$ grønne
-punkter -- samt et enkelt gråt punkt $P$. Vurdér ud fra placeringen af det grå punkt $P$, om du synes, at dette punkt bør være rødt, blåt eller grønt for at passe bedst ind.
+punkter -- samt et enkelt gråt punkt $P$ i midten. Vurdér ud fra de øvrige punkter i nærheden af $P$, om du synes, at $P$ bør være rødt, blåt eller grønt så det mest ligner sine naboer.
 
 :::
 
@@ -119,7 +119,7 @@ tættest på det grå punkt i opgave 2.
 
 Udregn afstanden fra det grå punkt $P(15,15)$ til hver af disse $10$ punkter. 
 
-Afgør så, hvor mange af hver farve, der ligger indenfor en cirkel med radius $5$ omkring det grå punkt. 
+Afgør så, hvor mange af hver farve, der ligger indenfor en cirkel med radius $5$ omkring det grå punkt. Det er nok specielt det blå punkt lige på kanten af cirklen, hvor beregningen er vigtig, men hvis en computer skal lave arbejdet automatisk, vil den jo beregne alle afstandene, da den ikke bare kan "kigge på figuren", som et menneske kan.
 
 Hvilken farve tyder det på, at det grå punkt bør have? 
 
@@ -135,7 +135,7 @@ Hvilken farve tyder det på, at det grå punkt bør have?
 ::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 4
 
-Overvej, hvad der sker, hvis cirklens radius vælges som en meget lille værdi eller som en meget stor værdi i forhold til at bruge metoden til at bestemme, hvilken farve det grå punkt bør have.
+Overvej, hvad der sker, hvis cirklens radius vælges som en meget lille værdi eller som en meget stor værdi i forhold til at bruge metoden til at bestemme, hvilken farve det grå punkt bør have. Kan det give problemer?
 :::
 
 ::: {.callout-note collapse="false" appearance="minimal"}
@@ -160,7 +160,7 @@ Diskutér, hvilken radius, der er bedst.
 
 ### Afslutning på case 1
 
-Der bliver nok klart, at der er brug for en metode til at beslutte, hvor stor radius skal være for at få det bedste resultat. Kort og lidt simpelt forklaret, involverer det noget, som man kalder træningsdata, hvor man har en række grå punkter, som man faktisk godt kender den rigtige farve på. Lad os sige, at træningsdata er $50$ grå punkter. Så afprøver man forskellige værdier af radius, f.eks. $5$, $10$ og $20$. Hvis metoden med radius $5$ "gætter" rigtigt for $35$ af de $50$ punkter, med radius $10$ "gætter" $31$ korrekt og med radius $20$ "gætter" $39$ korrekt, ja så er radius $20$ jo bedst. Helt så simpelt er det ikke, men hvis du eller I har lyst til at blive klogere på dette, så vil vi henvise til vores side om [Clustering med K-means](../materialer/kmeans/kmeans.qmd).
+Der bliver nok klart, at der er brug for en metode til at beslutte, hvor stor radius skal være for at få det bedste resultat. Kort og lidt simpelt forklaret, involverer det noget, som man kalder træningsdata og testdata. Man har f.eks. 1000 punkter, som man kender farven på. Man lader så som om, at man ikke kender farven på f.eks. 200 af punkterne (som man så kalder testdata). Så bruger man de øvrige 800 punkter (træningsdata) til at forudsige farven af hver af de 200 punkter i testdata. Dette gør man for forskellige værdier af radius, hvorefter man vælger den radius, der forudsiger flest af de 200 punkters farve korrekt. Hvis f.eks. radius 5 forudsiger 121 punkters farve korrekt, radius 10 furudsiger 135 punkters farve korrekt, og radius 20 kun forudsiger 87 punkters farve korrekt, så har radius 10 jo klaret sig bedst.
 
 
 ## Case 2 -- Manhattan afstand
@@ -197,7 +197,11 @@ I eksemplet og i opgave 6 var Manhattan afstanden større end den almindelige af
 
 Se på @fig-opg8 fra opgave 2 igen. 
 
-Punkterne inde i cirklen har en almindelig afstand på under $10$ til det grå punkt, men hvilke af punkterne har en Manhattan afstand på under $10$ til det grå punkt? Hvilken farve bør det grå punkt have, hvis Manhattan afstanden benyttes? Giver det samme resultatet, som du fik i opgave 2?
+Punkterne inde i cirklen har en almindelig afstand på under $10$ til det grå punkt, men hvilke af punkterne har en Manhattan afstand på under $10$ til det grå punkt? 
+
+Den almindelige afstand giver en cirkel med det grå punkt i centrum, men hvilken figur giver Manhatten afstand omkring det grå punkt? 
+
+Hvilken farve bør det grå punkt derfor have, hvis Manhattan afstanden benyttes? Giver det samme resultatet, som du fik i opgave 2?
 
 :::
 
