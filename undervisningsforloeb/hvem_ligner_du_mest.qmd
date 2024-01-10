@@ -210,7 +210,7 @@ Hvilken farve bør det grå punkt derfor have, hvis Manhattan afstanden benyttes
 ::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 9
 
-Opstil en formlen for den almindelige afstand mellem to punkter med koordinaterne $(x_1, y_1)$ og $(x_2, y_2)$. Det er en formel, du kender i forvejen.
+Opstil en formel for den almindelige afstand mellem to punkter med koordinaterne $(x_1, y_1)$ og $(x_2, y_2)$. Det er en formel, du kender i forvejen.
 
 Opstil tilsvarende en formel for Manhattan afstanden. Det er nok ikke en formel, du har set før. 
 
