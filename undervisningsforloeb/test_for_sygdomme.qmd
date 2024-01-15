@@ -273,7 +273,7 @@ $$
 P(\text{positiv test}) = P(\text{positiv test } | \text{ syg} ) \cdot P(\text{syg}) + \left ( 1 - P(\text{negativ test } | \text{ rask}) \right )  \cdot \left ( 1- P(\text{syg}) \right )
 $$
 
-Men nu er sandsynligheden for at test positiv alene udtrykt ved hjælp af sensitiviteten, specificiteten og prævalensen:
+Men nu er sandsynligheden for at teste positiv alene udtrykt ved hjælp af sensitiviteten, specificiteten og prævalensen:
 
 
 $$
