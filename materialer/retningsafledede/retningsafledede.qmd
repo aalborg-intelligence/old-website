@@ -68,7 +68,9 @@ $$
 \lim_{(x,y) \rightarrow (x_{0},y_{0})}{f\left( x,y \right) = f(x_{0},y_{0})}
 $$
 
-Definitionen er direkte overført fra den tilsvarende definition for funktioner af én variabel. Men man kan desværre *ikke* tilsvarende genbruge differentiabilitetsbegrebet fra funktioner af én variabel på denne måde
+Definitionen er direkte overført fra den tilsvarende definition for funktioner af én variabel. Det virker jo umiddelbart meget fornuftigt, men der er faktisk lidt at tænke over. Det kan du læse mere om [her](kontinuitet.qmd). 
+
+Desværre kan man *ikke* tilsvarende genbruge differentiabilitetsbegrebet fra funktioner af én variabel på denne måde
 
 $$
 \lim_{(x,y) \rightarrow (x_{0},y_{0})}{\frac{f\left( x,y \right) - f\left( x_{0},y_{0} \right)}{\left( x,y \right) - {(x}_{0},y_{0})} = f'(x_{0},y_{0})}
