@@ -41,7 +41,7 @@ Forløbet kræver kendskab til:
 
 + Andengradspolynomier og rødder
 
-**Tidsforbrug:** Ca. 1 x 90 minutter.
+**Tidsforbrug:** Ca. 90 minutter.
 
 :::
 

@@ -121,7 +121,7 @@ hvis grænsen eksisterer.
 
 Bemærk, at hvis $\vec{u}$ peger i $x$-aksens retning, så bliver den retningsafledede til $f_{x}^{'}(x_{0},y_{0})$, og hvis den peger i $y$-aksens retning, bliver den til $f_{y}^{'}(x_{0},y_{0})$. Man udregner en sekanthældning ved at tage et skridt $h$ i $\vec{u}$'s retning og dividere den fundne funktionstilvækst med $h$. Derefter lader man $h$ gå mod 0. Det giver hældningen af grafen for $f$ i punktet $(x_{0},y_{0})$ i retningen $\vec{u}$.
 
-Idéen med den retningsafledede er illustreret i app'en nedenfor. Til venstre ses en repræsentant for $\vec u$ i $xy$-planen. Man kan ændre på den retning, som $\vec u$ peger i, ved at trække i skyderen. Til højre ses grafen for en funktion $f$ af to variable, hvor et punkt $P(x_0,y_0,f(x_0,y_0))$ på grafen er indtegnet. Samtidig vises den snitkurve som fås, hvis man på grafen i punktet $P$ bevæger sig i retningen $\vec u$. Denne snitkurve har i punktet $P$ en tangent, som også er indtegnet, og denne tangents hældning vil netop svarer til størrelsen af den retningsafledede $D_{\vec{u}}f\left( x_{0},y_{0} \right)$. Hvis man ændrer på den retning, som $\vec u$ peger i, kan man se, hvordan størrelsen af den retningsafledede ændrer sig.
+Idéen med den retningsafledede er illustreret i app'en nedenfor. Til venstre ses en repræsentant for $\vec u$ i $xy$-planen. Man kan ændre på den retning, som $\vec u$ peger i, ved at trække i skyderen. Til højre ses grafen for en funktion $f$ af to variable, hvor et punkt $P(x_0,y_0,f(x_0,y_0))$ på grafen er indtegnet. Samtidig vises den snitkurve som fås, hvis man på grafen i punktet $P$ bevæger sig langs en linje i retningen $\vec u$. Denne snitkurve har i punktet $P$ en tangent, som også er indtegnet, og denne tangents hældning vil netop svarer til størrelsen af den retningsafledede $D_{\vec{u}}f\left( x_{0},y_{0} \right)$. Hvis man ændrer på den retning, som $\vec u$ peger i, kan man se, hvordan størrelsen af den retningsafledede ændrer sig.
 
 {{< include _geogebra/_geogebra.qmd >}}
 
@@ -210,9 +210,11 @@ På @fig-middelvaerdisaetningen illustreres dette princip.
 
 ![Illustration af middelværdisætningen. Her har tangenten i $(1,f(1))$ (den grønne linje) samme hældning som sekanten gennem $(0,f(0))$ og $(4,f(4))$ (den blå linje).](images/middelvaerdisaetningen.png){#fig-middelvaerdisaetningen}
 
-Middelværdisætningen siger altså bare, at hvis man forbinder start og slutpunktet -- den blå linje -- og udregner dens hældning, så kan man altid finde et punkt i det indre af intervallet, hvor tangenten i punktet -- den grønne linje -- har samme hældning.
+Middelværdisætningen siger altså bare, at hvis man forbinder start og slutpunktet -- den blå linje -- og udregner dens hældning, så kan man altid finde mindst et punkt i det indre af intervallet, hvor tangenten i punktet -- den grønne linje -- har samme hældning. I eksemplet fandt vi et bestemt $c$, som vi ifølge middelværdisætningen vidste, at vi kunne. Når vi i det følgende skal tænke endnu mere generelt, så bliver middelværdisætningen nyttig.
 
-Vi vender nu tilbage til definitionen af de retningsafledede og omskriver tælleren i (@eq-retningsafledede) for at kunne bringe middelværdisætningen i spil 
+Vi vender nu tilbage til definitionen af de retningsafledede. Vi får i det følgende brug for at antage, at både $f_{x}^{'}(x,y)$ og $f_{y}^{'}\left( x,y \right)$ eksisterer, så vi kan bruge middelværdisætningen. Desuden får vi også brug for at antage, at $f_{x}^{'}(x,y)$ og $f_{y}^{'}\left( x,y \right)$ er kontinuerte på en omegn af $(x_{0},y_{0})$.
+
+Vi omskriver nu tælleren i (@eq-retningsafledede) for at kunne bringe middelværdisætningen i spil 
 $$
 \begin{aligned}
 f( x_{0} + h \cdot u_{1}, y_{0} + h &\cdot u_{2}) - f(x_{0}, y_{0})  = \\
@@ -274,7 +276,7 @@ u_{2}
 \end{aligned}
 $$ {#eq-limit} hvis grænsen eksisterer.
 
-Bemærk nu, at hvis både $f_{x}^{'}(x,y)$ og $f_{y}^{'}\left( x,y \right)$ eksisterer og er kontinuerte på en omegn af $(x_{0},y_{0})$, så er betingelserne for vores brug af middelværdisætningen opfyldt for små værdier af $h$. Husk også på, at $c_1$ ligger i intervallet $(x_0,x_0+h \cdot u_1)$ og $c_2$ ligger i intervallet $(y_0,y_0+h \cdot u_2)$. Derfor vil
+Husk på, at $c_1$ ligger i intervallet $(x_0,x_0+h \cdot u_1)$ og $c_2$ ligger i intervallet $(y_0,y_0+h \cdot u_2)$. Derfor vil
 
 $$
 \lim_{h \rightarrow 0}\left( c_{1},y_{0} + h \cdot u_{2} \right) =
@@ -283,7 +285,7 @@ $$ og $$
 \lim_{h \rightarrow 0}\left( x_{0},c_{2} \right) = \ (x_{0},y_{0})
 $$
 
-På grund af af kontinuiteten af de partielle afledede vil grænseværdien i (@eq-limit) eksistere og give det ønskede resultat
+Vi startede med at antage, at de partielle afledede er kontinuerte. Det får vi brug for nu. Det betyder nemlig, at grænseværdien i (@eq-limit) eksisterer, og vi får det ønskede resultat
 
 $$
 D_{\vec{u}}f\left( x_{0},y_{0} \right) = \begin{pmatrix}

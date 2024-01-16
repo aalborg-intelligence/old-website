@@ -1,7 +1,6 @@
 ---
 title: "Overvågning i Monitorbian"
-description: |
-  Nogle lande overvåger deres borgere. Men hvordan gør man mon det? I dette forløb bliver I ansatte af efterretningstjenesten i landet Monitorbian for at hjælpe dem med at overvåge deres borgere. Metoden, I skal bruge, kaldes for "k nærmeste naboer" (forkortet kNN), men det lærer I meget mere om her!
+description: 'Nogle lande overvåger deres borgere. Men hvordan gør man mon det? I dette forløb bliver I ansatte af efterretningstjenesten i landet Monitorbian for at hjælpe dem med at overvåge deres borgere. Metoden, I skal bruge, kaldes for "k nærmeste naboer" (forkortet kNN), men det lærer I meget mere om her!'
 image: "kNN_forlob_overvaagning_filer/images/to_indbyggere.png"
 
 format:
@@ -29,18 +28,21 @@ label:
     fig: Figur
 fig-cap-location: margin
 tab-cap-location: margin
+tbl-cap-location: margin
 execute:
   echo: false
   warning: false
 ---
 
 ::: {.callout-tip collapse="true" appearance="minimal"}
-### Forudsætninger
+### Forudsætninger og tidsforbrug
 Forløbet kræver kendskab til:
 
 + Koordinatsystemer
 + Punkter og afstande mellem punkter
 + Procentregning
+
+**Tidsforbrug:** ca. 90 minutter.
 
 :::
 
@@ -52,7 +54,7 @@ Landet *Monitorbian* ønsker at blive en vaskeægte overvågningsstat! Men efter
 I Monitorbian findes der to forskellige slags indbyggere: Nogle nedstammer fra Anders And, mens andre nedstammer fra Fedtmule. På @fig-indbyggere kan du se, hvordan de forskellige indbyggere ser ud.
 
 
-![Billede af de to slags indbyggere i Monitorbian. Indbyggeren til venstre nedstammer fra Anders And, mens indbyggeren til højre nedstammer af Fedtmule.](kNN_forlob_overvaagning_filer/images/to_indbyggere.png){#fig-indbyggere}
+![Billede af de to slags indbyggere i Monitorbian. Indbyggeren til venstre nedstammer fra Anders And, mens indbyggeren til højre nedstammer fra Fedtmule.](kNN_forlob_overvaagning_filer/images/to_indbyggere.png){#fig-indbyggere}
 
 
 ### Features
@@ -60,7 +62,7 @@ I Monitorbian findes der to forskellige slags indbyggere: Nogle nedstammer fra A
 For at overvåge indbyggerne er vi nødt til at identificere nogle egenskaber ved indbyggerne, som kan bruges til at adskille dem fra hinanden. Sådan en egenskab kaldes for en *feature*. En feature kunne for eksempel være en indbyggers vægt. Det vil være en god feature, hvis de to forskellige slags indbyggere har forholdsvis forskellig vægt. En anden feature kunne være øjenfarve, men hvis det ikke på en eller anden måde kan være med til at skelne de to slags indbyggere fra hinanden, så vil øjenfarve være et dårlig valg af feature i denne sammenhæng.  
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-### Opgave: Features
+### Opgave 1: Features
 
 Se på billedet i @fig-indbyggere og find på nogle flere features.
 
@@ -68,101 +70,161 @@ Se på billedet i @fig-indbyggere og find på nogle flere features.
 
 ### Træningsdata
 
-Som I lige har set, er der rigtig mange egenskaber ved indbyggerne, der kan bruges som features. Men som intelligence officerer er vi nødt til at træffe et valg og beslutte os for, hvad vi vil gå videre med. I har derfor netop været til møde i sikkerhedsudvalget, hvor det er blevet besluttet at højde og ørelængde er de to features, som I skal arbejde videre med. Fremadrettet bliver det sådan, at hver gang en indbygger i Monitorbian går ind i en offentlig bygning, så bliver vedkommende scannet og højde og ørelængde bliver målt.  
+Som I lige har set, er der rigtig mange egenskaber ved indbyggerne, der kan bruges som features. Men som intelligence officerer er vi nødt til at træffe et valg og beslutte os for, hvad vi vil gå videre med. I har derfor netop været til møde i sikkerhedsudvalget, hvor det er blevet besluttet, at højde og fodareal er de to features, som I skal arbejde videre med. Fremadrettet bliver det sådan, at hver gang en indbygger i Monitorbian går ind i en offentlig bygning, så bliver vedkommende scannet og højde og fodareal bliver målt.  
 
-I skal nu have lavet en algoritme, som kan forudsige, hvilken slags indbygger der er tale om -- alene baseret på viden om en given indbyggers højde og ørelængde. Man siger, at vi gerne vil *klassificere* indbyggerne -- her i to klasser: Anders And og Fedtmule. 
+I skal nu have lavet en algoritme, som kan forudsige, hvilken slags indbygger der er tale om -- alene baseret på viden om en given indbyggers højde og fodareal. Man siger, at vi gerne vil *klassificere* indbyggerne -- her i to klasser: Anders And og Fedtmule. 
 
 For at gøre det har vi brug for *træningsdata*. Træningsdata består af en masse data fra forskellige indbyggere, hvor de to features er blevet målt samtidig med, at det for hver indbygger er angivet om vedkommende nedstammer fra Anders And eller fra Fedtmule. Denne sidste oplysning er jo lige præcis den oplysning, som vi gerne fremadrettet vil kunne forudsige[^1]. I træningsdata angiver vi altså den værdi, som vi gerne vil prædiktere. Derfor kalder man også denne værdi for en *targetværdi*.
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-### Opgave: Træningsdata
+### Opgave 2: Træningsdata
 
 Nedenstående viser en tabel med træningsdata, men targetværdien mangler. Angiv targetværdien:
 
-*Tabel med 20 datapunkter. Højde og ørelængde er angivet samt et billede. Eleverne skal derefter vinke af om der er tale om en Anders And eller en Fedtmule indbygger. A la [det her](http://apps.math.aau.dk/AI/k_NN/#section-klassifikation-1).* 
+
+| Indbygger | Fodareal | Højde | Targetværdi|
+|------|------|------|------|
+| Blå | 200 | 150 | |
+| Blå | 220 | 180 | |
+| Blå | 260 | 140 | |
+| Rød | 300 | 120 | |
+| Rød | 216 | 98 | |
+| Blå | 180 | 160 | |
+| Rød | 276 | 140 | |
+| Blå | 180 | 120 | |
+| Rød | 315 | 120 | |
+| Rød | 340 | 140 | |
+| Blå | 260 | 120 | |
+| Rød | 290 | 120 | |
+| Blå | 238 | 118 | |
+| Blå | 280 | 180 | |
+| Rød | 246 | 100 | |
+| Rød | 220 | 87 | |
+| Rød | 250 | 110 | |
+| Rød | 280 | 100 | |
+| Blå | 240 | 160 | |
+| Blå | 140 | 120 | |
+
+
+*Det er selvfølgelig ikke meningen, at der skal stå blå og rød i første kolonne - der skal være et billede, som svarer til farven.* 
 
 :::
 
 ### Nærmeste naboer (kNN)
 
-Der findes en lang række af metoder til at lave klassifikation, som er det vi har brug for her. Nogle af dem bruger meget avanceret matematik og enorme computerkrafter, og kan anvendes til diagnosticering af sygdomme, klassificere dokumenter i forskellig type, genkende objekter i billeder og videoer. Helt så avancerede metoder får vi dog ikke brug for her.
+Der findes en lang række af metoder til at lave klassifikation, som er det, vi har brug for her. Nogle af dem bruger meget avanceret matematik og enorme computerkræfter og kan anvendes til diagnosticering af sygdomme, klassificere dokumenter i forskellig type, genkende objekter i billeder og videoer. Helt så avancerede metoder får vi dog ikke brug for her.
 
-Vi vil i stedet fokusere på én af de simpleste, men alligevel effektive metoder til at klassificere observationer. Metoden kaldes på engelsk *k-nearest neighbors* eller på dansk *k-nærmeste naboer*, og forkortes ofte som *kNN*. *kNN* beror på den simple antagelse, at observationer, som er tæt på hinanden, også ligner hinanden. I vores eksempel vil det være, at indbyggere, som har cirka samme højde og ørelængde, vil vi antage hører til i den samme klasse. 
+Vi vil i stedet fokusere på én af de simpleste, men alligevel effektive metoder til at klassificere observationer. Metoden kaldes på engelsk *k-nearest neighbors* eller på dansk *k-nærmeste naboer*, og forkortes ofte som *kNN*. *kNN* beror på den simple antagelse, at observationer, som er tæt på hinanden, også ligner hinanden. I vores eksempel vil det være, at indbyggere, som har cirka samme højde og fodareal, vil vi antage, hører til i den samme klasse. 
 
 For at bestemme hvilke naboer, der ligger tæt på hinanden, er vi nødt til at kunne beregne afstanden mellem to punkter. Du husker nok, at afstanden $d$ mellem punktet $P(x_1,y_1)$ og punktet $Q(x_2,y_2)$ er
 
 $$
 d = \sqrt{(x_2-x_1)^2+(y_2-y_1)^2}
 $$
-På figuren nedenfor ser I de træningsdata, som I selv angav en targetværdi for i den foregående opgave.
+På @fig-data nedenfor ser I de træningsdata, som I selv angav en targetværdi for i den foregående opgave. Nogle af indbyggerne var det måske svært at afgøre oprindelsen af, men her ses den korrekte klassificering[^2].
 
-*Figur her med data.*
+![Datasættet med fodareal ud af $x$-aksen og højde op af $y$-aksen. De blå punkter svarer til Fedtmule-indbyggere, mens de røde svarer til Anders And-indbyggere.](kNN_forlob_overvaagning_filer/images/data.png){#fig-data}
+
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-### Opgave: Afstand 
+### Opgave 3: Afstande 
 
-Beregn afstande mellem nogle af punkterne.
-
-*Eleverne skal selv beregne afstanden mellem nogle af punkterne. A la [det her](http://apps.math.aau.dk/AI/k_NN/#section-eksempel). Men det skal kun være euklidisk afstand og ikke multiple choice og med flere eksempler.* 
+Beregn afstanden fra det grå punkt til de fem punkter, som er markeret i @fig-data_afstande herunder. 
 
 :::
 
-Når *k*-nærmeste naboer bruges til at klassificere en ny indbygger benyttes en *flertalsafstemning* (også kaldet *majoritetsbeslutning*). Det vil sige, at en ny indbygger bliver prædikteret til at tilhøre den klasse, som de fleste af indbyggerens *k*-nærmeste naboer tilhører. Hvis for eksempel $k=5$, og vi har en ny indbygger, som vi gerne vil afgøre klassen for, så ser på simpelthen på de $5$ nærmeste naboer til denne indbygger og tæller op, hvilke klasser de tilhører. Hvis to af dem nedstammer fra Anders And og tre fra Fedtmule, så vil en flertalsafstemning sige, at den nye indbygger nok er i Fedtmule-klassen. 
+![Et udsnit af data med et nyt gråt punkt indsat. De blå punkter svarer til Fedtmule-indbyggere, mens de røde svarer til Anders And-indbyggere.](kNN_forlob_overvaagning_filer/images/data_afstande.png){#fig-data_afstande}
+
+Når $k$-nærmeste naboer bruges til at klassificere en ny indbygger benyttes en *flertalsafstemning* (også kaldet *majoritetsbeslutning*). Det vil sige, at en ny indbygger bliver prædikteret til at tilhøre den klasse, som de fleste af indbyggerens $k$-nærmeste naboer tilhører. Hvis for eksempel $k=5$, og vi har en ny indbygger, som vi gerne vil afgøre klassen for, så ser vi simpelthen på de 5 nærmeste naboer til denne indbygger og tæller op, hvilke klasser de tilhører. Hvis to af dem nedstammer fra Anders And og tre fra Fedtmule, så vil en flertalsafstemning sige, at den nye indbygger nok er i Fedtmule-klassen. 
 
 Denne idé vil vi nu bruge.
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-### Opgave: Afstand til ny og ukendt indbygger
+### Opgave 4: Afstand til ny og ukendt indbygger
 
-Lav på baggrund af træningsdata et eksempel, hvor en ny indbygger skal klassificeres. Man skal kunne trykke på den nye indbygger og ethvert af punkterne fra træningsdata og få vist afstanden (samt klassen), som overføres til et ”regneark”. I regnearket skal der kunne sorteres på afstand. 
+I @fig-data_afstande svarer det grå punkt til en ny indbygger, som skal klassificeres, og de fem nærmeste naboer svarer til de punkter, som du lige har beregnet afstanden til. Baseret på en flertalsafstemning vil du så sige, at den nye indbygger stammer fra Fedtmule eller fra Anders And? 
+
 :::
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-### Opgave: Flertalsafstemning for forskellige værdier af *k* 
+### Opgave 5: Flertalsafstemning for forskellige værdier af $k$ 
 
-På baggrund af ovenstående skal eleven prøve at klassificere med forskellige værdier af k. De skal udfylde en tabel a la 
+Der er ingen, som siger, at vi skal se på de fem nærmeste naboer. Vi kan lige så godt se på dén nærmeste nabo, på de to nærmeste naboer eller på de tre nærmeste naboer. Vi vil nu se på, hvad der sker, hvis vi ændrer på antallet af nærmeste naboer $k$.
 
-|$k$ |	Blå/Rød /Uafklaret (prædiktion)	| Procentsats |
+Se igen på @fig-data_afstande og de afstande, som du beregnede i opgave 3. Du skal nu for forskellige værdier af $k$ afgøre, om den nye indbygger skal klassificeres som en Fedtmule- eller en Anders And-indbygger.
+
+Udfyld en tabel som nedenstående (hvis for eksempel der er tre ud af fire punkter, som er blå, skal procentsatsen sættes til 75%).
+
+|$k$ |	Blå/Rød/Uafklaret (prædiktion)	| Procentsats |
 |---|---|---|
-| 1	| Blå |	100% |
-| 2 |	Uafklaret |	50% |
-| 3 |	Rød	| 67% |
-		
-[Måske kan det her bruges](http://apps.math.aau.dk/AI/k_NN/#section-k-n%C3%A6rmeste-naboer)
+| 1	|  | |
+| 2 |	 | |
+| 3 |	 | |
+| 4 |	 | |
+| 5 |	 | |
+
 
 :::
 
 
-### Valg af *k* og testdata
+### Valg af $k$ og testdata
 
-Som du har set ovenfor, vil forskellige valg af *k* give forskellige resultater. Så hvordan vælger vi mon den bedst mulige værdi af *k*? For at afgøre det vil vi opdele vores data i to dele: *træningsdata* og *testdata*. Det kunne for eksempel være sådan, at af alle de data vi har, så bruger vi $80 \%$ som træningsdata. Det er træningsdata, som vi bruger til at lave prædiktionen med. De resterende $20 \%$ af data vil vi lade være *testdata*, hvor vi bruger testdata til at måle hvor nøjagtig vores algoritme er. Idéen er nu denne: Vi vælger en værdi af *k* -- det kunne for eksempel være $k=5$. Vi ser så på hver eneste indbygger i testdata, og bruger træningsdata til at lave en prædiktion for denne indbygger. I testdata kender vi den rigtige klasse for hver indbygger. Det betyder, at vi kan afgøre om prædiktionen er rigtig eller forkert. På den baggrund kan man opstille en *confusion tabel*. Et eksempel på en sådan ses her:
+Som du har set ovenfor, vil forskellige valg af $k$ give forskellige resultater. Så hvordan vælger vi mon den bedst mulige værdi af $k$? For at afgøre det vil vi opdele vores data i to dele: *træningsdata* og *testdata*. Det kunne for eksempel være sådan, at af alle de data vi har, så bruger vi 80% som træningsdata. Det er træningsdata, som vi bruger til at lave prædiktionen med. De resterende 20% af data vil vi lade være *testdata*, hvor vi bruger testdata til at måle hvor nøjagtig vores algoritme er. 
 
-* Her skal være en confusion tabel/matrix *
+Idéen er nu denne: 
 
-Vi kan her se, at med $k=5$ har vores *kNN* algoritme lavet en fejl i $xx \%$ af tilfældene. Vi kan nu lave tilsvarende beregninger for forskellige værdier af *k* og helt enkelt vælg den værdi af *k*, som giver den mindste fejlprocent, når vi tester på vores testdata.
++ Vi vælger en værdi af $k$ -- det kunne for eksempel være $k=5$. 
++ Vi ser så på hver eneste indbygger i testdata, og bruger træningsdata til at lave en prædiktion for denne indbygger. I testdata kender vi den rigtige klasse for hver indbygger. Det betyder, at vi kan afgøre om prædiktionen er rigtig eller forkert. 
 
+På den baggrund kan man opstille en *confusion tabel*. Et eksempel på en sådan ses her:
+
+
+|  | Faktisk blå  | Faktisk rød |
+|------|------|------|
+| **Prædikteret blå** | 46  | 4  |
+| **Prædikteret rød** | 2 | 48  |
+<!-- : Eksempel på confusion tabel. -->
+
+Vi kan her se, at med den valgte værdi af $k$ har vores *kNN* algoritme lavet en fejl i 6% af tilfældene, mens den har prædikteret korrekt i 94% af tilfældene. Vi kan nu lave tilsvarende beregninger for forskellige værdier af $k$ og helt enkelt vælg den værdi af $k$, som giver den mindste fejlprocent, når vi tester på vores testdata.
+
+Vi deler nu vores simple datasæt op i et træningsdatasæt og et testdatasæt. På @fig-data_test er testdata markeret med et kryds. Vi vil nu for forskellige værdier af $k$ prædiktere farven på testdata (samtidig med at vi jo godt kender den faktiske værdi).
+
+![Testdata er markeret med et kryds.](kNN_forlob_overvaagning_filer/images/data_test.png){#fig-data_test}
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-### Opgave: Valg af *k*
+### Opgave 6: Valg af $k$
 
-+ Opgave hvor de skal vælge *k* og får vist en confusion tabel. Herefter udregner de selv fejlprocent, som gemmes, så der kan laves et diagram a la [det der er her](http://apps.math.aau.dk/AI/k_NN/#section-v%C3%A6lge-k) -- obs! Vi skal bare have binær klassifikation.
++ Brug app'en herunder til at afgøre den prædikterede værdi af hvert testdata for $k=1, 2, 3, 4, 5$. Du kan for hvert testdatapunkt få tegnet en cirkel rundt om (hvor du kan justere på radius), som kan hjælpe dig med at finde de nærmeste naboer. Udfyld en tabel som nedenstående (husk at den prædikterede farve kan være blå, rød eller uafklaret):
 
-+ Hvilken værdi af *k* giver den mindste fejlprocent? (her kunne der være et konkurrenceelement - de elever der først finder den rigtige værdi af *k* har vundet?!)
+|Testdata |	Faktisk	| Prædiktion $k=1$ | Prædiktion $k=2$ | Prædiktion $k=3$ | Prædiktion $k=4$ | Prædiktion $k=5$ |
+|---|---|---|---|---|---|---|
+| 1	| Blå | | | | | |
+| 2 |	Blå | | | | | |
+| 3 |	Rød | | | | | |
+| 4 |	Rød | | | | | |
+
++ Udfyld for hver værdi af $k$ en confusion tabel. Hvis den prædikterede farve er uafklaret, skal det tælle som en fejl.
+
++ Udergn for hver værdi af $k$ fejlprocenten. Hvilken værdi af $k$ giver den mindste fejlprocent? *(her kunne der være et konkurrenceelement - de elever der først finder den rigtige værdi af $k$ har vundet?!). I eksemplet bliver fejlprocenterne 25%, 50%, 0%, 25%, 25%. Så her er $k=3$ det bedste valg*
+
+:::
+
+{{< include kNN_forlob_overvaagning_filer/_geogebra/_geogebra.qmd >}}
+
+::: {#ggbApplet1}
 
 :::
 
 ::: {.callout-note collapse="true" appearance="minimal"}
 ### Bonusopgave (svær): Hvilke muligheder er der?
 
-Se på tabellen i opgaven **Flertalsafstemning for forskellige værdier af *k* ** ovenfor.
+Se på tabellen i opgave 5 **Flertalsafstemning for forskellige værdier af $k$ ** ovenfor.
 
 + Hvilke procentsatser kan optræde i tabel? 
 + Kan der står blå ved $k=1$ og rød ved $k=2$? 
 + For hvilke værdier af $k$ kan der stå uafklaret? 
 + Får man altid den samme prædiktion for alle værdier af $k$? 
 + Prøv at opstille alle muligheder for tabeller (med $k=1, 2, 3, 4$). [Her skal facit ikke vises!]
-
-*Måske skal denne opgave stå til sidst.*
 
 :::
 
@@ -171,3 +233,4 @@ Evt. ekstra opgave som tjekker forståelse ved at bruge [det her](http://apps.ma
 Noget perspektivering til sidst... Hvad talte vi lige om her, Jan?
 
 [^1]: Man siger også, at vi gerne vil *prædiktere* hvilken slags indbygger, der er tale om.
+[^2]: Man kan forestille sig, at en sådan klassificering er baseret på yderligere test og undersøgelser, som man normalvis ikke vil have til rådighed.
