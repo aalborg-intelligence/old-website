@@ -223,7 +223,9 @@ f( x_{0} + h \cdot u_{1}, y_{0} + h &\cdot u_{2}) - f(x_{0}, y_{0})  = \\
 &- f(x_{0},y_{0})
 \end{aligned}
 $$ 
-Bemærk, at vi har lagt et led til og trukket det samme led fra (markeret med rødt).
+Bemærk, at vi har lagt et led til og trukket det samme led fra (markeret med rødt). Det svarer til, at vi har indskudt et punkt i $xy$-planen, som illustreret i @fig-punkt_indskudt1.
+
+![Et rødt punkt er indskud i $xy$-planen.](images/punkt_indskudt1.png){#fig-punkt_indskudt1}
 
 Vi ser nu, at de to første led kun afviger på $x$-koordinaten (markeret med blåt nedenfor), og de to sidste led afviger kun på $y$-koordinaten (markeret med grønt): 
 $$
@@ -232,19 +234,26 @@ f\left( x_{0} + h \cdot u_{1},y_{0} + h \cdot u_{2} \right) - f(x_{0},y_{0})   &
  \color{blue} f\left( x_{0} + h \cdot u_{1},y_{0} +  h \cdot u_{2} \right)  - & \color{blue} f\left( x_{0},y_{0} + h \cdot u_{2} \right)  \color{black} + \\  \color{green} f\left( x_{0},y_{0} + h \cdot u_{2} \right) - & \color{green} f(x_{0},y_{0})
 \end{aligned}
 $$ {#eq-funktionstilvaekst}
+
+Afvigelsen på henholdsvis $x$- og $y$-koordinaten er vist i @fig-punkt_indskudt2.
+
+![Afvigelsen på $x$-koordinaten er markeret med blåt, mens afvigelsen på $y$-koordinaten er markeret med grønt.](images/punkt_indskudt2.png){#fig-punkt_indskudt2}
+
 Ved at bruge den omskrevne middelværdisætning i (@eq-middel_omskrevet) på de to snitfunktioner $f\left( x,y_{0} + h \cdot u_{2} \right)$ som en funktion af $x$ og $f(x_{0},y)$ som en funktion af $y$, får vi nu følgende:
 
 $$
-\begin{multline}
-\color{blue} f\left( x_{0} + h \cdot u_{1},y_{0} + h \cdot u_{2} \right) - f\left( x_{0},y_{0} + h \cdot u_{2} \right) =  \\ \color{blue} f_{x}^{'}(c_{1},y_{0} + h \cdot u_{2}) \cdot h \cdot u_{1}
-\end{multline}
+\begin{aligned}
+\color{blue} f\left( x_{0} + h \cdot u_{1},y_{0} + h \cdot u_{2} \right) - f\left( x_{0},y_{0} + h \cdot u_{2} \right) =  \color{blue} f_{x}^{'}(c_{1},y_{0} + h \cdot u_{2}) \cdot h \cdot u_{1}
+\end{aligned}
 $$ 
 og 
 $$
 \color{green} f\left( x_{0},y_{0} + h \cdot u_{2} \right) - f\left( x_{0},y_{0} \right) = f_{y}^{'}(x_{0},c_{2}) \cdot h \cdot u_{2}
 $$
 
-Her har vi brugt, at den afledede af en snitfunktion, hvor vi kun varierer $x$ er $f_{x}^{'}$, og den afledede af en snitfunktion, hvor vi kun varierer $y$ er $f_{y}^{'}$. Tallet $c_{1}$ ligger mellem $x_{0}$ og $x_{0} + h \cdot u_{1}$, og tallet $c_{2}$ ligger mellem $y_{0}$ og $y_{0} + h \cdot u_{2}$.
+Her har vi brugt, at den afledede af en snitfunktion, hvor vi kun varierer $x$ er $f_{x}^{'}$, og den afledede af en snitfunktion, hvor vi kun varierer $y$ er $f_{y}^{'}$. Tallet $c_{1}$ ligger mellem $x_{0}$ og $x_{0} + h \cdot u_{1}$, og tallet $c_{2}$ ligger mellem $y_{0}$ og $y_{0} + h \cdot u_{2}$. Dette er vist i @fig-punkt_indskudt3.
+
+![Tallet $c_{1}$ ligger mellem $x_{0}$ og $x_{0} + h \cdot u_{1}$, og tallet $c_{2}$ ligger mellem $y_{0}$ og $y_{0} + h \cdot u_{2}$.](images/punkt_indskudt3.png){#fig-punkt_indskudt3}
 
 Indsætter vi de to udtryk ovenfor på højreside i (@eq-funktionstilvaekst) får vi 
 $$
@@ -295,7 +304,7 @@ f_{y}^{'}(x_{0},y_{0}) \\
 u_{1} \\
 u_{2} \\
 \end{pmatrix} = \nabla f(x_{0},y_{0}) \cdot \vec{u}
-$$ Det var netop, hvad vi ønskede at vise.
+$$ Det var netop, hvad vi ønskede at vise[^1].
 
 # Optimering
 
@@ -345,3 +354,5 @@ At lede efter et globalt minimumspunkt eller i det mindste et brugbart lokalt mi
 Det kan ikke gøres analytisk, så derfor bruger man netop en iterativ proces baseret på gradientnedstigning som metode til at finde frem til minimumspunktet. Eksemplet ovenfor illustrerer derfor idéen bag en central del af træningen af et neuralt netværk.
 
 Læs mere om hvordan gradientnedstigning konkret bruges her: [Perceptroner](../perceptron/perceptron.qmd) og [Kunstige neurale netværk](../neurale_net/neurale_net.qmd).
+
+[^1]: Vi startede med at antage, at de partielle afledede eksisterer og er kontinuerte på en omegn. Bemærk, at vi ud fra den antagelse nu har vist, at alle de retningsafledede også vil eksistere.
