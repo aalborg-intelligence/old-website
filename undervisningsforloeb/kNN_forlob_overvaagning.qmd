@@ -70,7 +70,7 @@ Se på billedet i @fig-indbyggere og find på nogle flere features.
 
 ### Træningsdata
 
-Som I lige har set, er der rigtig mange egenskaber ved indbyggerne, der kan bruges som features. Men som intelligence officerer er vi nødt til at træffe et valg og beslutte os for, hvad vi vil gå videre med. I har derfor netop været til møde i sikkerhedsudvalget, hvor det er blevet besluttet, at højde og fodareal er de to features, som I skal arbejde videre med. Fremadrettet bliver det sådan, at hver gang en indbygger i Monitorbian går ind i en offentlig bygning, så bliver vedkommende scannet og højde og fodareal bliver målt.  
+Som I lige har set, er der rigtig mange egenskaber ved indbyggerne, der kan bruges som features. Men som intelligence officerer er vi nødt til at træffe et valg og beslutte os for, hvad vi vil gå videre med. I har derfor netop været til møde i sikkerhedsudvalget, hvor det er blevet besluttet, at højde og fodareal er de to features, som I skal arbejde videre med. Disse to features er forholdsvis nemme at scanne, og fremadrettet bliver det derfor sådan, at hver gang en indbygger i Monitorbian går ind i en offentlig bygning, så bliver vedkommende scannet og højde og fodareal bliver målt.  
 
 I skal nu have lavet en algoritme, som kan forudsige, hvilken slags indbygger der er tale om -- alene baseret på viden om en given indbyggers højde og fodareal. Man siger, at vi gerne vil *klassificere* indbyggerne -- her i to klasser: Anders And og Fedtmule. 
 
@@ -112,7 +112,7 @@ Nedenstående viser en tabel med træningsdata, men targetværdien mangler. Angi
 
 ### Nærmeste naboer (kNN)
 
-Der findes en lang række af metoder til at lave klassifikation, som er det, vi har brug for her. Nogle af dem bruger meget avanceret matematik og enorme computerkræfter og kan anvendes til diagnosticering af sygdomme, klassificere dokumenter i forskellig type, genkende objekter i billeder og videoer. Helt så avancerede metoder får vi dog ikke brug for her.
+Der findes en lang række af metoder til at lave klassifikation, som er det, vi har brug for her. Nogle af dem bruger meget avanceret matematik og enorme computerkræfter og kan anvendes til diagnosticering af sygdomme, klassificere dokumenter i forskellig typer, genkende objekter i billeder og videoer. Helt så avancerede metoder får vi dog ikke brug for her.
 
 Vi vil i stedet fokusere på én af de simpleste, men alligevel effektive metoder til at klassificere observationer. Metoden kaldes på engelsk *k-nearest neighbors* eller på dansk *k-nærmeste naboer*, og forkortes ofte som *kNN*. *kNN* beror på den simple antagelse, at observationer, som er tæt på hinanden, også ligner hinanden. I vores eksempel vil det være, at indbyggere, som har cirka samme højde og fodareal, vil vi antage, hører til i den samme klasse. 
 
@@ -135,7 +135,7 @@ Beregn afstanden fra det grå punkt til de fem punkter, som er markeret i @fig-d
 
 ![Et udsnit af data med et nyt gråt punkt indsat. De blå punkter svarer til Fedtmule-indbyggere, mens de røde svarer til Anders And-indbyggere.](kNN_forlob_overvaagning_filer/images/data_afstande.png){#fig-data_afstande}
 
-Når $k$-nærmeste naboer bruges til at klassificere en ny indbygger benyttes en *flertalsafstemning* (også kaldet *majoritetsbeslutning*). Det vil sige, at en ny indbygger bliver prædikteret til at tilhøre den klasse, som de fleste af indbyggerens $k$-nærmeste naboer tilhører. Hvis for eksempel $k=5$, og vi har en ny indbygger, som vi gerne vil afgøre klassen for, så ser vi simpelthen på de 5 nærmeste naboer til denne indbygger og tæller op, hvilke klasser de tilhører. Hvis to af dem nedstammer fra Anders And og tre fra Fedtmule, så vil en flertalsafstemning sige, at den nye indbygger nok er i Fedtmule-klassen. 
+Når $k$-nærmeste naboer bruges til at klassificere en ny indbygger benyttes en *flertalsafstemning* (også kaldet *majoritetsbeslutning*). Det vil sige, at en ny indbygger bliver prædikteret til at tilhøre den klasse, som de fleste af indbyggerens $k$-nærmeste naboer tilhører. Hvis for eksempel $k=5$, og vi har en ny indbygger, som vi gerne vil afgøre klassen for, så ser vi simpelthen på de 5 nærmeste naboer til denne indbygger og tæller op, hvilke klasser de tilhører. Hvis to af dem nedstammer fra Anders And og tre fra Fedtmule, så vil en flertalsafstemning sige, at den nye indbygger nok er i Fedtmule-klassen. Hvis $k$ er et lige tal (for eksempel $k=4$), så kan vi komme ud for at halvdelen af de $k$ nærmeste naboer nedstammer fra Anders And, men den anden halvdel nedstammer fra Fedtmule. I det tilfælde vil vi sige, at klassifikationen er *uafklaret*.
 
 Denne idé vil vi nu bruge.
 
@@ -174,9 +174,9 @@ Som du har set ovenfor, vil forskellige valg af $k$ give forskellige resultater.
 Idéen er nu denne: 
 
 + Vi vælger en værdi af $k$ -- det kunne for eksempel være $k=5$. 
-+ Vi ser så på hver eneste indbygger i testdata, og bruger træningsdata til at lave en prædiktion for denne indbygger. I testdata kender vi den rigtige klasse for hver indbygger. Det betyder, at vi kan afgøre om prædiktionen er rigtig eller forkert. 
++ Vi ser så på hver eneste indbygger i testdata og lader som om, at vi *ikke* kender denne indbyggers oprindelse. Det vil sige, at vi lader som om, at vi ikke kender targetværdien. Vi vil nu bruge træningsdata til at lave en prædiktion for denne indbygger baseret på den valgte værdi af $k$. Men da vi jo i virkeligheden godt kender denne indbyggers oprindelse, så får vi nu mulighed for at afgøre, om prædiktionen er rigtig eller forkert. 
 
-På den baggrund kan man opstille en *confusion tabel*. Et eksempel på en sådan ses her:
+Lad os forestille os, at vi har 500 data i alt, og at vi lader 20% af disse være testdata. Det vil sige, at testdata består af 100 datapunkter. For hvert af disse datapunkter laver vi en prædiktion. Så enten prædikterer vi, at datapunktet er blåt eller rødt baseret på en flertalsafstemning af de $k$ nærmeste naboer i træningsdatasættet. Holder vi denne prædiktion op mod den faktiske værdi, kan vi opstille en såkaldt *confusion tabel*. Et eksempel på en sådan ses her:
 
 
 |  | Faktisk blå  | Faktisk rød |
@@ -185,9 +185,9 @@ På den baggrund kan man opstille en *confusion tabel*. Et eksempel på en såda
 | **Prædikteret rød** | 2 | 48  |
 <!-- : Eksempel på confusion tabel. -->
 
-Vi kan her se, at med den valgte værdi af $k$ har vores *kNN* algoritme lavet en fejl i 6% af tilfældene, mens den har prædikteret korrekt i 94% af tilfældene. Vi kan nu lave tilsvarende beregninger for forskellige værdier af $k$ og helt enkelt vælg den værdi af $k$, som giver den mindste fejlprocent, når vi tester på vores testdata.
+Vi kan her se, at 46 datapunkter blev prædikteret til at være blå og faktisk også er blå. Tilsvarende er 48 af datapunkterne prædikteret til at være røde, mens de faktiske også er røde. I alt 2+4=6 datapunkter har fået prædikteret en forkert farve sammenlignet med deres faktiske farve. Altså kan vi her se, at med den valgte værdi af $k$ har vores *kNN* algoritme lavet en fejl i 6% af tilfældene, mens den har prædikteret korrekt i 94% af tilfældene. Vi kan nu lave tilsvarende beregninger for forskellige værdier af $k$ og helt enkelt vælge den værdi af $k$, som giver den mindste fejlprocent, når vi tester på vores testdata.
 
-Vi deler nu vores simple datasæt op i et træningsdatasæt og et testdatasæt. På @fig-data_test er testdata markeret med et kryds. Vi vil nu for forskellige værdier af $k$ prædiktere farven på testdata (samtidig med at vi jo godt kender den faktiske værdi).
+Vi ser nu igen på vores simple datasæt, og deler det op i et træningsdatasæt og et testdatasæt. På @fig-data_test er testdata markeret med et kryds. Vi vil for forskellige værdier af $k$ prædiktere farven på testdata (samtidig med at vi jo godt kender den faktiske værdi).
 
 ![Testdata er markeret med et kryds.](kNN_forlob_overvaagning_filer/images/data_test.png){#fig-data_test}
 
@@ -205,7 +205,7 @@ Vi deler nu vores simple datasæt op i et træningsdatasæt og et testdatasæt. 
 
 + Udfyld for hver værdi af $k$ en confusion tabel. Hvis den prædikterede farve er uafklaret, skal det tælle som en fejl.
 
-+ Udergn for hver værdi af $k$ fejlprocenten. Hvilken værdi af $k$ giver den mindste fejlprocent? *(her kunne der være et konkurrenceelement - de elever der først finder den rigtige værdi af $k$ har vundet?!). I eksemplet bliver fejlprocenterne 25%, 50%, 0%, 25%, 25%. Så her er $k=3$ det bedste valg*
++ Udregn for hver værdi af $k$ fejlprocenten. Hvilken værdi af $k$ giver den mindste fejlprocent? *(her kunne der være et konkurrenceelement - de elever der først finder den rigtige værdi af $k$ har vundet?!). I eksemplet bliver fejlprocenterne 25%, 50%, 0%, 25%, 25%. Så her er $k=3$ det bedste valg*
 
 :::
 

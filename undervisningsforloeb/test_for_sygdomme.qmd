@@ -88,7 +88,7 @@ Det er klart, at hvis en test skal være god, så ønsker vi, at *både* sensiti
 
 ## Prævalens
 
-Blandt alle dem, vi tester, vil en hvis andel i virkeligheden være syge. Det kaldes for sygdommens prævalens. Det vil sige:
+Blandt alle dem, vi tester, vil en vis andel i virkeligheden være syge. Det kaldes for sygdommens prævalens. Det vil sige:
 
 $$
 \mathrm{prævalens } = P(\textrm{syg})
@@ -250,7 +250,7 @@ $$
 P(\text{syg } | \text{ positiv test}) = \frac{\text{sensitivitet} \cdot \text{prævalens}}{P(\text{positiv test})}
 $$ {#eq-PPV}
 
-Nu mangler vi at finde et udtryk for tælleren. Der må gælde, at
+Nu mangler vi at finde et udtryk for nævneren. Der må gælde, at
 
 $$
 P(\text{positiv test}) = P(\text{positiv test, syg}) + P(\text{positiv test, rask})
