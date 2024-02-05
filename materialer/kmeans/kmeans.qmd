@@ -10,7 +10,7 @@ format:
       toc-title: Indhold
       toc-location: left
       related-formats-title: "Andre formater"
-    pdf: default
+    # pdf: default
 reference-location: margin
 nocite: | 
   @*
