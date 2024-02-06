@@ -48,7 +48,9 @@ Forløbet kræver kendskab til:
 
 :::
 
-Vi har også apps på vores telefoner eller computere, som ud fra et
+## Introduktion
+
+Vi har apps på vores telefoner eller computere, som ud fra et
 billede kan genkende personer eller fra nogle få strofer kan genkende en
 sang. Der er scannere i lufthavne og andre steder, som kan genkende
 farlige ting, og biler har autopiloter, der selv holder afstanden til
