@@ -446,7 +446,7 @@ teste på, og vi risikerer overfitting.
 
 Krydsvalidering løser dette problem på snedig vis ved at gentage
 trænings- og testproceduren flere gange. For at lave $k$-fold
-krydsvalidering deler man data op i $k$ lige store dele. I første fold
+krydsvalidering deler man data op i $k$ lige store og *tilfældige* dele. I første fold
 træner man modellen på alt data undtagen den første del og bruger første
 del som testdata. Det given en tabsfunktion $E_1(p)$. Dette gentages så
 $k$ gange, hvor man i den $i$'te fold bruger den $i$'te del af data som
