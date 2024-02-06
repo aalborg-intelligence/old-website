@@ -120,6 +120,23 @@ axis(2, at=c(0,0.5,1,1.5,2,2.5,3), labels=c(0,"",1,"",2,"",3), pos=0)
 axis(1,at=c(0,0.5,1,1.5,2,2.5,3) ,labels=c(0,"",1,"",2,"",3), pos=0)
 ```
 
+::: {.callout-note collapse="true" appearance="minimal"}
+### Datasættet
+Datasættet fra @fig-ret_linje ses i tabellen herunder, hvis du selv vil prøve at lave lineær regression på data. Data kan også hentes som en [Excel-fil her](krydsvalidering_files/data/data.xlsx).
+```{r}
+#| echo: false  
+#| label: tabel_med_data
+library(pander)
+library("writexl")
+dataTable <- data.frame(x,y+2.3)
+names(dataTable) <- c("x", "y")
+write_xlsx(dataTable,"krydsvalidering_files/data/data.xlsx")
+# Gem data til Excel-fil
+names(dataTable) <- c("$x$", "$y$")
+pander(dataTable)
+```
+:::
+
 Det fremgår også af residualplottet i @fig-residualplot. Her kan vi tydeligt se, at der er et mønster i den måde, residualerne fordeler sig omkring $x$-aksen. Det er altså tegn på, at en ret linje ikke er velegnet til at beskrive datapunkterne.
 
 ```{r fig.width=5, fig.height=4}

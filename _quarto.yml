@@ -2,6 +2,7 @@ project:
   type: website
   resources: 
     - "*.ggb"
+    - "*.xlsx"
 
 website:
   title: "AI - Aalborg Intelligence"
