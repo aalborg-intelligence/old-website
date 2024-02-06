@@ -44,7 +44,7 @@ Forløbet kræver kendskab til:
 
 + Afstand mellem to punkter
 
-**Tidsforbrug:** 90-120 minutter.
+**Tidsforbrug:** 120 minutter.
 
 :::
 
@@ -125,6 +125,8 @@ Afgør så, hvor mange af hver farve, der ligger indenfor en cirkel med radius $
 
 Hvilken farve tyder det på, at det grå punkt bør have? 
 
+Tabellens data er punkter i kommatal. F.eks. er det første blå punkt $(13,8 ; 19,9)$, så det har x-koordinaten $13,8$ og y-koordinaten $19,9$.
+
 :::
 
 | Farve | 1 | 2 | 3 | 4 |
@@ -162,7 +164,7 @@ Diskutér, hvilken radius, der er bedst.
 
 ### Afslutning på case 1
 
-Der bliver nok klart, at der er brug for en metode til at beslutte, hvor stor radius skal være for at få det bedste resultat. Kort og lidt simpelt forklaret, involverer det noget, som man kalder træningsdata og testdata. Man har f.eks. 1000 punkter, som man kender farven på. Man lader så som om, at man ikke kender farven på f.eks. 200 af punkterne (som man så kalder testdata). Så bruger man de øvrige 800 punkter (træningsdata) til at forudsige farven af hver af de 200 punkter i testdata. Dette gør man for forskellige værdier af radius, hvorefter man vælger den radius, der forudsiger flest af de 200 punkters farve korrekt. Hvis f.eks. radius 5 forudsiger 121 punkters farve korrekt, radius 10 furudsiger 135 punkters farve korrekt, og radius 20 kun forudsiger 87 punkters farve korrekt, så har radius 10 jo klaret sig bedst.
+Det bliver nok klart, at der er brug for en metode til at beslutte, hvor stor radius skal være for at få det bedste resultat. Kort og lidt simpelt forklaret, involverer det noget, som man kalder træningsdata og testdata. Man har f.eks. 1000 punkter, som man kender farven på. Man lader så som om, at man ikke kender farven på f.eks. 200 af punkterne (som man så kalder testdata). Så bruger man de øvrige 800 punkter (træningsdata) til at forudsige farven af hver af de 200 punkter i testdata. Dette gør man for forskellige værdier af radius, hvorefter man vælger den radius, der forudsiger flest af de 200 punkters farve korrekt. Hvis f.eks. radius 5 forudsiger 121 punkters farve korrekt, radius 10 furudsiger 135 punkters farve korrekt, og radius 20 kun forudsiger 87 punkters farve korrekt, så har radius 10 jo klaret sig bedst.
 
 
 ## Case 2 -- Manhattan afstand
@@ -362,8 +364,8 @@ Hvad er den størst mulige afstand, og hvordan skal svarene så se ud?
 
 På @fig-enighed ses det, at siden angiver, at enigheden med Socialdemokratiet er på $79 \%$.
 
-Overvej, hvordan den afstand du udregnede i opgave 14 og den største
-mulige afstand, som du fandt i opgave 15, kan betyde, at enigheden er
+Overvej, hvordan den afstand du udregnede i opgave 15 og den største
+mulige afstand, som du fandt i opgave 16, kan betyde, at enigheden er
 $79 \%$.
 
 :::
