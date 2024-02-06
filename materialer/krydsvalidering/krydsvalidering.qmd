@@ -113,7 +113,9 @@ plot(x,y+2.3,pch=16,ylab="y",axes=FALSE,xlim=c(0,2.5),ylim=c(0,2.7))
 axis(2, at=c(0,0.5,1,1.5,2,2.5,3), labels=c(0,"",1,"",2,"",3), pos=0)
 axis(1,at=c(0,0.5,1,1.5,2,2.5,3) ,labels=c(0,"",1,"",2,"",3), pos=0)
 plot(x,y+2.3,pch=16,ylab="y",axes=FALSE,xlim=c(0,2.5),ylim=c(0,2.7))
-lines(x2,2+ predict(model,data.frame(x=x2)), col="magenta")
+# tidligere stod der dette: 2 er rettet til 2.3, men hvorfor er det overhovedet lagt til? Jf. linjen ovenfor
+#lines(x2,2+ predict(model,data.frame(x=x2)), col="magenta")
+lines(x2,2.3+ predict(model,data.frame(x=x2)), col="magenta")
 axis(2, at=c(0,0.5,1,1.5,2,2.5,3), labels=c(0,"",1,"",2,"",3), pos=0)
 axis(1,at=c(0,0.5,1,1.5,2,2.5,3) ,labels=c(0,"",1,"",2,"",3), pos=0)
 ```
@@ -172,10 +174,7 @@ Gør man det i vores lille dataeksempel, fås netop den parabel, der er
 tegnet ind i koordinatsystemet i @fig-parabel. Vi ser, at den beskriver data
 langt bedre end den rette linje. 
 
-Eksemplet viser vigtigheden af
-at tegne datapunkterne ind i et koordinatsystem, inden man laver lineær
-regression. Ellers kan man nemt komme til at overse en eventuel
-ikke-lineær sammenhæng.
+Eksemplet viser vigtigheden af at tegne et residualplot for at vurdere anvendeligheden af den lineære model. Ellers kan man nemt komme til at overse en eventuel ikke-lineær sammenhæng.
 
 ### Polynomiel regression generelt
 
@@ -294,12 +293,12 @@ bugter sig meget for at komme så tæt som muligt på datapunkterne. Dels
 virker det urealistisk, at den faktiske sammenhæng mellem $x$ og $y$
 skulle være så kompliceret. Dels opstår der et problem, hvis vi kommer
 med nye datapunkter. I @fig-2grad_7grad_nypunkter er polynomierne fra før tegnet sammen med 20
-nye datapunkter i orange. Nu beskriver syvendegradspolynomiet pludselig
+nye datapunkter i grøn (som stammer fra den samme underliggende fordeling). Nu beskriver syvendegradspolynomiet pludselig
 ikke datapunkterne så godt længere.
 
 ```{r overfitting, fig.width=8, fig.height=4}
 #| echo: false
-#| fig-cap: Et andengradspolynomium (rød) og et syvendegradspolynomium (blå) fittet til 20 nye datapunkter (orange). 
+#| fig-cap: Andengradspolynomiet (rød) og syvendegradspolynomiet (blå) fra @fig-2grad_7grad sammen med 20 nye datapunkter  (grøn), som kommer fra den samme underliggende fordeling, som de sorte datapunkter fra @fig-2grad_7grad. 
 #| label: fig-2grad_7grad_nypunkter
 par(mfrow = c(1,2),mar=c(4,4,2,1))
 set.seed(1234)
@@ -307,13 +306,13 @@ v<-rnorm(20,0,sigma)
 #plot(x,y)
 x2<-1:400/100 -1
 
-plot(x,x1+v+2.3,col="orange", main="Grad 2",ylab="y",pch=16,,xlim=c(0,2.5),ylim=c(0,2.5),axes=FALSE)
+plot(x,x1+v+2.3,col="green", main="Grad 2",ylab="y",pch=16,,xlim=c(0,2.5),ylim=c(0,2.5),axes=FALSE)
 lines(x2,predict(model,data.frame(x=x2))+2.3,col="red")
 axis(2, at=c(-3,-2,-1.5,-1,-0.5,0,0.5,1,1.5,2,2.5,3), labels=c(-3,-2,"",-1,"",0,"",1,"",2,"",3), pos=0)
 axis(1,at=c(-3,-2,-1.5,-1,-0.5,0,0.5,1,1.5,2,2.5,3) ,labels=c(-3,-2,"",-1,"",0,"",1,"",2,"",3), pos=0)
 
 #plot(x,y)
-plot(x,x1+v+2.3,col="orange",main="Grad 7", ,ylab="y",pch=16,xlim=c(0,2.5),ylim=c(0,2.5),axes=FALSE)
+plot(x,x1+v+2.3,col="green",main="Grad 7", ,ylab="y",pch=16,xlim=c(0,2.5),ylim=c(0,2.5),axes=FALSE)
 
 #plot(x,x1+v,col="magenta", main="Grad 2",ylab="y",pch=16)
 #lines(x2,predict(model,data.frame(x=x2)),col="red")
@@ -335,7 +334,7 @@ det oprindelige data, men til gengæld er det dårligt til at forudsige
 nye dataværdier.
 
 Jo højere grad man vælger, at polynomiet skal have, desto bedre kan man
-tilnærme data. Med $n$ datapunkter, kan man faktisk altid finde et
+tilnærme data. Med $n$ datapunkter (som alle have forskellige $x$-værdier), kan man faktisk altid finde et
 polynomium af grad $n-1$, der går igennem alle datapunkterne, men det er
 klart, at nye datapunkter ikke nødvendigvis følger dette polynomium
 særlig godt.
@@ -359,8 +358,8 @@ handler det følgende om.
 ## Trænings- og testdata
 
 Når vi har et datasæt og prøver at tilpasse en polynomiel
-regressionsmodel, siger vi, at vi *træner* modellen. Datasættet vi
-bruger til at træne modellen kaldes *træningsdata*. Som vi så ovenfor,
+regressionsmodel, siger vi, at vi *træner* modellen. Datasættet, vi
+bruger til at træne modellen, kaldes *træningsdata*. Som vi så ovenfor,
 indebærer det en risiko for overfitting, når vi træner modellen. Hvis vi
 kommer med et nyt datasæt af samme type, passer modellen ikke
 nødvendigvis særlig godt.
@@ -408,11 +407,11 @@ værdierne i vores testdata, og vi vælger derfor at bruge dette $p$.
 
 
 I vores eksempel ovenfor får vi $E^{test}(2)=1.82$ og $E^{test}(7)=2.29$,
-når vi bruger de sorte datapunkter som træningsdata og de orange datapunkter som testdata. Andengradspolynomiet er altså bedre end syvendegradspolynomiet til at forudsige testdata.
+når vi bruger de sorte datapunkter som træningsdata og de grønne datapunkter som testdata. Andengradspolynomiet er altså bedre end syvendegradspolynomiet til at forudsige testdata.
 Bemærk, at i begge tilfælde er $E^{test}$ langt større end $E^{træn}$,
 fordi modellen kun er tilpasset til træningsdata.
 
-Når det bedst mulige $p$ er valgt, kan man så træne modellen igen på alt dataet, både test- og træningsdata, for at få et mere præcist bud på det bedste polynomium. Dette er så vores endelige model for data.  I vores eksempel finder man, at $p=2$ giver lavest $E^{test}$. Vi slår så de sorte og orange datapunkter sammen til et datasæt og bruger dem til at finde det bedste andengradspolynomium. Det giver vores endelige model for sammenhængen mellem $x$ og $y$, som bliver 
+Når det bedst mulige $p$ er valgt, kan man så træne modellen igen på alt dataet, både test- og træningsdata, for at få et mere præcist bud på det bedste polynomium. Dette er så vores endelige model for data.  I vores eksempel finder man, at $p=2$ giver lavest $E^{test}$. Vi slår så de sorte og grønne datapunkter sammen til et datasæt og bruger dem til at finde det bedste andengradspolynomium. Det giver vores endelige model for sammenhængen mellem $x$ og $y$, som bliver 
 $$
 f(x) = 1.36 + 1.72x - 0.87x^2.
 $$
