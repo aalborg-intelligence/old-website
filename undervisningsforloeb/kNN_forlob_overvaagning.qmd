@@ -83,30 +83,27 @@ Nedenstående viser en tabel med træningsdata, men targetværdien mangler. Angi
 
 
 | Indbygger | Fodareal ($cm^2$) | Højde ($cm$) | Targetværdi|
-|------|------|------|------|
-| Blå | 197 | 123 | |
-| Blå | 214  | 155 | |
-| Blå | 255  | 115 | |
-| Rød |  297 | 96  | |
-| Rød | 213  | 74 | |
-| Blå |  173 | 138 | |
-| Rød | 272  | 115 | |
-| Blå | 235  | 94 | |
-| Rød | 311  | 99 | |
-| Rød | 334  | 116 | |
-| Blå | 276  | 151  | |
-| Rød | 283  | 92 | |
-| Blå | 234  | 132 | |
-| Blå |  172 | 97 | |
-| Rød | 278  | 74  | |
-| Rød | 241  | 75 | |
-| Rød | 220  | 62 | |
-| Rød | 249  | 86 | |
-| Blå | 138  | 96 | |
-| Blå | 252  | 93 | |
-
-
-*Det er selvfølgelig ikke meningen, at der skal stå blå og rød i første kolonne - der skal være et billede, som svarer til farven.* 
+|:------:|:------:|:------:|:------:|
+| ![](kNN_forlob_overvaagning_filer/images/person01.webp){width=50%} | 197 | 123 | |
+| ![](kNN_forlob_overvaagning_filer/images/person02.webp){width=50%} | 214  | 155 | |
+| ![](kNN_forlob_overvaagning_filer/images/person03.webp){width=50%} | 255  | 115 | |
+| ![](kNN_forlob_overvaagning_filer/images/person04.webp){width=50%} |  297 | 96  | |
+| ![](kNN_forlob_overvaagning_filer/images/person05.webp){width=50%} | 213  | 74 | |
+| ![](kNN_forlob_overvaagning_filer/images/person06.webp){width=50%} |  173 | 138 | |
+| ![](kNN_forlob_overvaagning_filer/images/person07.webp){width=50%} | 272  | 115 | |
+| ![](kNN_forlob_overvaagning_filer/images/person08.webp){width=50%} | 235  | 94 | |
+| ![](kNN_forlob_overvaagning_filer/images/person09.webp){width=50%} | 311  | 99 | |
+| ![](kNN_forlob_overvaagning_filer/images/person10.webp){width=50%} | 334  | 116 | |
+| ![](kNN_forlob_overvaagning_filer/images/person11.webp){width=50%} | 276  | 151  | |
+| ![](kNN_forlob_overvaagning_filer/images/person12.webp){width=50%} | 283  | 92 | |
+| ![](kNN_forlob_overvaagning_filer/images/person13.webp){width=50%} | 234  | 132 | |
+| ![](kNN_forlob_overvaagning_filer/images/person14.webp){width=50%} |  172 | 97 | |
+| ![](kNN_forlob_overvaagning_filer/images/person15.webp){width=50%} | 278  | 74  | |
+| ![](kNN_forlob_overvaagning_filer/images/person16.webp){width=50%} | 241  | 75 | |
+| ![](kNN_forlob_overvaagning_filer/images/person17.webp){width=50%} | 220  | 62 | |
+| ![](kNN_forlob_overvaagning_filer/images/person18.webp){width=50%} | 249  | 86 | |
+| ![](kNN_forlob_overvaagning_filer/images/person19.webp){width=50%} | 138  | 96 | |
+| ![](kNN_forlob_overvaagning_filer/images/person20.webp){width=50%} | 252  | 93 | |
 
 :::
 
