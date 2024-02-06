@@ -127,10 +127,10 @@ Datasættet fra @fig-ret_linje ses i tabellen herunder, hvis du selv vil prøve 
 #| echo: false  
 #| label: tabel_med_data
 library(pander)
-library("writexl")
+#library("writexl")
 dataTable <- data.frame(x,y+2.3)
-names(dataTable) <- c("x", "y")
-write_xlsx(dataTable,"data/data.xlsx")
+#names(dataTable) <- c("x", "y")
+#write_xlsx(dataTable,"data/data.xlsx")
 # Gem data til Excel-fil
 names(dataTable) <- c("$x$", "$y$")
 pander(dataTable)
