@@ -41,6 +41,9 @@ Det kommer naturligvis til at afhænge af, hvilke typer ændringer, man tillader
 Hammingafstanden mellem to lige lange strenge er antallet af pladser, hvor de to strenge er forskellige. Afstanden fra *sne* til *sno* er derfor $1$. Afstanden fra *sne* til *neg* er $3$, fordi de to strenge er forskellige på alle pladser. Det svarer til, at man må ændre et bogstav ad gangen: 
 
 $$ sne \rightarrow nne \rightarrow nee \rightarrow neg$$
+Dette er illustreret i @fig-streng_afstande1 ved det tre grønne kanter fra *sne* til *neg*.
+
+![Hver knude i figuren svarer til et ord fra eksemplet i teksten. En kant imellem to knuder svarer til, at der findes et \"move\" mellem de to ord  enten ved hjælp af Hamming-, Levenshtein- eller Damerau-Levenshteinafstanden (angivet med henholdsvis grøn, lilla og pink).](images/streng_afstande1.png){#fig-streng_afstande1}
 
 ### Levenshteinafstanden{#sec-levenshteinafstanden}
 Levenshteinafstanden har flere tilladte ændringer: Man må ændre
@@ -50,16 +53,18 @@ bogstaver. Levenshteinfstanden er det *mindste* antal sådanne
 Ordene/strengene behøver ikke have samme længde - man kan jo
 indsætte og fjerne bogstaver.
 
-- Afstanden fra *sne* til *sno* er $1$, ligesom Hammingafstanden.
+Se på @fig-streng_afstande1.
 
-- Afstanden fra *sne* til *sned* er også $1$, fordi vi blot har tilføjet et *d* -- og her er Hammingafstanden slet ikke meningsfuld. Den er simpelthen ikke defineret.
+- Afstanden fra *sne* til *see* er $1$, ligesom Hammingafstanden.
+
+- Afstanden fra *sne* til *sneg* er også $1$, fordi vi blot har tilføjet et *g* -- og her er Hammingafstanden slet ikke meningsfuld. Den er simpelthen ikke defineret.
 
 - Afstanden fra *sne* til *neg* er $2$ -- via disse ændringer: 
     
     $$sne \rightarrow ne \rightarrow neg$$ 
     
     Hammingafstanden, som vi fandt ovenfor, er $3$.
-
+    
 Bemærk, at vi i ovenstående eksempel også kunne have valgt 
     
 $$sne \rightarrow sneg \rightarrow neg$$ 
@@ -79,10 +84,9 @@ man opdage, at *teskt* ikke giver mening, men at ordet *tekst* ligger
 meget tæt på - afstand $1$ i Damerau-Levenshteinafstand -- og $2$ i Hamming- eller Levenshteinafstand. Ordet *teske* har også Hammingafstand $1$ til *teskt*,
 så man kan ikke være sikker på, hvad det oprindelige var.
 
-<!-- FIGUR: Graf med ord i hver knude og kanter svarende til edit moves. -->
-<!-- Måske interaktivt, så man kan se, at kanter forsvinder, hvis man går fra -->
-<!-- Levenshtein til Hamming. Afstand mellem DNA-strenge kan man se på med -->
-<!-- edit-afstande. Så det er bestemt ikke kun ord i sædvanlig forstand. -->
+I @fig-streng_afstande2 ses et eksempel på hvilke \"moves\", der er tilladt mellem forskellige ord ved hjælp af Hamming-, Levenshtein- eller Damerau-Levenshteinafstanden.
+
+![Hver knude i figuren svarer til et ord. En kant imellem to knuder svarer til, at der findes et \"move\" mellem de to ord  enten ved hjælp af Hamming-, Levenshtein- eller Damerau-Levenshteinafstanden (angivet med henholdsvis grøn, lilla og pink).](images/streng_afstande2.png){#fig-streng_afstande2}
 
 ### Afstande mellem navne 
 Navne som Peter, Pieter, Pietro, Petrus, Peder, Per, Pelle, Pekka, Peer, Petur, Pedro, Pierre, Pjotr, Pyotr, Petar eller måske Katarina, Katharina, Katrina, Katrine, Katrin, Cathryn, Kathryn, Catherine har samme oprindelse. Der er stor forskel på, hvor hyppigt, de optræder i forskellige lande. Overvej, om *edit-afstandene* ovenfor kan bruges til for eksempel at afsløre, hvor tæt på hinanden lande med Peter som hyppigst, er på lande med Pyotr.
