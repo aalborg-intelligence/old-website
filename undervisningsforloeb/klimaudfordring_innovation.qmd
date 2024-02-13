@@ -1,0 +1,64 @@
+---
+title: "Miljø- og klimaudfodringer"
+description: 'Miljø- og klimaudfordringer er allestedsnærværende -- kan kunstig intelligens hjælpe med at løse verdens klimaudfordringer? I dette tværfaglige forløb med dansk arbejdes der med at skrive en populærvidenskabelig artikel, som præsenterer en mulig innovativ anvendelse af kunstig intelligens indenfor emnet ”klimaforandringer”.'
+image: "klimaudfordring_innovation_filer/images/fn_verdensmaal.png"
+
+format:
+    html: 
+      self-contained: true
+      toc: true
+      toc-title: Indhold
+      toc-location: left
+from: markdown+emoji
+reference-location: margin
+categories:
+  - B-niveau, A-niveau, dansk
+crossref:
+  fig-prefix: figur   # (default is "Figure")
+  tbl-prefix: tabel    # (default is "Table")
+  exm-prefix: eksempel
+  thm-prefix: sætning
+  sec-prefix: afsnit
+  eq-prefix: ''
+  fig-title: Figur
+  exm-title: Eksempel
+  thm-title: Sætning
+  tbl-title: Tabel
+label:
+    fig: Figur
+fig-cap-location: margin
+tab-cap-location: margin
+tbl-cap-location: margin
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.callout-tip collapse="true" appearance="minimal"}
+### Forudsætninger og tidsforbrug
+Forløbet er et tværfagligt samarbejde med dansk og kræver kendskab til:
+
++ Populærvidenskabelige artikler som genre
+
+**Tidsforbrug:** ca. 4 x 90 minutter i *hvert* fag.
+
+:::
+
+![](klimaudfordring_innovation_filer/images/fn_verdensmaal.png)
+
+## Opgaveformulering
+
+
+
++ Redegør for dele af matematikken bag kunstig intelligens og præsenter et forslag til en mulig innovativ anvendelse af kunstig intelligens indenfor emnet ”klimaforandringer”. 
+
++ Redegør i den forbindelse for hvilket trænings- og testdata, der skal indsamles, og for fordelene ved den efterfølgende potentielle anvendelse af kunstig intelligens. 
+
++ Skriv en populærvidenskabelig artikel om jeres emne (omfang: 3-4 sider).
+
++ Begrund jeres valg i forbindelse med layout, sprogbrug samt nyheds- og relevanskriterier og vurdér hvordan artiklen kan bidrage til nye indsigter og handlemuligheder. 
+
+**Materiale i dansk:** Changemaker-modellen.
+
+**Materiale i matematik:** [Forskellige AI metoder](../materialer.qmd).
+
