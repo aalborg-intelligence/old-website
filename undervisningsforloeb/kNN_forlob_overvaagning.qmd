@@ -126,7 +126,7 @@ På @fig-data nedenfor ser I de træningsdata, som I selv angav en targetværdi 
 ::: {.callout-note collapse="true" appearance="minimal"}
 ### Opgave 3: Afstande 
 
-Beregn afstanden fra det grå punkt til de syv punkter, som er markeret i @fig-data_afstande herunder. 
+Beregn afstanden fra det grå punkt til de syv punkter, som er markeret i @fig-data_afstande herunder. Sørg for at skrive de beregnede afstande ned -- du skal bruge dem senere!
 
 :::
 
@@ -191,7 +191,7 @@ Vi ser nu igen på vores simple datasæt, og deler det op i et træningsdatasæt
 ::: {.callout-note collapse="true" appearance="minimal"}
 ### Opgave 6: Valg af $k$
 
-+ Brug app'en herunder til at afgøre den prædikterede værdi af hvert testdata for $k=1, 2, 3, 4, 5$. Du kan for hvert testdatapunkt få tegnet en cirkel rundt om (hvor du kan justere på radius), som kan hjælpe dig med at finde de nærmeste naboer. Udfyld en tabel som nedenstående (husk at den prædikterede farve kan være blå, rød eller uafklaret):
++ Brug app'en herunder til at afgøre den prædikterede værdi af hvert testdata for $k=1, 2, 3, 4, 5$. Du kan for hvert testdatapunkt få tegnet en cirkel rundt om (hvor du kan justere på radius), som kan hjælpe dig med at finde de nærmeste naboer. Udfyld en tabel som nedenstående (husk at den prædikterede farve kan være blå, rød eller uafklaret) -- skriv den enten ned på et stykke papir eller brug [Prædiktion for forskellige værdier af k](kNN_forlob_overvaagning_filer/excel/Prædiktion_for_forskellige_værdier_af_k.xlsx).
 
 |Testdata |	Faktisk	| Prædiktion $k=1$ | Prædiktion $k=2$ | Prædiktion $k=3$ | Prædiktion $k=4$ | Prædiktion $k=5$ |
 |---|---|---|---|---|---|---|
@@ -200,7 +200,7 @@ Vi ser nu igen på vores simple datasæt, og deler det op i et træningsdatasæt
 | 3 |	Blå | | | | | |
 | 4 |	Blå | | | | | |
 
-+ Udfyld for hver værdi af $k$ en confusion tabel. Hvis den prædikterede farve er uafklaret, skal det tælle som en fejl.
++ Udfyld for hver værdi af $k$ en confusion tabel. Hvis den prædikterede farve er uafklaret, skal det tælle som en fejl. Skriv igen ned på papir eller brug [Confusion tabeller](kNN_forlob_overvaagning_filer/excel/Confusion_tabeller.xlsx).
 
 + Udregn for hver værdi af $k$ fejlprocenten. Hvilken værdi af $k$ giver den mindste fejlprocent? 
 
@@ -213,7 +213,7 @@ Vi ser nu igen på vores simple datasæt, og deler det op i et træningsdatasæt
 :::
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-### Bonusopgave (svær): Hvilke muligheder er der?
+### Bonusopgave (svær og kan springes over): Hvilke muligheder er der?
 
 Se på tabellen i opgave 5 **Flertalsafstemning for forskellige værdier af $k$ ** ovenfor. 
 
@@ -228,9 +228,10 @@ Vi forestiller os nu, at vi har et nyt datasæt, som vi ikke har lavet beregning
 
 :::
 
-Evt. ekstra opgave som tjekker forståelse ved at bruge [det her](http://apps.math.aau.dk/AI/k_NN/#section-interaktiv-k-n%C3%A6rmeste-naboer).
+### Data mining i Orange
 
-Noget perspektivering til sidst... Hvad talte vi lige om her, Jan?
+Her til sidst skal vi lege lidt med et program, som hedder [Orange](https://orangedatamining.com/). For at gøre det får vi brug for de [træningsdata](kNN_forlob_overvaagning_filer/data/Træningsdata.xlsx) og [testdata](kNN_forlob_overvaagning_filer/data/Testdata.xlsx), som vi har brugt i det foregående.
+
 
 [^1]: Man siger også, at vi gerne vil *prædiktere* hvilken slags indbygger, der er tale om.
 [^2]: Man kan forestille sig, at en sådan klassificering er baseret på yderligere test og undersøgelser, som man normalvis ikke vil have til rådighed.
