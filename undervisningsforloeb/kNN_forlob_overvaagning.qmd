@@ -120,7 +120,7 @@ d = \sqrt{(x_2-x_1)^2+(y_2-y_1)^2}
 $$
 På @fig-data nedenfor ser I de træningsdata, som I selv angav en targetværdi for i den foregående opgave. Nogle af indbyggerne var det måske svært at afgøre oprindelsen af, men her ses den korrekte klassificering[^2].
 
-![Datasættet med fodareal ud af $x$-aksen og højde op af $y$-aksen. De blå punkter svarer til Fedtmule-indbyggere, mens de røde svarer til Anders And-indbyggere.](kNN_forlob_overvaagning_filer/images/data.png){#fig-data}
+![Datasættet med fodareal ud af $x$-aksen og højde op af $y$-aksen. De røde punkter svarer til Fedtmule-indbyggere, mens de blå svarer til Anders And-indbyggere.](kNN_forlob_overvaagning_filer/images/data.png){#fig-data}
 
 
 ::: {.callout-note collapse="true" appearance="minimal"}
@@ -130,7 +130,7 @@ Beregn afstanden fra det grå punkt til de syv punkter, som er markeret i @fig-d
 
 :::
 
-![Et udsnit af data med et nyt gråt punkt indsat. De blå punkter svarer til Fedtmule-indbyggere, mens de røde svarer til Anders And-indbyggere.](kNN_forlob_overvaagning_filer/images/data_afstande.png){#fig-data_afstande}
+![Et udsnit af data med et nyt gråt punkt indsat. De røde punkter svarer til Fedtmule-indbyggere, mens de blå svarer til Anders And-indbyggere.](kNN_forlob_overvaagning_filer/images/data_afstande.png){#fig-data_afstande}
 
 Når $k$-nærmeste naboer bruges til at klassificere en ny indbygger benyttes en *flertalsafstemning* (også kaldet *majoritetsbeslutning*). Det vil sige, at en ny indbygger bliver prædikteret til at tilhøre den klasse, som de fleste af indbyggerens $k$-nærmeste naboer tilhører. Hvis for eksempel $k=5$, og vi har en ny indbygger, som vi gerne vil afgøre klassen for, så ser vi simpelthen på de 5 nærmeste naboer til denne indbygger og tæller op, hvilke klasser de tilhører. Hvis to af dem nedstammer fra Anders And og tre fra Fedtmule, så vil en flertalsafstemning sige, at den nye indbygger nok er i Fedtmule-klassen. Man kan komme ud for, at præcis halvdelen af de $k$ nærmeste naboer nedstammer fra Anders And, mens præcis den anden halvdel nedstammer fra Fedtmule. I det tilfælde vil vi sige, at klassifikationen er *uafklaret*.
 
@@ -195,10 +195,10 @@ Vi ser nu igen på vores simple datasæt, og deler det op i et træningsdatasæt
 
 |Testdata |	Faktisk	| Prædiktion $k=1$ | Prædiktion $k=2$ | Prædiktion $k=3$ | Prædiktion $k=4$ | Prædiktion $k=5$ |
 |---|---|---|---|---|---|---|
-| 1	| Blå | | | | | |
-| 2 |	Blå | | | | | |
-| 3 |	Rød | | | | | |
-| 4 |	Rød | | | | | |
+| 1	| Rød | | | | | |
+| 2 |	Rød | | | | | |
+| 3 |	Blå | | | | | |
+| 4 |	Blå | | | | | |
 
 + Udfyld for hver værdi af $k$ en confusion tabel. Hvis den prædikterede farve er uafklaret, skal det tælle som en fejl.
 
