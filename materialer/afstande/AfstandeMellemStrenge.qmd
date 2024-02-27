@@ -48,7 +48,7 @@ Dette er illustreret i @fig-streng_afstande1 ved de tre grønne kanter fra *sne*
 ### Levenshteinafstanden{#sec-levenshteinafstanden}
 Levenshteinafstanden har flere tilladte ændringer: Man må ændre
 bogstaver, som i Hamming, men man må også indsætte og fjerne
-bogstaver. Levenshteinfstanden er det *mindste* antal sådanne
+bogstaver. Levenshteinafstanden er det *mindste* antal sådanne
 ændringer, man skal lave for at nå fra det ene ord til det andet.
 Ordene/strengene behøver ikke have samme længde - man kan jo
 indsætte og fjerne bogstaver.
