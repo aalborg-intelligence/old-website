@@ -41,9 +41,9 @@ Det kommer naturligvis til at afhænge af, hvilke typer ændringer, man tillader
 Hammingafstanden mellem to lige lange strenge er antallet af pladser, hvor de to strenge er forskellige. Afstanden fra *sne* til *sno* er derfor $1$. Afstanden fra *sne* til *neg* er $3$, fordi de to strenge er forskellige på alle pladser. Det svarer til, at man må ændre et bogstav ad gangen: 
 
 $$ sne \rightarrow nne \rightarrow nee \rightarrow neg$$
-Dette er illustreret i @fig-streng_afstande1 ved det tre grønne kanter fra *sne* til *neg*.
+Dette er illustreret i @fig-streng_afstande1 ved de tre grønne kanter fra *sne* til *neg*.
 
-![Hver knude i figuren svarer til et ord fra eksemplet i teksten. En kant imellem to knuder svarer til, at der findes et \"move\" mellem de to ord  enten ved hjælp af Hamming-, Levenshtein- eller Damerau-Levenshteinafstanden (angivet med henholdsvis grøn, lilla og pink).](images/streng_afstande1.png){#fig-streng_afstande1}
+![Hver knude i figuren svarer til et ord. En kant imellem to knuder svarer til, at der findes et \"move\" mellem de to ord  enten ved hjælp af Hamming-, Levenshtein- eller Damerau-Levenshteinafstanden (angivet med henholdsvis grøn, lilla og pink).](images/streng_afstande1.png){#fig-streng_afstande1}
 
 ### Levenshteinafstanden{#sec-levenshteinafstanden}
 Levenshteinafstanden har flere tilladte ændringer: Man må ændre
@@ -53,7 +53,7 @@ bogstaver. Levenshteinfstanden er det *mindste* antal sådanne
 Ordene/strengene behøver ikke have samme længde - man kan jo
 indsætte og fjerne bogstaver.
 
-Se på @fig-streng_afstande1.
+Se på @fig-streng_afstande1:
 
 - Afstanden fra *sne* til *see* er $1$, ligesom Hammingafstanden.
 
@@ -61,14 +61,13 @@ Se på @fig-streng_afstande1.
 
 - Afstanden fra *sne* til *neg* er $2$ -- via disse ændringer: 
     
-    $$sne \rightarrow ne \rightarrow neg$$ 
+    $$sne \rightarrow sneg \rightarrow neg$$ 
     
     Hammingafstanden, som vi fandt ovenfor, er $3$.
     
 Bemærk, at vi i ovenstående eksempel også kunne have valgt 
     
-$$sne \rightarrow sneg \rightarrow neg$$ 
-    
+$$sne \rightarrow ne \rightarrow neg$$ 
 som også har $2$ \"moves\".
     
 Jo flere tilladte ændringer, jo kortere afstand. Der er algoritmer,
@@ -78,7 +77,7 @@ klart, hvordan man regner den ud, som det er for Hammingafstanden.
 ### Damerau-Levenshteinafstanden
 Damerau-Levenshteinafstanden er som Levenshtein, men man tillader nu
 også ombytning af to bogstaver, som står ved siden af hinanden. Hvis
-man skriver teskt på en telefon eller pc, er det let at bytte om på
+man skriver *teskt* på en telefon eller pc, er det let at bytte om på
 den måde. Hvis man så har en liste over ord, der giver mening, kan
 man opdage, at *teskt* ikke giver mening, men at ordet *tekst* ligger
 meget tæt på - afstand $1$ i Damerau-Levenshteinafstand -- og $2$ i Hamming- eller Levenshteinafstand. Ordet *teske* har også Hammingafstand $1$ til *teskt*,
