@@ -5,6 +5,7 @@ format:
       toc: true
       toc-title: Indhold
       toc-location: left
+      link-external-newwindow: true
 ---
 
 # Videoer

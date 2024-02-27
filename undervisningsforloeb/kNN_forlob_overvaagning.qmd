@@ -9,6 +9,7 @@ format:
       toc: true
       toc-title: Indhold
       toc-location: left
+      link-external-newwindow: true
 from: markdown+emoji
 reference-location: margin
 categories:
@@ -230,8 +231,33 @@ Vi forestiller os nu, at vi har et nyt datasæt, som vi ikke har lavet beregning
 
 ### Data mining i Orange
 
-Her til sidst skal vi lege lidt med et program, som hedder [Orange](https://orangedatamining.com/). For at gøre det får vi brug for de [træningsdata](kNN_forlob_overvaagning_filer/data/Træningsdata.xlsx) og [testdata](kNN_forlob_overvaagning_filer/data/Testdata.xlsx), som vi har brugt i det foregående.
+Her til sidst skal vi lege lidt med et program, som hedder [Orange](https://orangedatamining.com/). Du kan få hjælp til at installere programmet [her](https://www.youtube.com/watch?v=g8-wIwVfAw0).
 
+Start med at se denne video:
+
+{{< video https://www.youtube.com/embed/jxo4Xx5x4ac>}}
+
+::: {.callout-note collapse="true" appearance="minimal"}
+### Opgave 7: kNN i Orange baseret på features
+
++ Installer Orange.
++ Opbyg modellen, som det er vist i videoen ovenfor. For at gøre det får du brug for de [træningsdata](kNN_forlob_overvaagning_filer/data/Træningsdata.xlsx) og [testdata](kNN_forlob_overvaagning_filer/data/Testdata.xlsx), som vi har brugt i det foregående.
++ Prøv at ændre på værdien af $k$ ($k=1, 2, 3, 4, 5$) og se om du i Orange kan genskabe resultaterne fra opgave 6.
+
+:::
+
+Det er også muligt at bruge *kNN* uden selv at udvælge features. I stedet kan man bruge billederne fra tabellen i opgave 2 direkte. Se her hvordan man gør det:
+
+{{< video https://www.youtube.com/embed/A_8bR6rbIo0>}}
+
+
+::: {.callout-note collapse="true" appearance="minimal"}
+### Opgave 8: kNN i Orange baseret på billeder
+
++ Find selv på en værdi som du gerne vil prædiktere ud fra billeder.
++ Tag billeder som kan bruges som træningsdata og opbyg en model, som det er vist i videoen ovenfor.
+
+:::
 
 [^1]: Man siger også, at vi gerne vil *prædiktere* hvilken slags indbygger, der er tale om.
 [^2]: Man kan forestille sig, at en sådan klassificering er baseret på yderligere test og undersøgelser, som man normalvis ikke vil have til rådighed.
