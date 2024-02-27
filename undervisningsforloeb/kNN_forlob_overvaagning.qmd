@@ -62,7 +62,7 @@ I Monitorbian findes der to forskellige slags indbyggere: Nogle nedstammer fra A
 
 For at overvåge indbyggerne er vi nødt til at identificere nogle egenskaber ved indbyggerne, som kan bruges til at adskille dem fra hinanden. Sådan en egenskab kaldes for en *feature*. En feature kunne for eksempel være en indbyggers vægt. Det vil være en god feature, hvis de to forskellige slags indbyggere har forholdsvis forskellig vægt. En anden feature kunne være øjenfarve, men hvis det ikke på en eller anden måde kan være med til at skelne de to slags indbyggere fra hinanden, så vil øjenfarve være et dårlig valg af feature i denne sammenhæng.  
 
-::: {.callout-note collapse="true" appearance="minimal"}
+::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 1: Features
 
 Se på billedet i @fig-indbyggere og find på nogle flere features.
@@ -77,7 +77,7 @@ I skal nu have lavet en algoritme, som kan forudsige, hvilken slags indbygger de
 
 For at gøre det har vi brug for *træningsdata*. Træningsdata består af en masse data fra forskellige indbyggere, hvor de to features er blevet målt samtidig med, at det for hver indbygger er angivet om vedkommende nedstammer fra Anders And eller fra Fedtmule. Denne sidste oplysning er jo lige præcis den oplysning, som vi gerne fremadrettet vil kunne forudsige[^1]. I træningsdata angiver vi altså den værdi, som vi gerne vil prædiktere. Derfor kalder man også denne værdi for en *targetværdi*.
 
-::: {.callout-note collapse="true" appearance="minimal"}
+::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 2: Træningsdata
 
 Nedenstående viser en tabel med træningsdata, men targetværdien mangler. Angiv targetværdien:
@@ -124,7 +124,7 @@ På @fig-data nedenfor ser I de træningsdata, som I selv angav en targetværdi 
 ![Datasættet med fodareal ud af $x$-aksen og højde op af $y$-aksen. De røde punkter svarer til Fedtmule-indbyggere, mens de blå svarer til Anders And-indbyggere.](kNN_forlob_overvaagning_filer/images/data.png){#fig-data}
 
 
-::: {.callout-note collapse="true" appearance="minimal"}
+::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 3: Afstande 
 
 Beregn afstanden fra det grå punkt til de syv punkter, som er markeret i @fig-data_afstande herunder. Sørg for at skrive de beregnede afstande ned -- du skal bruge dem senere!
@@ -137,14 +137,14 @@ Når $k$-nærmeste naboer bruges til at klassificere en ny indbygger benyttes en
 
 Denne idé vil vi nu bruge.
 
-::: {.callout-note collapse="true" appearance="minimal"}
+::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 4: Afstand til ny og ukendt indbygger
 
 I @fig-data_afstande svarer det grå punkt til en ny indbygger, som skal klassificeres, og de nærmeste naboer svarer til de punkter, som du lige har beregnet afstanden til. Baseret på en flertalsafstemning blandt de fem nærmeste naboer (det vil sige, at $k=5$) vil du så sige, at den nye indbygger stammer fra Fedtmule eller fra Anders And? 
 
 :::
 
-::: {.callout-note collapse="true" appearance="minimal"}
+::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 5: Flertalsafstemning for forskellige værdier af $k$ 
 
 Der er ingen, som siger, at vi skal se på de fem nærmeste naboer. Vi kan lige så godt se på dén nærmeste nabo, på de to nærmeste naboer eller på de tre nærmeste naboer. Vi vil nu se på, hvad der sker, hvis vi ændrer på antallet af nærmeste naboer $k$.
@@ -189,7 +189,7 @@ Vi ser nu igen på vores simple datasæt, og deler det op i et træningsdatasæt
 
 ![Testdata er markeret med et kryds.](kNN_forlob_overvaagning_filer/images/data_test.png){#fig-data_test}
 
-::: {.callout-note collapse="true" appearance="minimal"}
+::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 6: Valg af $k$
 
 + Brug app'en herunder til at afgøre den prædikterede værdi af hvert testdata for $k=1, 2, 3, 4, 5$. Du kan for hvert testdatapunkt få tegnet en cirkel rundt om (hvor du kan justere på radius), som kan hjælpe dig med at finde de nærmeste naboer. Udfyld en tabel som nedenstående (husk at den prædikterede farve kan være blå, rød eller uafklaret) -- skriv den enten ned på et stykke papir eller brug [Prædiktion for forskellige værdier af k](kNN_forlob_overvaagning_filer/excel/Prædiktion_for_forskellige_værdier_af_k.xlsx).
@@ -237,7 +237,7 @@ Start med at se denne video:
 
 {{< video https://www.youtube.com/embed/jxo4Xx5x4ac>}}
 
-::: {.callout-note collapse="true" appearance="minimal"}
+::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 7: kNN i Orange baseret på features
 
 + Installer Orange.
@@ -251,7 +251,7 @@ Det er også muligt at bruge *kNN* uden selv at udvælge features. I stedet kan 
 {{< video https://www.youtube.com/embed/A_8bR6rbIo0>}}
 
 
-::: {.callout-note collapse="true" appearance="minimal"}
+::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 8: kNN i Orange baseret på billeder
 
 + Find selv på en værdi som du gerne vil prædiktere ud fra billeder.
