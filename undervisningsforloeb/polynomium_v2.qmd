@@ -4,18 +4,18 @@ image: "polynomium_filer/antal_roedder.png"
 description: "Et andengradspolynomium kan have enten ingen, én eller to rødder -- og måske kan du ligefrem huske en metode til at bestemme antallet af rødder. Men kan man mon bruge kunstig intelligens til at bestemme antallet af rødder i et andengradspolynomium? Det vil vi undersøge i dette forløb."
 date: ''
 format:
-    html: 
-      self-contained: true
+    html:
+      self-contained: true 
       toc: true
       toc-title: Indhold
       toc-location: left
       related-formats-title: "Andre formater"
       link-external-newwindow: true
+#    pdf: default
+from: markdown+emoji
 reference-location: margin
 categories:
   - B-niveau
-nocite: | 
-  @*
 editor_options: 
   chunk_output_type: console
 crossref:
@@ -23,6 +23,7 @@ crossref:
   tbl-prefix: tabel    # (default is "Table")
   exm-prefix: eksempel
   thm-prefix: sætning
+  sec-prefix: afsnit
   eq-prefix: ''
   fig-title: Figur
   exm-title: Eksempel
@@ -32,9 +33,12 @@ label:
     fig: Figur
 fig-cap-location: margin
 tab-cap-location: margin
-tbl-cap-location: margin
-title-block-author-single: "Forfatter"
+execute:
+  echo: false
+  warning: false
 ---
+
+
 
 ::: {.callout-tip collapse="true" appearance="minimal"}
 ### Forudsætninger og tidsforbrug
@@ -109,7 +113,7 @@ f(x)=x^2+bx+c
 $$
 fordi man simpelthen bare tager sit oprindelige andengradspolynomium og dividerer igennem med $a$. Lad os illustrere det med et eksempel.
 
-:::{#exm-a=1}
+::: {#exm-a1}
 Betragt andengradspolynomiet med forskriften
 
 $$
@@ -123,6 +127,7 @@ $$
 Her er koefficienterne $a=1, b=-2$ og $c=-3$. Men $g$ har præcis samme rødder som $f$ -- nemlig $-1$ og $3$. Dette ses også illustreret i @fig-samme-roedder, hvor grafen for $f$ og $g$ begge skærer $x$-aksen i $-1$ og $3$.
 
 ![Grafen for $f(x)=-4x^2+8x+12$ (den blå) og $g(x)=x^2-2x-3$ (den grønne), som begge skærer $x$-aksen samme sted. Det vil sige, at $f$ og $g$ har de samme rødder. I dette tilfælde $-1$ og $3$.](polynomium_filer/samme-roedder.png){#fig-samme-roedder}
+
 :::
 
 
@@ -141,7 +146,7 @@ Overvej følgende:
 :::
 
 For at bruge kunstig intelligens skal vi have lavet en masse eksempler på forskellige andengradspolynomier (det vil her sige med forskellige værdier af $b$ og $c$) samtidig med, at vi også finder ud af, om det tilhørende andengradspolynomium har rødder eller ej. 
-At angive om et polynomium har rødder eller ej kalder man for en *targetværdi*. 
+Den værdi, der angiver om et polynomium har rødder eller ej, kalder man for en *targetværdi*. 
 Tænk på det som en lille label du sætter på hvert eksempel, hvor du fortæller, hvad det rigtige svar er -- *"det er altså det her, jeg gerne vil have, at du lærer!"*. Samlet set kalder man de forskellige eksempler inklusiv targetværdien for *træningsdata*.
 
 
@@ -150,8 +155,8 @@ Tænk på det som en lille label du sætter på hvert eksempel, hvor du fortæll
 
 Alle i gruppen skal nu:
 
-1. Finde et andengradspolynomium som ikke har nogle rødder (husk at $a=1$). Notér din værdi af $b$ og $c$ og sæt her targetværdien $t$ til $t=-1$.
-2. Finde et andengradspolynomium som har én eller to rødder (husk at $a=1$). Notér din værdi af $b$ og $c$ og sæt her targetværdien $t$ til $t=1$.
+1. Finde et andengradspolynomium som ikke har nogle rødder (husk at $a=1$). Notér din værdi af $b$ og $c$ og sæt her targetværdien $t$ til $-1$.
+2. Finde et andengradspolynomium som har én eller to rødder (husk at $a=1$). Notér din værdi af $b$ og $c$ og sæt her targetværdien $t$ til $1$.
 
 I skal nu indsætte jeres forskellige værdier for $b, c$ og $t$ i et regneark. I videoen herunder er det vist, hvordan man gør i GeoGebra:
 
@@ -173,58 +178,35 @@ Disse data er nu præcis det, man kalder for *træningsdata*.
 
 ## Træning af kunstig intelligens
 
-En simpel metode inden for kunstig intelligens er, at prøve at bestemme en ret linje, som kan bruges til at adskille de røde punkter fra de blå punkter i det punktplot, som I har lavet i opgave 2.
+En simpel metode inden for kunstig intelligens er at prøve at bestemme en ret linje, som kan bruges til at adskille de røde punkter fra de blå punkter i det punktplot, som I har lavet i opgave 2.
 
-Hvis man skal have en computer til at gøre det, så vil man typisk starte med en hel tilfældig ret linje med en ligning på formen $y=a \cdot x+b$, og så prøve at opdatere hældningen $a$ og skæring med $y$-aksen $b$, sådan at linjen bliver bedre og bedre til at adskille de røde punkter fra de blå. 
+Hvis man skal have en computer til at gøre det, så vil man typisk starte med en hel tilfældig ret linje med en ligning på formen 
 
+$$y=a \cdot x+b$$
 
-START HER!
+og så prøve at opdatere hældningen $a$ og skæring med $y$-aksen $b$, sådan at linjen bliver bedre og bedre til at adskille de røde punkter fra de blå. 
 
-Når man træner en perceptron, gør man det ved hjælp af en algoritme, som løbende opdaterer vægtene $w_0, w_1$ og $w_2$, så den linje, vægtene giver, bliver bedre og bedre til at adskille de røde punkter fra de blå. 
-Hver gang man opdaterer vægtene, siger man, at algoritmen har foretaget én iteration[^3]. 
+Nu ser vi jo på andengradspolynomier med en forskrift på formen $f(x)=x^2+bx+c$. Det vil sige, at $b$ allerede har en betydning. Derfor er det ikke så hensigtsmæssigt at bruge $b$ igen i ligningen for en ret linje. Derfor vælger vi her at beskrive den rette linje med en ligning på formen
 
-Du kan godt løse resten af opgaverne uden at forstå, hvorfor vægtene opdateres, som de gør. Men hvis du gerne vil have en forklaring så se videoen herunder.
-
-{{< video https://www.youtube.com/embed/xCeSZgdU3jc >}}
+$$
+y = w_1 \cdot x + w_0
+$$
+Det vil altså sige, at $w_1$ er linjens hældning, og $w_0$ er linjens skæring med $y$-aksen.
 
 ::: {.callout-note collapse="false" appearance="minimal"}
-### Opgave 3: Træning af perceptron
+### Opgave 3: Bestemmelse af en linje som kan adskille de røde punkter fra de blå
 
-Lad os bruge startvægtene $w_0=1$, $w_1=-3$ og $w_2=2$. 
-
-+ Hvilken linje svarer det til? Indtegn linjen i et koordinatsystemet. 
-+ Adskiller denne linje de to grupper af punkter (med og uden rødder)? Hvis grupperne allerede er adskilt, skal du tilføje punktet med $b=2$ og $c=1$, som svarer til et andengradspolynomium, der har én rod.
-
-Træningsdata der svarer til polynomier med rødder, giver vi targetværdien $t=-1$ og dem uden rødder får targetværdien $t=1$.
-
-Alle punkter, der ligger over startlinjen, opfylder uligheden
-$$
-w_0 + w_1 \cdot b + w_2 \cdot c > 0
-$$
-og får outputværdien $o=1$, mens dem, der ligger under linjen, opfylder den omvendte ulighed og får outputværdien $o=-1$.
-
-+ Udvælg et punkt der bliver fejlklassificeret. Det vil sige som enten ligger under linjen ($o=-1$), men har target $t=1$ svarende til ingen rødder eller omvendt. 
-+ Udregn fejlen $error=t-o$ som enten er -2 eller 2.
-
-+ Opdater nu alle tre vægte ved brug af opdateringsreglen (hvor du selv vælger $\eta$, f.eks. $\eta=1$):
-$$
-\begin{aligned}
-    w_0 \leftarrow w_0 + & \,\eta \cdot error \\
-    w_1 \leftarrow w_1 + & \,\eta \cdot error \cdot x_1 \\
-    w_2 \leftarrow w_2 + & \,\eta \cdot error \cdot x_2 \\
-\end{aligned}
-$$
-Husk at $x_1$ er $b$-værdien og $x_2$ er $c$-værdien!
-
-+ Fik du efter opdateringen en linje, der adskiller de to grupper?
-+ Hvis ikke, kan du så selv lave en ret linje "på øjemål", der adskiller dem?
+* I inputfeltet i GeoGebra skal du taste: `y=w1*x+w0`.
+* Når GeoGebra spørger, om du vil oprette skydere for `w0` og `w1`, svarer du \"Opret skydere\".
+* Træk i skyderne for `w0` og `w1` og prøv om du kan finde en ret linje, som kan adskille de røde punkter fra de blå.
 
 :::
+
 
 ::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 4: Flere træningsdata
 
-+ Afgør om følgende andengradspolynomier har rødder og tilføj dem til dit træningsdata:
++ Afgør om følgende andengradspolynomier har rødder og tilføj dem til dit træningsdata (husk ingen rødder svarer til at $t=-1$ og det tilhørende punkt farves blåt, mens én eller to rødder svarer til $t=1$ og punktet farves rødt):
 
 $$
 \begin{aligned}
@@ -237,16 +219,27 @@ f_6(x) &= x^2 + 2x + 2 \\
 \end{aligned}
 $$
 
-+ Kan det lade sig gøre at adskille de to grupper med en ret linje nu?
++ Kan det lade sig gøre at adskille de to grupper med den rette linje, du fandt i opgave 3?
++ Hvis ikke kan du så bestemme en ny ret linje, som kan adskille de røde punkter fra de blå?
 
 :::
 
 
-Som du netop har opdaget, er det en umulig opgave, vi har givet perceptronen! Vi kan ikke finde en ret linje, som i alle tilfælde kan bruges til at adskille de to slags punkter. Lad os se på hvorfor. Som tidligere nævnt har vores linje en ligning på formen
+Som du netop har opdaget, er det en umulig opgave, vi har givet os selv! Vi kan ikke finde en ret linje, som i alle tilfælde kan bruges til at adskille de røde punkter fra de blå. :confused:
+
+Lad os se på hvorfor. Som tidligere nævnt har vores linje en ligning på formen
+
+$$ 
+y=w_1 \cdot x + w_0
+$$
+
+Men nu har vi $b$-værdier ud af $x$-aksen og $c$-værdier op af $y$-aksen, så i virkeligheden ser ligningen sådan her ud:
 
 $$
-w_0 + w_1 \cdot b + w_2 \cdot c = 0
+c=w_1 \cdot b + w_0
 $$ {#eq-ligning_bc}
+
+hvor $b$ og $c$ jo svarer til koefficinter i forskellige andengradspolymonier med forskrift $f(x)=x^2+bx+c$.
 
 Vi husker nu på formlen for diskriminanten $d=b^2-4ac=b^2-4c$, da $a=1$ i vores eksempel. Skillelinjen for om andengradspolynomiet har ingen eller flere rødder, går netop ved $d=0$. Det vil sige
 
@@ -254,16 +247,30 @@ $$
 b^2-4c =0
 $$ {#eq-d1}
 
-Men vi kan ikke finde nogle værdier af $w_0, w_1$ og $w_2$, så udtrykket i (@eq-ligning_bc) kommer til at svare til udtrykket i (@eq-d1). Det er fordi, at i (@eq-ligning_bc) indgår der kun et $b$, mens der i (@eq-d1) indgår et $b^2$. Denne observation giver os imidlertid også en løsning på vores problem. I stedet for at fodre perceptroner med forskellige værdier af $b$ og $c$, så giver vi den i stedet værdier af $b^2$ og $c$!
+som kan omskrives til
+
+$$
+c = \frac{1}{4}b^2
+$$ {#eq-d2}
+
+
+Men vi kan ikke finde nogle værdier af $w_0$ og $w_1$, så udtrykket i (@eq-ligning_bc) kommer til at svare til udtrykket i (@eq-d2). Det er fordi, at i (@eq-ligning_bc) indgår der kun et $b$, mens der i (@eq-d2) indgår et $b^2$. Denne observation giver os imidlertid også en løsning på vores problem. I stedet for at lade træningsdata bestå af $b$- og $c$-værdier, så vil vi i stedet lade træningsdata bestå af $b^2$- og $c$-værdier! Det vil sige, at vi ud af $x$-aksen vil afsætte $b^2$ og op af $y$-aksen, vil vi afsætte $c.$
 
 ::: {.callout-note collapse="false" appearance="minimal"}
-### Opgave 5: Nye træningsdata
+### Opgave 5: Transformerede træningsdata
 
-+ Lav et nyt koordinatsystem og indtegn dine træningsdata med værdien af $b^2$ på $x$-aksen og værdien af $c$ på $y$-aksen. 
++ Brug dit regneark fra tidligere og udregn $b^2$. 
+
++ Indtegn dine værdier af $b^2$ og $c$ i et nyt koordinatsystem, hvor værdien af $b^2$ er på $x$-aksen, og værdien af $c$ er på $y$-aksen. Hvis $(b^2,c)$-punktet svarer til et andegradspolynomium, som har rødder, farves punktet rødt og ellers farves det blåt.
+
 + Hvilken linje kan du vælge til at adskille de to grupper?
 :::
 
+Idéen med at prøve at adskille to grupper af punkter med en ret linje bruges i den AI-metode som kaldes for [perceptroner](../materialer/perceptron/preceptron.qmd).
 
-[^1]: Det er klart, at der er intet nyt under solen her. Vi kan jo bare selv beregne diskriminanten og svare på spørgsmålet. Men formålet er her at lære lidt om, hvad det vil sige at træne en perceptron i et tilfælde, hvor vi allerede selv kender svaret. Desuden findes der ingen lukkede løsningsformler for at bestemme rødder i et polynomium, så snart graden af polynomiet er $5$ eller derover. Så idéen kan generaliseres, og så er den måske slet ikke så tosset endda! 
+Hvis du vil prøve at bruge den metode på dine data om andengradspolynomier, kan du gøre det [her]().
+
+
+[^1]: Det er klart, at der er intet nyt under solen her. Vi kan jo bare selv beregne diskriminanten og svare på spørgsmålet. Men formålet er her at lære lidt om, hvad det vil sige at bruge kunstig intelligens i et tilfælde, hvor vi allerede selv kender svaret. Desuden findes der ingen lukkede løsningsformler for at bestemme rødder i et polynomium, så snart graden af polynomiet er $5$ eller derover. Så idéen kan generaliseres, og så er den måske slet ikke så tosset endda! 
 [^3]: En iteration betyder en gentagelse.
 [^4]: Du er nok vant til at møde linjens ligning på denne form: $a \cdot x+b \cdot y+c=0$. Skrivemåden, vi bruger her, er $w_0+w_1 \cdot x + w_2 \cdot y=0$. Det vil sige i forhold til den skrivemåde, som du kender, så er $w_0=c, w_1=a$ og $w_2=b$. 
