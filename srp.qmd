@@ -140,9 +140,9 @@ Redegørelse for hvordan et kunstigt neuralt netværk trænes. Diskussion af de 
 ## Psykologi og matematik
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-### Prediktion af psykisk sygdom ved hjælp af deep learning
+### Prædiktion af psykisk sygdom ved hjælp af deep learning
 
-Forklare hvordan kunstige neurale netværk kan bruges til at prediktere psykisk sygdom baseret på register og genetiske data.
+Forklare hvordan kunstige neurale netværk kan bruges til at prædiktere psykisk sygdom baseret på register og genetiske data.
 
 
 #### Materialer
