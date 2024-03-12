@@ -666,7 +666,7 @@ I denne video forklarer vi perceptron learning algoritmen.
 {{< video https://www.youtube.com/embed/xCeSZgdU3jc >}}
 
 
-# Det kan gøres smartere med "Adaline" 
+# Det kan gøres smartere med "Adaline" {#sec-ADALINE}
 
 Det er faktisk lidt noget rod. Altså det her med, at perceptron learning
 algoritmen ikke kan finde meningsfulde værdier af vægtene, hvis de røde

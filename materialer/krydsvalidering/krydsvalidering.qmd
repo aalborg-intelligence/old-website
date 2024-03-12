@@ -437,7 +437,7 @@ $$
 
 
 
-## Krydsvalidering
+## Krydsvalidering {#sec-krydsvalidering}
 
 Der er et problem med tilgangen ovenfor. Når man træner en model, er det
 altid en fordel at have så meget data som muligt, da man så har mulighed

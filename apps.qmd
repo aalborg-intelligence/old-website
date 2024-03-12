@@ -1,6 +1,6 @@
 ---
-title: "Apps"
-description: "Apps"
+title: "AI apps"
+description: "Diverse apps til træning af kunstig intelligens."
 image: "images/image5.jpg"
 
 format:
@@ -9,8 +9,24 @@ format:
       toc: true
       toc-title: Indhold
       toc-location: left
+      link-external-newwindow: true
+      
+listing:
+  id: main-listing-content
+  sort: false
+  fields: 
+    - image
+    - title
+    - description
+  contents: 
+    - path: https://apps01.math.aau.dk/adaline/
+      title: "ADALINE perceptron app"
+      image: "materialer/perceptron/images/perceptron.png"
+      description: 'Her kan du træne en perceptron med dine egne data.'
+  type: grid 
+  grid-columns: 2
 ---
 
-### AI apps
+::: {#main-listing-content}
+:::
 
-Siden er under opbygning.
