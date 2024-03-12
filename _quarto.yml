@@ -3,6 +3,7 @@ project:
   resources: 
     - "*.ggb"
     - "*.xlsx"
+    - "*.zip"
 
 website:
   title: "AI - Aalborg Intelligence"

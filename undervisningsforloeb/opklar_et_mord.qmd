@@ -1,0 +1,123 @@
+---
+title: "Opklar et mord!"
+image: "opklar_et_mord_filer/images/gerningssted2.jpg"
+description: "Der er blevet begået et mord på skolen i nat. Det er jeres opgave at opklare det!"
+date: ''
+format:
+    html:
+      self-contained: true 
+      toc: true
+      toc-title: Indhold
+      toc-location: left
+      related-formats-title: "Andre formater"
+      link-external-newwindow: true
+#    pdf: default
+from: markdown+emoji
+reference-location: margin
+categories:
+  - A-niveau
+editor_options: 
+  chunk_output_type: console
+crossref:
+  fig-prefix: figur   # (default is "Figure")
+  tbl-prefix: tabel    # (default is "Table")
+  exm-prefix: eksempel
+  thm-prefix: sætning
+  sec-prefix: afsnit
+  eq-prefix: ''
+  fig-title: Figur
+  exm-title: Eksempel
+  thm-title: Sætning
+  tbl-title: Tabel
+label:
+    fig: Figur
+fig-cap-location: margin
+tab-cap-location: margin
+execute:
+  echo: false
+  warning: false
+---
+
+## Hvad er et kunstigt neuralt netværk?
+
+SCREENCAST om neurale netværk - uden at det bliver for teknisk.
+
+
+## Hvem har afsat fingeraftryk i de forskellige lokaler?
+
+I alt 10 elever er under mistanke. Det drejer sig om:
+
+![](opklar_et_mord_filer/images/lup3.jpg){style="float:right;" width="40%"}
+
++	Alexander
++	Bent
++	Cecilie
++	Hugo
++	Karoline
++	Mette
++	Signe
++	Sigurd
++	Valdemar
++	Victoria
+
+Politiet har taget syv forskellige fingeraftryk fra hver elev. På skolen har man i forskellige lokaler også fundet fingeraftryk - man ved bare ikke, hvem fingeraftrykkene stammer fra. 
+
+Alle fingeraftryk, som er fundet i lokalerne, er nummeret fra 101-110. Fingeraftrykkene er fundet i følgende lokaler:
+
+| Fysik | Kemi | Biotek | Matematik | Biologi |
+|:-----:|:-----:|:-----:|:-----:|:-----:|
+| 107 | 102 | 101 | 104 | 103 |
+| 109 | 106 | 105 | 108 | 110 |
+
+I skal nu ud fra fingeraftrykkene hjælpe politiet med at afgøre, hvem der har befundet sig i de forskellige lokaler. 
+
+::: {.callout-note collapse="false" appearance="minimal"}
+### Opgave 1: Træn forskellige neurale netværk
+
+Start med at se denne SCREENCAST, som handler om hvordan man træner et kunstigt neuralt netværk i Orange.
+
++ Ved hjælp af [træningsdata](opklar_et_mord_filer/Træningsdata.zip) skal I træne forskellige neurale netværk, som kan prædiktere hvem et givent fingeraftryk tilhører. Prøv med forskellige neurale netværk af forskellig dybde (dvs. et varierende antal skjulte lag) og forskellig antal neuroner i hvert skjult lag.
+
++ Sammenlign jeres forskellige modeller vha. ”Test and Score” (brug krydsvalidering - og husk at CA skal være tæt på 1). ”Test and Score” skal som input have billederne fra træningsdata og de forskellige modeller (dvs. de forskellige neurale netværk).
+
+:::
+
+::: {.callout-note collapse="false" appearance="minimal"}
+### Opgave 2: Lav en prædiktion på baggrund af den valgte model 
+
+Se denne SCREENCAST som viser hvordan man kan prædiktere i Orange ud fra en valgt model.
+
++	Vælg den bedste model og brug den til at prædiktere hvem de ti forskellige fingeraftryk (101-110) stammer fra. Brug ”Predictions” - ”Predictions” skal som input have den valgte model (og den valgte model skal have billederne som input) samt billederne i [testdatasættet](opklar_et_mord_filer/Testdata.zip).
+
+:::
+
+::: {.callout-note collapse="false" appearance="minimal"}
+### Opgave 3: Hvem har været hvor?
+
++ Noter her hvem der er hvem:
+
+| Lokale | Nummer | Navn |
+|:---|:---:|:---:|
+| Fysik | 107 |  |
+| Fysik | 109 |  |
+| Kemi | 102 |  |
+| Kemi | 106 |  |
+| Biotek | 101 |  |
+| Biotek | 105 |  |
+| Matematik | 104 |  |
+| Matematik | 108 |  |
+| Biologi | 103 |  |
+| Biologi | 110 |  |
+
+:::
+
+::: {.callout-note collapse="true" appearance="minimal"}
+### Opgave 4: Hvem er morderen?
+
+Politiet kan nu oplyse, at mordet blev begået i matematik... :scream:
+
+Tager du nummeret for hver af de to personer, som befandt sig i matematik, trækker 100 fra og dividerer med 2, så har du antallet af bogstaver i morderens navn.
+
++ Hvem er morderen?
+
+:::
