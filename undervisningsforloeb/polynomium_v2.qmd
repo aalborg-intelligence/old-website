@@ -160,7 +160,7 @@ Alle i gruppen skal nu:
 
 I skal nu indsætte jeres forskellige værdier for $b, c$ og $t$ i et regneark. I videoen herunder er det vist, hvordan man gør i GeoGebra:
 
-VIDEO MED SCREENCAST HER.
+{{< video https://www.youtube.com/embed/n0UsAn2M7pw >}}
 
 Disse data er nu præcis det, man kalder for *træningsdata*.
 
@@ -266,9 +266,9 @@ Men vi kan ikke finde nogle værdier af $w_0$ og $w_1$, så udtrykket i (@eq-lig
 + Hvilken linje kan du vælge til at adskille de to grupper?
 :::
 
-Idéen med at prøve at adskille to grupper af punkter med en ret linje bruges i den AI-metode som kaldes for [perceptroner](../materialer/perceptron/preceptron.qmd).
+Idéen med at prøve at adskille to grupper af punkter med en ret linje bruges i den AI-metode som kaldes for [perceptroner](../materialer/perceptron/perceptron.qmd).
 
-Hvis du vil prøve at bruge den metode på dine data om andengradspolynomier, kan du gøre det [her]().
+Hvis du vil prøve at bruge den metode på dine data om andengradspolynomier, kan du gøre det [her](https://apps01.math.aau.dk/adaline/).
 
 
 [^1]: Det er klart, at der er intet nyt under solen her. Vi kan jo bare selv beregne diskriminanten og svare på spørgsmålet. Men formålet er her at lære lidt om, hvad det vil sige at bruge kunstig intelligens i et tilfælde, hvor vi allerede selv kender svaret. Desuden findes der ingen lukkede løsningsformler for at bestemme rødder i et polynomium, så snart graden af polynomiet er $5$ eller derover. Så idéen kan generaliseres, og så er den måske slet ikke så tosset endda! 
