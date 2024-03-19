@@ -72,7 +72,7 @@ Det nye punkt er indtegnet i @fig-eks2 sammen med de øvrige seks punkter. Det s
 Hvis vi prøver at køre ADALINE algoritmen fås linjen, som er indtegnet i @fig-eks2_2. 
 ![Et nyt rødt punkt er indtegnet og den linje, som ADALINE finder.](images/eks2_2.png){#fig-eks2_2}
 
-Med denne linje er der både et rødt og et blåt punkter, som bliver klassificeret forkert -- faktisk var den oprindelige linje fra @fig-eks1 bedre. Denne ses indtegnet i $fig-eks2_3.
+Med denne linje er der både et rødt og et blåt punkter, som bliver klassificeret forkert -- faktisk var den oprindelige linje fra @fig-eks1 bedre. Denne ses indtegnet i @fig-eks2_3.
 
 ![Et nyt rødt punkt er indtegnet og den linje, som ADALINE fandt baseret på de oprindelige seks punkter.](images/eks2_3.png){#fig-eks2_3}
 
@@ -104,6 +104,21 @@ $$
 Nu er $1- (w_0 + w_1 \cdot x_1 + \cdots + w_n \cdot x_n)=0$ og $-1- (w_0 + w_1 \cdot x_1 + \cdots + w_n \cdot x_n)=0$ jo bare ligninger for rette linje. Disse linjer ses indtegnet på @fig-eks1_2 (som henholdsvis en blå og rød stiplet linje) sammen med de oprindelige seks punkter og den linje, som ADALINE fandt. Samtidig er det for hvert punkt markeret hvilket bidrag dette punkter giver til tabsfunktionen.
 
 ![Punkter med en targetværdi på $1$ er blå og dem med en targetværdi på $-1$ er røde. Den sorte linje med ligning $w_0+w_1 x_1 + w_2 x_2=0$ svarer til den ADALINE fandt. Den blå stiplede linje har ligning $1-(w_0+w_1 x_1 + w_2 x_2)=0$, mens den røde stiplede linje har ligning $-1-(w_0+w_1 x_1 + w_2 x_2)=0$.](images/eks1_2.png){#fig-eks1_2}
+
+Det ses nu på @fig-eks1_2 at blå punkter, som ligger tæt på den blå stiplede linje bidrager mindst til tabsfunktionen, mens røde punkter som ligger tæt på den røde stiplede linje ligeledes bidrager mindst til tabsfunktionen.
+
+Laver vi nu samme øvelse med det ekstra punkt fås resultat i @fig-eks2_4.
+
+![I alt syv punkter sammen med den sorte linje med ligning $w_0+w_1 x_1 + w_2 x_2=0$ svarer til den ADALINE finder. Punkter med en targetværdi på $1$ er blå og dem med en targetværdi på $-1$ er røde.  Den blå stiplede linje har ligning $1-(w_0+w_1 x_1 + w_2 x_2)=0$, mens den røde stiplede linje har ligning $-1-(w_0+w_1 x_1 + w_2 x_2)=0$. Summen af alle bidragene til tabsfunktionen er her $5$.](images/eks2_3.png){#fig-eks2_4}
+
+Den samlede værdi af tabsfunktionen (dog uden at gange med $1/2$) bliver her $5.00$.
+
+Hvis vi i stedet prøver at bruge vores egen oprindelige linje (baseret på de seks første punkter) så fås det resultat, som ses i @fig-eks2_5.
+
+![I alt syv punkter sammen med den sorte linje . Punkter med en targetværdi på $1$ er blå og dem med en targetværdi på $-1$ er røde.  Den blå stiplede linje har ligning $1-(w_0+w_1 x_1 + w_2 x_2)=0$, mens den røde stiplede linje har ligning $-1-(w_0+w_1 x_1 + w_2 x_2)=0$. Summen af alle bidragene til tabsfunktionen er her $5$.](images/eks2_med_oprindelig_linje.png){#fig-eks2_med_oprindelig_linje}
+Det er nu tydeligt, at det nye røde punkter ligger så langt væk fra den stiplede røde linje, at det bidrager betydeligt til tabsfunktionen. Derfor er den samlede værdi af tabsfunktionen (stadig uden at gange med $1/2$) på $9.74$. Derfor vælger ADALINE linjen i @fig-eks2_4 til at adskille punkterne -- ikke fordi, det er den linje, som giver den laveste andel af korrekt klassificerede, men fordi det er den linje, som minimerer tabsfunktionen!
+
+
 
 ## Aktiveringsfunktioner
 
