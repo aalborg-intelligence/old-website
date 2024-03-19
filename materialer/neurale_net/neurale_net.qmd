@@ -1651,7 +1651,7 @@ Derfor får vi
 $$
 \frac{\partial E}{\partial w_{ji}^{(K)}} = \frac{\partial E}{\partial z_j^{(K)}} \cdot \frac{\partial z_j^{(K)}}{\partial w_{ji}^{(K)}}
 $$ {#eq-partialE_w_ji_K}
-På grund feedforwardligningen i (@eq-z_j_k_generelt) får vi for det første, at
+På grund af feedforwardligningen i (@eq-z_j_k_generelt) får vi for det første, at
 $$
 \frac{\partial z_j^{(K)}}{\partial w_{ji}^{(K)}} = a_i^{(K-1)}
 $$ {#eq-partial_z_j_K_w_ji_K} 
@@ -1747,24 +1747,30 @@ kædereglen for funktioner af flere variable (se illustrationen i (@eq-dep_E_w_j
 \end{align}
 Vi udnytter nu, at vi allerede kender fejlleddene fra lag $k+1$ og kan
 derfor omskrive til 
-\begin{align}
+
+$$
  \frac{\partial E}{\partial a_j^{(k)}} = \sum_{i=1}^{n_{k+1}} \delta_i^{(k+1)}
 \cdot \frac{\partial  z_i^{(k+1)}}{\partial a_j^{(k)}}
-\end{align}
-Endelig får vi fra feedforwardligningen (@eq-z_j_k_generelt), at 
+$$ {#eq-partialE_aj_k}
+
+Fra feedforwardligningen i (@eq-z_j_k_generelt) får vi, at $z_i^{(k+1)}$ kan skrives som
+$$
+z_i^{(k+1)} = \sum_{j} w_{ij}^{(k+1)} a_j^{(k)} +  b_i^{(k+1)} 
+$$
+og derfor er
 \begin{align}
  \frac{\partial  z_i^{(k+1)}}{\partial a_j^{(k)}} = w_{ij}^{(k+1)}
  \end{align}
-og derfor er 
+Indsætter vi i (@eq-partialE_aj_k) fås
 \begin{align}
  \frac{\partial E}{\partial a_j^{(k)}} = \sum_{i=1}^{n_{k+1}} \delta_i^{(k+1)}
 \cdot w_{ij}^{(k+1)}
 \end{align}
-Ved at indsætte i (@eq-partial_E_z_j_k) får vi nu fejlleddet i det $k$'te lag
+og ved indsættelse i (@eq-partial_E_z_j_k) får vi nu fejlleddet i det $k$'te lag
 $$
 \delta_j^{(k)} = \frac{\partial E}{\partial z_j^{(k)}}=  \left ( \sum_{i=1}^{n_{k+1}} \delta_i^{(k+1)} \cdot w_{ij}^{(k+1)} \right) \cdot a_j^{(k)} \cdot (1-a_j^{(k)})
 $$
-Altså er 
+Vi bruger nu udtrykket for $\frac{\partial E}{\partial w_{ji}^{(k)}}$ i (@eq-partialE_w_ji_k) og ender med 
 \begin{align}
 \frac{\partial E}{\partial w_{ji}^{(k)}} = \delta_j^{(k)} \cdot a_i^{(k-1)} 
 \end{align}
