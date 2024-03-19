@@ -1,0 +1,112 @@
+---
+title: "Sigmoid neuroner"
+image: "images/.png"
+description: Fra perceptroner til kunstige neurale netværk. Her behandles \"Sigmoid neuroner\", som er en udvidelse af den klassiske perceptron og dermed en trædesten på vej mod at forstå kunstige neurale netværk.
+date: ''
+format:
+    html:
+      self-contained: true 
+      toc: true
+      toc-title: Indhold
+      toc-location: left
+      related-formats-title: "Andre formater"
+      link-external-newwindow: true
+#    pdf: default
+reference-location: margin
+editor_options: 
+  chunk_output_type: console
+crossref:
+  fig-prefix: figur   # (default is "Figure")
+  tbl-prefix: tabel    # (default is "Table")
+  exm-prefix: eksempel
+  thm-prefix: sætning
+  sec-prefix: afsnit
+  eq-prefix: ''
+  fig-title: Figur
+  exm-title: Eksempel
+  thm-title: Sætning
+  tbl-title: Tabel
+label:
+    fig: Figur
+fig-cap-location: margin
+tab-cap-location: margin
+execute:
+  echo: false
+  warning: false
+---
+
+## Kan vi gøre det bedre end ADALINE?
+
+I noten om [perceptroner](../perceptron/perceptron.qmd) beskrev vi [perceptron learning algoritmen](../perceptron/perceptron.qmd#sec-perceptron_learning_algortimen), som altid konvergerer, hvis data er lineær separable. Men verden er sjældent lineær separabel, og derfor introducerede vi [ADALINE algoritmen](../perceptron/perceptron.qmd#sec-ADALINE), som også virker selvom data ikke er lineær separable. Det virker jo alt sammen super godt -- men et enkelt lille eksempel afslører alligevel, at ADALINE ikke altid er så smart, som man kunne tro.
+
+Vi vil se på data i nedenstående tabel
+
+| $x_1$ | $x_2$ | Targetværdi|
+|:------:|:------:|:------:|
+| $-0.5$ | $0.5$ | $1$ |
+| $-0.3$ | $0.3$ | $1$ |
+| $-0.1$ | $0.7$ | $1$ |
+| $0.1$ | $0.4$ | $-1$ |
+| $-0.1$ | $0.2$ | $-1$ |
+| $0.1$ | $-0.1$ | $-1$ |
+
+I @fig-eks1 har vi indtegnet punkterne $(x_1,x_2)$ og farvet punkterne med en targetværdi på $1$ blå og dem med en targetværdi på $-1$ røde.
+
+![Punkter med en targetværdi på $1$ er blå og dem med en targetværdi på $-1$ er røde.](images/eks1.png){#fig-eks1}
+
+Det er tydeligt, at punkterne er lineær separable og den indtegnede linje er også den som ADALINE giver, hvis man sætter startvægtene til $0$. Du kan selv prøve [ADALINE her](https://apps01.math.aau.dk/adaline/). De estimerede vægte er $w_0=-0.9342, w_1=-2.652$ og $w_2=1.744$.Det vil sige, at den indtegnede linje har ligning
+
+$$
+-0.9342-2.652x_1+1.744x_2=0
+$$
+
+Det er alt sammen meget fint, men lad os nu prøve at indtegne et nyt rødt punkt:
+
+| $x_1$ | $x_2$ | Targetværdi|
+|:------:|:------:|:------:|
+| $-0.4$ | $1$ | $1$ |
+
+Det nye punkt er indtegnet i @fig-eks2 sammen med de øvrige seks punkter. Det skulle gerne være tydeligt, at data ikke længere er lineær separable.
+
+![Et nyt rødt punkt er indtegnet og data er ikke længere lineær separable.](images/eks2.png){#fig-eks2}
+Hvis vi prøver at køre ADALINE algoritmen fås linjen, som er indtegnet i @fig-eks2_2. 
+![Et nyt rødt punkt er indtegnet og den linje, som ADALINE finder.](images/eks2_2.png){#fig-eks2_2}
+
+Med denne linje er der både et rødt og et blåt punkter, som bliver klassificeret forkert -- faktisk var den oprindelige linje fra @fig-eks1 bedre. Denne ses indtegnet i $fig-eks2_3.
+
+![Et nyt rødt punkt er indtegnet og den linje, som ADALINE fandt baseret på de oprindelige seks punkter.](images/eks2_3.png){#fig-eks2_3}
+
+Det er jo ikke ligefrem super overbevisende. Vi kunne have tegnet en linje selv, om klassificerer flere punkter korrekt end den linje, som ADALINE giver os!
+
+Hvis vi skal forstå, hvad der sker, må vi se lidt nærmere på den tabsfunktion, som ADALINE forsøger at mininere. Fra [afsnittet om ADALINE](../perceptron/perceptron.qmd#sec-ADALINE) ved vi, at tabsfunktionen er
+$$
+E(w_0, w_1, \dots, w_n) = \frac{1}{2} \sum_{m=1}^{M} \left (t_m-
+(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n}) \right)^2
+$${#eq-tabsfunktion}
+
+hvor det $m$'te træmningseksempel er
+$$(x_{m,1}, x_{m,2}, \dots, x_{m,n}, t_m)$$
+
+Det vil sige, at det $m$'te træningseksempel giver et bidrag til tabsfunktionen på 
+
+$$
+\left ( t_m- (w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n}) \right)^2
+$$
+
+For et blåt punkt med $t=1$ vil det sige, at bidraget til tabsfunktionen er præcis $0$, hvis
+$$
+1- (w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n})=0
+$$
+og for et rødt punkt med $t=-11$ vil det sige, at bidraget til tabsfunktionen er præcis $0$, hvis
+$$
+-1- (w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n})=0
+$$
+Nu er $1- (w_0 + w_1 \cdot x_1 + \cdots + w_n \cdot x_n)=0$ og $-1- (w_0 + w_1 \cdot x_1 + \cdots + w_n \cdot x_n)=0$ jo bare ligninger for rette linje. Disse linjer ses indtegnet på @fig-eks1_2 (som henholdsvis en blå og rød stiplet linje) sammen med de oprindelige seks punkter og den linje, som ADALINE fandt. Samtidig er det for hvert punkt markeret hvilket bidrag dette punkter giver til tabsfunktionen.
+
+![Punkter med en targetværdi på $1$ er blå og dem med en targetværdi på $-1$ er røde. Den sorte linje med ligning $w_0+w_1 x_1 + w_2 x_2=0$ svarer til den ADALINE fandt. Den blå stiplede linje har ligning $1-(w_0+w_1 x_1 + w_2 x_2)=0$, mens den røde stiplede linje har ligning $-1-(w_0+w_1 x_1 + w_2 x_2)=0$.](images/eks1_2.png){#fig-eks1_2}
+
+## Aktiveringsfunktioner
+
+## Nye opdateringsregler
+
+

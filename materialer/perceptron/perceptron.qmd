@@ -300,7 +300,7 @@ I denne video forklarer vi ovenstående, men med udgangspunkt i et andet eksempe
 
 {{< video https://www.youtube.com/embed/1WTZZCx-pRY >}}
 
-# Perceptron Learning Algoritmen 
+# Perceptron Learning Algoritmen {#sec-perceptron_learning_algortimen}
 
 Det er jo alt sammen meget fint, hvis man kender vægtene. Bum -- så kan
 man beregne den vægtede sum 
