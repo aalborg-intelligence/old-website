@@ -1206,10 +1206,8 @@ $$ {#eq-error_term_j_4}
 
 Udtrykket $\delta_j^{(4)}$ kalder man, som nævnt tidligere, også for
 fejlleddet i den $j$'te række i det fjerde lag, og man kan se på
-ovenstående opdateringsregler, at dette fejlled netop indgå i
-opdateringen af både vægtene og biasene. Faktisk kan vi præcis, som vi
-gjorde det på side , tillægge dette fejlled en intuitiv god mening. Det
-kommer vi tilbage til igen senere!
+ovenstående opdateringsregler, at dette fejlled netop indgår i
+opdateringen af både vægtene og biasene. Faktisk kan vi præcis, som vi gjorde det tidligere, tillægge dette fejlled en intuitiv god mening. Det kommer vi tilbage til igen senere!
 
 Bemærk, at hvis vi i vores netværk starter med at vælge mere eller
 mindre tilfældige vægte, så kan vi på baggrund af dem bruge
@@ -1477,9 +1475,9 @@ Biasene i outputlaget opdateres på denne måde:
 b_j^{(2)} \leftarrow b_j^{(2)} - \eta \cdot \delta_j^{(2)} 
 \end{align}
 hvor 
-\begin{align}
+$$
 \delta_j^{(2)} = \frac{\partial E}{\partial z_j^{(2)}}= \left ( \sum_{k=1}^2  \delta_k^{(3)} w_{kj}^{(3)} \right ) \cdot a_j^{(2)} \cdot (1-a_j^{(2)})
-\end{align} {#eq-error_term_j_2}
+$$ {#eq-error_term_j_2}
 :::
 
 ## Var det så egentlig smart med alle de indekser?
@@ -1709,8 +1707,7 @@ hvor
 Vi ser nu på et vilkårligt skjult lag $k$, som hverken er inputlaget
 eller outputlaget. Det vil sige, at $k \in \{2, 3, \dots, K-1 \}$. Vi
 antager, at vi har kørt backpropagation på alle lag, der ligger længere
-fremme i netværket, og specielt har vi altså beregnet fejlleddene i lag
-$k+1$: 
+fremme i netværket, og specielt har vi altså beregnet fejlleddene i lag $k+1:$ 
 $$
 \delta_j^{(k+1)} = \frac{\partial E}{\partial z_j^{(k+1)}}
 $$ 
@@ -1756,16 +1753,16 @@ derfor omskrive til
 \end{align}
 Endelig får vi fra feedforwardligningen (@eq-z_j_k_generelt), at 
 \begin{align}
- \frac{\partial  z_i^{(k+1)}}{\partial a_j^{(k)}} = w_{ij}^{(k)}
+ \frac{\partial  z_i^{(k+1)}}{\partial a_j^{(k)}} = w_{ij}^{(k+1)}
  \end{align}
 og derfor er 
 \begin{align}
  \frac{\partial E}{\partial a_j^{(k)}} = \sum_{i=1}^{n_{k+1}} \delta_i^{(k+1)}
-\cdot w_{ij}^{(k)}
+\cdot w_{ij}^{(k+1)}
 \end{align}
 Ved at indsætte i (@eq-partial_E_z_j_k) får vi nu fejlleddet i det $k$'te lag
 $$
-\delta_j^{(k)} = \frac{\partial E}{\partial z_j^{(k)}}=  \left ( \sum_{i=1}^{n_{k+1}} \delta_i^{(k+1)} \cdot w_{ij}^{(k)} \right) \cdot a_j^{(k)} \cdot (1-a_j^{(k)})
+\delta_j^{(k)} = \frac{\partial E}{\partial z_j^{(k)}}=  \left ( \sum_{i=1}^{n_{k+1}} \delta_i^{(k+1)} \cdot w_{ij}^{(k+1)} \right) \cdot a_j^{(k)} \cdot (1-a_j^{(k)})
 $$
 Altså er 
 \begin{align}
@@ -1790,7 +1787,7 @@ b_j^{(k)} \leftarrow b_j^{(k)} - \eta \cdot \delta_j^{(k)}
 \end{align}
 hvor 
 \begin{align}
-\delta_j^{(k)} = \frac{\partial E}{\partial z_j^{(k)}}=  \left ( \sum_{i=1}^{n_{k+1}} \delta_i^{(k+1)} \cdot w_{ij}^{(k)} \right) \cdot a_j^{(k)} \cdot (1-a_j^{(k)})
+\delta_j^{(k)} = \frac{\partial E}{\partial z_j^{(k)}}=  \left ( \sum_{i=1}^{n_{k+1}} \delta_i^{(k+1)} \cdot w_{ij}^{(k+1)} \right) \cdot a_j^{(k)} \cdot (1-a_j^{(k)})
 \end{align}
 :::
 
