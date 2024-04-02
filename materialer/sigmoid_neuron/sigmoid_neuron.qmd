@@ -1,8 +1,8 @@
 ---
 title: "Sigmoid neuroner"
-image: "images/.png"
+image: "images/sigmoid.png"
 description: Fra perceptroner til kunstige neurale netværk. Her behandles \"Sigmoid neuroner\", som er en udvidelse af den klassiske perceptron og dermed en trædesten på vej mod at forstå kunstige neurale netværk.
-date: ''
+from: markdown+emoji
 format:
     html:
       self-contained: true 
@@ -13,6 +13,9 @@ format:
       link-external-newwindow: true
 #    pdf: default
 reference-location: margin
+bibliography: referencer.bib
+nocite: | 
+  @*
 editor_options: 
   chunk_output_type: console
 crossref:
@@ -37,7 +40,7 @@ execute:
 
 ## Kan vi gøre det bedre end ADALINE?
 
-I noten om [perceptroner](../perceptron/perceptron.qmd) beskrev vi [perceptron learning algoritmen](../perceptron/perceptron.qmd#sec-perceptron_learning_algortimen), som altid konvergerer, hvis data er lineær separable. Men verden er sjældent lineær separabel, og derfor introducerede vi [ADALINE algoritmen](../perceptron/perceptron.qmd#sec-ADALINE), som også virker selvom data ikke er lineær separable. Det virker jo alt sammen super godt -- men et enkelt lille eksempel afslører alligevel, at ADALINE ikke altid er så smart, som man kunne tro.
+I noten om [perceptroner](../perceptron/perceptron.qmd) beskrev vi [perceptron learning algoritmen](../perceptron/perceptron.qmd#sec-perceptron_learning_algortimen), som altid konvergerer, hvis data er lineær separable. Men verden er sjældent lineær separabel, og derfor introducerede vi [ADALINE algoritmen](../perceptron/perceptron.qmd#sec-ADALINE), som også virker, selvom data ikke er lineær separable. Det virker jo alt sammen super godt -- men et enkelt lille eksempel afslører alligevel, at ADALINE ikke altid er så smart, som man kunne tro.
 
 Vi vil se på data i nedenstående tabel
 
@@ -52,39 +55,43 @@ Vi vil se på data i nedenstående tabel
 
 I @fig-eks1 har vi indtegnet punkterne $(x_1,x_2)$ og farvet punkterne med en targetværdi på $1$ blå og dem med en targetværdi på $-1$ røde.
 
-![Punkter med en targetværdi på $1$ er blå og dem med en targetværdi på $-1$ er røde.](images/eks1.png){#fig-eks1}
+![Punkter med en targetværdi på $1$ er blå og dem med en targetværdi på $-1$ er røde.](images/eks1.png){width=75% #fig-eks1}
 
-Det er tydeligt, at punkterne er lineær separable og den indtegnede linje er også den som ADALINE giver, hvis man sætter startvægtene til $0$. Du kan selv prøve [ADALINE her](https://apps01.math.aau.dk/adaline/). De estimerede vægte er $w_0=-0.9342, w_1=-2.652$ og $w_2=1.744$.Det vil sige, at den indtegnede linje har ligning
+Det er tydeligt, at punkterne er lineær separable og den indtegnede linje er også den som ADALINE giver[^1]. Du kan selv prøve [ADALINE her](https://apps01.math.aau.dk/adaline/). De estimerede vægte er $w_0=-0.9385, w_1=-2.715$ og $w_2=1.73$.Det vil sige, at den indtegnede linje har ligning
 
 $$
--0.9342-2.652x_1+1.744x_2=0
+-0.9385-2.715x_1+1.73x_2=0
 $$
 
 Det er alt sammen meget fint, men lad os nu prøve at indtegne et nyt rødt punkt:
 
 | $x_1$ | $x_2$ | Targetværdi|
 |:------:|:------:|:------:|
-| $-0.4$ | $1$ | $1$ |
+| $-0.4$ | $1$ | $-1$ |
 
 Det nye punkt er indtegnet i @fig-eks2 sammen med de øvrige seks punkter. Det skulle gerne være tydeligt, at data ikke længere er lineær separable.
 
-![Et nyt rødt punkt er indtegnet og data er ikke længere lineær separable.](images/eks2.png){#fig-eks2}
-Hvis vi prøver at køre ADALINE algoritmen fås linjen, som er indtegnet i @fig-eks2_2. 
-![Et nyt rødt punkt er indtegnet og den linje, som ADALINE finder.](images/eks2_2.png){#fig-eks2_2}
+![Et nyt rødt punkt er indtegnet og data er ikke længere lineær separable.](images/eks2.png){width=75% #fig-eks2}
 
-Med denne linje er der både et rødt og et blåt punkter, som bliver klassificeret forkert -- faktisk var den oprindelige linje fra @fig-eks1 bedre. Denne ses indtegnet i @fig-eks2_3.
+Hvis vi prøver at køre ADALINE algoritmen (som jo netop konvergerer, selvom punkterne ikke er lineær separable) fås linjen, som er indtegnet i @fig-eks2_2. Med denne linje er der både et rødt og et blåt punkter, som bliver klassificeret forkert -- faktisk var den oprindelige linje fra @fig-eks1 bedre. 
 
-![Et nyt rødt punkt er indtegnet og den linje, som ADALINE fandt baseret på de oprindelige seks punkter.](images/eks2_3.png){#fig-eks2_3}
+
+![Et nyt rødt punkt er indtegnet og den linje, som ADALINE finder.](images/eks2_2.png){width=75% #fig-eks2_2}
+
+Linjen fra @fig-eks1 ses indtegnet i @fig-eks2_3. Her er der kun et enkelt punkt -- nemlig det nye røde punkt -- som er klassificeret forkert!
+
+![Et nyt rødt punkt er indtegnet og den linje, som ADALINE fandt baseret på de oprindelige seks punkter.](images/eks2_3.png){width=75% #fig-eks2_3}
 
 Det er jo ikke ligefrem super overbevisende. Vi kunne have tegnet en linje selv, om klassificerer flere punkter korrekt end den linje, som ADALINE giver os!
 
 Hvis vi skal forstå, hvad der sker, må vi se lidt nærmere på den tabsfunktion, som ADALINE forsøger at mininere. Fra [afsnittet om ADALINE](../perceptron/perceptron.qmd#sec-ADALINE) ved vi, at tabsfunktionen er
+
 $$
 E(w_0, w_1, \dots, w_n) = \frac{1}{2} \sum_{m=1}^{M} \left (t_m-
 (w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n}) \right)^2
-$${#eq-tabsfunktion}
+$$
 
-hvor det $m$'te træmningseksempel er
+hvor det $m$'te træningseksempel er
 $$(x_{m,1}, x_{m,2}, \dots, x_{m,n}, t_m)$$
 
 Det vil sige, at det $m$'te træningseksempel giver et bidrag til tabsfunktionen på 
@@ -93,35 +100,295 @@ $$
 \left ( t_m- (w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n}) \right)^2
 $$
 
-For et blåt punkt med $t=1$ vil det sige, at bidraget til tabsfunktionen er præcis $0$, hvis
+For et blåt punkt med $t_m=1$ vil det sige, at bidraget til tabsfunktionen er præcis $0$, hvis
 $$
 1- (w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n})=0
 $$
-og for et rødt punkt med $t=-11$ vil det sige, at bidraget til tabsfunktionen er præcis $0$, hvis
+og for et rødt punkt med $t_m=-1$ er bidraget til tabsfunktionen præcis $0$, hvis
 $$
 -1- (w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n})=0
 $$
-Nu er $1- (w_0 + w_1 \cdot x_1 + \cdots + w_n \cdot x_n)=0$ og $-1- (w_0 + w_1 \cdot x_1 + \cdots + w_n \cdot x_n)=0$ jo bare ligninger for rette linje. Disse linjer ses indtegnet på @fig-eks1_2 (som henholdsvis en blå og rød stiplet linje) sammen med de oprindelige seks punkter og den linje, som ADALINE fandt. Samtidig er det for hvert punkt markeret hvilket bidrag dette punkter giver til tabsfunktionen.
+Nu er $1- (w_0 + w_1 \cdot x_1 + \cdots + w_n \cdot x_n)=0$ og $-1- (w_0 + w_1 \cdot x_1 + \cdots + w_n \cdot x_n)=0$ jo bare ligninger for rette linjer. Disse linjer ses indtegnet på @fig-eks1_2 (som henholdsvis en blå og rød stiplet linje) sammen med de oprindelige seks punkter og den linje, som ADALINE fandt baseret på disse seks punkter. Samtidig er det for hvert punkt markeret, hvor meget dette punkt bidrager til tabsfunktionen. 
 
-![Punkter med en targetværdi på $1$ er blå og dem med en targetværdi på $-1$ er røde. Den sorte linje med ligning $w_0+w_1 x_1 + w_2 x_2=0$ svarer til den ADALINE fandt. Den blå stiplede linje har ligning $1-(w_0+w_1 x_1 + w_2 x_2)=0$, mens den røde stiplede linje har ligning $-1-(w_0+w_1 x_1 + w_2 x_2)=0$.](images/eks1_2.png){#fig-eks1_2}
+![Punkter med en targetværdi på $1$ er blå og dem med en targetværdi på $-1$ er røde. Den sorte linje med ligning $w_0+w_1 x_1 + w_2 x_2=0$ svarer til den ADALINE fandt. Den blå stiplede linje har ligning $1-(w_0+w_1 x_1 + w_2 x_2)=0$, mens den røde stiplede linje har ligning $-1-(w_0+w_1 x_1 + w_2 x_2)=0$.](images/eks1_2.png){width=75% #fig-eks1_2}
 
-Det ses nu på @fig-eks1_2 at blå punkter, som ligger tæt på den blå stiplede linje bidrager mindst til tabsfunktionen, mens røde punkter som ligger tæt på den røde stiplede linje ligeledes bidrager mindst til tabsfunktionen.
+Det ses nu på @fig-eks1_2, at blå punkter, som ligger tæt på den blå stiplede linje, bidrager mindst til tabsfunktionen, mens røde punkter, som ligger tæt på den røde stiplede linje, ligeledes bidrager mindst til tabsfunktionen.
 
 Laver vi nu samme øvelse med det ekstra punkt fås resultat i @fig-eks2_4.
 
-![I alt syv punkter sammen med den sorte linje med ligning $w_0+w_1 x_1 + w_2 x_2=0$ svarer til den ADALINE finder. Punkter med en targetværdi på $1$ er blå og dem med en targetværdi på $-1$ er røde.  Den blå stiplede linje har ligning $1-(w_0+w_1 x_1 + w_2 x_2)=0$, mens den røde stiplede linje har ligning $-1-(w_0+w_1 x_1 + w_2 x_2)=0$. Summen af alle bidragene til tabsfunktionen er her $5$.](images/eks2_3.png){#fig-eks2_4}
+![I alt syv punkter sammen med den sorte linje med ligning $w_0+w_1 x_1 + w_2 x_2=0$ svarer til den ADALINE finder. Punkter med en targetværdi på $1$ er blå og dem med en targetværdi på $-1$ er røde.  Den blå stiplede linje har ligning $1-(w_0+w_1 x_1 + w_2 x_2)=0$, mens den røde stiplede linje har ligning $-1-(w_0+w_1 x_1 + w_2 x_2)=0$. Summen af alle bidragene til tabsfunktionen er her $4.97$.](images/eks2_4.png){width=75% #fig-eks2_4}
 
-Den samlede værdi af tabsfunktionen (dog uden at gange med $1/2$) bliver her $5.00$.
+Den samlede værdi af tabsfunktionen (dog uden at gange med $1/2$) bliver her $4.97$.
 
-Hvis vi i stedet prøver at bruge vores egen oprindelige linje (baseret på de seks første punkter) så fås det resultat, som ses i @fig-eks2_5.
+Hvis vi i stedet prøver at bruge vores egen oprindelige linje (baseret på de seks første punkter) så fås det resultat, som ses i @fig-eks2_med_oprindelig_linje.
 
-![I alt syv punkter sammen med den sorte linje . Punkter med en targetværdi på $1$ er blå og dem med en targetværdi på $-1$ er røde.  Den blå stiplede linje har ligning $1-(w_0+w_1 x_1 + w_2 x_2)=0$, mens den røde stiplede linje har ligning $-1-(w_0+w_1 x_1 + w_2 x_2)=0$. Summen af alle bidragene til tabsfunktionen er her $5$.](images/eks2_med_oprindelig_linje.png){#fig-eks2_med_oprindelig_linje}
-Det er nu tydeligt, at det nye røde punkter ligger så langt væk fra den stiplede røde linje, at det bidrager betydeligt til tabsfunktionen. Derfor er den samlede værdi af tabsfunktionen (stadig uden at gange med $1/2$) på $9.74$. Derfor vælger ADALINE linjen i @fig-eks2_4 til at adskille punkterne -- ikke fordi, det er den linje, som giver den laveste andel af korrekt klassificerede, men fordi det er den linje, som minimerer tabsfunktionen!
+![I alt syv punkter sammen med den sorte linje, som ADALINE giver baseret på de oprindelige seks punkter. Punkter med en targetværdi på $1$ er blå og dem med en targetværdi på $-1$ er røde.  Den blå stiplede linje har ligning $1-(w_0+w_1 x_1 + w_2 x_2)=0$, mens den røde stiplede linje har ligning $-1-(w_0+w_1 x_1 + w_2 x_2)=0$. Summen af alle bidragene til tabsfunktionen er her $9.77$.](images/eks2_med_oprindelig_linje.png){width=75% #fig-eks2_med_oprindelig_linje}
+
+Det er nu tydeligt, at det nye røde punkter ligger så langt væk fra den stiplede røde linje, at det bidrager betydeligt til tabsfunktionen. Derfor er den samlede værdi af tabsfunktionen (stadig uden at gange med $1/2$) på $9.77$. Derfor vælger ADALINE linjen i @fig-eks2_4 til at adskille punkterne -- ikke fordi, det er den linje, som giver den laveste andel af korrekt klassificerede, men fordi det er den linje, som minimerer tabsfunktionen!
+
+Det er jo faktisk helt skørt! Og det kan gå værre endnu. Hvis vi prøver at trække det nye røde punkter endnu længere væk fra de oprindelige tre røde punkter, så kan vi komme i en situation, hvor ADALINE næsten ikke kan klassificere nogle af de røde punkter korrekt. Simpelthen fordi det nye punkts bidrag til tabspunktionen ellers ville blive alt for stort. Et eksempel herpå ses i @fig-eks3. 
 
 
+![Eksempel på et datasæt hvor kun ét af de røde punkter bliver klassificeret korrekt med ADALINE.](images/eks3.png){width=75% #fig-eks3}
 
-## Aktiveringsfunktioner
+## Sigmoid neuron og aktiveringsfunktioner
+
+Problemet med ADALINE, som vi har set eksempler på ovenfor, opstår fordi, et *ekstremt* punkt får lov til at \"trække\" uforholdsmæssigt meget i den linje, som ADALINE finder, for at dette punkts bidrag til tabsfunktionen ikke skal blive alt for stort. 
+
+Vi så det i @fig-eks2_4 og @fig-eks2_med_oprindelig_linje. I @fig-eks2_4 brugte vi den linje, som ADALINE gav, og her var det *ekstreme* punkts bidrag til tabsfunktionen på $1.48$. I @fig-eks2_med_oprindelig_linje valgte vi en linje, som oplagt er bedre til at adskille de blå punkter fra de røde, men her er det *ekstreme* punkts bidrag til tabsfunktionen helt oppe på $8.28$.
+
+For at forstå det lidt bedre skal vi måske lige repetere, hvordan man finder afstanden fra et punkt $P(x_1,y_1)$ til en linje $l$ med ligning $ax+by+c=0$:
+
+$$
+\textrm{dist}(P,l)=\frac{|a x_1 + b y_1 +c|}{\sqrt{a^2+b^2}}
+$$
+
+Denne afstandsformel kan generaliseres, så afstanden fra et punkt $P(x_{m,1}, x_{m,2}, \dots, x_{m,n})$ (i et $n$-dimensionalt rum!) til linjen $l$ med ligning $w_0+w_1 x_1 + w_2 x_2 + \cdots + w_n x_n=0$ er:
+
+$$
+\textrm{dist}(P,l)=\frac{|w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n}|}{\sqrt{w_1^2 + w_2^2 + \cdots + w_n^2}}
+$$
+
+Det vil sige, at udtrykket i tælleren $|w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n}|$ bliver et mål for hvor langt væk punktet $P(x_{m,1}, x_{m,2}, \dots, x_{m,n})$ ligger fra linjen. Det forklarer, hvordan et *ekstremt* punkt kan give et meget stort bidrag til tabsfunktionen:
+
+$$
+\left ( t- (w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n}) \right)^2
+$$ {#eq-bidrag_til_tabsfunktion}
+
+Hvis punktet ligger langt væk fra den linje, som måske umiddelbart ser fornuftig ud, så vil punktet give et stort bidrag til tabsfunktionen, fordi værdien af $w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n}$ bliver stor og dermed vil bidraget til tabsfunktionen i (@eq-bidrag_til_tabsfunktion) også blive stort!
+
+Alt det her leder os frem til, at valget af tabsfunktion måske i virkeligheden ikke er super smart! Problemet opstår grundlæggende, fordi targetværdien $t$ og udtrykket i den inderste parentes i (@eq-bidrag_til_tabsfunktion) er på to helt vidt forskellige skalaer. Targetværdien er enten $-1$ eller $1$, mens udtrykket $w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n}$ kan antage en hvilken som helst reel værdi -- en værdi som kan blive vældig stor, hvis punktet $P(x_{m,1}, x_{m,2}, \dots, x_{m,n})$ ligger langt væk fra linjen. Derfor bliver ADALINE nødt til at tvinge linjen med ligningen 
+
+$$
+w_0 + w_1 \cdot x_{1} + \cdots + w_n \cdot x_{n}=0
+$$
+
+over mod et ekstremt punkt, sådan at dette punkts bidrag til tabsfunktionen ikke bliver alt for stort.
+
+Problemet kan løses ved at bruge det, man kalder for en *aktiveringsfunktion*. Helt grundlæggende handler det om, at targetværdi $t$, og det udtryk som vi beregner på baggrund af punktet $P(x_{m,1}, x_{m,2}, \dots, x_{m,n})$ skal være på samme skala. Vi vil her illustrere det ved at bruge en aktiveringsfunktion, som ofte benyttes, og som kaldes for \"sigmoid\"-funktionen $\sigma$. Forskriften for sigmoid-funktionen er:
+
+$$
+\sigma(x)=\frac{1}{1+e^{-x}}
+$$ {#eq-sigmoid} 
+
+Grafen for sigmoid-funktionen ses i @fig-sigmoid.
+
+![Grafen for sigmoid-funktionen med forskrift $\sigma(x)=\frac{1}{1+e^{-x}}$.](images/sigmoid.png){width=75% #fig-sigmoid}
+
+Definitionsmængden for sigmoid-funktionen er alle reele tal, mens værdimængden er intervallet $(0,1)$. Det kan skrives sådan her:
+
+$$
+\sigma: \mathbb{R} \rightarrow (0,1)
+$$
+
+Det vil vi udnytte og nu omdefinere targetværdien $t$ på denne måde:
+
+$$
+t=
+\begin{cases}
+1 & \textrm{hvis punktet er blåt} \\
+0 & \textrm{hvis punktet er rødt} \\
+\end{cases}
+$$
+
+Så targetværdierne er nu $0$ eller $1$ i stedet for $-1$ og $1$. Vi definerer nu tabsfunktionen sådan her:
+
+$$
+E(w_0, w_1, \dots, w_n) = \frac{1}{2} \sum_{m=1}^{M} \left (t_m-
+\sigma(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n}) \right)^2
+$$ {#eq-ny_tabsfunktion}
+
+Bemærk, at problemet med de to skalaer nu er løst. Targetværdien er enten $0$ eller $1$ samtidig med, at $\sigma(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n})$ også ligger mellem $0$ og $1$. Vi sammenligner altså ikke længere pærer med bananer! Når sigmoid-funktionen på denne måde indgår i en tabsfunktion, så kalder man den også for en **aktiveringsfunktion**. Og den \"perceptron\" som minimerer tabsfunktionen i (@eq-ny_tabsfunktion) kaldes for en **sigmoid neuron**.
+
+Lad os nu undersøge hvordan vi får en lille værdi af tabsfunktionen. Hvis punktet er blåt (svarende til en targetværdi på $1$), så vil bidraget
+
+$$
+\left (1 - \sigma(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n}) \right)^2
+$$
+
+være lille (altså sæt på $0$), hvis $\sigma(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n})$ er tæt på $1$. Og omvendt hvis targetværdien er $0$ (hvilket svarer til et rødt punkt), så vil  bidraget 
+
+$$
+\left (0 - \sigma(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n}) \right)^2
+$$
+
+være lille (altså sæt på $0$), hvis $\sigma(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n})$ er tæt på $0$. Vi leder altså efter vægte $w_0, w_1, \dots, w_n$, som netop har denne egenskab, fordi de så vil minimere tabsfunktionen. 
+
+Dette har også en anden fordel. Vi kan nemlig tænke på værdi 
+
+$$
+\sigma(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n})
+$$
+
+som en sandsynlighed for at punktet $P(x_{m,1}, x_{m,2}, \dots, x_{m,n})$ er blåt eller rødt. Vi kan derfor bruge denne værdi til at forudsige om et nyt punkt er blåt eller rødt. Det vil vi gøre på denne måde:
+
+$$
+\textrm{Nyt punkt er }=
+\begin{cases}
+\textrm{blåt} & \textrm{hvis } \sigma(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n}) \geq 0.5\\
+\textrm{rødt} & \textrm{hvis } \sigma(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n}) < 0.5\\
+\end{cases}
+$$ {#eq-pred}
+
+Skillelinjen for hvornår et punkt $(x_1, x_2, \dots, x_n)$ er blåt eller rødt fås netop, når
+
+$$
+\sigma(w_0 + w_1 \cdot x_{1} + \cdots + w_n \cdot x_{n}) = 0.5
+$$ {#eq-sigmoid2}
+
+Ser vi på definitionen af sigmoid-funktionen i (@eq-sigmoid) svarer det til at løse
+
+$$
+\sigma(x)=\frac{1}{1+e^{-x}} = 0.5
+$$ 
+
+Dette er netop opfyldt, hvis $e^{-x}=1$, hvilket kun kan lade sig gøre, når $x=0$. Sammenligner vi dette med (@eq-sigmoid2), så ser vi altså at skillelinjen er
+
+$$
+w_0 + w_1 \cdot x_{1} + \cdots + w_n \cdot x_{n} = 0
+$$
+
+Den nye måde at tænke tabsfunktionen på giver os altså stadigvæk en ret linje, som kan bruges til at adskille de røde punkter fra de blå.
+
+Okay -- og her stopper festen så... Sigmoid neuronen er ikke et hak bedre end ADALINE... Se de tre eksempler nedenfor.
+
+Eksempel 1: $w_0=-1.511$, $w_1=-3.824$, $w_2=3.002$
+
+![Stiplet linje svarer til ADALINE -- fuldt optrukken linje svarer til sigmoid neuron.](images/eks1_sigmoid.png){width=75% #fig-eks1_sigmoid}
+
+Eksempel 2: $w_0=-0.8149$, $w_1=-4.525$, $w_2=-0.7025$
+
+![Stiplet linje svarer til ADALINE -- fuldt optrukken linje svarer til sigmoid neuron.](images/eks2_sigmoid.png){width=75% #fig-eks2_sigmoid}
+
+
+Eksempel 3: $w_0=-0.1215$, $w_1=0.4941$, $w_2=0.1639$
+
+![Stiplet linje svarer til ADALINE -- fuldt optrukken linje svarer til sigmoid neuron.](images/eks3_sigmoid.png){width=75% #fig-eks3_sigmoid}
+
+
+[ADALINE her](https://apps01.math.aau.dk/adaline/)
+
 
 ## Nye opdateringsregler
 
+I noten om perceptroner forklarede vi i afsnittet om [gradientnedstigning](../perceptron/perceptron.qmd#sec-ADALINE_gradientnedstigning), hvordan vægtene i ADALINE algoritmen blev opdateret. Vi vil her på tilsvarende vis udlede de nye opdateringsregler for sigmoid neuronen.
 
+Vi har nu tabsfunktionen 
+
+$$
+E(w_0, w_1, \dots, w_n) = \frac{1}{2} \sum_{m=1}^{M} \left (t_m-
+\sigma(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n}) \right)^2
+$$
+
+som vi igen vil minimere ved at bruge gradientnedstigning. Det vil sige, at vægtene opdateres ved at gå et lille stykke i den negative gradients retning:
+
+$$
+\begin{aligned}
+w_0 \leftarrow & w_0 - \eta \cdot \frac{\partial E }{\partial w_0} \\
+w_1 \leftarrow & w_1 - \eta \cdot \frac{\partial E }{\partial w_1} \\
+&\vdots  \\
+w_n \leftarrow & w_n - \eta \cdot \frac{\partial E }{\partial w_n} \\
+\end{aligned}
+$$
+
+hvor $\eta$ er en *learning rate*. 
+
+Vi bestemmer nu den partielle afledede for den $i$'te vægt. Ved at bruge sum- og kædereglen får vi:
+
+$$
+\begin{aligned}
+\frac{\partial E}{\partial w_i} &= \frac{1}{2} \sum_{m=1}^{M} \frac{\partial}{\partial w_i}\left (t_m-
+\sigma(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n}) \right)^2 \\
+&= \frac{1}{2} \sum_{m=1}^{M} 2 \cdot \left (t_m-
+\sigma(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n}) \right) \\ 
+& \quad  \quad \quad  \quad \quad  \quad \cdot \frac{\partial}{\partial w_i} \left (t_m-
+\sigma(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n} ) \right) \\
+\end{aligned}
+$$ {#eq-partiel}
+
+ 
+
+Betragter vi den sidste faktor og bruger kædereglen igen får vi
+
+$$
+\begin{aligned}
+&\frac{\partial}{\partial w_i} (t_m - \sigma(w_0 + w_1 \cdot x_{m,1} + \cdots  + w_n \cdot x_{m,n} )) = \\ 
+&- \sigma'(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n})\cdot \frac{\partial}{\partial w_i} \left (w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n} \right)
+\end{aligned}
+$$
+Nu er
+$$
+\frac{\partial}{\partial w_i} \left (w_0 + w_1 \cdot x_{m,1} + \cdots + w_i \cdot x_{m,i} + \cdots  + w_n \cdot x_{m,n} \right) = x_{m,i}
+$$
+
+Så
+$$
+\begin{aligned}
+\frac{\partial}{\partial w_i} (t_m -
+\sigma(w_0 + w_1 \cdot x_{m,1} & + \cdots  + w_n \cdot x_{m,n} )) = \\ &- \sigma'(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n})\cdot x_{m,i}
+\end{aligned}
+$$
+
+Vi mangler nu bare at finde den afledede sigmoid-funktion. Man kan vise -- og dette overlades trygt til læseren -- at
+
+$$
+\sigma'(x)=\sigma(x)\cdot(1-\sigma(x))
+$$
+
+Derfor bliver
+
+$$
+\begin{aligned}
+\frac{\partial}{\partial w_i} (t_m -
+\sigma(w_0 &+ w_1 \cdot x_{m,1} + \cdots  + w_n \cdot x_{m,n} )) = \\
+&- \sigma(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n}) \cdot \\ & (1-\sigma(w_0 + w_1 \cdot x_{m,1} + \cdots  + w_n \cdot x_{m,n} )) \cdot x_{m,i}
+\end{aligned}
+$$
+
+For at gøre det lidt mere læsevenligt definerer vi
+
+$$
+o_m = \sigma(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n})
+$$
+
+Her står $o_m$ for outputværdien hørende til det $m$'te træningseksempel. Hvis vi sammenligner med (@eq-pred) ses det, at det netop er denne outputværdi, som bruges til at afgøre om et nyt punkt er rødt eller blåt. Vi får så
+
+$$
+\begin{aligned}
+\frac{\partial}{\partial w_i} (t_m -
+\sigma(w_0 + w_1 \cdot x_{m,1} + \cdots  + w_n \cdot x_{m,n} )) = - o_m\cdot (1-o_m) \cdot x_{m,i}
+\end{aligned}
+$$
+
+Indsættes dette i (@eq-partiel) får vi
+
+$$
+\begin{aligned}
+\frac{\partial E}{\partial w_i} &= - \sum_{m=1}^{M} \left (t_m-
+\sigma(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n}) \right) \cdot o_m\cdot (1-o_m) \cdot x_{m,i} \\
+&= - \sum_{m=1}^{M} \left (t_m-o_m \right) \cdot o_m\cdot (1-o_m) \cdot x_{m,i}
+\end{aligned}
+$$
+
+Dette gælder for $i \in \{1, 2, \dots, n \}$. Når $i=0$ er det ikke svært at overbevise sig selv om, at
+
+$$
+\frac{\partial E}{\partial w_0} = - \sum_{m=1}^{M} \left (t_m-o_m \right) \cdot o_m\cdot (1-o_m) \cdot 1
+$$
+
+Derfor bliver opdateringsreglerne for sigmoid neuronen:
+
+$$
+\begin{aligned}
+w_0 \leftarrow & w_0 + \eta \cdot \sum_{m=1}^{M} \left (t_m-o_m \right) \cdot o_m\cdot (1-o_m) \\
+w_1 \leftarrow & w_1 + \eta \cdot \sum_{m=1}^{M} \left (t_m-o_m \right) \cdot o_m\cdot (1-o_m) \cdot x_{m,1}\\
+&\vdots  \\
+w_n \leftarrow & w_n + \eta \cdot \sum_{m=1}^{M} \left (t_m-o_m \right) \cdot o_m\cdot (1-o_m) \cdot x_{m,n}
+\end{aligned}
+$$
+
+hvor $o_m = \sigma(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n})$.
+
+# Videre læsning
+
+[^1]: Her er alle startvægte sat til $0$, learning rate er på $0.01$, stop-kriterie er på $0.0001$ og maksimalt antal iterationer er sat til $10000$.

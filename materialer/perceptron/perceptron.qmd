@@ -862,7 +862,7 @@ I denne video forklarer vi idéen bag Adaline og indfører tabsfunktionen.
 
 {{< video https://www.youtube.com/embed/QF3WRIe5v6U >}}
 
-## Gradientnedstigning 
+## Gradientnedstigning {#sec-ADALINE_gradientnedstigning}
 
 For at gøre det bruges en metode, som kaldes for
 *gradientnedstigning*. For at forklare hvad det går ud på, er det

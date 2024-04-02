@@ -1,6 +1,6 @@
 ---
 title: "Miljø- og klimaudfodringer"
-description: 'Miljø- og klimaudfordringer er allestedsnærværende -- kan kunstig intelligens hjælpe med at løse verdens klimaudfordringer? I dette tværfaglige forløb med dansk arbejdes der med at skrive en populærvidenskabelig artikel, som præsenterer en mulig innovativ anvendelse af kunstig intelligens indenfor emnet ”klimaforandringer”.'
+description: 'Miljø- og klimaudfordringer er allesteds\-nærværende -- kan kunstig intelligens hjælpe med at løse verdens klimaudfordringer? I dette tværfaglige forløb med dansk arbejdes der med at skrive en populærvidenskabelig artikel, som præsenterer en mulig innovativ anvendelse af kunstig intelligens indenfor emnet ”klimaforandringer”.'
 image: "klimaudfordring_innovation_filer/images/fn_verdensmaal.png"
 
 format:
@@ -15,7 +15,7 @@ reference-location: margin
 categories:
   - B-niveau
   - A-niveau
-  - dansk
+  - Dansk
 crossref:
   fig-prefix: figur   # (default is "Figure")
   tbl-prefix: tabel    # (default is "Table")
