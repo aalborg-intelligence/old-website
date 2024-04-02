@@ -59,7 +59,7 @@ katdata <- data.frame(
 Perceptroner\... Hvorfor nu det? Jo, for det er faktisk sådan nogle, du
 ikke vidste, at du ikke kunne leve uden! Nu skal du høre hvorfor.
 
-## Eksempel: Hvem skal jeg stemme på ved næste valg? 
+## Eksempel: Hvem skal jeg stemme på ved næste valg? {#sec-kandidattest}
 
 De senere år er det blevet populært, at diverse medier laver forskellige
 kandidattests. Sådan nogle tests kan laves på mange forskellige måder -
