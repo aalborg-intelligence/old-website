@@ -13,7 +13,9 @@ format:
 from: markdown+emoji
 reference-location: margin
 categories:
-  - B-niveau, A-niveau, dansk
+  - B-niveau
+  - A-niveau
+  - dansk
 crossref:
   fig-prefix: figur   # (default is "Figure")
   tbl-prefix: tabel    # (default is "Table")
