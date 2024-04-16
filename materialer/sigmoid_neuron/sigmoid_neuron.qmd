@@ -405,6 +405,8 @@ hvor $o_m = \sigma(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n})$.
 
 :::
 
+I praktisk vil man blive ved med at opdatere vægtene, indtil værdien af tabsfunktionen ikke ændrer sig særlig meget. 
+
 # Videre læsning
 
 [^1]: Her er alle startvægte sat til $0$, learning rate er på $0.1$, stop-kriterie er på $0.000001$ og maksimalt antal iterationer er sat til $50000$.
