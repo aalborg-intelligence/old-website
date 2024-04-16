@@ -184,7 +184,7 @@ Lad os forestille os, at vi har 500 data i alt, og at vi lader 20% af disse vær
 | **Faktisk rød** | 7 | 68  |
 <!-- : Eksempel på confusion tabel. -->
 
-Der er 140 data punkter i alt, og vi kan her se, at 56 datapunkter blev prædikteret til at være blå og faktisk også er blå. Tilsvarende er 68 af datapunkterne prædikteret til at være røde, mens de faktiske også er røde. I alt 7+9=16 datapunkter har fået prædikteret en forkert farve sammenlignet med deres faktiske farve. Altså kan vi her se, at med den valgte værdi af $k$ har vores *kNN* algoritme lavet en fejl i 
+Der er 140 datapunkter i alt, og vi kan her se, at 56 datapunkter blev prædikteret til at være blå og faktisk også er blå. Tilsvarende er 68 af datapunkterne prædikteret til at være røde, mens de faktiske også er røde. I alt 7+9=16 datapunkter har fået prædikteret en forkert farve sammenlignet med deres faktiske farve. Altså kan vi her se, at med den valgte værdi af $k$ har vores *kNN* algoritme lavet en fejl i 
 $$
 \frac{16}{140} \approx 11.4 \%
 $$

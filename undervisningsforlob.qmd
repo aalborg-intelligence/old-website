@@ -18,6 +18,7 @@ listing:
     - description
   contents: 
     - path: undervisningsforloeb/hvem_ligner_du_mest.qmd
+    - path: undervisningsforloeb/kNN_forlob_overvaagning.qmd
     - path: undervisningsforloeb/polynomium.qmd
     - path: undervisningsforloeb/klimaudfordring_innovation.qmd
   type: grid
