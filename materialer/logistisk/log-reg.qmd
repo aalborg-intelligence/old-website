@@ -48,8 +48,12 @@ u<-runif(2000,0,1)
 b=-4.07#-4.24470
 a=0.023#0.02368
 p = function(x){exp(a*x + b)/(1+exp(a*x+ b))}
-px<-p(x)
-y<-as.numeric(u<px)
+px <- p(x)
+y <- as.numeric(u<px)
+# writexl::write_xlsx(
+#   data.frame(x, y),
+#   path = here::here("materialer", "logistisk", "data", "blodtryk.xlsx")
+# )
 par(mar=c(4,4,0.5,1))
 plot(x[1:200],y[1:200],pch=1,xlab="Blodtryk",ylab="y")
 ```
@@ -81,12 +85,14 @@ På @fig-p-plot har vi tegnet disse andele ind i et koordinatsystem. For hvert b
 
 ```{r include=FALSE}
 library(mosaic)
-cut<-cut(x,c(80,100,125,150,175,200,225,250,275,300))
-tab<-tally(y ~ cut, format = "percent")[2,]
-odds<-tab/(100-tab)
+x_breaks <- c(75, 100, 125, 150, 175, 200, 225, 250, 275, 300)
+cut <- cut(x, x_breaks)
+tab <- tally(y ~ cut, format = "percent")[2,]
+odds <- tab/(100-tab)
 par(mar=c(4,4,0.5,1))
-plot(c(87.5,112.5,137.5,162.5,187.5,212.5,237.5,262.5,287.5),tab/100,ylim=c(0,1),pch=16,xlab="blodtryk",ylab="p",xlim=c(70,320),xaxt="n")
-axis(1,at=c(75,100,125,150,175,200,225,250,275,300) )
+x_midt <- x_breaks[-1]-12.5
+plot(x_midt, tab/100, ylim=c(0,1), pch=16, xlab="blodtryk", ylab="p", xlim=c(70,320), xaxt="n")
+axis(1, at=x_breaks)
 ```
 
 
@@ -94,8 +100,8 @@ axis(1,at=c(75,100,125,150,175,200,225,250,275,300) )
 #| fig-cap: Andel syge inden for hvert blodtryksinterval.
 #| label: fig-p-plot
 par(mar=c(4,4,0.5,1))
-plot(c(87.5,112.5,137.5,162.5,187.5,212.5,237.5,262.5,287.5),tab/100,ylim=c(0,1),pch=16,xlab="Blodtryk",ylab="p",xlim=c(70,320),xaxt="n")
-axis(1,at=c(75,100,125,150,175,200,225,250,275,300) )
+plot(x_midt, tab/100, ylim=c(0,1), pch=16, xlab="Blodtryk", ylab="p", xlim=c(70,320), xaxt="n")
+axis(1, at=x_breaks)
 ```
 
 
@@ -109,9 +115,9 @@ På @fig-linear har vi indtegnet den bedste rette linje i @fig-p-plot.
 #| fig-cap: Grafen for $p(x)$ tilnærmet med en ret linje.
 #| label: fig-linear
 par(mar=c(4,4,0.5,1))
-plot(c(87.5,112.5,137.5,162.5,187.5,212.5,237.5,262.5,287.5),tab/100,ylim=c(0,1),pch=16,xlab="Blodtryk",ylab="p",xlim=c(70,320),xaxt="n")
-abline(-0.341213 + 12.5*0.004409 ,0.004409 )
-axis(1,at=c(75,100,125,150,175,200,225,250,275,300) )
+plot(x_midt, tab/100, ylim=c(0,1), pch=16, xlab="Blodtryk", ylab="p", xlim=c(70,320), xaxt="n")
+abline(-0.341213 + 12.5*0.004409, 0.004409 )
+axis(1, at=x_breaks)
 ```
 
 Der er et problem her: En sandsynlighed ligger altid mellem 0 og 1, men regressionslinjen  ovenfor  skærer $x$-aksen ved blodtryksværdier omkring 70. Det betyder, at sandsynligheden er negativ for blodtryk under 70. Tilsvarende får vi sandsynligheder, der er større end 1 ved blodtryk over 300. Det giver selvfølgelig ikke mening. 
@@ -122,9 +128,9 @@ Hvis vi kigger på @fig-linear igen, ser sammenhængen da heller ikke lineær ud
 #| fig-cap: Graf for $p(x)$ tilnærmet med en S-formet kurve.
 #| label: fig-S
 par(mar=c(4,4,0.5,1))
-plot(c(87.5,112.5,137.5,162.5,187.5,212.5,237.5,262.5,287.5),tab/100,ylim=c(0,1),pch=16,xlab="blodtryk",ylab="p",xlim=c(70,320),xaxt="n")
-lines(70:300,p(70:300))
-axis(1,at=c(75,100,125,150,175,200,225,250,275,300) )
+plot(x_midt, tab/100, ylim=c(0,1), pch=16, xlab="blodtryk", ylab="p", xlim=c(70,320), xaxt="n")
+lines(70:300, p(70:300))
+axis(1, at=x_breaks)
 ```
 
 ## Odds
@@ -157,10 +163,9 @@ Definitionsmængden for $O$ er $]0,1[$. Grafen for $O$ er vist på @fig-odds.
 ```{r echo=FALSE}
 #| fig-cap: Grafen for odds-funktionen.
 #| label: fig-odds
-O<-function(x){x/(1-x)}
+O <- function(x){x/(1-x)}
 par(mar=c(4,4,0.5,1))
-plot((1:100)/100, O((1:100)/100), type="l",xlim=c(0,1),ylim=c(0,10),xlab="p",ylab="O(p)",xaxt="n")
-axis(1,at=c(75,100,125,150,175,200,225,250,275,300) )
+plot((1:100)/100, O((1:100)/100), type="l", xlim=c(0,1), ylim=c(0,10), xlab="p", ylab="O(p)")
 ```
 
 For det første kan vi på @fig-odds se, at odds-funktionen $O$ er voksende. Det kan også let bevises ved at vise, at $O'(p)>0$ for alle værdier af $p$. Vi ser desuden, at $O(p)$ altid er positiv, da både tæller og nævner er positive. Når $p$ nærmer sig $0$, nærmer tælleren sig $0$, mens nævneren nærmer sig $1$, så $O(p)$ går mod $0$. Når $p$ nærmer sig $1$, nærmer tælleren sig $1$, og nævneren nærmer sig $0$, så hele brøken $O(p)$ går mod uendelig. Værdimængden for $O$ består derfor af alle de positive reelle tal.
@@ -191,8 +196,8 @@ På @fig-odds-data vises dataeksemplet fra før, men nu har vi oddsene $O(p(x))$
 #| fig-cap: Odds for hjerte-kar-sygdom inden for de forskellige blodtryksintervaller.
 #| label: fig-odds-data
 par(mar=c(4,4,0.5,1))
-plot(c(87.5,112.5,137.5,162.5,187.5,212.5,237.5,262.5,287.5),odds,pch=16,xlab="blodtryk",ylab="odds",xaxt="n")
-axis(1,at=c(75,100,125,150,175,200,225,250,275,300) )
+plot(x_midt, odds, pch=16, xlab="blodtryk", ylab="odds", xaxt="n")
+axis(1, at=x_breaks)
 ```
 
 Vi ser, at oddsene for sygdom stiger med blodtrykket. Det betyder derfor også, at sandsynligheden for sygdom stiger med blodtrykket. Kigger vi på grafen, ser tendensen ikke lineær ud. Det kunne derimod ligne en eksponentiel vækst. For at bekræfte dette, laver vi samme plot på @fig-lnodds, men nu med den naturlige logaritme til oddsene $\ln (O(p(x)))$ på $y$-aksen[^5]. 
@@ -203,8 +208,8 @@ Vi ser, at oddsene for sygdom stiger med blodtrykket. Det betyder derfor også, 
 #| fig-cap: Den naturlige logaritme til odds for hjerte-kar-sygdom inden for de forskellige blodtryksintervaller.
 #| label: fig-lnodds
 par(mar=c(4,4,0.5,1))
-plot(c(87.5,112.5,137.5,162.5,187.5,212.5,237.5,262.5,287.5),log(odds),pch=16,xlab="blodtryk",ylab="ln(odds)",xaxt="n")
-axis(1,at=c(75,100,125,150,175,200,225,250,275,300) )
+plot(x_midt, log(odds), pch=16, xlab="blodtryk", ylab="ln(odds)", xaxt="n")
+axis(1, at=x_breaks)
 ```
 
 Der ser nu ud til at være en lineær sammenhæng! Det kunne altså tyde på, at ln-oddsene afhænger lineært af $x$. Det  leder os frem til følgende model for ln-oddsene:
@@ -249,9 +254,9 @@ Definitionsmængden for $\text{logit}$-funktionen er ligesom for oddsene $]0,1[$
 ```{r echo=FALSE}
 #| fig-cap: Grafen for logit-funktionen.
 #| label: fig-logit
-O<-function(x){log(x/(1-x))}
+logit <- function(x){log(x/(1-x))}
 par(mar=c(4,4,0.5,1))
-plot((1:100)/100, O((1:100)/100), type="l",xlim=c(0,1),ylim=c(-5,5),xlab="p",ylab="logit")
+plot((1:100)/100, logit((1:100)/100), type="l", xlim=c(0,1), ylim=c(-5,5), xlab="p", ylab="logit")
 ```
 
 Den logistiske regressionsmodel i (@eq-log-model) kan skrives ved hjælp at $\text{logit}$-funtionen som
@@ -296,9 +301,9 @@ Grafen for den standard logistiske funktion er indtegnet i @fig-logit-fkt. Vi se
 ```{r echo=FALSE}
 #| fig-cap: Grafen for den standard logistiske funktion
 #| label: fig-logit-fkt
-O<-function(x){exp(x)/(1+exp(x))}
+sigmoid <- function(x){exp(x)/(1+exp(x))}
 par(mar=c(4,4,0.5,1))
-plot((-100:100)/10, O((-100:100)/10), type="l",xlim=c(-10,10),ylim=c(0,1),xlab="y",ylab="f(y)")
+plot((-100:100)/10, sigmoid((-100:100)/10), type="l", xlim=c(-10,10), ylim=c(0,1), xlab="y", ylab="f(y)")
 ```
 
 Bruger vi den inverse til $\text{logit}$ på begge sider af lighedstegnet i den logistiske regressionsmodel i (@eq-logit_model), får vi isoleret $p(x)$
@@ -338,7 +343,7 @@ En anden måde at fortolke konstanterne $a$ og $b$ på er ved at gå tilbage til
 $$
 O(x) = e^{ax + b} = e^b \cdot e^{ax}=e^b \cdot (e^{a})^x.
 $$ 
-Hvis $e^b$ kaldes $b_{ny}$, og $e^{a}$ kaldes $a_{ny}$, ses at $$O(x)=b_{ny}\cdot a_{ny}^x$$
+Hvis $e^b$ kaldes $b_{ny}$, og $e^{a}$ kaldes $a_{ny}$, ses at $$ O(x)=b_{ny}\cdot a_{ny}^x $$
 er en eksponentiel udvikling med fremskrivningsfaktor $a_{ny}=e^a$. Derved vil odds for sygdom stige med $r=e^a-1$ procent, hver gang blodtrykket stiger med $1$mmHg. Hvis $a$ er positiv, er $e^a>1$, og oddsene vokser altså eksponentielt. Hvis derimod $a$ er negativ, er $e^a<1$, og dermed aftager oddsene eksponentielt. 
 
 I forbindelse med logistisk regression kaldes $e^a$ også for *odds-ratioen*.
@@ -428,7 +433,24 @@ $$
 L(a,b) = p_1(a,b) \cdot p_2(a,b)\cdot \dotsm \cdot p_n(a,b).
 $$
 Denne funktion kaldes *likelihoodfunktionen*. Idéen med maksimum likelihood metoden er at vælge de værdier af $a$ og $b$, der gør sandsynligheden $L(a,b)$ for det, vi har observeret så stor som mulig. Vi søger altså de $a$ og $b$, der maksimerer funktionen $L(a,b)$. Dette maksimum kan ikke udregnes eksakt. I stedet kan man bruge numeriske metoder, for eksempel gradient nedstigning, som du kan læse mere om [her](../retningsafledede/retningsafledede.qmd). Man kan også forsøge at finde kritiske punkter, altså punkter, hvor de partielt afledte er nul, ved hjælp af numeriske metoder. 
- 
+```{r message=FALSE, warning=FALSE}
+library(plotly)
+fit <- glm(y~x, family = binomial())
+a_mle <- coef(fit)[2]
+b_mle <- coef(fit)[1]
+mle_data <- data.frame(a = a_mle, b = b_mle, ll = as.numeric(logLik(fit)))
+llik <- readRDS(here::here("materialer", "logistisk", "data", "llik.rds"))
+# contour(llik$a, llik$b, llik$vals, xlab = "a", ylab = "b", levels = c(-1028, -1030, -1034, -1038, -1046, -1052, -1084), labels = "")
+ax_x <- list(title = "a")
+ax_y <- list(title = "b")
+ax_z <- list(title = "Log-likelihood")
+plot_ly(showscale = FALSE) |>
+  add_surface(x = llik$a, y = llik$b, z = ~llik$vals) |>
+  add_markers(data = mle_data, x = ~a, y = ~b, z = ~ll,
+              marker = list(size = 5, color = "black"), name = NULL) |>
+  layout(scene = list(xaxis = ax_x, yaxis = ax_y, zaxis = ax_z), showlegend = FALSE)
+```
+
 Finder man $a$ og $b$ ved hjælp af maksimum likelihood metoden i vores dataeksempel, fås følgende funktionsudtryk for sandsynlighederne og oddsene
 $$
 	p(x) = \frac{1}{1+e^{-0.0230 x +4.07}}, \qquad O(x)=e^{0.0230 x -4.07}.
