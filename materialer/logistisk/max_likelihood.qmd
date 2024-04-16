@@ -43,8 +43,13 @@ Vi finder derfor først et mere eksplicit udtryk for $l(a,b)$ som funktion af $a
 
 
 ### Eksplicit udtryk for l(a,b)
-Vi ved, at
-$$l(a,b)=\sum_{i=1}^n \ln(p_i(a,b))  = \sum_{i=1}^n\big( {y_i}\cdot \ln(p(x_i))+(1-y_i)\cdot \ln(1-p(x_i)) \big).$${#eq-lab}
+Vi ved, at log-likelihoodfunktionen er givet ved
+$$
+\begin{aligned}
+l(a,b) &=\sum_{i=1}^n \ln(p_i(a,b)) \\  
+&= \sum_{i=1}^n\big( {y_i}\cdot \ln(p(x_i))+(1-y_i)\cdot \ln(1-p(x_i)) \big).
+\end{aligned}
+$${#eq-lab}
 
 Ved at ophæve parentesen $(1-y_i)$ i (@eq-lab) fås
 $$ l(a,b)=\sum_{i=1}^n \big({y_i}\cdot \ln(p(x_i))+\ln(1-p(x_i))- y_i\cdot \ln(1-p(x_i))\big).$$
@@ -76,11 +81,7 @@ $${#eq-l-simpel}
 
 ### Partielt afledede
 Vi finder nu de partielt afledte af $l(a,b)$ ved at differentiere (@eq-l-simpel).
-Lad os først se på $\frac{\partial l(a,b)}{\partial b}$. Vi husker på, at $l(a,b)$ var givet ved 
-$$
-l(a,b)=\sum_{i=1}^n \big(-\ln(1+e^{a\cdot x_i+b})\big)+\sum_{i=1}^n y_i\cdot (ax_i+b).
-$$
-I den første sum skal vi se hvert led som en sammensat funktion, hvor den indre funktion har et led, som også er en sammensat funktion.
+Lad os først se på $\frac{\partial l(a,b)}{\partial b}$. I den første sum i (@eq-l-simpel) skal vi se hvert led som en sammensat funktion, hvor den indre funktion har et led, som også er en sammensat funktion. Så får vi
 $$\frac{\partial l(a,b)}{\partial b}= \sum_{i=1}^n -\frac{1}{1+e^{a\cdot x_i+b}}\cdot (0+e^{a\cdot x_i+b})\cdot(0+1) +\sum_{i=1}^n y_i\cdot (0+1).$$
 Ved at reducere fås
 $$\frac{\partial l(a,b)}{\partial b}= \sum_{i=1}^n -\frac{e^{a\cdot x_i+b}}{1+e^{a\cdot x_i+b}} +\sum_{i=1}^n y_i$$

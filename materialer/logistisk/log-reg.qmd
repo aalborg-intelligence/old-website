@@ -10,7 +10,7 @@ format:
       toc-title: Indhold
       toc-location: left
       related-formats-title: "Andre formater"
-    pdf: default
+    #pdf: default
 reference-location: margin
 editor_options: 
   chunk_output_type: console
@@ -26,6 +26,7 @@ label:
     fig: Figur
 title-block-author-single: "Forfatter"
 fig-cap-location: margin
+tbl-cap-location: margin
 ---
 
 ```{r setup, include=FALSE}
@@ -174,8 +175,14 @@ For det første kan vi på @fig-odds se, at odds-funktionen $O$ er voksende. Det
 
 
 * Lad $p=4/7$. Hvad er de tilhørende odds?
+
 * Antag at oddsene er $O=3/2$. Hvad er den tilsvarende sandsynlighed?
-* Fodboldholdene AFC og BFC spiller mod hinanden. Der spilles med forlænget spilletid og straffesparkskonkurrence indtil, der er fundet en vinder. Det er dobbelt så sandsynligt, at AFC vinder som, at BFC vinder. Hvad er (de matematiske) odds for at AFC vinder? Hvad er sandsynligheden for at AFC vinder?
+
+Fodboldholdene AFC og BFC spiller mod hinanden. Der spilles med forlænget spilletid og straffesparkskonkurrence indtil, der er fundet en vinder. Det er dobbelt så sandsynligt, at AFC vinder som, at BFC vinder. 
+
+* Hvad er (de matematiske) odds for at AFC vinder? 
+
+* Hvad er sandsynligheden for at AFC vinder?
 
 :::
 
@@ -218,18 +225,26 @@ Virkelige data følger ofte en logistisk regressionsmodel.
 
 ## Opgave 2
 
-I denne opgave ser vi på sandsynligheden $p(x)$ for at lide af forhøjet blodtryk[^17]  som funktion af kolestreroltallet $x$. Vi kigger derfor på datasættet nedenfor, som er en udvalgt del af et virkeligt datasæt. I tabellen angiver $y=1$ forhøjet blodtryk, mens $y=0$ angiver normalt blodtryk.   
+I denne opgave ser vi på sandsynligheden $p(x)$ for at lide af forhøjet blodtryk[^17]  som funktion af kolestreroltallet $x$. Vi kigger derfor på datasættet nedenfor, som er en udvalgt del af et [virkeligt datasæt](https://biolincc.nhlbi.nih.gov/studies/framcohort/). I tabellen angiver $y=1$ forhøjet blodtryk, mens $y=0$ angiver normalt blodtryk.   
 
 * Lav en tabel, hvor du beregner sandsynligheden for forhøjet blodtryk, odds og ln(odds) inden for hvert interval. 
+
 * Indtegn punkter i et koordinatsystem, hvor $x$-værdien er midtpunkterne for intervallerne, og $y$-værdien er de tilhørende odds. 
+
 * Ser sammenhængen lineær ud? 
+
 * Vil det give mening at bruge en logistisk regression?
 
-|  x | ]100,150] | ]150,200] | ]200,250] | ]250,300] | ]300,350] | ]350,400] | ]400,450] |
- |    :----:   | :----:   | :----:   | :----:   | :----:   | :----:   | :----:   | :----:   | 
-| y=0 |      27   |    693    |   1354   |    716    |    156   |     20    |    2   |     
-|  y=1   |   6    |    202   |     571    |   471   |    132  |     23   |    5    |   
-
+|  $x$ | $y=0$ | $y=1$   |
+|    :----:   | :----:   | :----:   |
+| ]100,150] | 27   | 6    | 
+| ]150,200] | 693    | 202   |
+| ]200,250] | 1354   |   571    |
+| ]250,300] | 716    |  471   |
+| ]300,350] | 156   |  132  |
+| ]350,400] | 20    |   23   | 
+| ]400,450] | 2   |  5    | 
+            
 
 [^17]: Forhøjet blodtryk er defineret som systolisk blodtryk højere end 140mmHg eller diastolisk blodtryk højere end 90mmHg.
 
@@ -258,7 +273,7 @@ Den logistiske regressionsmodel i (@eq-log-model) kan skrives ved hjælp at $\te
 $$
 \text{logit}(p(x)) = \ln (O(p(x))) = ax  + b.
 $${#eq-logit_model}
-Egentlig var vi jo ude på at finde et udtryk for sandsynligheden $p(x)$ som funktion af $x$. Vi prøver derfor at isolere $p(x)$ i (@eq-logit_model). For at gøre det, finder vi først den omvendte funktion til $\text{logit}$. Vi antager derfor, at 
+Egentlig var vi jo ude på at finde et udtryk for sandsynligheden $p(x)$ som funktion af $x$. Vi prøver derfor at isolere $p(x)$ i (@eq-logit_model). For at gøre det, finder vi først den omvendte (eller inverse) funktion til $\text{logit}$. Vi antager derfor, at 
 $$
 y = \text{logit(p)} = \ln\left( \frac{p}{1-p} \right).
 $$
@@ -331,6 +346,7 @@ I app'en herunder ser du grafen for $f(x)=\frac{1}{1+e^{-(ax+b)}}$. Hvis du træ
 
 ::: {#ggbApplet1}
 :::
+\
 
 I den logistiske regressionsmodel (@eq-p-logistisk) er $p(x)$ givet ved en generel logistisk funktion. Det var netop sådan en generel logistisk funktion, der blev brugt til at lave den S-formede kurve på @fig-S.
 
@@ -368,6 +384,7 @@ I et (fiktivt) dataeksempel ser vi på sandsynligheden $p(x)$ for, at en kunde i
 $$\text{logit}(p(x))= -1.3+0.5x. $$
 
 * Tegn grafen for $p(x)$. 
+
 * Hvor mange procent stiger odds for at vælge økologisk, når årsindtægten stiger med 100.000kr?
 
 :::
@@ -462,38 +479,46 @@ Dette udtryk kan man nemt selv udregne og maksimere ved hjælp af Excel.
 ### Bestemmelse af $a$ og $b$ med Excels problemløser-værktøj
 
 For at finde estimater for $a$ og $b$ ved hjælp af Excel, skal man først og fremmest sørge for, at man har aktiveret problemløser-værktøjet. Det gøres på følgende måde:
-Gå op under filer og vælg **indstillinger**. Derefter vælges **tilføjelsesprogrammer**. Nederst kan man vælge **Excel-tilføjelsesprogrammer** og trykke **udfør**. Til sidst kan man vælge tilføjelsesprogrammet **problemløser** fra en liste.
+Gå op under filer og vælg **indstillinger**. Derefter vælges **tilføjelsesprogrammer**. Nederst kan man vælge **Excel-tilføjelsesprogrammer** og trykke **udfør**. Til sidst kan man vælge **tilføjelsesprogrammet problemløser** fra en liste.
 
 ![Illustration af Excel ark til bestemmelse af a og b samt brug af problemløser.](images/excellogregbil.png)
 
-På billedet ses, hvordan man kan lave et lille regneark til at beregne de relevante størrelser. Der er lavet et par celler til de ukendte parametre $a$ og $b$, som bare kan sættes til 0 fra starten. Det oprindelige datasæt indsættes i søjlerne $x_i$ og $y_i$. I de næste søjler beregnes odds, $p(x_i)$ og $\ln(p_i)$ med formlerne
+På billedet ses, hvordan man kan lave et lille regneark til at beregne de relevante størrelser. Der er lavet et par celler til de ukendte parametre $a$ og $b$, som bare kan sættes til 0 fra starten. Det oprindelige datasæt indsættes i søjlerne $x_i$ og $y_i$. I de næste søjler beregnes odds, $p(x_i)$ og $\ln(p_i)$ med formlerne[^6]
 \begin{align*}
 odds &= e^{ax_i + b}\\
 p(x_i) &= \frac{e^{ax_i + b}}{1+e^{ax_i +b}} = \frac{odds}{1+odds}\\
 \ln(p_i)&= {y_i}\cdot \ln(p(x_i))+(1-y_i)\cdot \ln(1-p(x_i)).
 \end{align*}
+
+[^6]: I Excel på dansk fås eksponentialfunktionen ved at skrive **EKSP** (og **EXP** i den engelske version) og for at få den naturlige logaritmen skriver man **LN** i begge tilfælde.
+
 Her er det vigtigt, at cellerne, der indeholder værdien af $a$ og $b$, benyttes når oddsene beregnes (det vil være smart med fastlåsning af referencerne, hvor man har \$ foran både tal og bogstav ved reference). 
 Til sidst finder man $l(a,b)$ i det blå felt ved at beregne summen af alle $\ln(p_i)$, som i formlen (@eq-lab). 
 
 Nu mangler man bare at benytte problemløseren til at finde de værdier af $a$ og $b$, der gør værdien i det blå felt maksimal. På billedet er der vist med rød, hvor man finder problemløseren, og hvad der skal justeres. **Målsætningen** er den blå celle, der indeholder summen. **Variabelcellerne** er de to, der indeholder $a$ og $b$. Sørg for ikke at sætte flueben i boksen "Gør variabler uden begrænsninger ikke-negative". Tryk på **løs**.
 
-Du kan læse mere om, hvordan man maksimerer likelihoodfunktionen ved hjælp af de partielle afledede [her](max_likelihood.qmd).
+Du kan læse mere om, hvordan man [maksimerer likelihoodfunktionen ved hjælp af de partielle afledede her](max_likelihood.qmd).
 
 ::: {.callout-note collapse="true" appearance="minimal"}
 
 ## Opgave 4
 
-* Antag, at vi har tre observationer nedenfor. Opskriv et udtryk for likelihoodfunktionen $L(a,b)$.
+Antag, at vi har tre observationer nedenfor. 
 
-|  x | 1 | 2 | 3 | 
+* Opskriv et udtryk for likelihoodfunktionen $L(a,b)$.
+
+|  $x$ | 1 | 2 | 3 |
  |    :----:   | :----:   | :----:   | :----:   |
-| y |      1  |    1    |  0   |    
+| $y$ |      1  |    1    |  0   |
 
 
+En nyhedshjemmeside ønsker at målrette en biografreklame til brugerne. De har derfor registreret om 10 af hjemmesidens brugere har klikket på reklamen ($y=1$ hvis de har klikket, $y=0$ ellers) og hvor mange gange $x$, de har læst kulturnyheder den sidste måned. Datasættet er givet i nedenstående tabel. Firmaet bag hjemmesiden ønsker at modellere sandsynligheden $p(x)$ for at klikke på reklamen som funktion af $x$, så de kan målrette reklamen mod de brugere, der har størst sandsynlighed for at klikke på den. 
 
+* Brug Excel til at finde $a$ og $b$.
 
-* En nyhedshjemmeside ønsker at målrette en biografreklame til brugerne. De har derfor registreret om 10 af hjemmesidens brugere har klikket på reklamen  ($y=1$ hvis de har klikket, $y=0$ ellers) og hvor mange gange $x$, de har læst kulturnyheder den sidste måned. Datasættet er givet i nedenstående tabel. Firmaet bag hjemmesiden ønsker at modellere sandsynligheden $p(x)$ for at klikke på reklamen som funktion af $x$, så de kan målrette reklamen mod de brugere, der har størst sandsynlighed for at klikke på den. 
-Brug Excel til at finde $a$ og $b$. Tegn grafen for $p(x)$. Skal firmaet vælge at vise reklamen til brugere, der ofte eller sjældent læser kulturnyheder?
+* Tegn grafen for $p(x)$. 
+
+* Skal firmaet vælge at vise reklamen til brugere, der ofte eller sjældent læser kulturnyheder?
 
 |  x | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
  |    :----:   | :----:   | :----:   | :----:   |    :----:   | :----:   | :----:   | :----:   |:----:   | :----:   |:----:   |
@@ -529,7 +554,7 @@ Den ekstra daglige cigaret vil altså øge odds for sygdom med en faktor $e^{a_3
 
 Maximum likelihood metoden kan igen benyttes til at estimere parametrene $a_1,a_2,a_3$ og $b$. Likelihoodfunktionen, som skal maksimeres, bliver nu til en funktion af fire variable. Vi vil ikke gå i detaljer med, hvordan denne maksimering finder sted. 
 
-Framingham datasættet er et rigtigt datasæt, der indeholder data for hjerte-kar-sygdom og de tre risikofaktorer $x_1$, $x_2$ og $x_3$. Estimerer man $a_1,a_2,a_3$ og $b$ på dette datasæt, får man 
+[Framingham datasættet](https://biolincc.nhlbi.nih.gov/studies/framcohort/) er et rigtigt datasæt, der indeholder data for hjerte-kar-sygdom og de tre risikofaktorer $x_1$, $x_2$ og $x_3$. Estimerer man $a_1,a_2,a_3$ og $b$ på en udvalgt del af dette datasæt, får man 
 $$
 	O(x_1,x_2,x_3) = e^{0.06x_1 + 0.02x_2 + 0.02x_3 -6.77 }.
 $$
