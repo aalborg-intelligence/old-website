@@ -1,6 +1,6 @@
 ---
 title: "Overvågning i Monitorbian"
-description: 'Nogle lande overvåger deres borgere. Men hvordan gør man mon det? I dette forløb bliver I ansatte af efterretningstjenesten i landet Monitorbian for at hjælpe dem med at overvåge deres borgere. Metoden, I skal bruge, kaldes for "k nærmeste naboer" (forkortet kNN), men det lærer I meget mere om her!'
+description: 'Nogle lande overvåger deres borgere. Men hvordan gør man mon det? I dette forløb bliver I ansat af efterretningstjenesten i landet Monitorbian for at hjælpe dem med at overvåge deres borgere. Metoden, I skal bruge, kaldes for "k nærmeste naboer" (forkortet kNN), men det lærer I meget mere om her!'
 image: "kNN_forlob_overvaagning_filer/images/to_indbyggere.png"
 
 format:
@@ -43,7 +43,7 @@ Forløbet kræver kendskab til:
 + Punkter og afstande mellem punkter
 + Procentregning
 
-**Tidsforbrug:** ca. 90 minutter.
+**Tidsforbrug:** ca. 90 minutter (uden brug af Orange).
 
 :::
 
@@ -71,9 +71,9 @@ Se på billedet i @fig-indbyggere og find på nogle flere features.
 
 ### Træningsdata
 
-Som I lige har set, er der rigtig mange egenskaber ved indbyggerne, der kan bruges som features. Men som intelligence officerer er vi nødt til at træffe et valg og beslutte os for, hvad vi vil gå videre med. I har derfor netop været til møde i sikkerhedsudvalget, hvor det er blevet besluttet, at højde (målt i $cm$) og fodareal (målt i $cm^2$)  er de to features, som I skal arbejde videre med. Disse to features er forholdsvis nemme at scanne, og fremadrettet bliver det derfor sådan, at hver gang en indbygger i Monitorbian går ind i en offentlig bygning, så bliver vedkommende scannet og højde og fodareal bliver målt.  
+Som I lige har set i opgave 1, er der rigtig mange egenskaber ved indbyggerne, der kan bruges som features. Men som intelligence officerer er vi nødt til at træffe et valg og beslutte os for, hvad vi vil gå videre med. I har derfor netop været til møde i sikkerhedsudvalget, hvor det er blevet besluttet, at højde (målt i $cm$) og fodareal (målt i $cm^2$)  er de to features, som I skal arbejde videre med. Disse to features er forholdsvis nemme at scanne, og fremadrettet bliver det derfor sådan, at hver gang en indbygger i Monitorbian går ind i en offentlig bygning, så bliver vedkommende scannet og højde og fodareal bliver målt.  
 
-I skal nu have lavet en algoritme, som kan forudsige, hvilken slags indbygger der er tale om -- alene baseret på viden om en given indbyggers højde og fodareal. Man siger, at vi gerne vil *klassificere* indbyggerne -- her i to klasser: Anders And og Fedtmule. 
+I skal nu have lavet en algoritme[^3], som kan forudsige, hvilken slags indbygger der er tale om -- alene baseret på viden om en given indbyggers højde og fodareal. Man siger, at vi gerne vil *klassificere* indbyggerne -- her i to klasser: Anders And og Fedtmule. 
 
 For at gøre det har vi brug for *træningsdata*. Træningsdata består af en masse data fra forskellige indbyggere, hvor de to features er blevet målt samtidig med, at det for hver indbygger er angivet om vedkommende nedstammer fra Anders And eller fra Fedtmule. Denne sidste oplysning er jo lige præcis den oplysning, som vi gerne fremadrettet vil kunne forudsige[^1]. I træningsdata angiver vi altså den værdi, som vi gerne vil prædiktere. Derfor kalder man også denne værdi for en *targetværdi*.
 
@@ -112,14 +112,15 @@ Nedenstående viser en tabel med træningsdata, men targetværdien mangler. Angi
 
 Der findes en lang række af metoder til at lave klassifikation, som er det, vi har brug for her. Nogle af dem bruger meget avanceret matematik og enorme computerkræfter og kan anvendes til diagnosticering af sygdomme, klassificere dokumenter i forskellig typer, genkende objekter i billeder og videoer. Helt så avancerede metoder får vi dog ikke brug for her.
 
-Vi vil i stedet fokusere på én af de simpleste, men alligevel effektive metoder til at klassificere observationer. Metoden kaldes på engelsk *k-nearest neighbors* eller på dansk *k-nærmeste naboer*, og forkortes ofte som *kNN*. *kNN* beror på den simple antagelse, at observationer, som er tæt på hinanden, også ligner hinanden. I vores eksempel vil det være, at indbyggere, som har cirka samme højde og fodareal, vil vi antage, hører til i den samme klasse. 
+Vi vil i stedet fokusere på én af de simpleste, men alligevel effektive metoder til at klassificere observationer. Metoden kaldes på engelsk *k-nearest neighbors* eller på dansk *k-nærmeste naboer*, og forkortes ofte som *kNN*. *kNN* er baseret på den simple antagelse, at observationer, som er tæt på hinanden, også ligner hinanden. I vores eksempel vil det være, at indbyggere, som har cirka samme højde og fodareal, vil vi antage, hører til i den samme klasse. 
 
 For at bestemme hvilke naboer, der ligger tæt på hinanden, er vi nødt til at kunne beregne afstanden mellem to punkter. Du husker nok, at afstanden $d$ mellem punktet $P(x_1,y_1)$ og punktet $Q(x_2,y_2)$ er
 
 $$
 d = \sqrt{(x_2-x_1)^2+(y_2-y_1)^2}
-$$
-På @fig-data nedenfor ser I de træningsdata, som I selv angav en targetværdi for i den foregående opgave. Nogle af indbyggerne var det måske svært at afgøre oprindelsen af, men her ses den korrekte klassificering[^2].
+$$ {#eq-dist}
+
+På @fig-data nedenfor ser I de træningsdata, som I selv angav en targetværdi for i den foregående opgave. Måske var det for nogle af indbyggerne svært at afgøre oprindelsen alene ved at se på billedet -- og måske var det nemt nok, men her ses i hvert tilfælde den korrekte klassificering[^2].
 
 ![Datasættet med fodareal ud af $x$-aksen og højde op af $y$-aksen. De røde punkter svarer til Fedtmule-indbyggere, mens de blå svarer til Anders And-indbyggere.](kNN_forlob_overvaagning_filer/images/data.png){#fig-data}
 
@@ -179,11 +180,19 @@ Lad os forestille os, at vi har 500 data i alt, og at vi lader 20% af disse vær
 
 |  | Prædikteret blå  | Prædikteret rød |
 |------|------|------|
-| **Faktisk blå** | 41  | 4  |
-| **Faktisk rød** | 2 | 53  |
+| **Faktisk blå** | 56 | 9  |
+| **Faktisk rød** | 7 | 68  |
 <!-- : Eksempel på confusion tabel. -->
 
-Vi kan her se, at 41 datapunkter blev prædikteret til at være blå og faktisk også er blå. Tilsvarende er 53 af datapunkterne prædikteret til at være røde, mens de faktiske også er røde. I alt 2+4=6 datapunkter har fået prædikteret en forkert farve sammenlignet med deres faktiske farve. Altså kan vi her se, at med den valgte værdi af $k$ har vores *kNN* algoritme lavet en fejl i 6% af tilfældene, mens den har prædikteret korrekt i 94% af tilfældene. Vi kan nu lave tilsvarende beregninger for forskellige værdier af $k$ og helt enkelt vælge den værdi af $k$, som giver den mindste fejlprocent, når vi tester på vores testdata.
+Der er 140 datapunkter i alt, og vi kan her se, at 56 datapunkter blev prædikteret til at være blå og faktisk også er blå. Tilsvarende er 68 af datapunkterne prædikteret til at være røde, mens de faktiske også er røde. I alt 7+9=16 datapunkter har fået prædikteret en forkert farve sammenlignet med deres faktiske farve. Altså kan vi her se, at med den valgte værdi af $k$ har vores *kNN* algoritme lavet en fejl i 
+$$
+\frac{16}{140} \approx 11.4 \%
+$$
+af tilfældene, mens den har prædikteret korrekt i 
+$$
+\frac{56+68}{140} = \frac{124}{140} \approx 88.6 \%
+$$
+af tilfældene. Vi kan nu lave tilsvarende beregninger for forskellige værdier af $k$ og helt enkelt vælge den værdi af $k$, som giver den mindste fejlprocent, når vi tester på vores testdata.
 
 Vi ser nu igen på vores simple datasæt, og deler det op i et træningsdatasæt og et testdatasæt. På @fig-data_test er testdata markeret med et kryds. Vi vil for forskellige værdier af $k$ prædiktere farven på testdata (samtidig med at vi jo godt kender den faktiske værdi).
 
@@ -225,7 +234,7 @@ Vi forestiller os nu, at vi har et nyt datasæt, som vi ikke har lavet beregning
 + Er det muligt, at der kommer til at stå blå ved $k=1$ og samtidig rød ved $k=2$? 
 + For hvilke værdier af $k$ kan der stå uafklaret? 
 + Hvilke mulige andele kan optræde i tabellen for $k=1, 2, 3, 4, 5$?
-+ Prøv at opstille alle muligheder for tabeller (for $k=1, 2, 3, 4$). 
++ Prøv at opstille alle muligheder for tabeller (for $k=1, 2, 3$). 
 
 :::
 
@@ -259,5 +268,18 @@ Det er også muligt at bruge *kNN* uden selv at udvælge features. I stedet kan 
 
 :::
 
+### Videre overvejelser
+
+Der er flere ting, man kunne overveje at arbejde videre med. For eksempel kunne man sagtens forestille sig, at det kunne give mening med mere end to features. Afstandsformlen i (@eq-dist) kan faktisk sagtens udvides til flere dimensioner end to. Man finder eksempelvis afstanden mellem to punkter $(x_1,y_1,z_1)$ og $(x_2,y_2,z_2)$ i et tredimentionelt koordinatsystem på denne måde:
+$$
+d = \sqrt{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2}
+$$
+Og det er nok ikke svært at forestille sig, at man kan udvide denne formel yderligere. Det betyder, at man stadig kan bruge $k$ nærmeste naboer som metode i det tilfælde, hvor man har mere end to features.
+
+En anden ting at overveje er den skala, vi måler features på. Vi har for eksempel valgt at måle i $cm^2$ og i $cm$. Men hvad hvis vi havde målt i $m^2$ og i $m$? Det er faktisk ikke helt ligegyldigt hvilken skala, man bruger, og derfor vælger man som regel også at *skalere* alle ens data, så de kommer på en sammenlignelig skala. Det kan du læse meget mere om i vores materiale om [feature-skalering](../materialer/afstande/feature_scaling.qmd).
+
+
+
 [^1]: Man siger også, at vi gerne vil *prædiktere* hvilken slags indbygger, der er tale om.
 [^2]: Man kan forestille sig, at en sådan klassificering er baseret på yderligere test og undersøgelser, som man normalvis ikke vil have til rådighed.
+[^3]: Tænk på en *algoritme* som en slags opskrift, som kan bruges til at forudsige hvilken slags indbygger, der er tale om.
