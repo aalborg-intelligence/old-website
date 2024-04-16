@@ -291,7 +291,9 @@ $$
 e^y(1-p) =p.
 $$
 Hvis parentesen ophæves, får vi
-$$e^y - p\cdot e^y =p.$$
+$$
+e^y - p\cdot e^y =p.
+$$
 
 Vi kan så lægge $p\cdot e^y$ til på begge sider og sætte $p$ uden for parantes. Det giver
 \begin{align*}
@@ -330,7 +332,10 @@ Det ligner altså den standard logistiske funktion, men med $(ax+b)$ indsat på 
 ## Fortolkning af parametrene i den logistiske regressionsmodel
 
 Hvordan skal vi forstå betydningen af konstanterne $a$ og $b$ i den logistiske regressionsmodel?
-Hvis man har en funktion $f$, så svarer funktionen $f(ax)$ til, at væksthastigheden er blevet sat op med en faktor $a$. Alternativt kan man forestille sig, at $x$-aksen er blevet skaleret med en faktor $1/a$. Grafen for $f(x-k)$ svarer til, at man har forskudt grafen med $k$ enheder i $x$-aksens retning. Hvis man kombinerer disse, kan man indse, at $f(ax+b)$ svarer til først at øge væksthastigheden med en faktor $a$ og derefter forskyde grafen med $k=\frac{-b}{a}$ i $x$-aksens retning, idet $$f(ax+b)=f\Big(a\cdot \Big(x-\Big(\frac{-b}{a}\Big)\Big)\Big).$$
+Hvis man har en funktion $f$, så svarer funktionen $f(ax)$ til, at væksthastigheden er blevet sat op med en faktor $a$. Alternativt kan man forestille sig, at $x$-aksen er blevet skaleret med en faktor $1/a$. Grafen for $f(x-k)$ svarer til, at man har forskudt grafen med $k$ enheder i $x$-aksens retning. Hvis man kombinerer disse, kan man indse, at $f(ax+b)$ svarer til først at øge væksthastigheden med en faktor $a$ og derefter forskyde grafen med $k=\frac{-b}{a}$ i $x$-aksens retning, idet
+$$
+f(ax+b)=f\Big(a\cdot \Big(x-\Big(\frac{-b}{a}\Big)\Big)\Big).
+$$
 
 Hvis man gør dette for den standard logistiske funktion, får man netop den generelle logistiske funktion
 $$
@@ -359,7 +364,10 @@ En anden måde at fortolke konstanterne $a$ og $b$ på er ved at gå tilbage til
 $$
 O(x) = e^{ax + b} = e^b \cdot e^{ax}=e^b \cdot (e^{a})^x.
 $$ 
-Hvis $e^b$ kaldes $b_{ny}$, og $e^{a}$ kaldes $a_{ny}$, ses at $$ O(x)=b_{ny}\cdot a_{ny}^x $$
+Hvis $e^b$ kaldes $b_{ny}$, og $e^{a}$ kaldes $a_{ny}$, ses at
+$$
+O(x)=b_{ny}\cdot a_{ny}^x
+$$
 er en eksponentiel udvikling med fremskrivningsfaktor $a_{ny}=e^a$. Derved vil odds for sygdom stige med $r=e^a-1$ procent, hver gang blodtrykket stiger med $1$mmHg. Hvis $a$ er positiv, er $e^a>1$, og oddsene vokser altså eksponentielt. Hvis derimod $a$ er negativ, er $e^a<1$, og dermed aftager oddsene eksponentielt. 
 
 I forbindelse med logistisk regression kaldes $e^a$ også for *odds-ratioen*.
@@ -380,13 +388,17 @@ Forholdet mellem oddsene afhænger altså kun af forskellen $x_1 - x_2$ mellem d
 ## Opgave 3
 
 Grafen for den generelle logitiske funktion med forskrift
-$$f(x)=\frac{1}{1+e^{-(ax+b)}}$$
+$$
+f(x)=\frac{1}{1+e^{-(ax+b)}}
+$$
 er stejlest, når funktionsværdien er $f(x)=1/2$. 
 
 * Hvilken værdi af $x$ svarer til en funktionsværdi på $1/2$ ($x$ kan udtrykkes ved hjælp af $a$ og $b$).
 
 I et (fiktivt) dataeksempel ser vi på sandsynligheden $p(x)$ for, at en kunde i et supermarked vælger at købe den økologiske mælk frem for den konventionelle som funktion af kundens årlige indtægt $x$ (i 100.000 kr). Vi kommer frem til følgende logistiske regressionsmodel
-$$\text{logit}(p(x))= -1.3+0.5x. $$
+$$
+\text{logit}(p(x))= -1.3+0.5x.
+$$
 
 * Tegn grafen for $p(x)$. 
 
@@ -416,11 +428,17 @@ $$
 p_i=1-	p(x_i)  = 1- \frac{ 1}{1 + e^{-(ax_i  + b)}}. 
 $${#eq-y0}
 Vi kan opskrive et samlet udtryk for $p_i$ uden at opdele efter værdien af $y_i$, nemlig 
-$$ p_i= p_i(x_i)^{y_i}(1-p(x_i))^{1-y_i}.$${#eq-pi}
+$$
+p_i= p_i(x_i)^{y_i}(1-p(x_i))^{1-y_i}.
+$${#eq-pi}
 For at indse dette, ser vi først på tilfældet $y_i=1$, hvor (@eq-pi) giver
-$$p_i = p(x_i)^{1} (1-p(x_i))^{0} = p(x_i).$$
+$$
+p_i = p(x_i)^{1} (1-p(x_i))^{0} = p(x_i).
+$$
 For $y_i=0$ giver (@eq-pi)  
-$$p_i = p(x_i)^{0} (1-p(x_i))^{1} = 1-p(x_i).$$
+$$
+p_i = p(x_i)^{0} (1-p(x_i))^{1} = 1-p(x_i).
+$$
 Det passer altså med formlerne i henholdsvis (@eq-y1) og (@eq-y0). 
 Bemærk at $p_i$ afhænger af de ukendte værdier $a$ og $b$. Vi kan altså opfatte $p_i$ som en funktion af to variable $p_i(a,b)$.
 
@@ -486,16 +504,22 @@ $${#eq-L}
 Da $\ln(x)$ er en voksende funktion, vil $L(a,b)$ have maksimum for de samme værdier af $a$ og $b$ som den sammensatte funktion $l(a,b)=\ln(L(a,b))$. Det er altså nok at finde de værdier af $a$ og $b$, der maksimerer $l(a,b)$.
 
 Tager vi logaritmen i (@eq-L) og bruger logaritmeregnereglen $\ln(a\cdot b) = \ln(a) + \ln(b)$, får vi
-$$l(a,b)=\sum_{i=1}^n \ln(p_i(a,b)).$${#eq-lab}
+$$
+l(a,b)=\sum_{i=1}^n \ln(p_i(a,b)).
+$${#eq-lab}
 Vi fandt i (@eq-pi), at
-$$p_i(a,b)=p(x_i)^{y_i}\cdot (1-p(x_i))^{1-y_i}.$$
+$$
+p_i(a,b)=p(x_i)^{y_i}\cdot (1-p(x_i))^{1-y_i}.
+$$
 Vi kan nu finde $\ln(p_i(a,b))$ ved først at benytte regnereglen $\ln(a\cdot b) = \ln(a) + \ln(b)$ og dernæst regnereglen $\ln(a^k)=k\cdot \ln(a)$. Det giver
 \begin{align*}
 \ln(p_i(a,b)) &=  \ln\big(p(x_i)^{y_i}\big) + \ln\big((1-p(x_i))^{1-y_i}\big) \\
 &= {y_i}\cdot \ln(p(x_i))+(1-y_i)\cdot \ln(1-p(x_i))
 \end{align*}
 Samlet set får vi 
-$$l(a,b)=\sum_{i=1}^n \ln(p_i(a,b))  = \sum_{i=1}^n\big( {y_i}\cdot \ln(p(x_i))+(1-y_i)\cdot \ln(1-p(x_i)) \big).$${#eq-lab}
+$$
+l(a,b)=\sum_{i=1}^n \ln(p_i(a,b))  = \sum_{i=1}^n\big( {y_i}\cdot \ln(p(x_i))+(1-y_i)\cdot \ln(1-p(x_i)) \big).
+$${#eq-lab}
 Dette udtryk kan man nemt selv udregne og maksimere ved hjælp af Excel.
 
 ### Bestemmelse af $a$ og $b$ med Excels problemløser-værktøj
@@ -590,7 +614,9 @@ Odds for hjerte-kar-sygdom stiger således med en faktor $e^{0.02}\approx 1.02$ 
 ## Opgave 5
 
 I en multipel regression har man fundet følgende model for odds $O(x_1,x_2)$ for, at en bruger af en hjemmeside klikker på en given reklame, hvor $x_1$ og $x_2$ er antal gange kunden har læst henholdsvis kulturnyheder og sportsnyheder inden for den sidste måned
-$$O(x_1,x_2) = e^{-2+0.5x_1-0.1x_2 }.$$
+$$
+O(x_1,x_2) = e^{-2+0.5x_1-0.1x_2 }.
+$$
 
 * En bruger har læst kulturnyheder 4 gange og sportsnyheder 7 gange inden for den sidste måned. Hvad er odds for, at brugeren klikker på reklamen?
 
@@ -638,7 +664,9 @@ Et andet eksempel kunne være en meningsmåling. Et mindre antal vælgere spørg
 ## Opgave 6
 
 Vi kigger igen på en multipel regressionsmodel for odds $O(x_1,x_2)$ for, at en bruger af en hjemmeside klikker på en given reklame, hvor $x_1$ og $x_2$ er antal gange kunden har læst henholdsvis kulturnyheder og sportsnyheder inden for den sidste måned. Modellen for odds er fundet til
-$$O(x_1,x_2) = e^{-2+0.5x_1-0.1x_2 }.$$
+$$
+O(x_1,x_2) = e^{-2+0.5x_1-0.1x_2 }.
+$$
 Vi vil gerne prædiktere, om en bruger klikker på reklamen, så vi kan beslutte, om det er relevant at vise ham den.
 
 * En bruger har læst kulturnyheder 5 gange og sportsnyheder 8 gange inden for den sidste måned. Vil du prædiktere, at brugeren klikker på reklamen?
@@ -650,17 +678,27 @@ Vi vil gerne prædiktere, om en bruger klikker på reklamen, så vi kan beslutte
 Hvis du har hørt om logistisk vækst og logistisk regression, spekulerer du måske over, om der er en sammenhæng mellem de to begreber. Vi skal nu se, at der i nogle anvendelser faktisk er en sammenhæng.
 
 Lad os se på et eksempel med en smitsom sygdom, hvor infektionen aldrig forlader kroppen igen, og man kan fortsætte med at smitte andre resten af livet, når først man er blevet smittet. HIV og herpes er eksempler på sådanne sygdomme. Lad $I(x)$ betegne antallet af smittede efter $x$ dage ($I$ står for inficeret). Ifølge den klassiske SI-model, er væksthastigheden for $I$ proportional med både antallet af smittede $I(x)$ og antallet af raske $M-I(x)$, hvor $M$ er det samlede befolkningstal. Det vil sige
-$$I'(x) = k I(x)(M-I(x)),$$
+$$
+I'(x) = k I(x)(M-I(x)),
+$$
 hvor $k>0$ er en konstant. Denne ligning kaldes *den logistiske differentialligning*, og løsningen er givet ved
-$$I(x)=\frac{M}{1+c\cdot e^{-M\cdot k\cdot x}},$$
+$$
+I(x)=\frac{M}{1+c\cdot e^{-M\cdot k\cdot x}},
+$$
 hvor $c>0$ igen er en konstant, som kan bestemmes, hvis man kender antallet af smittede $I(0)$ til tiden $x=0$. Sætter vi $c=\exp(-b)$ og $a=Mk$, får vi
-$$I(x)=\frac{M}{1+e^{-b}\cdot e^{-a\cdot x}} = \frac{M}{1+e^{-(a\cdot x+b)}}.$$
+$$
+I(x)=\frac{M}{1+e^{-b}\cdot e^{-a\cdot x}} = \frac{M}{1+e^{-(a\cdot x+b)}}.
+$$
 På dag $x$ vil en tilfældigt udvalgt person have en sandsynlighed på  $p(x)=I(x)/M$ for at være smittet. Denne sandsynlighed vil være beskrevet af en logistisk funktion 
-$$p(x)=\frac{I(x)}{M} = \frac{1}{1+e^{-(a\cdot x+b)}}.$$
+$$
+p(x)=\frac{I(x)}{M} = \frac{1}{1+e^{-(a\cdot x+b)}}.
+$$
 Dette genkender vi som en logistisk regressionsmodel for sandsynligheden $p(x)$.
 
 For at bestemme $a$ og $b$, kunne man derfor lave et datasæt, hvor vi hver dag tager en test af en  tilfældig person og ser, om personen er smittet eller rask. Derved får vi et datasæt med punkter $(x,y)$, hvor $x$ er antal dage, og $y$ er $0$ hvis personen er rask, eller $1$ hvis personen er smittet. Vi kan nu finde $a$ og $b$ ved at lave logistisk regression på dette datasæt og finde et udtryk for $p(x)$.
 Hvis vi gerne vil vide, hvor mange der faktisk er syge efter $x$ dage, ganger vi bare sandsynligheden for at være syg op med befolkningstallet
-$$I(x)=M\cdot p(x)=\frac{M}{1+e^{-(a\cdot x+b)}}.$$ 
+$$
+I(x)=M\cdot p(x)=\frac{M}{1+e^{-(a\cdot x+b)}}.
+$$ 
 Det er dog ikke ved alle eksempler, det er muligt at lave denne kobling mellem de to emner. Logistisk vækst vedrører en udvikling i tid, dvs. $x$-variablen skal angive tid. Desuden skal udviklingen foregå i en population af fast størrelse $M$. 
 
