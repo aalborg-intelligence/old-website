@@ -53,13 +53,19 @@ x<-runif(2000,80,300)
 u<-runif(2000,0,1)
 b=-4.07#-4.24470
 a=0.023#0.02368
-p = function(x){exp(a*x + b)/(1+exp(a*x+ b))}
-px <- p(x)
+p = function(x,a,b){exp(a*x + b)/(1+exp(a*x+ b))}
+px <- p(x,a,b)
 y <- as.numeric(u<px)
 # writexl::write_xlsx(
 #   data.frame(x, y),
 #   path = here::here("materialer", "logistisk", "data", "blodtryk.xlsx")
 # )
+fit <- glm(y~x, family = binomial())
+a_mle <- coef(fit)[2]
+b_mle <- coef(fit)[1]
+a_mle_pretty <- unname(signif(a_mle, 2))
+b_mle_pretty <- unname(signif(b_mle, 2))
+OR_mle <- unname(signif(exp(a_mle),4))
 par(mar=c(4,4,0.5,1))
 plot(x[1:200],y[1:200],pch=1,xlab="Blodtryk",ylab="y")
 ```
@@ -151,7 +157,7 @@ I stedet for en ret linje, ville det give mening at lade $p$ være en funktion m
 #| label: fig-S
 par(mar=c(4,4,0.5,1))
 plot(x_midt, tab/100, ylim=c(0,1), pch=16, xlab="blodtryk", ylab="p", xlim=c(70,320), xaxt="n")
-lines(70:300, p(70:300))
+lines(70:300, p(70:300, a=a_mle, b=b_mle))
 axis(1, at=x_breaks)
 ```
 
@@ -563,9 +569,6 @@ De tilhørende $a$- og $b$-koordinater er altså dem, der gør vores observation
 #| fig-cap: Graf for en likelihoodfunktion
 #| label: fig-likelihood
 library(plotly)
-fit <- glm(y~x, family = binomial())
-a_mle <- coef(fit)[2]
-b_mle <- coef(fit)[1]
 mle_data <- data.frame(a = a_mle, b = b_mle, ll = as.numeric(logLik(fit)))
 llik <- readRDS(file.path("data", "llik.rds"))
 # contour(llik$a, llik$b, llik$vals, xlab = "a", ylab = "b", levels = c(-1028, -1030, -1034, -1038, -1046, -1052, -1084), labels = "")
@@ -589,12 +592,12 @@ I praksis kan optimeringen foretages ved hjælp af Excel som forklaret nedenfor.
 
 Finder man $a$ og $b$ ved hjælp af maksimum likelihood metoden i vores dataeksempel, fås følgende funktionsudtryk for sandsynlighederne og oddsene
 $$
-	p(x) = \frac{1}{1+e^{-0.0230 x +4.07}}, \qquad O(x)=e^{0.0230 x -4.07}.
+	p(x) = \frac{1}{1+e^{-`{r} a_mle_pretty` x +`{r} abs(b_mle_pretty)`}}, \qquad O(x)=e^{`{r} a_mle_pretty` x - `{r} abs(b_mle_pretty)`}.
 $$
 
 Grafen for $p$ er vist på @fig-S.
-Vi får en odds-ratio på $e^{0.023} \approx 1.0233$.
-Odds for hjerte-kar-sygdom stiger derfor med en faktor 1.0233 (altså 2,33\%), for hver gang blodtrykket stiger med $1$ mmHg. 
+Vi får en odds-ratio på $e^{`{r} a_mle_pretty`} \approx `{r} OR_mle`$.
+Odds for hjerte-kar-sygdom stiger derfor med en faktor `{r} OR_mle` (altså `{r} 100*(OR_mle-1)`\%), for hver gang blodtrykket stiger med $1$ mmHg. 
  
 
 
