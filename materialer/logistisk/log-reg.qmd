@@ -1,6 +1,6 @@
 ---
 title: "Logistisk regression"
-image: "images/logklas2.jpg"
+image: "data/figur_til_www_files/figure-html/log_reg_www-1.png"
 description: 'I denne note skal vi se på logistisk regression. Måske har du allerede hørt begrebet \"logistisk\" i gymnasieundervisningen i forbindelse med logistisk vækst. Dette er et helt andet emne end logistisk regression. Det eneste, de to emner umiddelbart har til fælles, er, at den logistiske funktion spiller en rolle begge steder. I slutningen af noten vil vi dog se et eksempel, hvor der alligevel er en sammenhæng mellem logistisk regression og logistisk vækst.'
 date: ''
 format:
