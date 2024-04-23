@@ -1,5 +1,5 @@
 ---
-title: "Maksimering af likelihoodfunktionen ved brug af partielt afledte"
+title: "Maksimering af log-likelihoodfunktionen ved brug af partielt afledte"
 date: ''
 format:
     html:
@@ -42,7 +42,7 @@ Når $l(a,b)$ skal maksimeres, kan det gøres ved hjælp af partielt afledede. H
 Vi finder derfor først et mere eksplicit udtryk for $l(a,b)$ som funktion af $a$ og $b$.
 
 
-### Eksplicit udtryk for l(a,b)
+### Eksplicit udtryk for $l(a,b)$
 Vi ved, at log-likelihoodfunktionen er givet ved
 $$
 \begin{aligned}

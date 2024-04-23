@@ -558,17 +558,16 @@ L(a,b) = p_1(a,b) \cdot p_2(a,b)\cdot \dotsm \cdot p_n(a,b).
 $$
 Denne funktion kaldes *likelihoodfunktionen*.
 Idéen med maksimum likelihood metoden er at vælge de værdier af $a$ og $b$, der gør sandsynligheden $L(a,b)$ for det, vi har observeret så stor som mulig.
-Vi søger altså de $a$ og $b$, der maksimerer funktionen $L(a,b)$.
-På @fig-likelihood er det vist, hvordan grafen for en likelihoodfunktion kunne se ud.
-Den viser altså sandsynligheden for vores observationer som funktion af $a$ og $b$.
-Det sorte punkt angiver, hvor funktionsværdien er størst.
-De tilhørende $a$- og $b$-koordinater er altså dem, der gør vores observationer er mest sandsynlige. 
+Vi søger altså de $a$ og $b$, der maksimerer funktionen $L(a,b)$. I praksis vælger man som regel at maksimere $\log(L(a,b))$, som kaldes for *log-likelihoodfunktionen*. Det kommer vi mere ind på i det følgende afsnit. På @fig-likelihood er det vist, hvordan grafen for en log-likelihoodfunktion kunne se ud.
+Den viser altså logaritmen af sandsynligheden for vores observationer som funktion af $a$ og $b$. Det sorte punkt angiver, hvor funktionsværdien er størst.
+De tilhørende $a$- og $b$-koordinater er altså dem, der gør vores observationer mest sandsynlige. 
 
 
 ```{r message=FALSE, warning=FALSE}
-#| fig-cap: Graf for en likelihoodfunktion
+#| fig-cap: Graf for en log-likelihoodfunktion. Det sorte punkt angiver, hvor funktionsværdien er størst.
 #| label: fig-likelihood
 library(plotly)
+par(mar=c(4,4,0,1))
 mle_data <- data.frame(a = a_mle, b = b_mle, ll = as.numeric(logLik(fit)))
 llik <- readRDS(file.path("data", "llik.rds"))
 # contour(llik$a, llik$b, llik$vals, xlab = "a", ylab = "b", levels = c(-1028, -1030, -1034, -1038, -1046, -1052, -1084), labels = "")
@@ -601,7 +600,7 @@ Odds for hjerte-kar-sygdom stiger derfor med en faktor `{r} OR_mle` (altså `{r}
  
 
 
-### Yderligere omskrivning af likelihoodfunktionen
+### Yderligere omskrivning af likelihoodfunktionen 
 
 Vi ser nu lidt nærmere på, hvordan man selv kan finde $a$ og $b$, der maksimerer værdien af likelihoodfunktionen $L(a,b)$.
 Til det formål omskriver vi først likelihoodfunktionen til noget, der er lidt nemmere at regne på.
@@ -628,7 +627,9 @@ Det giver
 \end{align*}
 Samlet set får vi 
 $$
-l(a,b)=\sum_{i=1}^n \ln(p_i(a,b))  = \sum_{i=1}^n\big( {y_i}\cdot \ln(p(x_i))+(1-y_i)\cdot \ln(1-p(x_i)) \big).
+\begin{aligned}
+l(a,b) &=\sum_{i=1}^n \ln(p_i(a,b)) \\  &= \sum_{i=1}^n\big( {y_i}\cdot \ln(p(x_i))+(1-y_i)\cdot \ln(1-p(x_i)) \big).
+\end{aligned}
 $${#eq-lab}
 Dette udtryk kan man nemt selv udregne og maksimere ved hjælp af Excel.
 
