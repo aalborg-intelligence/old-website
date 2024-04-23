@@ -36,7 +36,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 Logistisk regression, i den betydning vi betragter i denne note, bruges, når man gerne vil modellere, hvordan en  sandsynlighed afhænger af en anden variabel.
 Som et eksempel forestiller vi os, at vi vil undersøge, hvordan sandsynligheden for at lide af hjerte-kar-sygdom afhænger af det systoliske blodtryk.
-Vi kigger derfor på et datasæt bestående af 2000 mennesker, som har fået målt deres blodtryk.
+Vi kigger derfor på et [datasæt](data/blodtryk.xlsx) bestående af 2000 mennesker, som har fået målt deres blodtryk.
 Desuden har de fået undersøgt, om de lider af hjerte-kar-sygdom.
 Datasættet er fiktivt, men det er lavet til at ligne virkelige data[^1].
 Vi kalder blodtrykket for $x$, mens vi lader $y$ være en variabel, der er $1$ hvis personen lider af hjertekarsygdom og $0$ ellers.

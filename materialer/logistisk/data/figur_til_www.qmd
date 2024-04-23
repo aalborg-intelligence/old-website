@@ -3,7 +3,7 @@ title: "Figur til www"
 keep-md: true
 ---
 
-```{r log_reg_www}
+```{r log_reg_www, fig.width=5, fig.height=2.5}
 ## Data
 datadir <- here::here("materialer", "logistisk", "data")
 dat_navn <- file.path(datadir, "blodtryk.xlsx")
@@ -21,7 +21,7 @@ dat |>
   ggplot(aes(x = x)) +
   geom_point(aes(y=y), col = "blue", size = 2, alpha = .5) + 
   geom_line(data = p_dat, aes(y = p)) +
-  labs(x = "Blodtryk", y = "Sandsynlighed for sygdom") +
+  labs(x = "", y = "") +
   theme_grey()
 ```
 
