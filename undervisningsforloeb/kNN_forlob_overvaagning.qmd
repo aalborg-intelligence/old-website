@@ -152,7 +152,7 @@ Der er ingen, som siger, at vi skal se på de fem nærmeste naboer. Vi kan lige 
 
 Se igen på @fig-data_afstande og de afstande, som du beregnede i opgave 3. Du skal nu for forskellige værdier af $k$ afgøre, om den nye indbygger skal klassificeres som en Fedtmule- eller en Anders And-indbygger.
 
-Udfyld en tabel som nedenstående (hvis for eksempel der er tre ud af fire punkter, som er blå, skal andelen sættes til 3/4).
+Udfyld en tabel som nedenstående (med \"andel\" mener vi den andel, som afgør flertalsafstemningen -- hvis for eksempel der er tre ud af fire punkter, som er blå eller røde, skal andelen sættes til 3/4).
 
 |$k$ |	Blå/Rød/Uafklaret (prædiktion)	| Andel |
 |---|---|---|
