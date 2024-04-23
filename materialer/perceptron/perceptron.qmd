@@ -326,7 +326,7 @@ tilhørende korrekte klassificering $t$. Her bruger vi bogstavet $t$ som
 en forkortelse for *target-værdi* -- altså den \"målværdi\", som svarer
 til den rigtige klassificering. I vores eksempel viser (@eq-trainingdata) et eksempel på sådan et træningsdatasæt.
 
-Lad os så se på hvad Rosenblatts \"Perceptron Learning Algoritme\" går
+Lad os så se på hvad Rosenblatts \"Perceptron Learning Algoritmen\" går
 nu ud på. Den kommer her:
 
 -   Sæt alle vægte $w_0, w_1, \dots, w_n$ til et tilfældigt tal (f.eks.
@@ -916,7 +916,7 @@ $(w_0, w_1)$-værdier og så bevæger vi os et lille skridt i den negative
 gradients retning. Så ender vi i et nyt punkt, hvor vi igen beregner
 gradienten og går igen et lille skridt i den negative gradients retning.
 Sådan fortsætter vi indtil værdien af tabsfunktionen ikke rigtig ændrer
-sig mere -- det svarer til at vi har ramt dalen. Derfor bliver vores
+sig mere -- det svarer til, at vi har ramt dalen. Derfor bliver vores
 opdateringsregler med denne metode 
 $$
 \begin{aligned}
@@ -1012,7 +1012,7 @@ $$
 \end{aligned}
 $$
 
--   Start forfra indtil vægtene ikke ændrer sig (særlig meget).
+-   Start forfra indtil værdien af tabsfunktionen ikke ændrer sig (særlig meget).
 
 ## Eksempel på gradientnedstigning 
 
@@ -1063,10 +1063,12 @@ du hele tiden går små skridt i den negative gradients retning.
 Vi ser igen på @exm-Rosenblatts og @exm-Rosenblatts2, hvor $x_1=0$ og $x_2=1$. Baseret på
 vægtene fra gradientnedstigning, får vi:
 $$
--0.0769+0.6410 \cdot x_1 -0.0598 \cdot x_2=-0.0769+0.6410 \cdot 0 -0.0598 \cdot 1=-0.1367
+\begin{aligned}
+-0.0769+0.6410 \cdot x_1 &-0.0598 \cdot x_2= \\&-0.0769+0.6410 \cdot 0 -0.0598 \cdot 1=-0.1367
+\end{aligned}
 $$
 Da denne værdi er mindre end $0$, sætter vi $o=-1$. Altså er vi tilbage
-til at befale vælgeren at stemme på rød blok.
+til at anbefale vælgeren at stemme på rød blok.
 :::
 
 ## Forskel på perceptron learning og gradientnedstigning 
