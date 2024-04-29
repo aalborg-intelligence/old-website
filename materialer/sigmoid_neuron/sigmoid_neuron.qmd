@@ -246,15 +246,15 @@ $$
 
 Den nye måde at tænke tabsfunktionen på giver os altså stadigvæk en ret linje, som kan bruges til at adskille de røde punkter fra de blå.
 
-Lad os prøve først at illustrere det med datasættet bestående af de seks punkter i @fig-eks1. Resultat af at bruge ADALINE (fuldt optrukken linje) og en sigmoid neuron (stiplet linje) ses i @fig-eks1_sigmoid. Det er her tydeligt, at begge metoder kan bruges til at finde en linje, som adskiller de blå punkter fra de røde, og der er i det hele taget ikke den store forskel på de to metoder.
+Lad os prøve først at illustrere det med datasættet bestående af de seks punkter i @fig-eks1. Resultat af at bruge ADALINE (fuldt optrukket linje) og en sigmoid neuron (stiplet linje) ses i @fig-eks1_sigmoid. Det er her tydeligt, at begge metoder kan bruges til at finde en linje, som adskiller de blå punkter fra de røde, og der er i det hele taget ikke den store forskel på de to metoder.
 
 
-![Stiplet linje svarer til ADALINE -- fuldt optrukken linje svarer til sigmoid neuron.](images/fig-eks1_sigmoid.png){width=75% #fig-eks1_sigmoid}
+![Fuldt optrukket linje svarer til ADALINE -- stiplet linje svarer til sigmoid neuron.](images/fig-eks1_sigmoid.png){width=75% #fig-eks1_sigmoid}
 
 Bruger vi nu ADALINE og en sigmoid neuron på data fra @fig-eks2 fås resultatet i @fig-eks2_sigmoid. Igen svarer ADALINE til fuldt optrukket linje og sigmoid til stiplet linje. Vi kan nu se, at sigmoid neuron præcis gør det, som vi havde håbet på: Den adskiller de blå punkter fra de røde også selvom ét af punkterne er ekstremt.
 
 
-![Stiplet linje svarer til ADALINE -- fuldt optrukken linje svarer til sigmoid neuron.](images/fig-eks2_sigmoid.png){width=75% #fig-eks2_sigmoid}
+![Fuldt optrukket linje svarer til ADALINE -- stiplet linje svarer til sigmoid neuron.](images/fig-eks2_sigmoid.png){width=75% #fig-eks2_sigmoid}
 
 Vægtene fra sigmoid neuronen i det sidste eksempel er $w_0=-6.046$, $w_1=-16.69$ og $w_2=10.94$ svarende til linjen med ligning
 $$
