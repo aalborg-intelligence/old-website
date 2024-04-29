@@ -244,7 +244,8 @@ Her til sidst skal vi lege lidt med et program, som hedder [Orange](https://oran
 
 Start med at se denne video:
 
-{{< video https://www.youtube.com/embed/jxo4Xx5x4ac>}}
+{{< video https://youtube.com/embed/J1ZWQwak2Q4>}}
+
 
 ::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 7: kNN i Orange baseret på features
