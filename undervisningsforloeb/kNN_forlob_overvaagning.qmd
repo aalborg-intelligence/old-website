@@ -80,7 +80,7 @@ For at gøre det har vi brug for *træningsdata*. Træningsdata består af en ma
 ::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 2: Træningsdata
 
-Nedenstående viser en tabel med træningsdata, men targetværdien mangler. Angiv targetværdien:
+Nedenstående viser en tabel med [træningsdata](kNN_forlob_overvaagning_filer/images/monitorbian.zip), men targetværdien mangler. Angiv targetværdien (\"Anders And\" eller \"Fedtmule\").
 
 
 | Indbygger | Fodareal ($cm^2$) | Højde ($cm$) | Targetværdi|
