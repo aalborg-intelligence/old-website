@@ -1,7 +1,7 @@
 ---
 title: "Logistisk regression"
 image: "data/figur_til_www_files/figure-html/log_reg_www-1.png"
-description: 'I denne note skal vi se på logistisk regression. Måske har du allerede hørt begrebet \"logistisk\" i gymnasieundervisningen i forbindelse med logistisk vækst. Dette er et helt andet emne end logistisk regression. Det eneste, de to emner umiddelbart har til fælles, er, at den logistiske funktion spiller en rolle begge steder. I slutningen af noten vil vi dog se et eksempel, hvor der alligevel er en sammenhæng mellem logistisk regression og logistisk vækst.'
+description: 'I denne note skal vi se på logistisk regression. Måske har du allerede hørt begrebet \"logistisk\" i gymnasieundervisningen i forbindelse med logistisk vækst. Det er et helt andet emne end logistisk regression. Det eneste, de to emner umiddelbart har til fælles, er, at den logistiske funktion spiller en rolle begge steder. I slutningen af noten vil vi dog se et eksempel, hvor der alligevel er en sammenhæng mellem logistisk regression og logistisk vækst.'
 date: ''
 format:
     html: 
@@ -34,7 +34,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-Logistisk regression, i den betydning vi betragter i denne note, bruges, når man gerne vil modellere, hvordan en  sandsynlighed afhænger af en anden variabel.
+Logistisk regression, i den betydning vi betragter i denne note, bruges, når man gerne vil modellere, hvordan en  sandsynlighed afhænger af en variabel.
 Som et eksempel forestiller vi os, at vi vil undersøge, hvordan sandsynligheden for at lide af hjerte-kar-sygdom afhænger af det systoliske blodtryk.
 Vi kigger derfor på et [datasæt](data/blodtryk.xlsx) bestående af 2000 mennesker, som har fået målt deres blodtryk.
 Desuden har de fået undersøgt, om de lider af hjerte-kar-sygdom.
@@ -285,7 +285,7 @@ I tabellen angiver $y=1$ forhøjet blodtryk, mens $y=0$ angiver normalt blodtryk
 
 * Lav en tabel, hvor du beregner sandsynligheden for forhøjet blodtryk, odds og ln(odds) inden for hvert interval. 
 
-* Indtegn punkter i et koordinatsystem, hvor $x$-værdien er midtpunkterne for intervallerne, og $y$-værdien er de tilhørende odds. 
+* Indtegn punkter i et koordinatsystem, hvor $x$-værdien er midtpunkterne for intervallerne, og $y$-værdien er de tilhørende ln(odds). 
 
 * Ser sammenhængen lineær ud? 
 
