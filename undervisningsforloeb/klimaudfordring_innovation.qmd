@@ -41,7 +41,7 @@ execute:
 ### Forudsætninger og tidsforbrug
 Forløbet er et tværfagligt samarbejde med dansk og kræver kendskab til:
 
-+ Populærvidenskabelige artikler som genre
++ Populærvidenskabelige artikler som genre.
 
 **Tidsforbrug:** ca. 4 x 90 minutter i *hvert* fag.
 
@@ -63,5 +63,4 @@ Forløbet er et tværfagligt samarbejde med dansk og kræver kendskab til:
 
 **Materiale i dansk:** [Changemaker-modellen](https://www.outdoortopia.org/the-changemaker-model).
 
-**Materiale i matematik:** [Forskellige AI metoder](../materialer.qmd).
-
+**Materiale i matematik:** [Perceptroner](../materialer/perceptron/perceptron.qmd), [sigmoid neuron](../materialer/sigmoid_neuron/sigmoid_neuron.qmd) og [kunstige neurale netværk](../materialer/neurale_net/neurale_net.qmd).
