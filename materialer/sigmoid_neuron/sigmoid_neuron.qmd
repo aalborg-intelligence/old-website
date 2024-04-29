@@ -40,7 +40,7 @@ execute:
 
 ## Kan vi gøre det bedre end ADALINE?
 
-I noten om [perceptroner](../perceptron/perceptron.qmd) beskrev vi [perceptron learning algoritmen](../perceptron/perceptron.qmd#sec-perceptron_learning_algortimen), som altid konvergerer, hvis data er lineær separable. Men verden er sjældent lineær separabel, og derfor introducerede vi [ADALINE algoritmen](../perceptron/perceptron.qmd#sec-ADALINE), som også virker, selvom data ikke er lineær separable. Det virker jo alt sammen super godt -- men et enkelt lille eksempel afslører alligevel, at ADALINE ikke altid er så smart, som man kunne tro.
+I noten om [perceptroner](../perceptron/perceptron.qmd) beskrev vi [perceptron learning algoritmen](../perceptron/perceptron.qmd#sec-perceptron_learning_algortimen), som altid konvergerer, hvis data er lineært separabel. Men verden er sjældent lineært separabel, og derfor introducerede vi [ADALINE algoritmen](../perceptron/perceptron.qmd#sec-ADALINE), som også virker, selvom data ikke er lineært separabel. Det virker jo alt sammen super godt -- men et enkelt lille eksempel afslører alligevel, at ADALINE ikke altid er så smart, som man kunne tro.
 
 Vi vil se på data i nedenstående tabel
 
@@ -57,7 +57,7 @@ I @fig-eks1 har vi indtegnet punkterne $(x_1,x_2)$ og farvet punkterne med en ta
 
 ![Punkter med en targetværdi på $1$ er blå og dem med en targetværdi på $-1$ er røde.](images/fig-eks1.png){width=75% #fig-eks1}
 
-Det er tydeligt, at punkterne er lineær separable og den indtegnede linje er også den som ADALINE giver[^1]. Du kan selv prøve [ADALINE her](https://apps01.math.aau.dk/adaline/). De estimerede vægte er $w_0=-0.9346, w_1=-2.838$ og $w_2=1.668$.Det vil sige, at den indtegnede linje har ligning
+Det er tydeligt, at punkterne er lineært separabel og den indtegnede linje er også den som ADALINE giver[^1]. Du kan selv prøve [ADALINE her](https://apps01.math.aau.dk/adaline/). De estimerede vægte er $w_0=-0.9346, w_1=-2.838$ og $w_2=1.668$.Det vil sige, at den indtegnede linje har ligning
 
 $$
 -0.9346-2.838 x_1 + 1.668x_2=0
@@ -69,16 +69,16 @@ Det er alt sammen meget fint, men lad os nu prøve at indtegne et nyt rødt punk
 |:------:|:------:|:------:|
 | $1$ | $-1$ | $-1$ |
 
-Det nye punkt er indtegnet i @fig-eks2 sammen med de øvrige seks punkter. Det er tydeligt, at data stadig er lineær separable.
+Det nye punkt er indtegnet i @fig-eks2 sammen med de øvrige seks punkter. Det er tydeligt, at data stadig er lineært separabel.
 
-![Et nyt rødt punkt er indtegnet og data er stadig lineær separable.](images/fig-eks2.png){width=75% #fig-eks2}
+![Et nyt rødt punkt er indtegnet og data er stadig lineært separabel.](images/fig-eks2.png){width=75% #fig-eks2}
 
-Hvis vi prøver at køre ADALINE algoritmen fås linjen, som er indtegnet i @fig-eks2_2. Vi kan allerede se nu, at det er helt skørt. Data er lineær separable, men alligevel er der et rødt punkt, som bliver klassificeret forkert -- faktisk var den oprindelige linje fra @fig-eks1 bedre. 
+Hvis vi prøver at køre ADALINE algoritmen fås linjen, som er indtegnet i @fig-eks2_2. Vi kan allerede se nu, at det er helt skørt. Data er lineært separabel, men alligevel er der et rødt punkt, som bliver klassificeret forkert -- faktisk var den oprindelige linje fra @fig-eks1 bedre. 
 
 
 ![Et nyt rødt punkt er indtegnet og den linje, som ADALINE finder.](images/fig-eks2_2.png){width=75% #fig-eks2_2}
 
-Det er jo ikke ligefrem super overbevisende. Data er lineær separable og alligevel kan ADALINE ikke finde ud af at finde en rette linje, som kan adskille de røde punkter fra de blå!
+Det er jo ikke ligefrem super overbevisende. Data er lineært separabel og alligevel kan ADALINE ikke finde ud af at finde en rette linje, som kan adskille de røde punkter fra de blå!
 
 Hvis vi skal forstå, hvad der sker, må vi se lidt nærmere på den tabsfunktion, som ADALINE forsøger at mininere. Fra [afsnittet om ADALINE](../perceptron/perceptron.qmd#sec-ADALINE) ved vi, at tabsfunktionen er
 
@@ -169,7 +169,7 @@ Grafen for sigmoid-funktionen ses i @fig-sigmoid.
 
 ![Grafen for sigmoid-funktionen med forskrift $\sigma(x)=\frac{1}{1+e^{-x}}$.](images/sigmoid.png){width=75% #fig-sigmoid}
 
-Definitionsmængden for sigmoid-funktionen er alle reele tal, mens værdimængden er intervallet $(0,1)$. Det kan skrives sådan her:
+Definitionsmængden for sigmoid-funktionen er alle reelle tal, mens værdimængden er intervallet $(0,1)$. Det kan skrives sådan her:
 
 $$
 \sigma: \mathbb{R} \rightarrow (0,1)
