@@ -104,7 +104,9 @@ $$
 \frac{42}{236} \approx 0.178.
 $$
 På @fig-p-plot har vi tegnet disse andele ind i et koordinatsystem.
-For hvert blodtryksinterval er midtpunktet for intervallet indtegnet som $x$-værdien, og andelen af syge er indtegnet som den tilhørende $y$-værdi.
+For hvert blodtryksinterval er midtpunktet for intervallet indtegnet som $x$-værdien, og andelen af syge er indtegnet som den tilhørende $y$-værdi[^8].
+
+[^8]: Det er klart, at vælger man nogle andre intervaller, så vil man få et lidt andet resultat. Bemærk også, at vi her bruger midtpunktet af intervallet i @fig-p-plot. Det er i modsætning til, når vi tegner sumkurver, hvor højre intervalendepunkt benyttes.
 
 ```{r include=FALSE}
 library(mosaic)
@@ -645,7 +647,7 @@ Til sidst kan man vælge **tilføjelsesprogrammet problemløser** fra en liste.
 ![Illustration af Excel ark til bestemmelse af a og b samt brug af problemløser.](images/excellogregbil.png)
 
 På billedet ses, hvordan man kan lave et lille regneark til at beregne de relevante størrelser.
-Der er lavet et par celler til de ukendte parametre $a$ og $b$, som bare kan sættes til 0 fra starten.
+Der er lavet et par celler til de ukendte parametre $a$ og $b$, som med fordel kan sættes til 0 fra starten for at undgå numeriske problemer i Excel.
 Det oprindelige datasæt indsættes i søjlerne $x_i$ og $y_i$.
 I de næste søjler beregnes odds, $p(x_i)$ og $\ln(p_i)$ med formlerne[^6]
 \begin{align*}
