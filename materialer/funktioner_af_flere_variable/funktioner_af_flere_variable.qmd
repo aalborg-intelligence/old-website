@@ -53,7 +53,7 @@ Grafen for $f$ består af alle de punkter $(x,y)$, hvor $y=f(x)$. Det er illustr
 
 
 
-Hvis definitionsmængden for $f$ er $\mathbb{R}$, så vil funktionsværdierne for alle de lineære funktioner også kunne \"ramme\" alle reelle tal. Mere formelt siger man, at værdimængden for funktionen også er $\mathbb{R}$. Det skrives
+Hvis definitionsmængden for $f$ er $\mathbb{R}$, så vil funktionsværdierne for alle de lineære funktioner også kunne \"ramme\" alle reelle tal (med mindre $a=0$). Mere formelt siger man, at værdimængden for funktionen også er $\mathbb{R}$. Det skrives
 
 $$
 Vm(f)=\mathbb{R}
@@ -176,6 +176,22 @@ $$
 f_x'(x,y)=2 \cdot 2x-0 + 3 \cdot 1 \cdot y + 0 = 4x+3y.
 $$
 Bemærk her, at $y^2$ differentieret bliver $0$, fordi vi skal betragte $y$ som en konstant, og en konstant, som er lagt til, bliver som bekendt $0$, når vi differentierer. Når vi skal differentiere udtrykket $3xy$, så er $y$ en konstant, som er ganget på og derfor lader vi den stå, når vi differentierer (ligesom vi lader $3$-tallet stå og differentierer $x$, som giver $1$).
+
+Når vi finder den partielle afledede ovenfor, så gør vi det helt generelt, hvor vi bare tænker på $y$ som en konstant. Tidligere fastholdt vi $y$ på værdien $-2$. Indsætter vi $y=-2$ i ovenstående udtryk for $f_x'(x,y)$ får vi
+
+$$
+f_x'(x,-2)=4x+3 \cdot (-2)=4x-6.
+$$
+Men vi kunne lige så godt have differentieret snitfunktionen
+
+$$
+g(x)=f(x,-2)=2x^2-6x-3.
+$$
+Gør vi det, får vi
+$$
+g'(x)=4x-6,  
+$$
+der heldigvis svarer til udtrykket for $f_x'(x,-2)$, som vi netop har fundet.
 
 Helt tilsvarende definerer vi den *partielle afledede af $f$ med hensyn til $y$* ved at differentiere snitfunktionen $h(y)$ (såfremt denne snitfunktion er differentiabel):
 
