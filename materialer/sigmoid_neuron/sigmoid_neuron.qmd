@@ -413,65 +413,11 @@ I praktisk vil man blive ved med at opdatere vægtene, indtil værdien af tabsfu
 
 ## Andre aktiviteringsfunktioner
 
-Sigmoid-funktionen er ét bud på en aktiveringsfunktion, men man kan sagtens bruge andre aktiveringsfunktioner. Det vigtige er, at værdimængden for aktiveringsfunktionen er på samme skala som targetværdierne. 
-
-En ofte anvendt aktiveringsfunktion er *softsign*-funktion med forskrift
-
-$$
-f(x)=\frac{x}{1+|x|}
-$$
-Grafen for $f$ ses i @fig-softsign.
-
-![Grafen for softsign-funktionen.](images/softsign.png){width=75% #fig-softsign}
-
-Nu indgår den numeriske værdi af $x$ i forskriften, og man kunne få den tanke at $f$ måske hverken er kontinuert eller differentiabel i $0$. Men bruger vi definitionen på $|x|$, får vi
-
-$$
-f(x) = 
-\begin{cases}
-\frac{x}{1+x} & \textrm{hvis } x \geq 0 \\
-\\
-\frac{x}{1-x} & \textrm{hvis } x < 0 \\
-\end{cases}
-$$ {#eq-def_softsign}
-
-For det første ser vi, at $f(0)=0/(1+0)=0$ og $f(x) \rightarrow 0$, når $x$ nærmer sig $0$ både fra højre og venstre. Det betyder, at $f$ *er* kontinuert i $0$.
-
-Vi ser også, at for store positve værdier af $x$ vil
-$$
-f(x)= \frac{x}{1+x} \approx \frac{x}{x}=1
-$$
-og for store negative værdier af $x$ vil 
-$$
-f(x)= \frac{x}{1-x} \approx \frac{x}{-x}=-1
-$$
-Det betyder, at 
-$$
-f(x) \rightarrow 1 \quad \textrm{når} \quad x \rightarrow \infty
-$$
-og 
-
-$$
-f(x) \rightarrow -1 \quad \textrm{når} \quad x \rightarrow - \infty
-$$
-hvilket stemmer fint overens med @fig-softsign. 
-
-Det vil sige, at hvis vi skal bruge softsign-funktionen som aktiveringsfunktion, så skal targetværdierne være $\pm 1$, og tabsfunktionen defineres da ved
-
-$$
-\begin{aligned}
-E(w_0, w_1, &\dots, w_n) \\ &= \frac{1}{2} \sum_{m=1}^{M} \left (t_m-
-f(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n}) \right)^2,
-\end{aligned}
-$$
-hvor $f$ altså er softsign-funktionen.
-Når de nye opdateringsregler for vægtene skal udledes, får vi brug for at differentiere aktiveringsfunktionen. Ved at bruge definitionen i (@eq-def_softsign) kan man vise, at $f$ også er differentiabel med afledt funktion 
-$$
-f'(x)=\frac{1}{\left ( 1+ |x| \right )^2}
-$$
-
-Beviset for dette samt udledningen af de nye opdateringsregler overlades trygt til læseren. :blush:
+Man behøver ikke nødvendigvis at bruge sigmoid-funktionen som aktiveringsfunktion. Der findes en lang række andre aktiveringsfunktioner, som kan bruges i stedet for. Hvis du har lyst, kan du læse mere om dem [her](../aktiveringsfunktioner/aktiveringsfunktioner.qmd).
 
 # Videre læsning
+
++ [Sigmoid Neuron — Building Block of Deep Neural Networks](https://towardsdatascience.com/sigmoid-neuron-deep-neural-networks-a4cd35b629d7)
++ [Sigmoid neurons](https://eng.libretexts.org/Bookshelves/Computer_Science/Applied_Programming/Book%3A_Neural_Networks_and_Deep_Learning_(Nielsen)/01%3A_Using_neural_nets_to_recognize_handwritten_digits/1.03%3A_Sigmoid_neurons)
 
 [^1]: Her er alle startvægte sat til $0$, learning rate er på $0.1$, stop-kriterie er på $0.000001$ og maksimalt antal iterationer er sat til $50000$.
