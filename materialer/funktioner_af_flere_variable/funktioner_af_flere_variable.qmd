@@ -1,0 +1,325 @@
+---
+title: "Funktioner af flere variable"
+image: "images/maskine2.png"
+description: Fra gymnasiematematikken kender vi lineære funktioner, eksponentialfunktioner, potensfunktioner og en hel masse andre typer af funktioner. Fælles for dem er, at de alle afhænger af én variabel $x$. Men en funktion kan godt afhænge af flere forskellige variable, og i det tilfælde taler man om **funktioner af flere variable**. Denne type af funktioner viser sig at spille en hel central rolle i rigtig mange metoder inden for kunstig intelligens. Derfor vil vi i denne note behandle de vigtigste begreber i forbindelse med funktioner af flere variable. 
+from: markdown+emoji
+format:
+    html:
+      self-contained: true 
+      toc: true
+      toc-title: Indhold
+      toc-location: left
+      related-formats-title: "Andre formater"
+      link-external-newwindow: true
+#    pdf: default
+reference-location: margin
+editor_options: 
+  chunk_output_type: console
+crossref:
+  fig-prefix: figur   # (default is "Figure")
+  tbl-prefix: tabel    # (default is "Table")
+  exm-prefix: eksempel
+  thm-prefix: sætning
+  sec-prefix: afsnit
+  eq-prefix: ''
+  fig-title: Figur
+  exm-title: Eksempel
+  thm-title: Sætning
+  tbl-title: Tabel
+label:
+    fig: Figur
+fig-cap-location: margin
+tab-cap-location: margin
+execute:
+  echo: false
+  warning: false
+---
+
+## Funktioner af én variabel
+
+Som sagt kender du allerede en hel del funktioner af én variabel. For eksempel de lineære funktioner:
+
+$$
+f(x)=a \cdot x+b.
+$$
+Ofte vil de lineære funktioner være defineret for alle de reelle tal. Man siger, at definitionsmængden er $\mathbb{R}$ og skriver
+
+$$
+Dm(f)=\mathbb{R}.
+$$
+Grafen for $f$ består af alle de punkter $(x,y)$, hvor $y=f(x)$. Det er illustreret på @fig-graf_lin.
+
+![Grafen for en lineær funktion $f(x)=ax+b$, hvor det er illustreret at et punkt $(x,y)$ ligger på grafen for $f$, hvis $y=f(x)$.](images/graf_lin.png){width=75% #fig-graf_lin}
+
+
+
+Hvis definitionsmængden for $f$ er $\mathbb{R}$, så vil funktionsværdierne for alle de lineære funktioner også kunne \"ramme\" alle reelle tal. Mere formelt siger man, at værdimængden for funktionen også er $\mathbb{R}$. Det skrives
+
+$$
+Vm(f)=\mathbb{R}
+$$
+Samlet set kan man skrive det sådan her
+
+$$
+f: \mathbb{R} \rightarrow \mathbb{R}.
+$$ 
+Det betyder, at funktionen $f$ tager et reelt tal som input og giver et reelt tal som output. Du har måske også været vant til at se en \"maskine-metafor\", som illustreret på @fig-maskine.
+
+![Funktionen $f$ illustreret som en maskine.](images/maskine.png){width=75% #fig-maskine}
+
+Her er tanken, at man sender et $x$ ind i funktionsmaskinen, som så ved hjælp af forskriften for $f$ beregner funktionsværdi $y=f(x)$, som herefter bliver sendt ud af maskinen. 
+
+For at der overhovedet er tale om en funktion, skal det være sådan, at der til enhver værdi af $x$ svarer én og kun én funktionsværdi $f(x)$. Så hvis man for eksempel sender $x=2$ ind i maskinen, så må funktionen ikke nogle gange sende $y=5$ ud og andre gange $y=-3$. Hvis $x=2$ kommer ind, så skal det altid være den samme funktionsværdi, der kommer ud.
+
+Grafisk er det illustreret på @fig-grafer. 
+
+![Til venstre ses grafen for en funktion. Til højre ses en kurve, som ikke kan være grafen for en funktion. Ved den grønne linje ses for eksempel en $x$-værdi hvortil der svarer ikke kun én, men tre $y$-værdier.](images/grafer.png){width=75% #fig-grafer}
+
+
+## Funktioner af to variable
+
+Idéen med funktioner af to variable er en funktion $f$, som ikke kun afhænger af en $x$-værdi, men også af en $y$-værdi. Her er et eksempel:
+
+$$
+f(x,y)= 2x^2-y^2+3xy+1.
+$$
+
+Grafen for $f$ består nu af alle de punkter $(x,y,z)$ i et tre-dimensionelt koordinatsystem, hvor $z=f(x,y)$. For eksempel er
+
+$$
+\begin{aligned}
+f(1,-2)&=2\cdot 1^2-(-2)^2+3 \cdot 1 \cdot (-2)+1 \\
+&=2-4-6+1=-7
+\end{aligned}
+$$
+Det betyder, at punktet $P(1,-2,-7)$ ligger på grafen for $f$. Grafen for $f$ og punktet $P$ ses i @fig-graf2.
+
+![Grafen for funktionen $f$ med forskrift $f(x)=2x^2-y^2+3xy+1$ samt punktet $P(1,-2,-7)$.](images/graf2.png){width=75% #fig-graf2}
+
+Vi kan igen bruge \"maskine-metaforen\" for funktioner af to variable, som illustreret i @fig-maskine2.
+
+![Funktionen $f$ af to variable illustreret som en maskine.](images/maskine2.png){width=75% #fig-maskine2}
+
+For at vi kan tale om, at det er en funktion, kræver vi igen, at der til enhver værdi af $(x,y)$ svarer én og kun én funktionsværdi $z=f(x,y).$ Maskinen skal altså altid returnere den samme funktionsværdi for en given værdi af $(x,y)$.
+
+Hvis en funktion $f$, som input kan tage en hvilken som helst $(x,y)$-værdi, siger vi, at definitionsmængden for $f$ er $\mathbb{R}^2$. Og hvis funktionen kan \"ramme\" en hvilken som helst funktionsværdi $z$, siger vi, at værdimængden er $\mathbb{R}$. Samlet set skriver vi
+
+$$
+f: \mathbb{R}^2 \rightarrow \mathbb{R}.
+$$ 
+
+
+Her indikerer $2$-tallet altså, at der er tale om en funktion af *to* variable.
+
+### Snitfunktioner og snitkurver
+
+Hvis man for en funktion af to variable fastholder enten $x$ eller $y$ på en bestemt værdi, fås en funktion af én variabel, som kaldes for en *snitfunktion*. Fastholder vi for eksempel $y$ på værdien $y_0$ fås snitfunktionen
+
+$$
+g(x)=f(x,y_0)
+$$
+og tilsvarende, hvis vi fastholder $x$ på værdien $x_0$ fås snitfunktionen
+
+$$
+h(y)=f(x_0,y).
+$$
+
+Lad os se på eksemplet fra tidligere
+$$
+f(x,y)= 2x^2-y^2+3xy+1.
+$$
+
+Fastholder vi for eksempel $y$ på $-2$, får vi snitfunktionen
+
+$$
+\begin{aligned}
+g(x) &=f(x,-2)=2x^2-(-2)^2+3 \cdot x \cdot (-2)+1 \\
+&=2x^2-6x-3.
+\end{aligned}
+$$
+Grafen for snitfunktionen kaldes for en *snitkurve*. Denne snitkurve svarer til skæringskurven mellem grafen for $f$ og planen med ligning $y=-2$, som ses i @fig-graf_snitkurve_y. Bemærk, at snitfunktionen $g$ er et andengradspolynomium, hvis graf er en parabel med grene, som vender opad, idet koefficienten til andengradsleddet er positiv.
+
+![Grafen for snitfunktionen $g$ med forskrift $g(x)=2x^2-6x-3$ markeret med sort. Den lyseblå plan er planen med ligning $y=-2$.](images/graf_snitkurve_y=-2.png){width=75% #fig-graf_snitkurve_y}
+
+Fastholder vi derimod $x$ på $1$, får vi snitfunktionen
+
+$$
+\begin{aligned}
+h(y)&=f(1,y)=2 \cdot 1^2 -y^2 +3 \cdot 1 \cdot y +1 \\
+&=-y^2+3y+3.
+\end{aligned}
+$$
+Her ser vi igen, at snitfunktionen er et andengradspolynomium, og grafen vil være en parabel med grene, der vender nedad. Snitkurven svarer til skæringskurven mellem grafen for $f$ og planen med ligning $x=1$, som vist i @fig-graf_snitkurve_x.
+
+![Grafen for snitfunktionen $h$ med forskrift $h(y)=-y^2+3y+3$ markeret med sort. Den lyseblå plan er planen med ligning $x=1$.](images/graf_snitkurve_x=1.png){width=75% #fig-graf_snitkurve_x}
+
+### Partielle afledede
+
+Fra funktioner af én variabel ved vi, at nogle funktioner er differentiable. Det kan funktioner af to variable også være. Her defineres de såkaldte *partielle afledede* ved simpelthen af differentiere de to forskellige typer af snitfunktioner, som vi definerede ovenfor.
+
+Lad os forklare det lidt nærmere. Snitfunktionen $g(x)=f(x,y_0)$ er jo en \"almindelig\" funktion af én variabel $x$. Hvis $g$ er differentiabel, så kalder man $g'(x)$ for den *partielle afledede af $f$ med hensyn til $x$*. Notationen for den partielle afledede af $f$ med hensyn til $x$ er som regel en af følgende:
+
+$$
+g'(x)=f_x'(x,y)=\frac{\partial f}{\partial x}=\frac{\partial}{\partial x}f(x,y),
+$$
+
+hvor man her tænker $y$ som værende en konstant fastholdt på en bestemt værdi (for eksempel $y_0$).
+
+Ser vi igen på vores eksempel
+
+$$
+f(x,y)= 2x^2-y^2+3xy+1.
+$$
+Så vil den partielle afledede med hensyn til $x$ være
+
+$$
+f_x'(x,y)=2 \cdot 2x-0 + 3 \cdot 1 \cdot y + 0 = 4x+3y.
+$$
+Bemærk her, at $y^2$ differentieret bliver $0$, fordi vi skal betragte $y$ som en konstant, og en konstant, som er lagt til, bliver som bekendt $0$, når vi differentierer. Når vi skal differentiere udtrykket $3xy$, så er $y$ en konstant, som er ganget på og derfor lader vi den stå, når vi differentierer (ligesom vi lader $3$-tallet stå og differentierer $x$, som giver $1$).
+
+Helt tilsvarende definerer vi den *partielle afledede af $f$ med hensyn til $y$* ved at differentiere snitfunktionen $h(y)$ (såfremt denne snitfunktion er differentiabel):
+
+$$
+h'(y)=f_y'(x,y)=\frac{\partial f}{\partial y}=\frac{\partial}{\partial y}f(x,y).
+$$
+Ser vi igen på
+$$
+f(x,y)= 2x^2-y^2+3xy+1,
+$$
+så vil den partielle afledede med hensyn til $y$ være
+
+$$
+f_y'(x,y)=0-2y+3x\cdot 1+0=3x-2y.
+$$
+
+Her er $x$ altså at betragte som en konstant, og derfor er $2x^2$ differentieret $0$ og $3xy$ differentieret med hensyn til $y$ bliver $3x$.
+
+### Grafisk betydning af de partielle afledede
+
+For en funktion $f$ af én variabel ved vi, at hvis $f$ er differentiabel i $x_0$, så vil $f'(x_0)$ svarer til hældningen for tangenten til grafen for $f$ i punktet $(x_0,f(x_0))$.
+
+Vi kan nu udlede en tilsvarende grafisk betydning af de partielle afledede. Vi ser igen på snitfunktionen $g(x)$, hvor $y$ er fastholdt på $y_0$:
+
+$$
+g(x)=f(x,y_0)
+$$
+
+Den partielle afledede med hensyn til $x$ er så
+
+$$
+g'(x)=f_x'(x,y_0),
+$$
+hvor vi her har tydeliggjort, at $y=y_0$. Men nu må $g'(x_0)$ være hældningen for tangenten til grafen for snitfunktionen $g$ i punktet $(x_0,g(x_0))$. 
+
+Lad os illustrere det med vores eksempel hvor $f(x,y)= 2x^2-y^2+3xy+1$. Her fandt vi, at
+
+$$
+f_x'(x,y)=4x+3y.
+$$
+Vi fandt tidligere, at $P(1,-2,-7)$ ligger på grafen for $f$. Ser vi på snitfunktionen $g(x)=f(x,-2)$, så ligger $P$ altså også på den tilsvarende snitkurve -- se også @fig-graf_snitkurve_y. Udregner vi $g'(1)=f_x'(1,-2)$ får vi
+
+$$
+f_x'(1,-2)=4 \cdot 1 + 3 \cdot (-2) = 4-6=-2
+$$
+
+Det betyder, at hvis vi tegner tangenten til snitkurven i $P$, så vil denne tangent have en hældning på $-2$, som illustreret i @fig-graf_snitkurve_partialx.
+
+![Tangenten (stiplet linje) til grafen for snitfunktionen $g$ med forskrift $g(x)=2x^2-6x-3$ i punktet $P(1,-2,-7)$ har en hældning på $-2$.](images/graf_snitkurve_partialx.png){width=75% #fig-graf_snitkurve_partialx}
+
+
+Helt tilsvarende kan vi fortolke den partielle afledede af $f$ med hensyn til $y$ i punktet $P$. Vi fandt, at
+
+
+$$
+f_y'(x,y)=3x-2y.
+$$
+
+Så i $(1,-2)$ har vi
+
+$$
+f_y'(1,-2)= 3 \cdot 1 - 2 \cdot (-2)=3+4=7
+$$
+Altså vil tangenten til snitkurven hørende til snitfunktionen $h(y)=f(1,y)$ have en tangenthældning på $7$ i punktet $(-2,h(-2))$. Det er vist i @fig-graf_snitkurve_partialy.
+
+![Tangenten (stiplet linje) til grafen for snitfunktionen $h$ med forskrift $h(y)=-y^2+3y+3$ i punktet $P(1,-2,-7)$ har en hældning på $7$.](images/graf_snitkurve_partialy.png){width=75% #fig-graf_snitkurve_partialy}
+
+De partielle afledede svarer altså til tangenthældninger på snitkurver, som er fremkommet ved at finde skæringskurven mellem grafen for $f$ og en plan med ligning $x=x_0$ eller grafen for $f$ og en plan med ligning $y=y_0$. 
+
+Man kan også bestemme tangenthældninger for mere generelle snitkurver, som fremkommer ved, at man finder skæringskurven mellem grafen for $f$ og en plan med ligning $ax+by+c=0$ (som står vinkelret på $xy$-planen). Differentierer man de tilhørende snitfunktioner, kalder man de afledede for *retningsafledede*. Det kan du læse meget mere om [her](../retningsafledede/retningsafledede.qmd).
+
+### Gradienten og betydningen af denne
+
+Man definerer *gradienten* for en funktion $f$ af to variable, som den vektor hvis koordinater svarer til de partielle afledede. Gradienten skrives $\nabla f (x,y)$. Det vil sige, at
+
+$$
+\nabla f(x,y) = 
+\begin{pmatrix}
+f_x'(x,y) \\ f_y'(x,y)
+ \end{pmatrix}.
+$$
+
+Vi ser her, at gradienten er en to-dimensionel vektor. Det betyder, at man kan tegne en repræsentant for vektoren i $xy$-planen.
+
+Lad os regne lidt på det i vores eksempel. Vi husker, at $f(x,y)=2x^2-y^2+3xy+1$ og vi fandt ovenfor, at
+$$
+f_x'(1,-2)=-2
+$$
+og
+
+$$
+f_y'(1,-2)=7.
+$$
+Det vil sige, at
+$$
+\nabla f(1,-2) = 
+\begin{pmatrix}
+-2 \\ 7
+ \end{pmatrix}
+$$
+
+Tegner vi en repræsentant for denne vektor i $xy$-planen med udgangspunkt i punktet $Q(1,-2,0)$ (som er projektionen af $P(1,-2,-7)$ op på $xy$-planen) ses resultatet i @fig-graf_gradient.
+
+![En repræsentant for vektoren $\nabla f(1,-2)$ er tegnet med udgangspunkt i $P(1,-2,7)$'s projektion på $xy$-planen.](images/graf_gradient.png){width=75% #fig-graf_gradient}
+
+Det er jo alt sammen fint nok, men hvad skal man mon bruge det til? Det er nemmest at forklare, hvis du forestiller dig, at grafen for $f$ er et landskab, hvor du står i punktet $P(x_0,y_0,f(x_0,y_0))$. Så viser det sig, at gradienten $\nabla f(x_0,y_0)$ peger i den retning, hvor funktionsværdien vokser mest. Det vil altså sige, at hvis du står i $P$ og gerne vil gå allermest opad bakke, så skal du gå i gradientens retning. Omvendt vil det også være sådan, at hvis du vil bevæge dig allermest nedad bakke, så skal du gå i retningen $-\nabla f(x_0,y_0)$ (det svarer til, at du lige have vendt dig rundt $180^{\circ}$ i forhold til den retning, som gradienten peger i). Beviset for at det forholder sig sådan, kan du læse [her](../retningsafledede/retningsafledede.qmd).
+
+Fint nok tænker du måske, men hvem gider at gå allermest opad bakke? Se det er her, at det fine kommer ind i billedet og grunden til, at vi overhovedet gider tale om funktioner er flere variable i forbindelse med kunstig intelligens. I rigtig mange metoder inden for kunstig intelligens skal \"den kunstige intelligens\" trænes for at blive god[^1]. Eksempler er [kunstige neurale netværk](../neurale_net/neurale_net.qmd), [perceptroner](../perceptron/perceptron.qmd) og [sigmoid neuroner](sigmoid_neuron/sigmoid_neuron.qmd), som du kan læse meget mere om senere. Ser vi for eksempel på et kunstigt neuralt netværk, så kan det grundlæggende ingenting til at starte med. Men så giver man netværket nogle *træningsdata*, så det gradvist kan blive bedre. Det er her, at man siger, at man *træner* netværket. Det foregår ved, at man definerer en såkaldt *tabsfunktion*. Den måler basalt set, hvor godt netværket er lige nu. Man ønsker at tabsfunktionen skal minimeres (lille tab = godt netværk). Det kan være en meget kompliceret opgave, hvis man analytisk skal bestemme minimum for en sådan tabsfunktion, og det er lige præcis her, at gradienten kommer ind i billedet. Man starter nemlig et tilfældigt sted på grafen for tabsfunktionen (svarende til at man stiller sig i et punkt $P$ på grafen for en funktion $f$). Så udregner man gradienten, og da man gerne vil finde minimum for tabsfunktionen, så går man et lille skridt i den negative gradients retning. For vi ved jo netop, at det er den retning, vi skal gå i, hvis vi gerne vil gå i den retning, hvor funktionsværdien falder mest (og det er jo smart, hvis man gerne vil ende i et minimum). Så står man i et nyt punkt på grafen, udregner gradienten i det nye punkt og går så et lille skridt i denne gradients negative retning. Sådan fortsætter man indtil man har fundet minimum eller noget der er tæt på (eller måske bare \"godt nok\" -- det kan nemlig godt være et lokalt minimum, man rammer ind i). Se det er faktisk *the backbone* i nogle af de mest populære og moderne metoder inden for kunstig intelligens, som anvendes i dag!
+
+[^1]: Og nu tænker du nok, at det er derfor, at man skal gå opad bakke, men det er alligevel ikke helt sådan det forholder sig :blush:.
+
+
+## Funktioner af flere variable
+
+Vi har lige redegjort for, at gradienten er helt central i forbindelse med minimering af tabsfunktioner. Men faktisk vil det være sådan, at tabsfunktioner i virkeligheden ikke kun afhænger af to, men derimod af millioner af variable! Derfor har man helt generelt brug for at se på funktioner af flere variable end to. Vi kalder input-værdierne til funktionen $(x_1, x_2, \dots , x_n)$ og man taler så om en *funktion* af $n$ variable, hvis der for enhver værdi af $(x_1, x_2, \dots , x_n)$ svarer én og kun én funktionsværdi:
+$$
+y = f(x_1, x_2, \dots, x_n).
+$$
+Hvis der ikke er nogle begrænsninger på defintions- og værdimængden vil man skrive
+
+$$
+f: \mathbb{R}^n \rightarrow \mathbb{R},
+$$ 
+hvor $n$'et her tydeliggør, at der er tale om en funktion af $n$ variable. 
+
+Grafen for $f$ består af alle de punkter $(x_1, x_2, \dots, x_n,y)$ i et $(n+1)$-dimensionalt koordinatsystem, hvor $y = f(x_1, x_2, \dots, x_n)$. Koordinatsystemer på $4$ dimensioner eller flere er svære at rumme i vores $3$-dimensionelle verden, så af den grund behøver vi ikke at bekymre os om, hvordan grafen for $f$ ser ud. 
+
+De partielle afledede defineres helt som før. Når man for eksempel skal finde den partielle afledede med hensyn $x_1$, så betragtes $x_2, x_3, \dots, x_n$ som konstanter, og man differentierer den tilsvarende snitfunktion med hensyn til $x_1$. De partielle afledede betegnes med
+
+$$
+\frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \dots, \frac{\partial f}{\partial x_n}.
+$$
+Gradienten defineres som en naturlig udvidelse af den tidligere definition
+
+$$
+\nabla f(x,y) = 
+\begin{pmatrix}
+\frac{\partial f}{\partial x_1} \\ 
+\frac{\partial f}{\partial x_2} \\
+\vdots \\
+\frac{\partial f}{\partial x_n}
+ \end{pmatrix}.
+$$
+
+Helt analogt til før viser det sig, at gradienten peger i den retning, hvor funktionsværdien vokser mest. Og minus gradienten peger så altså i den retning, hvor funktionsværdien aftager mest. 
+
+Derfor kan vi igen gå i den negative gradients retning, når vi gerne vil minimere en tabsfunktion. Denne metode kaldes for øvrigt for *gradientnedstigning* eller på engelsk *gradient descent*.
