@@ -258,8 +258,7 @@ Start med at se denne video:
 
 Det er også muligt at bruge *kNN* uden selv at udvælge features. I stedet kan man bruge billederne fra tabellen i opgave 2 direkte. Se her hvordan man gør det:
 
-{{< video https://www.youtube.com/embed/A_8bR6rbIo0>}}
-
+{{< video https://www.youtube.com/embed/RsOu1pvqTFk>}}
 
 ::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 8: kNN i Orange baseret på billeder
