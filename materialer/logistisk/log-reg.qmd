@@ -33,6 +33,7 @@ tbl-cap-location: margin
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+En helt central tankegang i mange metoder inden for kunstig intelligens er, at man på baggrund af en masse *træningsdata* for eksempel gerne vil afgøre om en patient er syg eller ej. En populær metode til det er at bruge et kunstigt neuralt netværk, som er en slags black-box-metode, og som du kan læse mere om [her](../neurale_net/neurale_net.qmd). Men hvis man lige præcis bruger et særligt slags neuralt netværk med  et enkelt lag, er det faktisk ækvivalent med den meget ældre metode \"logistisk regression\", som vi gennemgår her, og som har den store fordel, at man kan forstå og fortolke modellen.
 
 Logistisk regression, i den betydning vi betragter i denne note, bruges, når man gerne vil modellere, hvordan en  sandsynlighed afhænger af en variabel.
 Som et eksempel forestiller vi os, at vi vil undersøge, hvordan sandsynligheden for at lide af hjerte-kar-sygdom afhænger af det systoliske blodtryk.
