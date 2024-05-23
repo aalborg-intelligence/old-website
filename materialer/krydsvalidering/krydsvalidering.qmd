@@ -352,10 +352,7 @@ det oprindelige data, men til gengæld er det dårligt til at forudsige
 nye dataværdier.
 
 Jo højere grad man vælger, at polynomiet skal have, desto bedre kan man
-tilnærme data. Med $n$ datapunkter (som alle have forskellige $x$-værdier), kan man faktisk altid finde et
-polynomium af grad $n-1$, der går igennem alle datapunkterne, men det er
-klart, at nye datapunkter ikke nødvendigvis følger dette polynomium
-særlig godt.
+tilnærme data. Med $n$ datapunkter (som alle have forskellige $x$-værdier), kan man faktisk altid finde et polynomium af grad $n-1$, der går igennem alle datapunkterne, men nye datapunkter vil ikke nødvendigvis følger dette polynomium særlig godt.
 
 ### Modelfleksibilitet
 
