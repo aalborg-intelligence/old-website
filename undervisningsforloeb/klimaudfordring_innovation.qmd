@@ -49,9 +49,22 @@ Forløbet er et tværfagligt samarbejde med dansk og kræver kendskab til:
 
 ![](klimaudfordring_innovation_filer/images/fn_verdensmaal.png)
 
+I dette forløb skal I få en genial idé til en innovativ anvendelse af AI, som kan være med til at løse et aspekt af klimakrisen. I formidlingen af jeres innovative anvendelse af AI skal I kunne præsentere nogle af idéerne bag AI og argumentere for den fordel, det kan give. 
+
+I skal overveje, hvor der i praksis er et område med betydning for klimakrisen og med adgang til store datamængder, hvor man eventuelt med fordel kan trække information ud af datamængderne ved at træne et kunstigt neuralt netværk.
+
+
+## Indhold og formål i matematik
+
+- At I bliver klædt på til at kunne skrive en formidlingsopgave i jeres kommende SRP med fagene dansk og matematik eller dansk i kombination med et naturvidenskabeligt fag.
+
+- At I øver jer i at skrive en smule stringent matematik med ræsonnementer baseret på et valg af et begrænset emne fra materialet her på siden (se anbefalinger nederst). I må gerne følge en kilde ret tæt, men I lære, at man demonstrerer forståelse ved at tilføje yderligere forklarende tekst og egne eksempler.
+
+ - At I får en overordnet forståelse for matematikken bag AI og kan formidle nogle af 
+de centrale idéer. 
+
+
 ## Opgaveformulering
-
-
 
 + Redegør for dele af matematikken bag kunstig intelligens og præsenter et forslag til en mulig innovativ anvendelse af kunstig intelligens indenfor emnet ”klimaforandringer”. 
 
@@ -61,6 +74,12 @@ Forløbet er et tværfagligt samarbejde med dansk og kræver kendskab til:
 
 + Begrund jeres valg i forbindelse med layout, sprogbrug samt nyheds- og relevanskriterier og vurdér hvordan artiklen kan bidrage til nye indsigter og handlemuligheder. 
 
-**Materiale i dansk:** [Changemaker-modellen](https://www.outdoortopia.org/the-changemaker-model).
 
-**Materiale i matematik:** [Perceptroner](../materialer/perceptron/perceptron.qmd), [sigmoid neuron](../materialer/sigmoid_neuron/sigmoid_neuron.qmd) og [kunstige neurale netværk](../materialer/neurale_net/neurale_net.qmd).
+## Materiale
+
+**Dansk:** [Changemaker-modellen](https://www.outdoortopia.org/the-changemaker-model).
+
+**Matematik:** [Perceptroner](../materialer/perceptron/perceptron.qmd), [sigmoid neuron](../materialer/sigmoid_neuron/sigmoid_neuron.qmd), [gradientnedstigning](../materialer/retningsafledede/retningsafledede.qmd) og [kunstige neurale netværk](../materialer/neurale_net/neurale_net.qmd).
+
+
+
