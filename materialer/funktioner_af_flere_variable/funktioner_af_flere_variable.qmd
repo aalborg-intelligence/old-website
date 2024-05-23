@@ -355,3 +355,7 @@ $$
 Helt analogt til før viser det sig, at gradienten peger i den retning, hvor funktionsværdien vokser mest. Og minus gradienten peger så altså i den retning, hvor funktionsværdien aftager mest. 
 
 Derfor kan vi igen gå i den negative gradients retning, når vi gerne vil minimere en tabsfunktion. Denne metode kaldes for øvrigt for *gradientnedstigning* eller på engelsk *gradient descent*.
+
+## Videre læsning
+
+- Forberedelsesmaterialet om \"Funktioner af to variable\" fra 2013. Ministeriet for børn og undervisning.
