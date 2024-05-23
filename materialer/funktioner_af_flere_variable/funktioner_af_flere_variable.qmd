@@ -42,32 +42,26 @@ Som sagt kender du allerede en hel del funktioner af én variabel. For eksempel 
 $$
 f(x)=a \cdot x+b.
 $$
-Ofte vil de lineære funktioner være defineret for alle de reelle tal. Man siger, at definitionsmængden er $\mathbb{R}$ og skriver
-
-$$
-Dm(f)=\mathbb{R}.
-$$
 Grafen for $f$ består af alle de punkter $(x,y)$, hvor $y=f(x)$. Det er illustreret på @fig-graf_lin.
 
 ![Grafen for en lineær funktion $f(x)=ax+b$, hvor det er illustreret at et punkt $(x,y)$ ligger på grafen for $f$, hvis $y=f(x)$.](images/graf_lin.png){width=75% #fig-graf_lin}
 
 
 
-Hvis definitionsmængden for $f$ er $\mathbb{R}$, så vil funktionsværdierne for alle de lineære funktioner også kunne \"ramme\" alle reelle tal (med mindre $a=0$). Mere formelt siger man, at værdimængden for funktionen også er $\mathbb{R}$. Det skrives
-
-$$
-Vm(f)=\mathbb{R}
-$$
-Samlet set kan man skrive det sådan her
+Hvis funktionen $f$ tager et reelt tal som input og giver et reelt tal som output[^1], så skriver man
 
 $$
 f: \mathbb{R} \rightarrow \mathbb{R}.
 $$ 
-Det betyder, at funktionen $f$ tager et reelt tal som input og giver et reelt tal som output. Du har måske også været vant til at se en \"maskine-metafor\", som illustreret på @fig-maskine.
+Du har måske også været vant til at se en \"maskine-metafor\", som illustreret på @fig-maskine.
+
+[^1]: Værdimængden for funktionen behøver ikke at være hele $\mathbb{R}$, men kan godt bare være en delmængde af $\mathbb{R}$.
 
 ![Funktionen $f$ illustreret som en maskine.](images/maskine.png){width=75% #fig-maskine}
 
-Her er tanken, at man sender et $x$ ind i funktionsmaskinen, som så ved hjælp af forskriften for $f$ beregner funktionsværdi $y=f(x)$, som herefter bliver sendt ud af maskinen. 
+Her er tanken, at man sender et $x$ ind i funktionsmaskinen, som så ved hjælp af forskriften for $f$ beregner funktionsværdi $y=f(x)$, som herefter bliver sendt ud af maskinen[^3]. 
+
+[^3]: Faktisk er det ikke alle funktioner, som har en forskrift. For eksempel er der ikke nødvendigvis en forskrift for den funktion, hvis graf ses til venstre i @fig-grafer. Her vil man i stedet kunne aflæse en funktionsværdi for en given værdi af $x$. En anden mulighed er, at funktionsværdien skal findes i en tabel.
 
 For at der overhovedet er tale om en funktion, skal det være sådan, at der til enhver værdi af $x$ svarer én og kun én funktionsværdi $f(x)$. Så hvis man for eksempel sender $x=2$ ind i maskinen, så må funktionen ikke nogle gange sende $y=5$ ud og andre gange $y=-3$. Hvis $x=2$ kommer ind, så skal det altid være den samme funktionsværdi, der kommer ud.
 
@@ -78,7 +72,7 @@ Grafisk er det illustreret på @fig-grafer.
 
 ## Funktioner af to variable
 
-Idéen med funktioner af to variable er en funktion $f$, som ikke kun afhænger af en $x$-værdi, men også af en $y$-værdi. Her er et eksempel:
+Idéen med funktioner af to variable er en funktion $f$, som skal bruge to tal som input for at give et output. Vi kalder her de to inputværdier for $x$ og $y$. Her er et eksempel:
 
 $$
 f(x,y)= 2x^2-y^2+3xy+1.
@@ -94,7 +88,7 @@ f(1,-2)&=2\cdot 1^2-(-2)^2+3 \cdot 1 \cdot (-2)+1 \\
 $$
 Det betyder, at punktet $P(1,-2,-7)$ ligger på grafen for $f$. Grafen for $f$ og punktet $P$ ses i @fig-graf2.
 
-![Grafen for funktionen $f$ med forskrift $f(x)=2x^2-y^2+3xy+1$ samt punktet $P(1,-2,-7)$.](images/graf2.png){width=75% #fig-graf2}
+![Grafen for funktionen $f$ med forskrift $f(x,y)=2x^2-y^2+3xy+1$ samt punktet $P(1,-2,-7)$.](images/graf2.png){width=75% #fig-graf2}
 
 Vi kan igen bruge \"maskine-metaforen\" for funktioner af to variable, som illustreret i @fig-maskine2.
 
@@ -102,7 +96,7 @@ Vi kan igen bruge \"maskine-metaforen\" for funktioner af to variable, som illus
 
 For at vi kan tale om, at det er en funktion, kræver vi igen, at der til enhver værdi af $(x,y)$ svarer én og kun én funktionsværdi $z=f(x,y).$ Maskinen skal altså altid returnere den samme funktionsværdi for en given værdi af $(x,y)$.
 
-Hvis en funktion $f$, som input kan tage en hvilken som helst $(x,y)$-værdi, siger vi, at definitionsmængden for $f$ er $\mathbb{R}^2$. Og hvis funktionen kan \"ramme\" en hvilken som helst funktionsværdi $z$, siger vi, at værdimængden er $\mathbb{R}$. Samlet set skriver vi
+Hvis en funktion $f$, som input kan tage en $(x,y)$-værdi, og som output giver en funktionsværdi $z$, skriver vi
 
 $$
 f: \mathbb{R}^2 \rightarrow \mathbb{R}.
@@ -113,12 +107,14 @@ Her indikerer $2$-tallet altså, at der er tale om en funktion af *to* variable.
 
 ### Snitfunktioner og snitkurver
 
-Hvis man for en funktion af to variable fastholder enten $x$ eller $y$ på en bestemt værdi, fås en funktion af én variabel, som kaldes for en *snitfunktion*. Fastholder vi for eksempel $y$ på værdien $y_0$ fås snitfunktionen
+Vi vil nu for en funktion af to variable tage udgangspunkt i et konkret punkt $(x_0, y_0, f(x_0,y_0)$.  Forestil dig at vi laver et lodret snit parallel med $x$-aksen ned gennem grafen for $f$. Det er lidt ligesom, at lave et snit ned gennem en lagkage! Et eksempel er vist i @fig-graf_snitkurve_y. Den lyseblå plan svarer til den lagkagekniv, vi har skåret med, og den skærer altså lodret og er samtidig parallel med $x$-aksen.
+
+Når man laver sådan et lodret snit med grafen for $f$, så kalder man skæring mellem den lodrette plan (lagkagekniven) og grafen for $f$ for en *snitkurve*. Snitkurven er markeret med sort på @fig-graf_snitkurve_y. Den funktion, hvis graf svarer til snitkurven, kaldes for en *snitfunktion*. Forskriften for snitfunktionen fås ved, at vi fastholder $y$-værdien på  $y_0$ og lader $x$ varierer:
 
 $$
-g(x)=f(x,y_0)
+g(x)=f(x,y_0).
 $$
-og tilsvarende, hvis vi fastholder $x$ på værdien $x_0$ fås snitfunktionen
+Vi kan også lave et lodret snit gennem $(x_0,y_0,f(x_0,y_0))$, men hvor snittet i stedet er parallel med $y$-aksen -- se @fig-graf_snitkurve_x. Det svarer til, at vi fastholder $x$ på værdien $x_0$ og lader $y$ variere. Gør vi det fås snitfunktionen
 
 $$
 h(y)=f(x_0,y).
@@ -160,24 +156,33 @@ Fra funktioner af én variabel ved vi, at nogle funktioner er differentiable. De
 Lad os forklare det lidt nærmere. Snitfunktionen $g(x)=f(x,y_0)$ er jo en \"almindelig\" funktion af én variabel $x$. Hvis $g$ er differentiabel, så kalder man $g'(x)$ for den *partielle afledede af $f$ med hensyn til $x$*. Notationen for den partielle afledede af $f$ med hensyn til $x$ er som regel en af følgende:
 
 $$
-g'(x)=f_x'(x,y)=\frac{\partial f}{\partial x}=\frac{\partial}{\partial x}f(x,y),
+g'(x)=f_x'(x,y_0)=\frac{\partial f}{\partial x}=\frac{\partial}{\partial x}f(x,y_0),
 $$
 
-hvor man her tænker $y$ som værende en konstant fastholdt på en bestemt værdi (for eksempel $y_0$).
+hvor $y_0$ her er en konstant.
 
-Ser vi igen på vores eksempel
+Ser vi igen på vores eksempel, får vi
 
 $$
-f(x,y)= 2x^2-y^2+3xy+1.
+f(x,y_0)= 2x^2-y_0^2+3xy_0+1.
 $$
 Så vil den partielle afledede med hensyn til $x$ være
 
 $$
-f_x'(x,y)=2 \cdot 2x-0 + 3 \cdot 1 \cdot y + 0 = 4x+3y.
+f_x'(x,y_0)=2 \cdot 2x-0 + 3 \cdot 1 \cdot y_0 + 0 = 4x+3y_0.
 $$
-Bemærk her, at $y^2$ differentieret bliver $0$, fordi vi skal betragte $y$ som en konstant, og en konstant, som er lagt til, bliver som bekendt $0$, når vi differentierer. Når vi skal differentiere udtrykket $3xy$, så er $y$ en konstant, som er ganget på og derfor lader vi den stå, når vi differentierer (ligesom vi lader $3$-tallet stå og differentierer $x$, som giver $1$).
+Bemærk her, at $y_0^2$ differentieret bliver $0$, fordi $y_0$ er en konstant, og en konstant, som er lagt til, bliver som bekendt $0$, når vi differentierer. Når vi skal differentiere udtrykket $3xy_0$, så er $y_0$ en konstant, som er ganget på, og derfor lader vi den stå, når vi differentierer (ligesom vi lader $3$-tallet stå og differentierer $x$, som giver $1$).
 
-Når vi finder den partielle afledede ovenfor, så gør vi det helt generelt, hvor vi bare tænker på $y$ som en konstant. Tidligere fastholdt vi $y$ på værdien $-2$. Indsætter vi $y=-2$ i ovenstående udtryk for $f_x'(x,y)$ får vi
+Normalvis gider man ikke slæbe rundt på $y_0$ i ovenstående udtryk, fordi $y_0$ jo kan være en hvilken som helst værdi. Derfor skriver man som oftest bare 
+
+$$
+f_x'(x,y)=4x+3y.
+$$
+
+
+Når vi finder den partielle afledede med hensyn til $x$, kan vi altså gøre det helt generelt, hvor vi bare tænker på $y$ som en konstant. 
+
+Tidligere fastholdt vi $y$ på værdien $-2$. Indsætter vi $y=-2$ i ovenstående udtryk for $f_x'(x,y)$ får vi
 
 $$
 f_x'(x,-2)=4x+3 \cdot (-2)=4x-6.
@@ -196,19 +201,25 @@ der heldigvis svarer til udtrykket for $f_x'(x,-2)$, som vi netop har fundet.
 Helt tilsvarende definerer vi den *partielle afledede af $f$ med hensyn til $y$* ved at differentiere snitfunktionen $h(y)$ (såfremt denne snitfunktion er differentiabel):
 
 $$
-h'(y)=f_y'(x,y)=\frac{\partial f}{\partial y}=\frac{\partial}{\partial y}f(x,y).
+h'(y)=f_y'(x_0,y)=\frac{\partial f}{\partial y}=\frac{\partial}{\partial y}f(x_0,y).
 $$
 Ser vi igen på
 $$
-f(x,y)= 2x^2-y^2+3xy+1,
+f(x_0,y)= 2x_0^2-y^2+3x_0y+1,
 $$
 så vil den partielle afledede med hensyn til $y$ være
 
 $$
-f_y'(x,y)=0-2y+3x\cdot 1+0=3x-2y.
+f_y'(x_0,y)=0-2y+3x_0\cdot 1+0=3x_0-2y.
 $$
 
-Her er $x$ altså at betragte som en konstant, og derfor er $2x^2$ differentieret $0$ og $3xy$ differentieret med hensyn til $y$ bliver $3x$.
+Her er $x_0$ en konstant, og derfor er $2x_0^2$ differentieret $0$, og $3x_0y$ differentieret med hensyn til $y$ bliver $3x_0$.
+
+Igen vil vi som oftest bare skrive
+
+$$
+f_y'(x,y)=3x-2y.
+$$
 
 ### Grafisk betydning af de partielle afledede
 
@@ -223,11 +234,11 @@ $$
 Den partielle afledede med hensyn til $x$ er så
 
 $$
-g'(x)=f_x'(x,y_0),
+g'(x)=f_x'(x,y_0).
 $$
-hvor vi her har tydeliggjort, at $y=y_0$. Men nu må $g'(x_0)$ være hældningen for tangenten til grafen for snitfunktionen $g$ i punktet $(x_0,g(x_0))$. 
+Men nu må $g'(x_0)$ være hældningen for tangenten til grafen for snitfunktionen $g$ i punktet $(x_0,g(x_0))$. 
 
-Lad os illustrere det med vores eksempel hvor $f(x,y)= 2x^2-y^2+3xy+1$. Her fandt vi, at
+Lad os illustrere det med vores eksempel hvor $f(x,y)= 2x^2-y^2+3xy+1$. Her er
 
 $$
 f_x'(x,y)=4x+3y.
@@ -293,24 +304,29 @@ $$
  \end{pmatrix}
 $$
 
-Tegner vi en repræsentant for denne vektor i $xy$-planen med udgangspunkt i punktet $Q(1,-2,0)$ (som er projektionen af $P(1,-2,-7)$ op på $xy$-planen) ses resultatet i @fig-graf_gradient.
+Tegner vi en repræsentant for denne vektor i $xy$-planen med udgangspunkt i punktet $Q(1,-2,0)$ (som er projektionen af $P(1,-2,-7)$ op på $xy$-planen) ses resultatet i @fig-graf_gradient. Gradienten angiver altså en retning i $xy$-planen, og laver man et lodret snit i denne retning fås igen en snitkurve, som også ses indtegnet med sort på @fig-graf_gradient.
 
 ![En repræsentant for vektoren $\nabla f(1,-2)$ er tegnet med udgangspunkt i $P(1,-2,7)$'s projektion på $xy$-planen.](images/graf_gradient.png){width=75% #fig-graf_gradient}
 
-Det er jo alt sammen fint nok, men hvad skal man mon bruge det til? Det er nemmest at forklare, hvis du forestiller dig, at grafen for $f$ er et landskab, hvor du står i punktet $P(x_0,y_0,f(x_0,y_0))$. Så viser det sig, at gradienten $\nabla f(x_0,y_0)$ peger i den retning, hvor funktionsværdien vokser mest. Det vil altså sige, at hvis du står i $P$ og gerne vil gå allermest opad bakke, så skal du gå i gradientens retning. Omvendt vil det også være sådan, at hvis du vil bevæge dig allermest nedad bakke, så skal du gå i retningen $-\nabla f(x_0,y_0)$ (det svarer til, at du lige have vendt dig rundt $180^{\circ}$ i forhold til den retning, som gradienten peger i). Beviset for at det forholder sig sådan, kan du læse [her](../retningsafledede/retningsafledede.qmd).
+Det er jo alt sammen fint nok, men hvad skal man mon bruge det til? Det er nemmest at forklare, hvis du forestiller dig, at grafen for $f$ er et landskab, hvor du står i punktet $P(x_0,y_0,f(x_0,y_0))$. Så viser det sig, at gradienten $\nabla f(x_0,y_0)$ peger i den retning, hvor funktionsværdien vokser mest. Det vil altså sige, at hvis du står i $P$ og gerne vil gå allermest opad bakke, så skal du gå i gradientens retning. Det svarer derfor til at følge den snitkurve, som er markeret på @fig-graf_gradient. Snitkurven angiver altså den \"sti\" på bakken, hvor det i punktet $P$ går mest opad.
 
-Fint nok tænker du måske, men hvem gider at gå allermest opad bakke? Se det er her, at det fine kommer ind i billedet og grunden til, at vi overhovedet gider tale om funktioner er flere variable i forbindelse med kunstig intelligens. I rigtig mange metoder inden for kunstig intelligens skal \"den kunstige intelligens\" trænes for at blive god[^1]. Eksempler er [kunstige neurale netværk](../neurale_net/neurale_net.qmd), [perceptroner](../perceptron/perceptron.qmd) og [sigmoid neuroner](sigmoid_neuron/sigmoid_neuron.qmd), som du kan læse meget mere om senere. Ser vi for eksempel på et kunstigt neuralt netværk, så kan det grundlæggende ingenting til at starte med. Men så giver man netværket nogle *træningsdata*, så det gradvist kan blive bedre. Det er her, at man siger, at man *træner* netværket. Det foregår ved, at man definerer en såkaldt *tabsfunktion*. Den måler basalt set, hvor godt netværket er lige nu. Man ønsker at tabsfunktionen skal minimeres (lille tab = godt netværk). Det kan være en meget kompliceret opgave, hvis man analytisk skal bestemme minimum for en sådan tabsfunktion, og det er lige præcis her, at gradienten kommer ind i billedet. Man starter nemlig et tilfældigt sted på grafen for tabsfunktionen (svarende til at man stiller sig i et punkt $P$ på grafen for en funktion $f$). Så udregner man gradienten, og da man gerne vil finde minimum for tabsfunktionen, så går man et lille skridt i den negative gradients retning. For vi ved jo netop, at det er den retning, vi skal gå i, hvis vi gerne vil gå i den retning, hvor funktionsværdien falder mest (og det er jo smart, hvis man gerne vil ende i et minimum). Så står man i et nyt punkt på grafen, udregner gradienten i det nye punkt og går så et lille skridt i denne gradients negative retning. Sådan fortsætter man indtil man har fundet minimum eller noget der er tæt på (eller måske bare \"godt nok\" -- det kan nemlig godt være et lokalt minimum, man rammer ind i). Se det er faktisk *the backbone* i nogle af de mest populære og moderne metoder inden for kunstig intelligens, som anvendes i dag!
+Omvendt vil det også være sådan, at hvis du vil bevæge dig allermest nedad bakke, så skal du gå i retningen $-\nabla f(x_0,y_0)$ (det svarer til, at du lige har vendt dig rundt $180^{\circ}$ i forhold til den retning, som gradienten peger i). Beviset for at det forholder sig sådan, kan du læse [her](../retningsafledede/retningsafledede.qmd).
 
-[^1]: Og nu tænker du nok, at det er derfor, at man skal gå opad bakke, men det er alligevel ikke helt sådan det forholder sig :blush:.
+Fint nok tænker du måske, men hvem gider at gå allermest opad bakke? Se det er her, at det fine kommer ind i billedet og grunden til, at vi overhovedet gider tale om funktioner er flere variable i forbindelse med kunstig intelligens. I rigtig mange metoder inden for kunstig intelligens skal \"den kunstige intelligens\" trænes for at blive god[^2]. Eksempler er [kunstige neurale netværk](../neurale_net/neurale_net.qmd), [perceptroner](../perceptron/perceptron.qmd) og [sigmoid neuroner](sigmoid_neuron/sigmoid_neuron.qmd), som du kan læse meget mere om senere. 
+
+Ser vi for eksempel på et kunstigt neuralt netværk, så kan det grundlæggende ingenting til at starte med. Men så giver man netværket nogle *træningsdata*, så det gradvist kan blive bedre. Det er her, at man siger, at man *træner* netværket. Det foregår ved, at man definerer en såkaldt *tabsfunktion*. Den måler basalt set, hvor godt netværket er lige nu. Man ønsker at tabsfunktionen skal minimeres (lille tab = godt netværk). Det kan være en meget kompliceret opgave, hvis man analytisk skal bestemme minimum for en sådan tabsfunktion, og det er lige præcis her, at gradienten kommer ind i billedet. Man starter nemlig et tilfældigt sted på grafen for tabsfunktionen (svarende til at man stiller sig i et punkt $P$ på grafen for en funktion $f$). Så udregner man gradienten, og da man gerne vil finde minimum for tabsfunktionen, så går man et lille skridt i den negative gradients retning. For vi ved jo netop, at det er den retning, vi skal gå i, hvis vi gerne vil gå i den retning, hvor funktionsværdien falder mest (og det er jo smart, hvis man gerne vil ende i et minimum). Så står man i et nyt punkt på grafen, udregner gradienten i det nye punkt og går så et lille skridt i denne gradients negative retning. Sådan fortsætter man, indtil man har fundet minimum eller noget, der er tæt på (eller måske bare \"godt nok\" -- det kan nemlig godt være et lokalt minimum, man rammer ind i). Se det er faktisk *the backbone* i nogle af de mest populære og moderne metoder inden for kunstig intelligens, som anvendes i dag!
+
+[^2]: Og nu tænker du nok, at det er derfor, at man skal gå opad bakke, men det er alligevel ikke helt sådan det forholder sig :blush:.
 
 
 ## Funktioner af flere variable
 
-Vi har lige redegjort for, at gradienten er helt central i forbindelse med minimering af tabsfunktioner. Men faktisk vil det være sådan, at tabsfunktioner i virkeligheden ikke kun afhænger af to, men derimod af millioner af variable! Derfor har man helt generelt brug for at se på funktioner af flere variable end to. Vi kalder input-værdierne til funktionen $(x_1, x_2, \dots , x_n)$ og man taler så om en *funktion* af $n$ variable, hvis der for enhver værdi af $(x_1, x_2, \dots , x_n)$ svarer én og kun én funktionsværdi:
+Vi har lige redegjort for, at gradienten er helt central i forbindelse med minimering af tabsfunktioner. Men faktisk vil det være sådan, at tabsfunktioner i virkeligheden ikke kun afhænger af to, men derimod af millioner af variable! Derfor har man helt generelt brug for at se på funktioner af flere variable end to. Vi kalder input-værdierne til funktionen $(x_1, x_2, \dots , x_n)$, og man taler så om en *funktion* af $n$ variable, hvis der for enhver værdi af $(x_1, x_2, \dots , x_n)$ svarer én og kun én funktionsværdi:
 $$
 y = f(x_1, x_2, \dots, x_n).
 $$
-Hvis der ikke er nogle begrænsninger på defintions- og værdimængden vil man skrive
+
+Man skriver derfor
 
 $$
 f: \mathbb{R}^n \rightarrow \mathbb{R},
