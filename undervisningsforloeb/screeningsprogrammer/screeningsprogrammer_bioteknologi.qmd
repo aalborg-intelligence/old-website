@@ -1,0 +1,136 @@
+---
+title: "Screeningsprogrammer - bioteknologi"
+description: ""
+
+image: "images/gen.jpg"
+
+format:
+    html: 
+      self-contained: true
+      toc: true
+      toc-title: Indhold
+      toc-location: left
+      link-external-newwindow: true
+categories:
+  - A-niveau
+  - Bioteknologi
+crossref:
+  fig-prefix: figur   # (default is "Figure")
+  tbl-prefix: tabel    # (default is "Table")
+  exm-prefix: eksempel
+  thm-prefix: sætning
+  sec-prefix: afsnit
+  eq-prefix: ''
+  fig-title: Figur
+  exm-title: Eksempel
+  thm-title: Sætning
+  tbl-title: Tabel
+label:
+    fig: Figur
+fig-cap-location: margin
+tab-cap-location: margin
+execute:
+  echo: false
+  warning: false
+---
+
+Der tages udgangspunkt i afsnittet om kræft i  [Bioteknologi A - bind 3](https://nucleus.dk/boeger/trykte-boeger/bioteknologi-a-bind-3-detaljer), men en tilsvarende bog om emnet kan selvfølgelig anvendes.
+
+::: {.callout-note collapse="true" appearance="minimal"}
+### Modul 1 - Hvad er kræft?
+
+#### Materiale
+
+- [Bioteknologi A - bind 3, side 226](https://bioteknologia3.ibog.nucleus.dk/?id=226)
+- [Bioteknologi A - bind 3, side 213](https://bioteknologia3.ibog.nucleus.dk/?id=213)
+- [Bioteknologi A - bind 3, side 214](https://bioteknologia3.ibog.nucleus.dk/?id=214)
+
+
+#### Arbejdsspørgsmål til teksten
+
+1. Hvad er forskellen mellem en godartet og en ondartet svulst?
+2. Hvordan spreder godartede svulster sig i kroppen sammenlignet med ondartede svulster?
+3. Hvordan er godartede svulster ofte omkredset, og hvad betyder det for deres behandling?
+4. Hvordan kan ondartede svulster sprede sig i kroppen, hvad kaldes denne proces?
+5. Hvilken behandlingsudfordring står læger over for, når det kommer til ondartede svulster, som ikke er til stede ved godartede svulster?
+6. Hvorfor kan det være svært at fjerne alle kræftceller ved en operation, når der er metastaser til stede?
+7. Hvilke alternative behandlingsformer kan anvendes til at bekæmpe kræft, når operation ikke er tilstrækkelig?
+8. Hvad er betydningen af at opdage kræft tidligt for patientens overlevelseschancer?
+9. Hvordan opstår kræft gradvist ifølge beskrivelsen?
+10. Hvilken rolle spiller mutationer i udviklingen af kræft?
+11.	Hvordan påvirker hver ny mutation cellens vækstmønster?
+12.	Hvordan ændrer cellens udseende sig over tid -- inddrag figur 416 og 417?
+13.	Hvordan adskiller kræftceller sig fra normale celler -- inddrag figur 417?
+14.	Hvordan bidrager den reducerede tid i G1-fasen af cellecyklussen til cellens mindre størrelse?
+15.	Hvordan påvirker fejlregulerede gener, såsom oncogener og tumorsuppressorgener, udviklingen af kræft?
+16.	Hvordan kan forståelsen af disse geners funktion bidrage til kræftscreeninger?
+
+:::
+
+::: {.callout-note collapse="true" appearance="minimal"}
+### Modul 2 - Genetik?
+
+#### Materiale
+
+- [Bioteknologi A - bind 3, side 215](https://bioteknologia3.ibog.nucleus.dk/?id=215)
+- [Bioteknologi A - bind 3, side 216](https://bioteknologia3.ibog.nucleus.dk/?id=216)
+
+
+#### Arbejdsspørgsmål til teksten
+
+1. Hvad adskiller et oncogen fra et proto-oncogen?
+2. Hvordan kan mutationer i proto-oncogenet føre til dannelse af et oncogen?
+3. Hvad er restriktionspunktet, hvordan påvirker ændringer i kontrol af dette punkt udviklingen af kræft?
+4. Hvordan kan kromosomtranslokationer eller genamplifikationer føre til dannelse af oncogener?
+5. Hvad er RAS-proteiner?
+6. Hvordan påvirker aktiverende mutationer i RAS-proto-oncogener udviklingen af kræft?
+7. Hvordan påvirker mutationer i MYC-gener celledelinger og regulering af restriktionspunktet?
+8. Hvordan fungerer Myc som en transskriptionsfaktor?
+9. Hvordan kan forståelsen af oncogener som RAS og MYC bidrage til udviklingen af kræftbehandling?
+10. Hvad er funktionen af et tumorsuppressorgen?
+11.	Hvad sker der, hvis et tumorsuppressorgen inaktiveres?
+12.	Hvilken genetiske ændring skal der til for at et tumorsuppressorgen mister sin funktion?
+13.	Hvad er p53, og hvorfor er det et vigtigt protein i forbindelse med kræft?
+14.	Hvad er de tre hovedfunktioner af p53?
+15.	Hvordan aktiveres p53 -- inddrag figur 422?
+16.	Hvordan reguleres nedbrydningen af p53 normalt?
+17.	Hvorfor betragtes p53 som \"genomets vogter\"?
+
+
+:::
+
+::: {.callout-note collapse="true" appearance="minimal"}
+### Modul 3 - Artiklens metode og resultater
+
+#### Materiale
+[Novel Blood-Based, Five-Gene Biomarker Set for the Detection of Colorectal Cancer](https://aacrjournals.org/clincancerres/article/14/2/455/196149/Novel-Blood-Based-Five-Gene-Biomarker-Set-for-the)
+
+#### Arbejdsspørgsmål til teksten
+
+1. Hvor mange personer blev inkluderet i studiet?
+2. Hvordan blev de fordelt mellem kontrolgruppen og CRC-patientgruppen?
+3. Hvad var formålet med at opdele prøverne i tre sæt?
+4. Hvordan blev gener med forskelligt grad af udtryk identificeret i mikroarray-dataene?
+5. Hvordan blev ændringer i genudtryk beregnet for PCR-resultaterne?
+6. Hvilke forskelle sås mellem kontrol- og CRC-patientgrupper?
+7. Hvilke fordele er der ved at bruge fx fem markører – hvilke ulemper kan der være ved at have flere eller færre?
+8. Overvej hvilken betydning det kan have, at der er falske negative resultater
+      a) For den enkelte
+      b) For samfundet
+
+:::
+
+::: {.callout-note collapse="true" appearance="minimal"}
+### Modul 4 - Samlet opgave 
+
+I dette modul samles sammen på indholdet fra de foregående timer, og der skrives en kort opgave med følgende opgaveformulering:
+
+
+- Redegør for hvordan kræft kan opstå, og hvilke genetiske ændringer der ses i forbindelse med udvikling af tumorer.
+- Kom ind på betydningen af tidlig diagnosticering og i denne sammenhæng screeningsprogrammer.
+- Vurdér hvilke fordele og ulemper der er ved artiklens metode i forhold til tidligere metoder til at screene for CRC.
+- Analyser artiklens resultater og diskuter om genetisk test kan stå alene eller skal være et supplement.
+
+
+
+:::
