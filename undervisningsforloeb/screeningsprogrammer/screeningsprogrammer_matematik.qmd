@@ -2,7 +2,7 @@
 title: "Screeningsprogrammer - matematik"
 description: ""
 
-image: "images/taethedsfunktioner.jpg"
+image: "images/taethedsfunktioner.png"
 
 format:
     html: 
