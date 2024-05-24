@@ -312,6 +312,9 @@ I tabellen angiver $y=1$ forhøjet blodtryk, mens $y=0$ angiver normalt blodtryk
 
 :::
 
+I næste afsnit ser vi på, hvordan man kan finde et funktionsudtryk for $p(x)$ i den logistiske regressionsmodel.
+
+
 ## Logit-funktionen og den logistiske funktion
 Når vi tager den naturlige logaritme til oddsene, får vi
 $$
@@ -620,12 +623,14 @@ $$
 L(a,b) = p_1(a,b) \cdot p_2(a,b)\cdot \dotsm \cdot p_n(a,b).
 $${#eq-L}
 Da $\ln(x)$ er en voksende funktion, vil $L(a,b)$ have maksimum for de samme værdier af $a$ og $b$ som den sammensatte funktion $l(a,b)=\ln(L(a,b))$.
-Det er altså nok at finde de værdier af $a$ og $b$, der maksimerer $l(a,b)$.
+Det er altså nok at finde de værdier af $a$ og $b$, der maksimerer $l(a,b)$. 
 
 Tager vi logaritmen i (@eq-L) og bruger logaritmeregnereglen $\ln(a\cdot b) = \ln(a) + \ln(b)$, får vi
 $$
 l(a,b)=\sum_{i=1}^n \ln(p_i(a,b)).
 $${#eq-lab}
+Vi ser her, at logaritmen laver produktet i likelihoodfunktionen om til en sum -- og summer er nemmere at regne på end produkter (for eksempel når vi senere skal differentiere).
+
 Vi fandt i (@eq-pi), at
 $$
 p_i(a,b)=p(x_i)^{y_i}\cdot (1-p(x_i))^{1-y_i}.
@@ -850,6 +855,10 @@ Vil du prædiktere, at brugeren klikker på reklamen?
 :::
 
 
+Hvis du vil læse mere om sammenhæng mellem logistisk regression og logistisk vækst, kan du folde boksen nedenfor ud.
+
+::: {.callout-tip collapse="true" appearance="minimal"}
+
 ## Sammenhæng mellem logistisk regression og logistisk vækst
 Hvis du har hørt om logistisk vækst og logistisk regression, spekulerer du måske over, om der er en sammenhæng mellem de to begreber.
 Vi skal nu se, at der i nogle anvendelser faktisk er en sammenhæng.
@@ -890,3 +899,4 @@ Det er dog ikke ved alle eksempler, det er muligt at lave denne kobling mellem d
 Logistisk vækst vedrører en udvikling i tid, dvs. $x$-variablen skal angive tid.
 Desuden skal udviklingen foregå i en population af fast størrelse $M$. 
 
+:::

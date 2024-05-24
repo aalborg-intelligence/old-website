@@ -386,7 +386,7 @@ w_0 = \ln \left(\frac{P(Y = 0)}{P(Y = 1)}\right)$$
 
 Hvis du vil se en mere teoretisk begrundelse for dette valg, kan du folde boksen nedenfor ud.
 
-::: {.callout-note collapse="true" appearance="minimal"}
+::: {.callout-tip collapse="true" appearance="minimal"}
 ### Teoretisk begrundelse for hvordan $P(Y=0)$ kan estimeres
 
 Vi ønsker at bestemme det bedst mulige estimat for $p=P(Y=0)$ ud fra vores træningsdata. Vi vil her tænke på resultaterne fra datasættet som kommende fra et binomialforsøg med sandsynligheds\-parameter $p$ og antalsparameter $n$. I eksemplet kan vi derfor lade $Z$ være en stokastisk variabel, der betegner antallet, som stemmer på rød blok. Det vil sige, at

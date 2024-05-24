@@ -41,7 +41,7 @@ Når $K$-means metoden bruges, er målet at inddele nogle observationer i gruppe
 På @fig-kmeansbil til venstre ses en række punkter, hvor vi ønsker at inddele punkterne i 3 grupper. Man kan nok godt få en idé om, hvordan grupperne kan laves alene ved at se på billedet til venstre. På @fig-kmeansbil til højre ses et bud på en løsning, som ser fornuftig ud, men ved nogle punkter tænker man nok alligevel lidt, om de nu skulle have været i den orange eller blå gruppe. Når vi arbejder med $K$-means, så er idéen, at vi ikke på forhånd har nogle observationer, hvor vi *ved* hvilken gruppe, de tilhører. Med andre ord har vi altså ikke et træningsdatasæt at gå ud fra her. Derfor taler man også om *unsupervised learning*. Det eneste, vi ved om vores punkter i @fig-kmeansbil, er deres $x$- og $y$-koordinat og ud fra det, skal vi så prøve at danne nogle grupper. Antallet af grupper ved man faktisk heller ikke nødvendigvis noget om -- så her er det et valg, at vi har besluttet at prøve at inddele data i 3 grupper. Det kunne i princippet lige så godt have været 2 eller 4 grupper eller noget helt andet! 
 
 
-Observationerne vil vi her kalde for  $\vec{x_1}, \vec{x_2},....,\vec{x_n}$, så der ialt er $n$ observationer.
+Observationerne vil vi her kalde for  $\vec{x_1}, \vec{x_2},....,\vec{x_n}$, så der i alt er $n$ observationer.
 Hver observation er et punkt med $d$ koordinater (som dog behandles, som var det vektorer/stedvektorer), og som udgangspunkt benyttes [euklidisk afstand](../afstande/AfstandeMellemPunkteriPlanen.qmd#sec-euklidisk_afstand) til at bestemme afstand mellem punkter. I eksemplet i @fig-kmeansbil er $d=2$, fordi alle punkter i planen har 2 koordinater.
 
 Givet et heltal $k$, så ønsker vi at opdele de $n$ observationer
