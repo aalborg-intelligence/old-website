@@ -38,6 +38,17 @@ execute:
   warning: false
 ---
 
+::: {.callout-tip collapse="true" appearance="minimal"}
+### Forudsætninger og tidsforbrug
+Forløbet kræver kendskab til:
+
++ Differentialregning
++ Optimering
+
+**Tidsforbrug:** Ca. 90 minutter.
+
+:::
+
 ## Hvad er et kunstigt neuralt netværk?
 
 SCREENCAST om neurale netværk - uden at det bliver for teknisk.
@@ -60,7 +71,7 @@ I alt 10 elever er under mistanke. Det drejer sig om:
 +	Valdemar
 +	Victoria
 
-Politiet har taget syv forskellige fingeraftryk fra hver elev. På skolen har man i forskellige lokaler også fundet fingeraftryk - man ved bare ikke, hvem fingeraftrykkene stammer fra. 
+Politiet har taget syv forskellige fingeraftryk fra hver elev (data findes [her](opklar_et_mord_filer/Træningsdata.zip)). På skolen har man i forskellige lokaler også fundet fingeraftryk - man ved bare ikke, hvem fingeraftrykkene stammer fra (data findes [her](opklar_et_mord_filer/Testdata.zip)). 
 
 Alle fingeraftryk, som er fundet i lokalerne, er nummeret fra 101-110. Fingeraftrykkene er fundet i følgende lokaler:
 
@@ -70,6 +81,8 @@ Alle fingeraftryk, som er fundet i lokalerne, er nummeret fra 101-110. Fingeraft
 | 109 | 106 | 105 | 108 | 110 |
 
 I skal nu ud fra fingeraftrykkene hjælpe politiet med at afgøre, hvem der har befundet sig i de forskellige lokaler. 
+
+Vi skal her gøre opmærksom på, at det, vi gør her, *ikke* er sådan politiet arbejder med fingeraftryk. Dette er flot for at vise, hvordan man *kunne* bruge kunstig intelligens. 
 
 ::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 1: Træn forskellige neurale netværk
