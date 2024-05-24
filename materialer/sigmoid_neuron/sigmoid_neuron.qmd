@@ -38,6 +38,8 @@ execute:
   warning: false
 ---
 
+Hvis du ikke har læst noten om [perceptroner](../perceptron/perceptron.qmd), anbefaler vi, at du starter med at læse den. Alternativt kan du se vores fire [videoer om perceptroner](https://www.youtube.com/watch?v=1WTZZCx-pRY&list=PLIdWoTbMPdkBdcpyMZYpBkQzRUsSHYXoP).
+
 ## Kan vi gøre det bedre end ADALINE?
 
 I noten om [perceptroner](../perceptron/perceptron.qmd) beskrev vi [perceptron learning algoritmen](../perceptron/perceptron.qmd#sec-perceptron_learning_algortimen), som altid konvergerer, hvis data er lineært separabel. Men verden er sjældent lineært separabel, og derfor introducerede vi [ADALINE algoritmen](../perceptron/perceptron.qmd#sec-ADALINE), som også virker, selvom data ikke er lineært separabel. Det virker jo alt sammen super godt -- men et enkelt lille eksempel afslører alligevel, at ADALINE ikke altid er så smart, som man kunne tro.
@@ -80,7 +82,7 @@ Hvis vi prøver at køre ADALINE algoritmen fås linjen, som er indtegnet i @fig
 
 Det er jo ikke ligefrem super overbevisende. Data er lineært separabel og alligevel kan ADALINE ikke finde ud af at finde en rette linje, som kan adskille de røde punkter fra de blå!
 
-Hvis vi skal forstå, hvad der sker, må vi se lidt nærmere på den tabsfunktion, som ADALINE forsøger at mininere. Fra [afsnittet om ADALINE](../perceptron/perceptron.qmd#sec-ADALINE) ved vi, at tabsfunktionen er
+Hvis vi skal forstå, hvad der sker, må vi se lidt nærmere på den tabsfunktion, som ADALINE forsøger at mininere. Fra [afsnittet om ADALINE](../perceptron/perceptron.qmd#sec-ADALINE) ved vi, at tabsfunktionen[^2] er
 
 $$
 \begin{aligned}
@@ -421,3 +423,5 @@ Man behøver ikke nødvendigvis at bruge sigmoid-funktionen som aktiveringsfunkt
 + [Sigmoid neurons](https://eng.libretexts.org/Bookshelves/Computer_Science/Applied_Programming/Book%3A_Neural_Networks_and_Deep_Learning_(Nielsen)/01%3A_Using_neural_nets_to_recognize_handwritten_digits/1.03%3A_Sigmoid_neurons)
 
 [^1]: Her er alle startvægte sat til $0$, learning rate er på $0.1$, stop-kriterie er på $0.000001$ og maksimalt antal iterationer er sat til $50000$.
+
+[^2]: Bemærk her, at det ikke er afgørende, at der er ganget med $1/2$ -- det viser sig bare smartere senere.
