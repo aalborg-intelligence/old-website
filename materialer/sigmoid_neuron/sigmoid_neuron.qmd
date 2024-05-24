@@ -426,4 +426,4 @@ Man behøver ikke nødvendigvis at bruge sigmoid-funktionen som aktiveringsfunkt
 
 [^2]: Bemærk her, at det ikke er afgørende, at der er ganget med $1/2$ -- det viser sig bare smartere senere.
 
-[^3]: Det er i hvert tilfælde \"bare linjer\", når $n=2$. Hvis $n=3$, er der tale om ligningen for en plan, og hvis $n>3$, kalder man det for ligningen for en \"hyperplan\". Men sidstnævnte er visuelt svære at forestille sig, fordi koordinatsystemet, de skal tegnes i, har en dimension større end $3$. Og de er ikke så nemme at tegne!
+[^3]: Det er i hvert tilfælde \"bare linjer\", når $n=2$. Hvis $n=3$, er der tale om ligningen for en plan, og hvis $n>3$, kalder man det for ligningen for en \"hyperplan\". Men sidstnævnte er visuelt svære at forestille sig, fordi koordinatsystemet, disse hyperplaner skal tegnes i, har en dimension større end $3$. Og de er ikke så nemme at tegne!
