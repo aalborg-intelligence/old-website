@@ -22,6 +22,7 @@ listing:
     - path: materialer/perceptron/perceptron.qmd
     - path: materialer/neurale_net/neurale_net.qmd
     - path: materialer/logistisk/log-reg.qmd
+    - path: materialer/funktioner_af_flere_variable/funktioner_af_flere_variable.qmd
     - path: materialer/retningsafledede/retningsafledede.qmd
     - path: materialer/naivbayes/NaivBayes.qmd
     - path: materialer/kmeans/kmeans.qmd

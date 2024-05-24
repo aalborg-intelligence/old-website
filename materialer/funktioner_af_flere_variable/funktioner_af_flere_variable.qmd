@@ -1,7 +1,7 @@
 ---
 title: "Funktioner af flere variable"
 image: "images/maskine2.png"
-description: Fra gymnasiematematikken kender vi lineære funktioner, eksponentialfunktioner, potensfunktioner og en hel masse andre typer af funktioner. Fælles for dem er, at de alle afhænger af én variabel $x$. Men en funktion kan godt afhænge af flere forskellige variable, og i det tilfælde taler man om **funktioner af flere variable**. Denne type af funktioner viser sig at spille en hel central rolle i rigtig mange metoder inden for kunstig intelligens. Derfor vil vi i denne note behandle de vigtigste begreber i forbindelse med funktioner af flere variable. 
+description: En funktion kan godt afhænge af flere forskellige variable, og i det tilfælde taler man om **funktioner af flere variable**. Denne type af funktioner viser sig at spille en helt central rolle i rigtig mange metoder inden for kunstig intelligens. Derfor vil vi i denne note behandle de vigtigste begreber i forbindelse med funktioner af flere variable.
 from: markdown+emoji
 format:
     html:
@@ -37,7 +37,7 @@ execute:
 
 ## Funktioner af én variabel
 
-Som sagt kender du allerede en hel del funktioner af én variabel. For eksempel de lineære funktioner:
+Fra gymnasiematematikken kender vi lineære funktioner, eksponentialfunktioner, potensfunktioner og en hel masse andre typer af funktioner. Fælles for dem er, at de alle afhænger af én variabel $x$. For eksempel de lineære funktioner:
 
 $$
 f(x)=a \cdot x+b.
@@ -107,7 +107,7 @@ Her indikerer $2$-tallet altså, at der er tale om en funktion af *to* variable.
 
 ### Snitfunktioner og snitkurver
 
-Vi vil nu for en funktion af to variable tage udgangspunkt i et konkret punkt $(x_0, y_0, f(x_0,y_0)$.  Forestil dig at vi laver et lodret snit parallel med $x$-aksen ned gennem grafen for $f$. Det er lidt ligesom, at lave et snit ned gennem en lagkage! Et eksempel er vist i @fig-graf_snitkurve_y. Den lyseblå plan svarer til den lagkagekniv, vi har skåret med, og den skærer altså lodret og er samtidig parallel med $x$-aksen.
+Vi vil nu for en funktion af to variable tage udgangspunkt i et konkret punkt $(x_0, y_0, f(x_0,y_0))$.  Forestil dig at vi laver et lodret snit parallel med $x$-aksen ned gennem grafen for $f$. Det er lidt ligesom, at lave et snit ned gennem en lagkage! Et eksempel er vist i @fig-graf_snitkurve_y. Den lyseblå plan svarer til den lagkagekniv, vi har skåret med, og den skærer altså lodret og er samtidig parallel med $x$-aksen.
 
 Når man laver sådan et lodret snit med grafen for $f$, så kalder man skæring mellem den lodrette plan (lagkagekniven) og grafen for $f$ for en *snitkurve*. Snitkurven er markeret med sort på @fig-graf_snitkurve_y. Den funktion, hvis graf svarer til snitkurven, kaldes for en *snitfunktion*. Forskriften for snitfunktionen fås ved, at vi fastholder $y$-værdien på  $y_0$ og lader $x$ varierer:
 
@@ -173,7 +173,7 @@ f_x'(x,y_0)=2 \cdot 2x-0 + 3 \cdot 1 \cdot y_0 + 0 = 4x+3y_0.
 $$
 Bemærk her, at $y_0^2$ differentieret bliver $0$, fordi $y_0$ er en konstant, og en konstant, som er lagt til, bliver som bekendt $0$, når vi differentierer. Når vi skal differentiere udtrykket $3xy_0$, så er $y_0$ en konstant, som er ganget på, og derfor lader vi den stå, når vi differentierer (ligesom vi lader $3$-tallet stå og differentierer $x$, som giver $1$).
 
-Normalvis gider man ikke slæbe rundt på $y_0$ i ovenstående udtryk, fordi $y_0$ jo kan være en hvilken som helst værdi. Derfor skriver man som oftest bare 
+Normalvis gider man ikke slæbe rundt på $y_0$ i ovenstående udtryk, fordi $y_0$ jo kan være en hvilken som helst værdi svarende til, at vi flytter det lodrette snit. Derfor skriver man som oftest bare 
 
 $$
 f_x'(x,y)=4x+3y.
