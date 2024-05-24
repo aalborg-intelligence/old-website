@@ -13,9 +13,6 @@ format:
       link-external-newwindow: true
 #    pdf: default
 reference-location: margin
-bibliography: referencer.bib
-nocite: | 
-  @*
 editor_options: 
   chunk_output_type: console
 crossref:
