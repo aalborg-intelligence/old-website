@@ -274,6 +274,89 @@ De partielle afledede svarer altså til tangenthældninger på snitkurver, som e
 
 Man kan også bestemme tangenthældninger for mere generelle snitkurver, som fremkommer ved, at man finder skæringskurven mellem grafen for $f$ og en plan med ligning $ax+by+c=0$ (som står vinkelret på $xy$-planen). Differentierer man de tilhørende snitfunktioner, kalder man de afledede for *retningsafledede*. Det kan du læse meget mere om [her](../retningsafledede/retningsafledede.qmd).
 
+::: {.callout-tip collapse="true" appearance="minimal"}
+
+## Tangentplaner
+
+Som illustreret i @fig-graf_snitkurve_partialx har grafen for snitfunktionen $g(x)=f(x,y_0)$ en tangent i punktet $P(x_0, y_0, f(x_0,y_0))$ med hældning $f_x'(x_0,y_0)$. Det betyder grafisk, at hvis vi står i punktet $P$ og gerne vil bevæge os langs tangentens, så skal vi: Bevæge os $1$ enheden i $x$-aksens retning, $0$ enheder i $y$-aksens retning (husk på at snitkurven forløber i planen med ligning $y=y_0$, hvor $y$ er fastholdt, og dermed ikke ændrer sig) og $f_x'(x_0,y_0)$ enheder i $z$-aksens retning. Dermed vil en retningsvektor for denne tangent være
+
+$$
+\begin{pmatrix} 
+1 \\ 0 \\ f_x'(x_0,y_0)
+\end{pmatrix}.
+$$
+
+På helt tilsvarende vis vil grafen for snitfunktionen $h(y)=f(x_0,y)$ have en tangent i punktet $P(x_0, y_0, f(x_0,y_0))$ med hældning $f_y'(x_0,y_0)$ -- se @fig-graf_snitkurve_partialy. Derfor vil en retningsvektor for denne tangent være
+
+$$
+\begin{pmatrix} 
+0 \\ 1 \\ f_y'(x_0,y_0)
+\end{pmatrix}.
+$$
+
+Som bekendt udspænder to vektorer en plan og den plan, som disse to retningsvektorer udspænder kaldes for en tangentplan til grafen for $f$ i punktet $P(x_0, y_0, f(x_0,y_0))$. Man kan igen tænke på grafen for $f$ som en bakke. Hvis vi står i punktet $P$ og placerer en bordplade i punktet, så vil denne bordplade svare til tangentplanen (eller rettere en del af den).
+
+Vi vil nu finde en ligning for tangentplanen. Vi minder om, at en plan gennem punktet $(x_0,y_0,z_0)$ med normalvektor
+
+$$
+\vec{n} = \begin{pmatrix} 
+a \\ b \\ c
+\end{pmatrix}
+$$
+
+har ligning
+
+$$
+a(x-x_0) + b(y-y_0) + c(z-z_0)=0.
+$$ {#eq-planligning}
+
+Vi husker også på, at en normalvektor til en plan, kan fås ved at krydse to retningsvektorer til planen. Derfor vil en normalvektor til tangentplanen være:
+
+$$
+\vec{n} = 
+\begin{pmatrix} 
+1 \\ 0 \\ f_x'(x_0,y_0)
+\end{pmatrix}
+\times
+\begin{pmatrix} 
+0 \\ 1 \\ f_y'(x_0,y_0)
+\end{pmatrix}
+$$
+
+Det giver
+
+$$
+\begin{aligned}
+\vec{n}&= 
+\begin{pmatrix} 
+0 \cdot f_y'(x_0,y_0) - f_x'(x_0,y_0) \cdot 1
+\\ 
+f_x'(x_0,y_0) \cdot 0 - 1 \cdot f_y'(x_0,y_0)
+\\
+1 \cdot 1 - 0 \cdot 0
+\end{pmatrix} =
+\begin{pmatrix} 
+ - f_x'(x_0,y_0)
+\\ 
+-f_y'(x_0,y_0)
+\\
+1 
+\end{pmatrix}
+\end{aligned}
+$$
+Indsættes dette i planens ligning i (@eq-planligning) fås
+
+$$
+- f_x'(x_0,y_0)(x-x_0)-f_y'(x_0,y_0)(y-y_0)+ (z-f(x_0,y_0))=0.
+$$
+Hvilket efter lidt omrokeringer giver
+$$
+z=f_x'(x_0,y_0)(x-x_0)+f_y'(x_0,y_0)(y-y_0)+f(x_0,y_0).
+$$
+
+:::
+
+
 ### Gradienten og betydningen af denne
 
 Man definerer *gradienten* for en funktion $f$ af to variable, som den vektor hvis koordinater svarer til de partielle afledede. Gradienten skrives $\nabla f (x,y)$. Det vil sige, at
