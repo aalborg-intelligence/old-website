@@ -38,6 +38,8 @@ execute:
   warning: false
 ---
 
+Hvis du ikke har læst noten om [perceptroner](../perceptron/perceptron.qmd), anbefaler vi, at du starter med at læse den. Alternativt kan du se vores fire [videoer om perceptroner](https://www.youtube.com/watch?v=1WTZZCx-pRY&list=PLIdWoTbMPdkBdcpyMZYpBkQzRUsSHYXoP).
+
 ## Kan vi gøre det bedre end ADALINE?
 
 I noten om [perceptroner](../perceptron/perceptron.qmd) beskrev vi [perceptron learning algoritmen](../perceptron/perceptron.qmd#sec-perceptron_learning_algortimen), som altid konvergerer, hvis data er lineært separabel. Men verden er sjældent lineært separabel, og derfor introducerede vi [ADALINE algoritmen](../perceptron/perceptron.qmd#sec-ADALINE), som også virker, selvom data ikke er lineært separabel. Det virker jo alt sammen super godt -- men et enkelt lille eksempel afslører alligevel, at ADALINE ikke altid er så smart, som man kunne tro.
@@ -80,7 +82,7 @@ Hvis vi prøver at køre ADALINE algoritmen fås linjen, som er indtegnet i @fig
 
 Det er jo ikke ligefrem super overbevisende. Data er lineært separabel og alligevel kan ADALINE ikke finde ud af at finde en rette linje, som kan adskille de røde punkter fra de blå!
 
-Hvis vi skal forstå, hvad der sker, må vi se lidt nærmere på den tabsfunktion, som ADALINE forsøger at mininere. Fra [afsnittet om ADALINE](../perceptron/perceptron.qmd#sec-ADALINE) ved vi, at tabsfunktionen er
+Hvis vi skal forstå, hvad der sker, må vi se lidt nærmere på den tabsfunktion, som ADALINE forsøger at mininere. Fra [afsnittet om ADALINE](../perceptron/perceptron.qmd#sec-ADALINE) ved vi, at tabsfunktionen[^2] er
 
 $$
 \begin{aligned}
@@ -106,7 +108,7 @@ og for et rødt punkt med $t_m=-1$ er bidraget til tabsfunktionen præcis $0,$ h
 $$
 -1- (w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n})=0
 $$
-Nu er $1- (w_0 + w_1 \cdot x_1 + \cdots + w_n \cdot x_n)=0$ og $-1- (w_0 + w_1 \cdot x_1 + \cdots + w_n \cdot x_n)=0$ jo bare ligninger for rette linjer. Disse linjer ses indtegnet på @fig-eks1_2 (som henholdsvis en blå og rød stiplet linje) sammen med de oprindelige seks punkter og den linje, som ADALINE fandt baseret på disse seks punkter. Samtidig er det for hvert punkt markeret, hvor meget dette punkt bidrager til tabsfunktionen. 
+Nu er $1- (w_0 + w_1 \cdot x_1 + \cdots + w_n \cdot x_n)=0$ og $-1- (w_0 + w_1 \cdot x_1 + \cdots + w_n \cdot x_n)=0$ jo bare ligninger for rette linjer[^3]. Disse linjer ses indtegnet på @fig-eks1_2 (som henholdsvis en blå og rød stiplet linje) sammen med de oprindelige seks punkter og den linje, som ADALINE fandt baseret på disse seks punkter. Samtidig er det for hvert punkt markeret, hvor meget dette punkt bidrager til tabsfunktionen. 
 
 ![Punkter med en targetværdi på $1$ er blå og dem med en targetværdi på $-1$ er røde. Den sorte linje med ligning $w_0+w_1 x_1 + w_2 x_2=0$ svarer til den ADALINE fandt. Den blå stiplede linje har ligning $1-(w_0+w_1 x_1 + w_2 x_2)=0$, mens den røde stiplede linje har ligning $-1-(w_0+w_1 x_1 + w_2 x_2)=0$.](images/fig-eks1_2.png){width=75% #fig-eks1_2}
 
@@ -421,3 +423,7 @@ Man behøver ikke nødvendigvis at bruge sigmoid-funktionen som aktiveringsfunkt
 + [Sigmoid neurons](https://eng.libretexts.org/Bookshelves/Computer_Science/Applied_Programming/Book%3A_Neural_Networks_and_Deep_Learning_(Nielsen)/01%3A_Using_neural_nets_to_recognize_handwritten_digits/1.03%3A_Sigmoid_neurons)
 
 [^1]: Her er alle startvægte sat til $0$, learning rate er på $0.1$, stop-kriterie er på $0.000001$ og maksimalt antal iterationer er sat til $50000$.
+
+[^2]: Bemærk her, at det ikke er afgørende, at der er ganget med $1/2$ -- det viser sig bare smartere senere.
+
+[^3]: Det er i hvert tilfælde \"bare linjer\", når $n=2$. Hvis $n=3$, er der tale om ligningen for en plan, og hvis $n>3$, kalder man det for ligningen for en \"hyperplan\". Men sidstnævnte er visuelt svære at forestille sig, fordi koordinatsystemet, de skal tegnes i, har en dimension større end $3$. Og de er ikke så nemme at tegne!
