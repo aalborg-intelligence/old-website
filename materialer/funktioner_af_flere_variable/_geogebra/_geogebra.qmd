@@ -1,0 +1,72 @@
+```{=html}
+<head>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta charset="utf-8"/>
+<script src="https://cdn.geogebra.org/apps/deployggb.js"></script>
+</head>
+```
+
+
+```{=html}
+<!-- 
+Alle geogebra filer placeres i mappen _geogebra
+Erstat XXX med nr på app og erstat YYY med navn på ggb-fil -->
+<script>
+var parameters_funktion_af_to_variable = {
+"id": "ggbApplet_funktion_af_to_variable",
+"width":700,
+"height":500,
+"showMenuBar":true,
+"showAlgebraInput":false,
+"showToolBar":false,
+"showToolBarHelp":false,
+"showResetIcon":false,
+"enableLabelDrags":false,
+"enableShiftDragZoom":true,
+"enableRightClick":false,
+"errorDialogsActive":false,
+"useBrowserForJS":false,
+"allowStyleBar":false,
+"preventFocus":false,
+"showZoomButtons":true,
+"capturingThreshold":3,
+// add code here to run when the applet starts
+"appletOnLoad":function(api){ /* api.evalCommand('Segment((1,2),(3,4))');*/ },
+"showFullscreenButton":true,
+"scale":1,
+"disableAutoScale":false,
+"allowUpscale":false,
+"clickToLoad":false,
+"appName":"classic",
+"buttonRounding":0.7,
+"buttonShadows":false,
+"language":"da",
+// use this instead of ggbBase64 to load a material from geogebra.org
+// "material_id":"RHYH3UQ8",
+// use this instead of ggbBase64 to load a .ggb file
+ "filename":"_geogebra/funktion_af_to_variable_med_snitkurve_i_gradietens_retning.ggb",
+};
+// is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+var applet_funktion_af_to_variable = new GGBApplet(parameters_funktion_af_to_variable, '5.0', views);
+</script>
+</body>
+</html>
+```
+
+
+
+```{=html}
+
+<script>
+window.onload = function() {
+  applet_funktion_af_to_variable.inject('ggbApplet_funktion_af_to_variable');
+  //applet_retning2.inject('ggbApplet_retning2');
+  //applet.inject('ggbApplet');
+  // indsæt her hvis der er flere apps på samme side
+  // appletZZZ.inject('ggbAppletZZZ');
+  }
+</script>
+
+```
+
