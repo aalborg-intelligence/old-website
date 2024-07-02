@@ -1109,6 +1109,18 @@ I denne video forklarer vi, hvad gradientnedstigning går ud på, og hvordan gra
 {{< video https://www.youtube.com/embed/4YMzpNP4wnA >}}
 
 
+# Det kan gøres *endnu* smartere med Sigmoid neuroner!
+
+I det foregående har vi set på, hvordan Adaline algoritmen forsøger at minimere tabsfunktionen 
+
+$$
+\begin{aligned}
+E(w_0, w_1, \dots, w_n) = \frac{1}{2} \sum_{m=1}^{M} \left (t_m-
+(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n}) \right)^2.
+\end{aligned}
+$$
+
+Det virker som en besnærende god idé! Men faktisk er denne tabsfunktion ikke altid super smart. Dét problem -- og en løsning på det -- kan du læse meget mere om i noten om [Sigmoid neuroner](../sigmoid_neuron/sigmoid_neuron.qmd).
 
 # Videre læsning 
 
