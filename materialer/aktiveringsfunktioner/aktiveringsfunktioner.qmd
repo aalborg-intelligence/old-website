@@ -35,8 +35,85 @@ execute:
   warning: false
 ---
 
-## Aktiveringsfunktioner, targetværdier og tabsfunktion
+## Tabsfunktion, targetværdier og aktiveringsfunktioner
 
+Når en [perceptron](../perceptron/perceptron.qmd), en [Sigmoid neuron](../sigmoid_neuron/sigmoid_neuron.qmd) eller et helt generelt [kunstigt neuralt netværk](../neurale_net/neurale_net.qmd) trænes, så sker det som regel ved, at man forsøger at minimere en tabsfunktion $E$.
+
+En **tabsfunktion** har til formål at \"måle\" hvor god en AI model[^1] er. En tabsfunktion $E$ har altid den egenskab, at $E \geq 0$, og at en lille værdi af $E$ svarer til en god model (der er et lille tab), mens en stor værdi af $E$ svarer til en mindre god model. Derfor vælger man den model, som giver den mindste værdi af tabsfunktionen. 
+
+[^1]: Med AI model tænker vi her på en perceptron, en Sigmoid neuron, et kunstigt neuralt netværk eller en anden form for funktion, som kan bruges til at prædiktere et eller andet.
+
+De fleste AI modeller -- for eksempel et kunstigt neuralt netværk -- bestemmes ved hjælp af *træningsdata*. Her har man givet en række *inputværdier* $x_1, x_2, \dots, x_n$ på baggrund af hvilke, man ønsker at prædiktere en såkaldt **targetværdi** $t$. 
+
+Lad os tage et eksempel fra den virkelige verden. Vi vil gerne på baggrund af en blodprøve kunne prædiktere om en patient har kræft eller ej. Her kan inputværdierne være forskellige ting, man måler i blodet (spørg en biologilærer om hvad det kunne være). Targetværdien $t$ kan antage to værdier:
+
+$$
+t=
+\begin{cases}
+1 & \textrm{hvis patienten har kræft} \\
+0 & \textrm{hvis patienten ikke har kræft} \\
+\end{cases}
+$$
+Man kunne også have valgt:
+$$
+t=
+\begin{cases}
+1 & \textrm{hvis patienten har kræft} \\
+-1 & \textrm{hvis patienten ikke har kræft} \\
+\end{cases}
+$$
+Eller noget helt tredje! Det kommer vi tilbage til senere. Lad os for nu sige at vi vælger den første mulighed, hvor $t \in \{0,1\}$. 
+
+At bestemme, om targetværdien er $0$ eller $1$,  beror på faglig ekspertise indenfor det genstandsfelt, hvor AI modellen skal anvendes. I eksemplet med kræft vil det for eksempel beror på forskellige diagnostiske tests, som en læge kan bruge til at vurdere om patienten har kræft[^3].
+
+[^3]: Måske er disse tests først taget et stykke tid efter blodprøven, fordi det ikke er muligt at stille diagnose på tidspunktet for blodprøven. I så fald kan man måske være heldig at få udviklet en AI model, som kan prædiktere kræft *tidligere* end med gængse metoder. 
+
+Man \"fodrer\" så sin AI algoritme med en hel masse inputværdier med tilhørende targetværdier og finder så den AI model, som giver den mindste værdi af tabsfunktionen.
+Det kaldes for *supervised learning*.
+
+En AI model er dybest set \"bare\" en mere eller mindre kompliceret funktion, som afhænger af en række vægte $w_0, w_1, \dots, w_p$, som bruges til at vægte inputværdierne på en sådan måde, at modellen bliver god til at prædiktere det, den er trænet på. For store kunstige neurale netværk -- for eksempel de store sprogmodeller -- taler vi om milliarder af vægte! 
+
+Vi kan altså tænke på en AI model, som en funktion $f$, der afhænger af vægtene $w_0, w_1, \dots, w_p$:
+
+$$
+f(w_0, w_1, \dots, w_p)
+$$
+Funktionen afhænger selvfølgelig også af hele træningsdatasættet, men eftersom det er vægtene, man skal justere, alt imens træningsdata er fastlagt, vil vi blot tænke på $f$ som en funktion af vægtene.
+
+Vi forestiller os nu, at vi har bestemt minimum for tabsfunktionen og dermed fundet de værdier af vægtene, som minimerer tabsfunktionen. Det er nu disse værdier, som giver os vores endelige AI model. Spørgsmålet er, hvordan den bruges til prædiktion. Det kommer her:
+
+Ofte vil værdimængden for $f$ være $(0,1)$. Det betyder, at vi kan tolke værdien af $f$ som en sandsynlighed. Vi forestiller os, at vi får et nyt sæt af inputværdier -- for eksempel målingerne fra en ny blodprøve, og vi vil gerne finde ud af, om patienten har kræft eller ej. Disse værdier \"sendes\" nu ind i funktionen $f$ og ud kommer en ouputværdi, som vi vil kalde for $o$. Værdien af $o$ betragtes nu som sandsynligheden for at den rigtige targetværdi er $1$. Det kunne for eksempel være sådan her:
+
+$$
+\textrm{prædiktion}=
+\begin{cases}
+\textrm{patienten har kræft} & \textrm{hvis } o \geq 0,5 \\
+\textrm{patienten har ikke kræft} & \textrm{hvis } o < 0,5 \\
+\end{cases}
+$$
+
+Men hvis det skal give mening, så kræver det altså, at vi har fundet de værdier af vægtene, som gør, at denne prædiktion rent faktisk bliver god. 
+
+Vi har hele tiden sagt, at det gør vi ved at minimere tabsfunktionen, men det kræver jo, at vi har en tabsfunktion. Ofte kan man bruge denne **tabsfunktion**:
+
+$$
+E = \frac{1}{2} \sum \left (t-o \right)^2,
+$$ {#eq-tabsfunktion}
+
+hvor der summeres over alle træningsdata. For det første kan vi se, at $E \geq 0$, fordi der er tale om en kvadreret sum. For det andet kan vi se, at hvis AI modellen er god, så vil $o$ være tæt på $1$, når $t=1$ og $o$ vil være tæt på $0$, når $t=0$. Det betyder, at de kvadrerede forskelle $(t-o)^2$ i det tilfælde vil være små, og dermed vil tabsfunktionen også være lille. Altså lever $E$ op til de krav, vi stiller til en tabsfunktion. 
+
+Outputværdien $o$ beregnes ofte som
+
+$$
+o = f(w_0+w_1x_1+w_2x_2+\cdots+w_nx_n),
+$$
+ 
+hvor $f$ er den funktion, som vi kalder for en **aktiveringsfunktion**. For perceptroner og Sigmoid neuroner svarer $x_1, x_2, \dots, x_n$ direkte til inputværdierne, som AI modellen i sidste ende skal virke på. I et kunstig neuralt netværk er det mere kompliceret, men ovenstående er korrekt, hvis man tænker på $x_1, x_2, \dots, x_n$, som de værdier neuronerne i det sidste skjulte lag sender videre til outputlaget.
+
+Hvis tabsfunktionen i (@eq-tabsfunktion) skal give mening, så kan vi nu se, at hvis targetværdien $t \in \{0,1\}$, så bør værdimængden for $f$ tilsvarende være $(0,1)$. Mens hvis $t \in \{-1,1\}$, så bør[^2] værdimængden for $f$ tilsvarende være $(-1,1)$. Forestiller man sig, at targetværdien er huspriser -- det vil sige, at $t \in (0,\infty)$ -- ja så vil det give mening, at også outputværdien $o \in (0,\infty)$. Det vigtige er altså, at værdimængden for aktiveringsfunktionen er på samme skala som targetværdierne. 
+
+ 
+[^2]: Når en perceptron trænes ved hjælp af Adaline, er dette faktisk ikke tilfældet. Her er targetværdien $t \in \{-1,1\}$, mens outputværdien $o \in \mathbb{R}$. Det giver faktisk nogle problemer, som er beskrevet i noten om [Sigmoid neuroner](../sigmoid_neuron/sigmoid_neuron.qmd).
 
 ## Sigmoid
 
@@ -44,9 +121,7 @@ execute:
 
 ## Softsign
 
-Sigmoid-funktionen er ét bud på en aktiveringsfunktion, men man kan sagtens bruge andre aktiveringsfunktioner. Det vigtige er, at værdimængden for aktiveringsfunktionen er på samme skala som targetværdierne. 
-
-En ofte anvendt aktiveringsfunktion er *softsign*-funktion med forskrift
+*Softsign*-funktionen har forskrift
 
 $$
 f(x)=\frac{x}{1+|x|}
@@ -113,3 +188,7 @@ Det vil sige, at den afledede softsign-funktion nemt kan beregnes ud fra funktio
 ## Hyperbolsk tangens
 
 ## ReLU
+
+## Overblik
+
+
