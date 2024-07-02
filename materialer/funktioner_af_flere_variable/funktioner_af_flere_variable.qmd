@@ -274,7 +274,7 @@ De partielle afledede svarer altså til tangenthældninger på snitkurver, som e
 
 Man kan også bestemme tangenthældninger for mere generelle snitkurver, som fremkommer ved, at man finder skæringskurven mellem grafen for $f$ og en plan med ligning $ax+by+c=0$ (som står vinkelret på $xy$-planen). Differentierer man de tilhørende snitfunktioner, kalder man de afledede for *retningsafledede*. Det kan du læse meget mere om [her](../retningsafledede/retningsafledede.qmd).
 
-For funktioner af flere variable kan man også bestemme en ligning for en såkaldt *tangentplan*. Det kan du læse mere om [her](tangentplaner.qmd).
+For funktioner af flere variable kan man også bestemme en ligning for en såkaldt **tangentplan**. Det kan du læse mere om [her](tangentplaner.qmd).
 
 
 ### Gradienten og betydningen af denne
