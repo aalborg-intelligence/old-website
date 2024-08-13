@@ -86,9 +86,16 @@ f(1,-2)&=2\cdot 1^2-(-2)^2+3 \cdot 1 \cdot (-2)+1 \\
 &=2-4-6+1=-7
 \end{aligned}
 $$
-Det betyder, at punktet $P(1,-2,-7)$ ligger på grafen for $f$. Grafen for $f$ og punktet $P$ ses i @fig-graf2.
+Det betyder, at punktet $P(1,-2,-7)$ ligger på grafen for $f$. Grafen for $f$ og punktet $P$ ses i figuren herunder.
 
-![Grafen for funktionen $f$ med forskrift $f(x,y)=2x^2-y^2+3xy+1$ samt punktet $P(1,-2,-7)$.](images/graf2.png){width=75% #fig-graf2}
+{{< include _geogebra/_geogebra.qmd >}}
+
+::: {#ggbApplet_funktion_af_to_variable}
+:::
+<!--
+![Grafen for funktionen $f$ med forskrift $f(x,y)=2x^2-y^2+3xy+1$ samt punktet $P(1,-2,-7)$.](images/graf2.png){width=75% #fig-graf2} 
+-->
+
 
 Vi kan igen bruge \"maskine-metaforen\" for funktioner af to variable, som illustreret i @fig-maskine2.
 
@@ -133,9 +140,13 @@ g(x) &=f(x,-2)=2x^2-(-2)^2+3 \cdot x \cdot (-2)+1 \\
 &=2x^2-6x-3.
 \end{aligned}
 $$
-Den tilhørende snitkurve svarer til skæringskurven mellem grafen for $f$ og planen med ligning $y=-2$, som ses i @fig-graf_snitkurve_y. Bemærk, at snitfunktionen $g$ er et andengradspolynomium, hvis graf er en parabel med grene, som vender opad, idet koefficienten til andengradsleddet er positiv.
+Den tilhørende snitkurve svarer til skæringskurven mellem grafen for $f$ og planen med ligning $y=-2$, som ses i figuren herunder. Bemærk, at snitfunktionen $g$ er et andengradspolynomium, hvis graf er en parabel med grene, som vender opad, idet koefficienten til andengradsleddet er positiv.
 
-![Grafen for snitfunktionen $g$ med forskrift $g(x)=2x^2-6x-3$ markeret med sort. Den lyseblå plan er planen med ligning $y=-2$.](images/graf_snitkurve_y=-2.png){width=75% #fig-graf_snitkurve_y}
+::: {#ggbApplet_funktion_af_to_variable_snitfkt_g}
+:::
+
+<!-- ![Grafen for snitfunktionen $g$ med forskrift $g(x)=2x^2-6x-3$ markeret med sort. Den lyseblå plan er planen med ligning $y=-2$.](images/graf_snitkurve_y=-2.png){width=75% #fig-graf_snitkurve_y} -->
+
 
 Fastholder vi derimod $x$ på $1$, får vi snitfunktionen
 
@@ -145,9 +156,13 @@ h(y)&=f(1,y)=2 \cdot 1^2 -y^2 +3 \cdot 1 \cdot y +1 \\
 &=-y^2+3y+3.
 \end{aligned}
 $$
-Her ser vi igen, at snitfunktionen er et andengradspolynomium, og grafen vil være en parabel med grene, der vender nedad. Snitkurven svarer til skæringskurven mellem grafen for $f$ og planen med ligning $x=1$, som vist i @fig-graf_snitkurve_x.
+Her ser vi igen, at snitfunktionen er et andengradspolynomium, og grafen vil være en parabel med grene, der vender nedad. Snitkurven svarer til skæringskurven mellem grafen for $f$ og planen med ligning $x=1$, som vist herunder.
 
-![Grafen for snitfunktionen $h$ med forskrift $h(y)=-y^2+3y+3$ markeret med sort. Den lyseblå plan er planen med ligning $x=1$.](images/graf_snitkurve_x=1.png){width=75% #fig-graf_snitkurve_x}
+::: {#ggbApplet_funktion_af_to_variable_snitfkt_h}
+:::
+
+<!-- 
+![Grafen for snitfunktionen $h$ med forskrift $h(y)=-y^2+3y+3$ markeret med sort. Den lyseblå plan er planen med ligning $x=1$.](images/graf_snitkurve_x=1.png){width=75% #fig-graf_snitkurve_x} -->
 
 ### Partielle afledede
 
@@ -243,15 +258,18 @@ Lad os illustrere det med vores eksempel hvor $f(x,y)= 2x^2-y^2+3xy+1$. Her er
 $$
 f_x'(x,y)=4x+3y.
 $$
-Vi fandt tidligere, at $P(1,-2,-7)$ ligger på grafen for $f$. Ser vi på snitfunktionen $g(x)=f(x,-2)$, så ligger $P$ altså også på den tilsvarende snitkurve -- se også @fig-graf_snitkurve_y. Udregner vi $g'(1)=f_x'(1,-2)$ får vi
+Vi fandt tidligere, at $P(1,-2,-7)$ ligger på grafen for $f$. Ser vi på snitfunktionen $g(x)=f(x,-2)$, så ligger $P$ altså også på den tilsvarende snitkurve. <!-- -- se også @fig-graf_snitkurve_y --> Udregner vi $g'(1)=f_x'(1,-2)$, får vi
 
 $$
 f_x'(1,-2)=4 \cdot 1 + 3 \cdot (-2) = 4-6=-2
 $$
 
-Det betyder, at hvis vi tegner tangenten til snitkurven i $P$, så vil denne tangent have en hældning på $-2$, som illustreret i @fig-graf_snitkurve_partialx.
+Det betyder, at hvis vi tegner tangenten til snitkurven i $P$, så vil denne tangent have en hældning på $-2$, som illustreret i figuren herunder.
 
-![Tangenten (stiplet linje) til grafen for snitfunktionen $g$ med forskrift $g(x)=2x^2-6x-3$ i punktet $P(1,-2,-7)$ har en hældning på $-2$.](images/graf_snitkurve_partialx.png){width=75% #fig-graf_snitkurve_partialx}
+::: {#ggbApplet_funktion_af_to_variable_snitfkt_g_med_tangent}
+:::
+
+<!-- ![Tangenten (stiplet linje) til grafen for snitfunktionen $g$ med forskrift $g(x)=2x^2-6x-3$ i punktet $P(1,-2,-7)$ har en hældning på $-2$.](images/graf_snitkurve_partialx.png){width=75% #fig-graf_snitkurve_partialx} -->
 
 
 Helt tilsvarende kan vi fortolke den partielle afledede af $f$ med hensyn til $y$ i punktet $P$. Vi fandt, at
@@ -266,9 +284,13 @@ Så i $(1,-2)$ har vi
 $$
 f_y'(1,-2)= 3 \cdot 1 - 2 \cdot (-2)=3+4=7
 $$
-Altså vil tangenten til snitkurven hørende til snitfunktionen $h(y)=f(1,y)$ have en tangenthældning på $7$ i punktet $(-2,h(-2))$. Det er vist i @fig-graf_snitkurve_partialy.
+Altså vil tangenten til snitkurven hørende til snitfunktionen $h(y)=f(1,y)$ have en tangenthældning på $7$ i punktet $(-2,h(-2))$. Det er vist i figuren herunder.
 
-![Tangenten (stiplet linje) til grafen for snitfunktionen $h$ med forskrift $h(y)=-y^2+3y+3$ i punktet $P(1,-2,-7)$ har en hældning på $7$.](images/graf_snitkurve_partialy.png){width=75% #fig-graf_snitkurve_partialy}
+::: {#ggbApplet_funktion_af_to_variable_snitfkt_h_med_tangent}
+:::
+
+<!-- ![Tangenten (stiplet linje) til grafen for snitfunktionen $h$ med forskrift $h(y)=-y^2+3y+3$ i punktet $P(1,-2,-7)$ har en hældning på $7$.](images/graf_snitkurve_partialy.png){width=75% #fig-graf_snitkurve_partialy} -->
+
 
 De partielle afledede svarer altså til tangenthældninger på snitkurver, som er fremkommet ved at finde skæringskurven mellem grafen for $f$ og en plan med ligning $x=x_0$ eller grafen for $f$ og en plan med ligning $y=y_0$. 
 
@@ -311,9 +333,7 @@ Tegner vi en repræsentant for denne vektor i $xy$-planen med udgangspunkt i pun
 
 
 
-{{< include _geogebra/_geogebra.qmd >}}
-
-::: {#ggbApplet_funktion_af_to_variable}
+::: {#ggbApplet_funktion_af_to_variable_med_snitkurve_i_gradietens_retning}
 :::
 <!--
 ![En repræsentant for vektoren $\nabla f(1,-2)$ er tegnet med udgangspunkt i $P(1,-2,7)$'s projektion på $xy$-planen.](images/graf_gradient.png){width=75% #fig-graf_gradient}

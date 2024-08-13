@@ -31,9 +31,171 @@ var parameters_funktion_af_to_variable = {
 "capturingThreshold":null,
 "language":"da",
 // use this instead of ggbBase64 to load a .ggb file
- "filename":"_geogebra/funktion_af_to_variable_med_snitkurve_i_gradietens_retning.ggb",
+ "filename":"_geogebra/funktion_af_to_variable.ggb",
 };
 var applet_funktion_af_to_variable = new GGBApplet(parameters_funktion_af_to_variable, true);
+</script>
+</body>
+</html>
+```
+
+```{=html}
+<!-- 
+Alle geogebra filer placeres i mappen _geogebra
+Erstat XXX med nr på app og erstat YYY med navn på ggb-fil -->
+<script>
+var parameters_funktion_af_to_variable_snitfkt_g = {
+"id": "ggbApplet_funktion_af_to_variable_snitfkt_g",
+"width":700,
+"height":500,
+"prerelease":false,
+"borderColor":null,
+"showMenuBar":false,
+"showAlgebraInput":false,
+"showToolBar":false,
+"showToolBarHelp":false,
+"showResetIcon":true,
+"enableLabelDrags":false,
+"enableShiftDragZoom":true,
+"enableRightClick":false,
+"errorDialogsActive":false,
+"useBrowserForJS":false,
+"capturingThreshold":null,
+"language":"da",
+// use this instead of ggbBase64 to load a .ggb file
+ "filename":"_geogebra/funktion_af_to_variable_snitfkt_g.ggb",
+};
+var applet_funktion_af_to_variable_snitfkt_g = new GGBApplet(parameters_funktion_af_to_variable_snitfkt_g, true);
+</script>
+</body>
+</html>
+```
+
+```{=html}
+<!-- 
+Alle geogebra filer placeres i mappen _geogebra
+Erstat XXX med nr på app og erstat YYY med navn på ggb-fil -->
+<script>
+var parameters_funktion_af_to_variable_snitfkt_h = {
+"id": "ggbApplet_funktion_af_to_variable_snitfkt_h",
+"width":700,
+"height":500,
+"prerelease":false,
+"borderColor":null,
+"showMenuBar":false,
+"showAlgebraInput":false,
+"showToolBar":false,
+"showToolBarHelp":false,
+"showResetIcon":true,
+"enableLabelDrags":false,
+"enableShiftDragZoom":true,
+"enableRightClick":false,
+"errorDialogsActive":false,
+"useBrowserForJS":false,
+"capturingThreshold":null,
+"language":"da",
+// use this instead of ggbBase64 to load a .ggb file
+ "filename":"_geogebra/funktion_af_to_variable_snitfkt_h.ggb",
+};
+var applet_funktion_af_to_variable_snitfkt_h = new GGBApplet(parameters_funktion_af_to_variable_snitfkt_h, true);
+</script>
+</body>
+</html>
+```
+
+```{=html}
+<!-- 
+Alle geogebra filer placeres i mappen _geogebra
+Erstat XXX med nr på app og erstat YYY med navn på ggb-fil -->
+<script>
+var parameters_funktion_af_to_variable_snitfkt_g_med_tangent = {
+"id": "ggbApplet_funktion_af_to_variable_snitfkt_g_med_tangent",
+"width":700,
+"height":500,
+"prerelease":false,
+"borderColor":null,
+"showMenuBar":false,
+"showAlgebraInput":false,
+"showToolBar":false,
+"showToolBarHelp":false,
+"showResetIcon":true,
+"enableLabelDrags":false,
+"enableShiftDragZoom":true,
+"enableRightClick":false,
+"errorDialogsActive":false,
+"useBrowserForJS":false,
+"capturingThreshold":null,
+"language":"da",
+// use this instead of ggbBase64 to load a .ggb file
+ "filename":"_geogebra/funktion_af_to_variable_snitfkt_g_med_tangent.ggb",
+};
+var applet_funktion_af_to_variable_snitfkt_g_med_tangent = new GGBApplet(parameters_funktion_af_to_variable_snitfkt_g_med_tangent, true);
+</script>
+</body>
+</html>
+```
+
+```{=html}
+<!-- 
+Alle geogebra filer placeres i mappen _geogebra
+Erstat XXX med nr på app og erstat YYY med navn på ggb-fil -->
+<script>
+var parameters_funktion_af_to_variable_snitfkt_h_med_tangent = {
+"id": "ggbApplet_funktion_af_to_variable_snitfkt_h_med_tangent",
+"width":700,
+"height":500,
+"prerelease":false,
+"borderColor":null,
+"showMenuBar":false,
+"showAlgebraInput":false,
+"showToolBar":false,
+"showToolBarHelp":false,
+"showResetIcon":true,
+"enableLabelDrags":false,
+"enableShiftDragZoom":true,
+"enableRightClick":false,
+"errorDialogsActive":false,
+"useBrowserForJS":false,
+"capturingThreshold":null,
+"language":"da",
+// use this instead of ggbBase64 to load a .ggb file
+ "filename":"_geogebra/funktion_af_to_variable_snitfkt_h_med_tangent.ggb",
+};
+var applet_funktion_af_to_variable_snitfkt_h_med_tangent = new GGBApplet(parameters_funktion_af_to_variable_snitfkt_h_med_tangent, true);
+</script>
+</body>
+</html>
+```
+
+
+
+```{=html}
+<!-- 
+Alle geogebra filer placeres i mappen _geogebra
+Erstat XXX med nr på app og erstat YYY med navn på ggb-fil -->
+<script>
+var parameters_funktion_af_to_variable_med_snitkurve_i_gradietens_retning = {
+"id": "ggbApplet_funktion_af_to_variable_med_snitkurve_i_gradietens_retning",
+"width":700,
+"height":500,
+"prerelease":false,
+"borderColor":null,
+"showMenuBar":false,
+"showAlgebraInput":false,
+"showToolBar":false,
+"showToolBarHelp":false,
+"showResetIcon":true,
+"enableLabelDrags":false,
+"enableShiftDragZoom":true,
+"enableRightClick":false,
+"errorDialogsActive":false,
+"useBrowserForJS":false,
+"capturingThreshold":null,
+"language":"da",
+// use this instead of ggbBase64 to load a .ggb file
+ "filename":"_geogebra/funktion_af_to_variable_med_snitkurve_i_gradietens_retning.ggb",
+};
+var applet_funktion_af_to_variable_med_snitkurve_i_gradietens_retning = new GGBApplet(parameters_funktion_af_to_variable_med_snitkurve_i_gradietens_retning, true);
 </script>
 </body>
 </html>
@@ -46,10 +208,12 @@ var applet_funktion_af_to_variable = new GGBApplet(parameters_funktion_af_to_var
 <script>
 window.onload = function() {
   applet_funktion_af_to_variable.inject('ggbApplet_funktion_af_to_variable');
-  //applet_retning2.inject('ggbApplet_retning2');
-  //applet.inject('ggbApplet');
-  // indsæt her hvis der er flere apps på samme side
-  // appletZZZ.inject('ggbAppletZZZ');
+  applet_funktion_af_to_variable_snitfkt_g.inject('ggbApplet_funktion_af_to_variable_snitfkt_g');
+  applet_funktion_af_to_variable_snitfkt_h.inject('ggbApplet_funktion_af_to_variable_snitfkt_h');
+  applet_funktion_af_to_variable_snitfkt_g_med_tangent.inject('ggbApplet_funktion_af_to_variable_snitfkt_g_med_tangent');
+  applet_funktion_af_to_variable_snitfkt_h_med_tangent.inject('ggbApplet_funktion_af_to_variable_snitfkt_h_med_tangent');
+  applet_funktion_af_to_variable_med_snitkurve_i_gradietens_retning.inject('ggbApplet_funktion_af_to_variable_med_snitkurve_i_gradietens_retning');
+  
   }
 </script>
 
