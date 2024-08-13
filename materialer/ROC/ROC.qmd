@@ -1,5 +1,6 @@
 ---
 title: "Sensitivitet, specificitet, ROC-kurver og AUC"
+image: "images/confusion_matrix.png"
 date: ''
 format:
     html: 
