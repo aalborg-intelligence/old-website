@@ -418,7 +418,7 @@ I eksemplet fra @fig-data_eksempel fandt vi, at $t=15$ virkede som et fornuftigt
 #| echo: false
 #| fig-cap: Det oprindelige data fra @fig-data_eksempel og et nyt datasæt klassificeret ud fra $t=15$
 #| label: fig-test-data
-par(mfrow=c(2,1))
+par(mfrow=c(2,1), mar = c(2.5,.5,2.5,.5))
 
 x<-1:20
 y<-c(rep(0,12),1,rep(0,2),1,0, 1 ,0,0 )
