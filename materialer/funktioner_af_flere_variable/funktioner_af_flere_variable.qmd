@@ -86,15 +86,15 @@ f(1,-2)&=2\cdot 1^2-(-2)^2+3 \cdot 1 \cdot (-2)+1 \\
 &=2-4-6+1=-7
 \end{aligned}
 $$
-Det betyder, at punktet $P(1,-2,-7)$ ligger på grafen for $f$. Grafen for $f$ og punktet $P$ ses i figuren herunder.
+Det betyder, at punktet $P(1,-2,-7)$ ligger på grafen for $f$. Grafen for $f$ og punktet $P$ ses i @fig-fun2 herunder.
 
 {{< include _geogebra/_geogebra.qmd >}}
 
+::: {#fig-fun2}
 ::: {#ggbApplet_funktion_af_to_variable}
 :::
-<!--
-![Grafen for funktionen $f$ med forskrift $f(x,y)=2x^2-y^2+3xy+1$ samt punktet $P(1,-2,-7)$.](images/graf2.png){width=75% #fig-graf2} 
--->
+Grafen for funktionen $f$ med forskrift $f(x,y)=2x^2-y^2+3xy+1$ samt punktet $P(1,-2,-7)$.
+:::
 
 
 Vi kan igen bruge \"maskine-metaforen\" for funktioner af to variable, som illustreret i @fig-maskine2.
@@ -142,10 +142,11 @@ g(x) &=f(x,-2)=2x^2-(-2)^2+3 \cdot x \cdot (-2)+1 \\
 $$
 Den tilhørende snitkurve svarer til skæringskurven mellem grafen for $f$ og planen med ligning $y=-2$, som ses i figuren herunder. Bemærk, at snitfunktionen $g$ er et andengradspolynomium, hvis graf er en parabel med grene, som vender opad, idet koefficienten til andengradsleddet er positiv.
 
+::: {#fig-fun2snit_g}
 ::: {#ggbApplet_funktion_af_to_variable_snitfkt_g}
 :::
-
-<!-- ![Grafen for snitfunktionen $g$ med forskrift $g(x)=2x^2-6x-3$ markeret med sort. Den lyseblå plan er planen med ligning $y=-2$.](images/graf_snitkurve_y=-2.png){width=75% #fig-graf_snitkurve_y} -->
+Grafen for snitfunktionen $g$ med forskrift $g(x)=2x^2-6x-3$ markeret med sort. Den lyseblå plan er planen med ligning $y=-2$.
+:::
 
 
 Fastholder vi derimod $x$ på $1$, får vi snitfunktionen
@@ -158,11 +159,11 @@ h(y)&=f(1,y)=2 \cdot 1^2 -y^2 +3 \cdot 1 \cdot y +1 \\
 $$
 Her ser vi igen, at snitfunktionen er et andengradspolynomium, og grafen vil være en parabel med grene, der vender nedad. Snitkurven svarer til skæringskurven mellem grafen for $f$ og planen med ligning $x=1$, som vist herunder.
 
+::: {#fig-fun2snit_h}
 ::: {#ggbApplet_funktion_af_to_variable_snitfkt_h}
 :::
-
-<!-- 
-![Grafen for snitfunktionen $h$ med forskrift $h(y)=-y^2+3y+3$ markeret med sort. Den lyseblå plan er planen med ligning $x=1$.](images/graf_snitkurve_x=1.png){width=75% #fig-graf_snitkurve_x} -->
+Grafen for snitfunktionen $h$ med forskrift $h(y)=-y^2+3y+3$ markeret med sort. Den lyseblå plan er planen med ligning $x=1$.
+:::
 
 ### Partielle afledede
 
@@ -266,10 +267,11 @@ $$
 
 Det betyder, at hvis vi tegner tangenten til snitkurven i $P$, så vil denne tangent have en hældning på $-2$, som illustreret i figuren herunder.
 
+::: {#fig-fun2snit_g_tangent}
 ::: {#ggbApplet_funktion_af_to_variable_snitfkt_g_med_tangent}
 :::
-
-<!-- ![Tangenten (stiplet linje) til grafen for snitfunktionen $g$ med forskrift $g(x)=2x^2-6x-3$ i punktet $P(1,-2,-7)$ har en hældning på $-2$.](images/graf_snitkurve_partialx.png){width=75% #fig-graf_snitkurve_partialx} -->
+Tangenten (stiplet linje) til grafen for snitfunktionen $g$ med forskrift $g(x)=2x^2-6x-3$ i punktet $P(1,-2,-7)$ har en hældning på $-2$.
+:::
 
 
 Helt tilsvarende kan vi fortolke den partielle afledede af $f$ med hensyn til $y$ i punktet $P$. Vi fandt, at
@@ -286,11 +288,11 @@ f_y'(1,-2)= 3 \cdot 1 - 2 \cdot (-2)=3+4=7
 $$
 Altså vil tangenten til snitkurven hørende til snitfunktionen $h(y)=f(1,y)$ have en tangenthældning på $7$ i punktet $(-2,h(-2))$. Det er vist i figuren herunder.
 
+::: {#fig-fun2snit_h_tangent}
 ::: {#ggbApplet_funktion_af_to_variable_snitfkt_h_med_tangent}
 :::
-
-<!-- ![Tangenten (stiplet linje) til grafen for snitfunktionen $h$ med forskrift $h(y)=-y^2+3y+3$ i punktet $P(1,-2,-7)$ har en hældning på $7$.](images/graf_snitkurve_partialy.png){width=75% #fig-graf_snitkurve_partialy} -->
-
+Tangenten (stiplet linje) til grafen for snitfunktionen $h$ med forskrift $h(y)=-y^2+3y+3$ i punktet $P(1,-2,-7)$ har en hældning på $7$.
+:::
 
 De partielle afledede svarer altså til tangenthældninger på snitkurver, som er fremkommet ved at finde skæringskurven mellem grafen for $f$ og en plan med ligning $x=x_0$ eller grafen for $f$ og en plan med ligning $y=y_0$. 
 
@@ -329,16 +331,13 @@ $$
  \end{pmatrix}
 $$
 
-Tegner vi en repræsentant for denne vektor i $xy$-planen med udgangspunkt i punktet $Q(1,-2,0)$ (som er projektionen af $P(1,-2,-7)$ op på $xy$-planen) ses resultatet i app'en herunder. Hvis du drejer lidt rundt på grafen, kan du se, at gradienten angiver en retning i $xy$-planen. Laver man et snit med en lodret plan gennem $P$, som peger i gradientens retning fås den snitkurve, som er indtegnet med sort.
+Tegner vi en repræsentant for denne vektor i $xy$-planen med udgangspunkt i punktet $Q(1,-2,0)$ (som er projektionen af $P(1,-2,-7)$ op på $xy$-planen) ses resultatet i @fig-fun2snit herunder. Hvis du drejer lidt rundt på grafen, kan du se, at gradienten angiver en retning i $xy$-planen. Laver man et snit med en lodret plan gennem $P$, som peger i gradientens retning fås den snitkurve, som er indtegnet med sort.
 
-
-
+::: {#fig-fun2snit}
 ::: {#ggbApplet_funktion_af_to_variable_med_snitkurve_i_gradietens_retning}
 :::
-<!--
-![En repræsentant for vektoren $\nabla f(1,-2)$ er tegnet med udgangspunkt i $P(1,-2,7)$'s projektion på $xy$-planen.](images/graf_gradient.png){width=75% #fig-graf_gradient}
--->
-
+En repræsentant for vektoren $\nabla f(1,-2)$ er tegnet med udgangspunkt i $P(1,-2,7)$'s projektion på $xy$-planen.
+:::
 
 Det er jo alt sammen fint nok, men hvad skal man mon bruge det til? Det er nemmest at forklare, hvis du forestiller dig, at grafen for $f$ er et landskab, hvor du står i punktet $P(x_0,y_0,f(x_0,y_0))$. Så viser det sig, at gradienten $\nabla f(x_0,y_0)$ peger i den retning, hvor funktionsværdien vokser mest. Det vil altså sige, at hvis du står i $P$ og gerne vil gå allermest opad bakke, så skal du gå i gradientens retning. Det svarer derfor til at følge den snitkurve, som er markeret på app'en ovenfor. Hvis du drejer rundt på grafen i app'en, kan du måske få en fornemmelse af, at snitkurven netop angiver den \"sti\", man skal følge, hvis man i punktet $P$ vil gå mest opad bakke. 
 
