@@ -79,7 +79,7 @@ de centrale idéer.
 
 **Dansk:** [Changemaker-modellen](https://www.outdoortopia.org/the-changemaker-model).
 
-**Matematik:** [Perceptroner](../materialer/perceptron/perceptron.qmd), [sigmoid neuron](../materialer/sigmoid_neuron/sigmoid_neuron.qmd), [gradientnedstigning](../materialer/retningsafledede/retningsafledede.qmd) og [kunstige neurale netværk](../materialer/neurale_net/neurale_net.qmd).
+**Matematik:** [Perceptroner](../materialer/perceptron/perceptron.qmd), [simple neurale netværk](../materialer/simple_neurale_net/simple_neurale_net.qmd), [gradientnedstigning](../materialer/retningsafledede/retningsafledede.qmd) og [generelle neurale netværk](../materialer/neurale_net/neurale_net.qmd).
 
 
 
