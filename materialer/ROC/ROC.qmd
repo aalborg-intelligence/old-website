@@ -547,8 +547,8 @@ En væsentlig forskel på sensitivitet/specificitet og positiv/negativ prædikti
 
 [^3]: De matematiske detaljer er givet i boksen nedenfor.
 
-::: {.callout-tip collapse="true" appearance="minimal"}
 
+::: {.callout-tip collapse="true" appearance="minimal"}
 ## Teori om sammenhængen mellem sensitivitet og positiv prædiktiv værdi
 
 Sensitiviteten var sandsynligheden for, at en sand rød blev klassificeret som rød. Udtrykt ved betingede sandsynligheder var det
@@ -591,12 +591,28 @@ Denne formel kaldes *loven om den totale sandsynlighed*.
 
 Bruger vi loven om den totale sandsynlighed på formlen for positiv prædiktiv værdi (@eq-ppv), får vi
 $$\textrm{positiv prædiktiv værdi} = \textrm{sensitivitet}\cdot \frac{P(\textrm{sand rød})}{P(\textrm{rød prædiktion})}$$
-$$= \textrm{sensitivitet}\cdot \frac{P(\textrm{sand rød})}{P(\textrm{rød prædiktion}|\textrm{sand rød})P(\textrm{sand rød}) + P(\textrm{rød prædiktion}|\textrm{sand blå})P(\textrm{sand blå}) }$$
+$$
+\begin{aligned}
+= &\textrm{sensitivitet}\cdot \\ &\frac{P(\textrm{sand rød})}{P(\textrm{rød prædiktion} |\textrm{sand rød})P(\textrm{sand rød}) + P(\textrm{rød prædiktion}|\textrm{sand blå})P(\textrm{sand blå}) }
+\end{aligned}
+$$
+
 $$= \textrm{sensitivitet}\cdot \frac{P(\textrm{sand rød})}{\textrm{sensitivitet}\cdot P(\textrm{sand rød}) + (1-\textrm{specificitet})\cdot P(\textrm{sand blå}) }
 $${#eq-ppv-formel}
 Vi ser, at hvis specificiteten ikke er meget høj, og sandsynligheden for sand rød er lav (og dermed sandsynligheden for sand blå høj), så er tælleren i (@eq-ppv-formel) lille i forhold til nævneren. Den positive prædiktive værdi vil derfor være væsentligt lavere end sensitiviteten. Det var det, der skete i eksemplet (@eq-ppv-eks).
 
-Formlen (@eq-ppv-formel) viser desuden, at den positive prædiktive værdi afhænger af ikke bare sensitivitet og specificitet, men også af fordelingen mellem de to klasser (altså sandsynligheden for sand rød og sand blå). Hvis fordelingen ændrer sig, så den røde klasse for eksempel bliver mere sandsynlig, så ændrer den positive prædiktive værdi sig også.
+Formlen (@eq-ppv-formel) viser desuden, at den positive prædiktive værdi afhænger af ikke bare sensitivitet og specificitet, men også af fordelingen mellem de to klasser (altså sandsynligheden for sand rød og sand blå). Hvis fordelingen ændrer sig, så den røde klasse for eksempel bliver mere sandsynlig, så ændrer den positive prædiktive værdi sig også. Dette er illustreret i figuren herunder. Her er det vist, hvordan den positive prædiktive værdi ændrer sig som en funktion af $P(\textrm{ sand rød })$ i et eksempel hvor sensitiviteten er $0.9$ og specificiteten er $0.6$. Her ses det tydeligt, at jo større sandsynligheden for sand rød er, desto større bliver også den positive prædiktive værdi.
+
+```{r fig.height=5,fig.width=5, fig.align='center'}
+#| echo: false
+sen<-0.9
+spe<-0.6
+psand<-(1:100)/100
+ppv<-sen* psand/( sen * psand + (1-spe)*(1-psand) )
+plot(psand,ppv,type="l",xlab="P(sand rød)", ylab= "Positiv prædiktiv værdi")
+
+
+```
 
 :::
 
