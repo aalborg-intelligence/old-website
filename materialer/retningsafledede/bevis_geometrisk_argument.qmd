@@ -1,0 +1,188 @@
+---
+title: "Geometrisk argument for at de retningsafledede kan udregnes med et prikprodukt"
+date: ''
+format:
+    html:
+      self-contained: true 
+      toc: true
+      toc-title: Indhold
+      toc-location: left
+      related-formats-title: "Andre formater"
+      link-external-newwindow: true
+#    pdf: default
+reference-location: margin
+editor_options: 
+  chunk_output_type: console
+crossref:
+  fig-prefix: figur   # (default is "Figure")
+  tbl-prefix: tabel    # (default is "Table")
+  exm-prefix: eksempel
+  thm-prefix: sætning
+  sec-prefix: afsnit
+  eq-prefix: ''
+  fig-title: Figur
+  exm-title: Eksempel
+  thm-title: Sætning
+  tbl-title: Tabel
+label:
+    fig: Figur
+fig-cap-location: margin
+tab-cap-location: margin
+execute:
+  echo: false
+  warning: false
+---
+
+Her på siden vil vi give et geometrisk argument for, at de retningsafledede kan skrives som et prikprodukt:
+
+$$
+D_{\vec{u}}f\left( x_{0},y_{0} \right) = \nabla f(x_{0},y_{0}) \cdot \vec{u}
+$$
+
+Lad os starte med at antage at alle snitfunktioner er differentiable. **Det skal vel eksplicit bruges et sted? Det er vel der hvor vi antager, at der er en tangentplan?**
+
+Alle planer gennem $P(x_0,y_0,f(x_0,y_0))$, som er parallelle med $z$-aksen, har retningsvektorer 
+$$\vec k =
+\begin{pmatrix}
+0 \\
+0 \\
+1 \\
+\end{pmatrix}
+\qquad \textrm{og} \qquad \vec u =
+\begin{pmatrix}
+u_1 \\
+u_2 \\
+0 \\
+\end{pmatrix}$$ 
+
+Dette er illustreret i @fig-plan_parallel_zakse, hvor man ved at trække i skyderen kan ændre på den retning, $\vec u$ peger i.
+
+{{< include _geogebra/_geogebra_geometrisk_bevis.qmd >}}
+
+::: {#fig-plan_parallel_zakse}
+::: {#ggbApplet_plan_parallel_zakse}
+:::
+Plan parallel med $z$-aksen med retningsvektor $\vec k$ og $\vec u$. 
+:::
+
+
+Det er disse planer, vi snitter grafen for $f$ med. Et eksempel er vist i figur @fig-snitfkt. Ved at trække i skyderen kan man igen ændre på planen, som er parallel med $z$-aksen.
+
+::: {#fig-snitfkt}
+::: {#ggbApplet_snitfkt}
+:::
+Grafen for en funktion $f$ (grøn) sammen med en plan gennem $P(x_0,y_0,f(x_0,y_0))$ som er parallelle med $z$-aksen (blå). Snitkurven mellem grafen og planen er markeret med sort.  
+:::
+
+Hældningen for tangenten til snitkurven svarer netop til den retningsafledede $D_{\vec{u}}f ( x_{0},y_{0} )$. Vi sørger nu for at vælge $\vec u$, så denne vektor har længde $1$. Så har snitkurven i $P$ tangentvektor 
+
+$$
+\begin{pmatrix}
+u_1 \\
+u_2 \\
+D_{\vec{u}}f ( x_{0},y_{0} ) \\
+\end{pmatrix}.
+$$
+ 
+
+Nu er det sådan at *hvis* tangenterne til alle snitkurverne ligger i en plan, så kaldes denne plan for **tangentplanen**. Et eksempel herpå ses i @fig-tangentplan. Her er det tydeligt, at de indtegnede tangenter alle ligger i den samme plan.
+
+::: {#fig-tangentplan}
+::: {#ggbApplet_tangentplan}
+:::
+Grafen for en funktion $f$ (grøn) sammen med forskellige tangenter til snitkurverne i et punkt $P(x_0,y_0,f(x_0,y_0))$. Den plan, som alle disse tangenter ligger i, kaldes for tangentplanen og er indtegnet med blå.  
+:::
+
+Denne plan har retningsvektorer
+$$
+\begin{pmatrix}
+1 \\
+0 \\
+f_x'(x_0,y_0) \\
+\end{pmatrix}
+\qquad \textrm{og} \qquad 
+\begin{pmatrix}
+0 \\
+1 \\
+f_y'(x_0,y_0) \\
+\end{pmatrix}$$ 
+
+og normalvektoren til planen bliver derfor
+
+$$
+\vec{n} = 
+\begin{pmatrix} 
+1 \\ 0 \\ f_x'(x_0,y_0)
+\end{pmatrix}
+\times
+\begin{pmatrix} 
+0 \\ 1 \\ f_y'(x_0,y_0)
+\end{pmatrix}
+$$
+
+Det giver
+
+$$
+\begin{aligned}
+\vec{n}&= 
+\begin{pmatrix} 
+0 \cdot f_y'(x_0,y_0) - f_x'(x_0,y_0) \cdot 1
+\\ 
+f_x'(x_0,y_0) \cdot 0 - 1 \cdot f_y'(x_0,y_0)
+\\
+1 \cdot 1 - 0 \cdot 0
+\end{pmatrix} =
+\begin{pmatrix} 
+ - f_x'(x_0,y_0)
+\\ 
+-f_y'(x_0,y_0)
+\\
+1 
+\end{pmatrix}
+\end{aligned}
+$$
+Vi så tidligere, at tangenten til snitkurven i $P$ har retningsvektor 
+$$
+\vec{r}=
+\begin{pmatrix} 
+u_1 \\ u_2 \\ D_{\vec{u}}f ( x_{0},y_{0} ).
+\end{pmatrix}
+$$
+
+Denne retningsvektor ligger per definition i tangentplanen og derfor står den vinkelret på enhver normalvektor. Derfor er
+
+$$
+\vec r \cdot \vec n = 0.
+$$
+
+Det giver
+$$
+\begin{aligned}
+\vec r \cdot \vec n &= \begin{pmatrix} 
+u_1 \\ u_2 \\ D_{\vec{u}}f ( x_{0},y_{0} ).
+\end{pmatrix}
+\cdot
+\begin{pmatrix} 
+ - f_x'(x_0,y_0)
+\\ 
+-f_y'(x_0,y_0)
+\\
+1 
+\end{pmatrix} \\
+&= - f_x'(x_0,y_0) \cdot u_1 -f_y'(x_0,y_0) \cdot u_2+D_{\vec{u}}f ( x_{0},y_{0} )=0.
+\end{aligned}
+$$
+
+Derfor fås
+$$
+D_{\vec{u}}f ( x_{0},y_{0} ) = f_x'(x_0,y_0) \cdot u_1 +f_y'(x_0,y_0) \cdot u_2 = \nabla f(x_{0},y_{0}) \cdot \vec{u}
+$$
+Nu har vi så, fra dette geometriske argument, at den retningsafledte i retning $\vec u$ fås som skalarproduktet mellem gradienten og $\vec u$, hvilket netop var det, vi gerne ville vise. 
+
+ 
+
+
+
+
+
+
