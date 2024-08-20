@@ -138,13 +138,8 @@
     "aai": {
       "Package": "aai",
       "Version": "0.2.0",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "aai",
-      "RemoteUsername": "aalborg-intelligence",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "6fcba07a15e3bdfee847539c17ed388bc21699e9",
+      "Source": "Repository",
+      "Repository": "CRAN",
       "Requirements": [
         "DT",
         "R",
@@ -168,7 +163,7 @@
         "tibble",
         "tidyr"
       ],
-      "Hash": "e218d46ec4c64ed9d0f257e82365a297"
+      "Hash": "a39b28c26d25c25331de17d36ac6a936"
     },
     "abind": {
       "Package": "abind",
