@@ -37,11 +37,11 @@ execute:
 
 ## Tabsfunktion, targetværdier og aktiveringsfunktioner
 
-Når en [perceptron](../perceptron/perceptron.qmd), en [Sigmoid neuron](../sigmoid_neuron/sigmoid_neuron.qmd) eller et helt generelt [kunstigt neuralt netværk](../neurale_net/neurale_net.qmd) trænes, så sker det som regel ved, at man forsøger at minimere en tabsfunktion $E$.
+Når en [perceptron](../perceptron/perceptron.qmd), et [neuralt netværk](../simple_neurale_net/simple_neurale_net.qmd) eller et helt generelt [neuralt netværk](../neurale_net/neurale_net.qmd) trænes, så sker det som regel ved, at man forsøger at minimere en tabsfunktion $E$.
 
 En **tabsfunktion** har til formål at \"måle\" hvor god en AI model[^1] er. En tabsfunktion $E$ har altid den egenskab, at $E \geq 0$, og at en lille værdi af $E$ svarer til en god model (der er et lille tab), mens en stor værdi af $E$ svarer til en mindre god model. Derfor vælger man den model, som giver den mindste værdi af tabsfunktionen. 
 
-[^1]: Med AI model tænker vi her på en perceptron, en Sigmoid neuron, et kunstigt neuralt netværk eller en anden form for funktion, som kan bruges til at prædiktere et eller andet.
+[^1]: Med AI model tænker vi her på en perceptron, et simplet neuralt netværk, et generelt neuralt netværk eller en anden form for funktion, som kan bruges til at prædiktere et eller andet.
 
 De fleste AI modeller -- for eksempel et kunstigt neuralt netværk -- bestemmes ved hjælp af *træningsdata*. Her har man givet en række *inputværdier* $x_1, x_2, \dots, x_n$ på baggrund af hvilke, man ønsker at prædiktere en såkaldt **targetværdi** $t$. 
 
@@ -108,12 +108,12 @@ $$
 o = f(w_0+w_1x_1+w_2x_2+\cdots+w_nx_n),
 $$
  
-hvor $f$ er den funktion, som vi kalder for en **aktiveringsfunktion**. For perceptroner og Sigmoid neuroner svarer $x_1, x_2, \dots, x_n$ direkte til inputværdierne, som AI modellen i sidste ende skal virke på. I et kunstig neuralt netværk er det mere kompliceret, men ovenstående er korrekt, hvis man tænker på $x_1, x_2, \dots, x_n$, som de værdier neuronerne i det sidste skjulte lag sender videre til outputlaget.
+hvor $f$ er den funktion, som vi kalder for en **aktiveringsfunktion**. For perceptroner og simple neurale netværk svarer $x_1, x_2, \dots, x_n$ direkte til inputværdierne, som AI modellen i sidste ende skal virke på. I et kunstig neuralt netværk er det mere kompliceret, men ovenstående er korrekt, hvis man tænker på $x_1, x_2, \dots, x_n$, som de værdier neuronerne i det sidste skjulte lag sender videre til outputlaget.
 
 Hvis tabsfunktionen i (@eq-tabsfunktion) skal give mening, så kan vi nu se, at hvis targetværdien $t \in \{0,1\}$, så bør værdimængden for $f$ tilsvarende være $(0,1)$. Mens hvis $t \in \{-1,1\}$, så bør[^2] værdimængden for $f$ tilsvarende være $(-1,1)$. Forestiller man sig, at targetværdien er huspriser -- det vil sige, at $t \in (0,\infty)$ -- ja så vil det give mening, at også outputværdien $o \in (0,\infty)$. Det vigtige er altså, at værdimængden for aktiveringsfunktionen er på samme skala som targetværdierne. 
 
  
-[^2]: Når en perceptron trænes ved hjælp af Adaline, er dette faktisk ikke tilfældet. Her er targetværdien $t \in \{-1,1\}$, mens outputværdien $o \in \mathbb{R}$. Det giver faktisk nogle problemer, som er beskrevet i noten om [Sigmoid neuroner](../sigmoid_neuron/sigmoid_neuron.qmd).
+[^2]: Når en perceptron trænes ved hjælp af Adaline, er dette faktisk ikke tilfældet. Her er targetværdien $t \in \{-1,1\}$, mens outputværdien $o \in \mathbb{R}$. Det giver faktisk nogle problemer, som er beskrevet i noten om [simple neurale netværk](../simple_neurale_net/simple_neurale_net.qmd).
 
 ## Sigmoid
 

@@ -99,7 +99,7 @@ f_{y}^{'}\left( x_{0},y_{0} \right) \\
 \end{pmatrix}
 $$
 
-Det oplyses i gymnasiepensum, at denne vektor angiver den retning, man skal bevæge sig væk fra punktet $(x_{0},y_{0})$, for at funktionsværdierne $f(x,y)$ vokser mest muligt. Vi vil i det følgende se nærmere på denne egenskab og bruge den til at løse optimeringsproblemer numerisk.
+I noten om [funktioner af flere variable](../funktioner_af_flere_variable/funktioner_af_flere_variable.qmd) har vi skrevet, at denne vektor angiver den retning, man skal bevæge sig væk fra punktet $(x_{0},y_{0})$, for at funktionsværdierne $f(x,y)$ vokser mest muligt. Vi vil i det følgende se nærmere på denne egenskab og bruge den til at løse optimeringsproblemer numerisk.
 
 # Retningsafledede
 
