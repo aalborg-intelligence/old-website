@@ -114,14 +114,14 @@ Her indikerer $2$-tallet altså, at der er tale om en funktion af *to* variable.
 
 ### Snitfunktioner og snitkurver
 
-Vi vil nu for en funktion af to variable tage udgangspunkt i et konkret punkt $P(x_0, y_0, f(x_0,y_0))$.  Forestil dig at vi i $P$ laver et lodret snit ned gennem grafen for $f$ med en plan, som er parallel med $x$-aksen. Det er lidt ligesom, at lave et snit ned gennem en lagkage! Et eksempel er vist i @fig-graf_snitkurve_y. Den lyseblå plan svarer til den lagkagekniv, vi har skåret med, og den skærer altså lodret og er samtidig parallel med $x$-aksen.
+Vi vil nu for en funktion af to variable tage udgangspunkt i et konkret punkt $P(x_0, y_0, f(x_0,y_0))$.  Forestil dig at vi i $P$ laver et lodret snit ned gennem grafen for $f$ med en plan, som er parallel med $x$-aksen. Det er lidt ligesom, at lave et snit ned gennem en lagkage! Et eksempel er vist i @fig-fun2snit_g. Den lyseblå plan svarer til den lagkagekniv, vi har skåret med, og den skærer altså lodret og er samtidig parallel med $x$-aksen.
 
-Når man laver sådan et lodret snit med grafen for $f$, så kalder man skæringen mellem den lodrette plan (lagkagekniven) og grafen for $f$ for en *snitkurve*. Snitkurven er markeret med sort på @fig-graf_snitkurve_y. Den funktion, hvis graf svarer til snitkurven, kaldes for en *snitfunktion*. Forskriften for snitfunktionen fås ved, at vi fastholder $y$-værdien på  $y_0$ og lader $x$ varierer:
+Når man laver sådan et lodret snit med grafen for $f$, så kalder man skæringen mellem den lodrette plan (lagkagekniven) og grafen for $f$ for en *snitkurve*. Snitkurven er markeret med sort på @fig-fun2snit_g. Den funktion, hvis graf svarer til snitkurven, kaldes for en *snitfunktion*. Forskriften for snitfunktionen fås ved, at vi fastholder $y$-værdien på  $y_0$ og lader $x$ varierer:
 
 $$
 g(x)=f(x,y_0).
 $$
-Vi kan også lave et lodret snit gennem $P(x_0,y_0,f(x_0,y_0))$, men hvor snittet i stedet er parallel med $y$-aksen -- se @fig-graf_snitkurve_x. Det svarer til, at vi fastholder $x$ på værdien $x_0$ og lader $y$ variere. Gør vi det fås snitfunktionen
+Vi kan også lave et lodret snit gennem $P(x_0,y_0,f(x_0,y_0))$, men hvor snittet i stedet er parallel med $y$-aksen -- se @fig-fun2snit_h. Det svarer til, at vi fastholder $x$ på værdien $x_0$ og lader $y$ variere. Gør vi det fås snitfunktionen
 
 $$
 h(y)=f(x_0,y).
