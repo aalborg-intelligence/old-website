@@ -37,7 +37,7 @@ execute:
 
 # Introduktion
 
-I det almindelige gymnasiepensum indgår nogle vigtige begreber indenfor infinitesimalregningen for funktioner af én og to variable. For funktioner af én variabel siges en funktion $f$ at være kontinuert i et punkt $x_{0}$, hvis funktionsværdien $f(x)$ nærmer sig funktionsværdien $f(x_{0})$ når $x$ nærmer sig $x_{0}$. Det vil sige, at
+I det almindelige gymnasiepensum indgår nogle vigtige begreber indenfor infinitesimalregningen for funktioner af én variable. For funktioner af én variabel siges en funktion $f$ at være kontinuert i et punkt $x_{0}$, hvis funktionsværdien $f(x)$ nærmer sig funktionsværdien $f(x_{0})$ når $x$ nærmer sig $x_{0}$. Det vil sige, at
 
 $$
 \lim_{x \rightarrow x_{0}}{f\left( x \right) = f(x_{0})}
@@ -63,7 +63,7 @@ Intuitivt kan man tænke på egenskaben kontinuitet i et punkt, som at grafen fo
 
 Hældningen $f'(x_{0})$ i punktet $(x_{0},f\left( x_{0} \right))$ på grafen er så en grænseværdi af nogle sekanthældninger, som hver for sig er gennemsnitshældninger for et mindre og mindre stykke af grafen. Har man studeret grænseværdibegrebet lidt nærmere, ved man, at den intuitive fortolkning ikke er særligt præcis og heller ikke helt rigtig, men alligevel er denne fortolkning god til at give en forståelse af gymnasiematematikken.
 
-For funktioner af to variable siges en funktion $f$ at være kontinuert i et punkt ${(x}_{0},y_{0})$, hvis funktionsværdien $f(x,y)$ nærmer sig funktionsværdien $f(x_{0},y_{0})$, når $(x,y)$ nærmer sig ${(x}_{0},y_{0})$:
+For [funktioner af to variable](../funktioner_af_flere_variable/funktioner_af_flere_variable.qmd) siges en funktion $f$ at være kontinuert i et punkt ${(x}_{0},y_{0})$, hvis funktionsværdien $f(x,y)$ nærmer sig funktionsværdien $f(x_{0},y_{0})$, når $(x,y)$ nærmer sig ${(x}_{0},y_{0})$:
 
 $$
 \lim_{(x,y) \rightarrow (x_{0},y_{0})}{f\left( x,y \right) = f(x_{0},y_{0})}
@@ -135,7 +135,7 @@ $$
 D_{\vec{u}}f\left( x_{0},y_{0} \right) = \nabla f(x_{0},y_{0}) \cdot \vec{u}
 $$
 
-Vi vil argumentere for formlen, men lad os først se på konsekvenserne af den. Vi ved fra almindelig vektorregning, at
+Vi vil nedenfor argumentere for formlen, men lad os først se på konsekvenserne af den. Vi ved fra almindelig vektorregning, at
 
 $$
 \vec{a} \cdot \vec{b} = \lvert \vec{a} \rvert \cdot \lvert \vec{b} \rvert \cdot \cos(v)
