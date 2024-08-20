@@ -26,8 +26,6 @@ title-block-author-single: "Forfatter"
 fig-cap-location: margin
 ---
 
-## Fejlklassifikationsraten
-
 Når man skal vælge en god algoritme til at prædiktere klasser, har man brug for at kunne sammenligne, hvor godt forskellige algoritmer prædikterer. Man er derfor nødt til at have et mål for, hvor god en algoritme er til at forudsige klasser. Det mest oplagte er at tælle, hvor mange observationer algoritmen klassificerer forkert. Man kan så beregne, hvor stor en andel af alle observationerne, der klassificeres forkert. Denne andel kaldes *fejlklassifikationsraten*. Det er dog ikke altid det bedste mål at bruge. Det handler denne note om.
 
 Som eksempel ser vi på et lille dataeksempel med $20$ datapunkter, der kan have klasserne rød og blå, hvor rød er meget sjældnere end blå. Desuden er der målt en inputvariabel $x$. Vi ønsker at finde en algoritme, der kan prædiktere farven på en observation på baggrund af $x$. Datapunkternes klasser og $x$-værdier er angivet på @fig-data_eksempel. Ud fra figuren kunne det godt se ud til, at sandsynligheden for den røde klasse stiger, når $x$ stiger. Der er dog også flest blå med meget høje $x$-værdier.
