@@ -196,7 +196,7 @@ $$
 \textrm{specificitet} = \frac{\textrm{antal blå der prædikteres blå}}{\textrm{antal sande blå}} = \frac{14}{3+14}= 0.824.
 $$
 
-Algoritmen er altså bedst til at finde blå, da specificiteten er højere end sensitiviteten.   Lad os prøve, om vi kan få højere sensitivitet med en anden værdi af $t$. Værdien $t=12$ var den mindste værdi, der kunne finde alle de røde -- se igen @fig-data_eksempel. Det giver os confusion matricen i @fig-t12.
+Algoritmen er altså bedst til at finde blå, da specificiteten er højere end sensitiviteten.   Lad os prøve, om vi kan få højere sensitivitet med en anden værdi af $t$. Værdien $t=12$ var den største værdi, der kunne finde alle de røde -- se igen @fig-data_eksempel. Det giver os confusion matricen i @fig-t12.
 
 ```{tikz, fig.width=4, fig.height=4}
 #| echo: false
