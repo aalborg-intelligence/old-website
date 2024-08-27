@@ -1,7 +1,6 @@
 ---
 title: "Naiv Bayes klassifier"
 image: "images/bayes_thm.png"
-description: "Beskrivelse af naiv Bayes klassifikation."
 date: ''
 format:
     html: 
@@ -35,6 +34,7 @@ tbl-cap-location: margin
 title-block-author-single: "Forfatter"
 ---
 
+Denne note handler om klassifikation ved hjælp af den metode, som kaldes for **naiv Bayes**.
 
 ## Bayes klassifikation 
 For at introducere teorien om Bayes naive klassifikation, vil vi starte med at se på et eksempel for at få en idé om, hvad Bayes klassifikation går ud på.

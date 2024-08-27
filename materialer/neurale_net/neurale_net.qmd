@@ -1,7 +1,6 @@
 ---
 title: "Kunstige neurale netværk"
 image: "images/generelt_netvaerk.png"
-description: En grundig gennemgang af matematikken bag kunstige neurale netværk.
 date: ''
 format:
     html:
@@ -44,6 +43,7 @@ library(ggplot2)
 library(huxtable)
 ```
 
+Denne note giver en grundig gennemgang af matematikken bag kunstige neurale netværk.
 
 # Hvad er kunstig intelligens og hvad skal vi med det?
 

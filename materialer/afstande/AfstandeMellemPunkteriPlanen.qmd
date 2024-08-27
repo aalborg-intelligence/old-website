@@ -1,7 +1,6 @@
 ---
 title: "Afstande mellem punkter i planen"
 image: "images/manhattan_afstand.png"
-description: "Afstande mellem punkter i planen er ikke entydigt -- faktisk kan man måle afstanden mellem to punkter i planen på mange forskellige måder."
 format:
     html: 
       self-contained: true
@@ -31,6 +30,8 @@ execute:
   echo: false
   warning: false
 ---
+
+Afstande mellem punkter i planen er ikke entydigt -- faktisk kan man måle afstanden mellem to punkter i planen på mange forskellige måder.
 
 Du har ikke nødvendigvis tænkt over det før, men hvordan måler man egentlig afstanden mellem to punkter i planen? "Ja, man finder afstanden mellem dem", vil du måske sige, men det er jo ikke rigtigt et brugbart svar på spørgsmålet. Den afstand, du tænker på, er formentlig længden af det linjestykke, som forbinder de to punkter, men der findes faktisk mange andre måder at definere afstanden på. Det vil vi give et par eksempler på her. 
 

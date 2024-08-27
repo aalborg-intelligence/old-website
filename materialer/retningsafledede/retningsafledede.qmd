@@ -1,7 +1,6 @@
 ---
 title: "Retningsafledede og gradientnedstigning"
 image: "images/minMaxFunc.png"
-description: En introduktion til retningsafledede og gradientnedstigning.
 date: ''
 format:
     html:
@@ -34,6 +33,8 @@ execute:
   echo: false
   warning: false
 ---
+
+Denne note giver en introduktion til retningsafledede og gradientnedstigning.
 
 # Introduktion
 
@@ -85,8 +86,8 @@ $$
 
 Man bruger det til at definere de to første ordens partielle afledede for en funktion $f$ af to variable $$
 \begin{aligned}
-&\lim_{h \rightarrow 0} \frac{f\left( x_{0} + h,y_{0} \right) - f(x_{0},y_{0})}{h} = f_{x}^{'}(x_{0},y_{0})\\
-&\lim_{h \rightarrow 0} \frac{f\left( x_{0},y_{0} + h \right) - f(x_{0},y_{0})}{h} = f_{y}^{'}(x_{0},y_{0})
+&\lim_{h \rightarrow 0} \frac{f\left( x_{0} + h,y_{0} \right) - f(x_{0},y_{0})}{h} = f_x(x_{0},y_{0})\\
+&\lim_{h \rightarrow 0} \frac{f\left( x_{0},y_{0} + h \right) - f(x_{0},y_{0})}{h} = f_y(x_{0},y_{0})
 \end{aligned}
 $$ hvis grænserne eksisterer. Her tager man et skridt $h$ i enten $x$-aksens eller $y$-aksens retning ud fra punktet $(x_{0},y_{0})$ og beregner en hældning af grafen i den retning ved hjælp af en grænseværdi af sekanthældninger for snitfunktionerne $f(x,y_{0})$ og $f(x_{0},y)$, som hver for sig er almindelige funktioner af én variabel, da man kun ændrer enten $x$-koordinaten eller $y$-koordinaten.
 
@@ -94,8 +95,8 @@ Gradientvektoren defineres som vektoren med de partielle afledede som koordinate
 
 $$
 \nabla f\left( x_{0},y_{0} \right) = \begin{pmatrix}
-f_{x}^{'}\left( x_{0},y_{0} \right) \\
-f_{y}^{'}\left( x_{0},y_{0} \right) \\
+f_x\left( x_{0},y_{0} \right) \\
+f_y\left( x_{0},y_{0} \right) \\
 \end{pmatrix}
 $$
 
@@ -120,7 +121,7 @@ $$ {#eq-retningsafledede}
 
 hvis grænsen eksisterer.
 
-Bemærk, at hvis $\vec{u}$ peger i $x$-aksens retning, så bliver den retningsafledede til $f_{x}^{'}(x_{0},y_{0})$, og hvis den peger i $y$-aksens retning, bliver den til $f_{y}^{'}(x_{0},y_{0})$. Man udregner en sekanthældning ved at tage et skridt $h$ i $\vec{u}$'s retning og dividere den fundne funktionstilvækst med $h$. Derefter lader man $h$ gå mod 0. Det giver hældningen af grafen for $f$ i punktet $(x_{0},y_{0})$ i retningen $\vec{u}$.
+Bemærk, at hvis $\vec{u}$ peger i $x$-aksens retning, så bliver den retningsafledede til $f_x(x_{0},y_{0})$, og hvis den peger i $y$-aksens retning, bliver den til $f_y(x_{0},y_{0})$. Man udregner en sekanthældning ved at tage et skridt $h$ i $\vec{u}$'s retning og dividere den fundne funktionstilvækst med $h$. Derefter lader man $h$ gå mod 0. Det giver hældningen af grafen for $f$ i punktet $(x_{0},y_{0})$ i retningen $\vec{u}$.
 
 Idéen med den retningsafledede er illustreret i figuren nedenfor. Til venstre ses en repræsentant for $\vec u$ i $xy$-planen. Man kan ændre på den retning, som $\vec u$ peger i, ved at trække i skyderen. Til højre ses grafen for en funktion $f$ af to variable, hvor et punkt $P(x_0,y_0,f(x_0,y_0))$ på grafen er indtegnet. Samtidig vises den snitkurve som fås, hvis man på grafen i punktet $P$ bevæger sig langs en linje i retningen $\vec u$. Denne snitkurve har i punktet $P$ en tangent, som også er indtegnet, og denne tangents hældning vil netop svarer til størrelsen af den retningsafledede $D_{\vec{u}}f\left( x_{0},y_{0} \right)$. Hvis man ændrer på den retning, som $\vec u$ peger i, kan man se, hvordan størrelsen af den retningsafledede ændrer sig.
 

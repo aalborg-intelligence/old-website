@@ -1,7 +1,6 @@
 ---
 title: "Aktiveringsfunktioner"
 image: ""
-description: I opbygningen af kunstige neurale netværk er aktiveringsfunktioner helt centrale. Hvis ikke man bruger aktiveringsfunktioner i et kunstigt neuralt netværk, vil man faktisk bare bygge en stor lineær funktion af input-værdierne. Der findes mange forskellige aktiveringsfunktioner og i denne note vil vi beskrive nogle af de mest anvendte.
 from: markdown+emoji
 format:
     html:
@@ -34,6 +33,8 @@ execute:
   echo: false
   warning: false
 ---
+
+I opbygningen af kunstige neurale netværk er aktiveringsfunktioner helt centrale. Hvis ikke man bruger aktiveringsfunktioner i et kunstigt neuralt netværk, vil man faktisk bare bygge en stor lineær funktion af input-værdierne. Der findes mange forskellige aktiveringsfunktioner og i denne note vil vi beskrive nogle af de mest anvendte.
 
 ## Tabsfunktion, targetværdier og aktiveringsfunktioner
 

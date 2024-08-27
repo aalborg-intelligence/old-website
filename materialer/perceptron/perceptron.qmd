@@ -1,7 +1,6 @@
 ---
 title: "Perceptroner"
 image: "images/perceptron.png"
-description: Forløberen til kunstige neurale netværk er perceptroner, som du kan læse mere om her.
 date: ''
 format:
     html: 
@@ -53,6 +52,7 @@ katdata <- data.frame(
 )
 ```
 
+Forløberen til kunstige neurale netværk er perceptroner, som du kan læse mere om her i denne note.
     
 # Rosenblatts perceptron 
 

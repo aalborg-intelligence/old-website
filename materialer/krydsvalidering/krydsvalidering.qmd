@@ -1,7 +1,6 @@
 ---
 title: "Overfitting, modeludvælgelse og krydsvalidering"
 image: "images/overfitting.png"
-description: "Hvordan vælger man den bedste model til beskrivelse af data? Skal man bare vælge den mest komplicerede? Eller kan der mon gå noget galt? Det handler overfitting og krydsvalidering om."
 date: ''
 format:
     html: 
@@ -30,6 +29,7 @@ fig-cap-location: margin
 #keep-md: true
 ---
 
+Hvordan vælger man den bedste model til beskrivelse af data? Skal man bare vælge den mest komplicerede? Eller kan der mon gå noget galt? Det handler overfitting og krydsvalidering om.
 
 ```{r}
 #| include=FALSE
@@ -47,7 +47,7 @@ y<-x1+eps # y-værdierne
 
 
 
-Denne note handler om, hvad man kan gøre, når man har flere forskellige
+Mere præcis handler denne note om, hvad man kan gøre, når man har flere forskellige
 modeller for data at vælge imellem og gerne vil vælge den bedste. Noten
 introducerer først polynomiel regression, der bruges som gennemgående
 eksempel. Mod slutningen diskuteres, hvordan de samme principper kan

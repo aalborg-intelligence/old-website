@@ -1,6 +1,5 @@
 ---
 title: "Definition af en metrik -- det abstrakte afstandsbegreb"
-description: "Hvad skal der til for, at man kan tale om, at et afstandsmål rent faktisk måler noget, som giver mening?"
 image: "images/metrik.png"
 format:
     html: 
@@ -32,6 +31,8 @@ execute:
   echo: false
   warning: false
 ---
+
+Hvad skal der til for, at man kan tale om, at et afstandsmål rent faktisk måler noget, som giver mening?
 
 Man har ikke frit valg til at bestemme, hvad man vil bruge som
 afstandsmål. Hvis det skal give mening, skal man have en *metrik* -- det betyder, at afstanden skal opfylde nogle betingelser:

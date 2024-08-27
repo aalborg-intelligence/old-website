@@ -80,7 +80,7 @@ På @fig-middelvaerdisaetningen illustreres dette princip.
 
 Middelværdisætningen siger altså bare, at hvis man forbinder start og slutpunktet -- den blå linje -- og udregner dens hældning, så kan man altid finde mindst et punkt i det indre af intervallet, hvor tangenten i punktet -- den grønne linje -- har samme hældning. I eksemplet fandt vi et bestemt $c$, som vi ifølge middelværdisætningen vidste, at vi kunne. Når vi i det følgende skal tænke endnu mere generelt, så bliver middelværdisætningen nyttig.
 
-Vi vender nu tilbage til definitionen af de retningsafledede. Vi får i det følgende brug for at antage, at både $f_{x}^{'}(x,y)$ og $f_{y}^{'}\left( x,y \right)$ eksisterer, så vi kan bruge middelværdisætningen. Desuden får vi også brug for at antage, at $f_{x}^{'}(x,y)$ og $f_{y}^{'}\left( x,y \right)$ er kontinuerte på en omegn af $(x_{0},y_{0})$.
+Vi vender nu tilbage til definitionen af de retningsafledede. Vi får i det følgende brug for at antage, at både $f_x(x,y)$ og $f_y\left( x,y \right)$ eksisterer, så vi kan bruge middelværdisætningen. Desuden får vi også brug for at antage, at $f_x(x,y)$ og $f_y\left( x,y \right)$ er kontinuerte på en omegn af $(x_{0},y_{0})$.
 
 Vi husker på, at de retningsafledede var defineret ved
 
@@ -119,22 +119,22 @@ Ved at bruge den omskrevne middelværdisætning i (@eq-middel_omskrevet) på de 
 
 $$
 \begin{aligned}
-\color{blue} f\left( x_{0} + h \cdot u_{1},y_{0} + h \cdot u_{2} \right) - f\left( x_{0},y_{0} + h \cdot u_{2} \right) =  \color{blue} f_{x}^{'}(c_{1},y_{0} + h \cdot u_{2}) \cdot h \cdot u_{1}
+\color{blue} f\left( x_{0} + h \cdot u_{1},y_{0} + h \cdot u_{2} \right) - f\left( x_{0},y_{0} + h \cdot u_{2} \right) =  \color{blue} f_x(c_{1},y_{0} + h \cdot u_{2}) \cdot h \cdot u_{1}
 \end{aligned}
 $$ 
 og 
 $$
-\color{green} f\left( x_{0},y_{0} + h \cdot u_{2} \right) - f\left( x_{0},y_{0} \right) = f_{y}^{'}(x_{0},c_{2}) \cdot h \cdot u_{2}
+\color{green} f\left( x_{0},y_{0} + h \cdot u_{2} \right) - f\left( x_{0},y_{0} \right) = f_y(x_{0},c_{2}) \cdot h \cdot u_{2}
 $$
 
-Her har vi brugt, at den afledede af en snitfunktion, hvor vi kun varierer $x$ er $f_{x}^{'}$, og den afledede af en snitfunktion, hvor vi kun varierer $y$ er $f_{y}^{'}$. Tallet $c_{1}$ ligger mellem $x_{0}$ og $x_{0} + h \cdot u_{1}$, og tallet $c_{2}$ ligger mellem $y_{0}$ og $y_{0} + h \cdot u_{2}$. Dette er vist i @fig-punkt_indskudt3.
+Her har vi brugt, at den afledede af en snitfunktion, hvor vi kun varierer $x$ er $f_x$, og den afledede af en snitfunktion, hvor vi kun varierer $y$ er $f_y$. Tallet $c_{1}$ ligger mellem $x_{0}$ og $x_{0} + h \cdot u_{1}$, og tallet $c_{2}$ ligger mellem $y_{0}$ og $y_{0} + h \cdot u_{2}$. Dette er vist i @fig-punkt_indskudt3.
 
 ![Tallet $c_{1}$ ligger mellem $x_{0}$ og $x_{0} + h \cdot u_{1}$, og tallet $c_{2}$ ligger mellem $y_{0}$ og $y_{0} + h \cdot u_{2}$.](images/punkt_indskudt3.png){#fig-punkt_indskudt3}
 
 Indsætter vi de to udtryk ovenfor på højreside i (@eq-funktionstilvaekst) får vi 
 $$
 \begin{multline}
-f\left( x_{0} + h \cdot u_{1},y_{0} + h \cdot u_{2} \right) - f(x_{0},y_{0})  = \color{blue} f_{x}^{'}(c_{1},y_{0} + h \cdot u_{2}) \cdot h \cdot u_{1} \color{black} + \\ \color{green} f_{y}^{'}(x_{0},c_{2}) \cdot h \cdot u_{2} \\
+f\left( x_{0} + h \cdot u_{1},y_{0} + h \cdot u_{2} \right) - f(x_{0},y_{0})  = \color{blue} f_x(c_{1},y_{0} + h \cdot u_{2}) \cdot h \cdot u_{1} \color{black} + \\ \color{green} f_y(x_{0},c_{2}) \cdot h \cdot u_{2} \\
 \end{multline}
 $$
 
@@ -143,16 +143,16 @@ Og bruges dette i definitionen for den retningsafledede i (@eq-retningsafledede)
 D_{\vec{u}}f\left( x_{0},y_{0} \right) &= \lim_{h \rightarrow 0}\frac{f\left( x_{0} + h \cdot u_{1},y_{0} + h \cdot u_{2} \right) - f(x_{0},y_{0})}{h}
 \\
 &=
-\lim_{h \rightarrow 0}\frac{f_{x}^{'}\left( c_{1},y_{0} + h \cdot u_{2} \right) \cdot h \cdot u_{1} + f_{y}^{'}(x_{0},c_{2}) \cdot h \cdot u_{2}\ }{h}
+\lim_{h \rightarrow 0}\frac{f_x\left( c_{1},y_{0} + h \cdot u_{2} \right) \cdot h \cdot u_{1} + f_y(x_{0},c_{2}) \cdot h \cdot u_{2}\ }{h}
 \end{aligned}
 $$ Vi kan nu dividere $h$ op i hvert led og får $$
 \begin{aligned}
 D_{\vec{u}}f\left( x_{0},y_{0} \right)
-&= \underset{h \rightarrow 0}{\text{lim}} f_{x}^{'}\left( c_{1},y_{0} + h \cdot u_{2} \right) \cdot u_{1} + f_{y}^{'}(x_{0},c_{2}) \cdot u_{2}\ 
+&= \underset{h \rightarrow 0}{\text{lim}} f_x\left( c_{1},y_{0} + h \cdot u_{2} \right) \cdot u_{1} + f_y(x_{0},c_{2}) \cdot u_{2}\ 
 \\
 &= \lim_{h \rightarrow 0}\begin{pmatrix}
-f_{x}^{'}\left( c_{1},y_{0} + h \cdot u_{2} \right) \\
-f_{y}^{'}(x_{0},c_{2}) 
+f_x\left( c_{1},y_{0} + h \cdot u_{2} \right) \\
+f_y(x_{0},c_{2}) 
 \end{pmatrix} \cdot 
 \begin{pmatrix}
 u_{1} \\
@@ -174,8 +174,8 @@ Vi startede med at antage, at de partielle afledede er kontinuerte. Det får vi 
 
 $$
 D_{\vec{u}}f\left( x_{0},y_{0} \right) = \begin{pmatrix}
-f_{x}^{'}\left( x_{0},y_{0} \right) \\
-f_{y}^{'}(x_{0},y_{0}) \\
+f_x\left( x_{0},y_{0} \right) \\
+f_y(x_{0},y_{0}) \\
 \end{pmatrix} \cdot \begin{pmatrix}
 u_{1} \\
 u_{2} \\

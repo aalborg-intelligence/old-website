@@ -1,7 +1,6 @@
 ---
 title: "Funktioner af flere variable"
 image: "images/maskine2.png"
-description: En funktion kan godt afhænge af flere forskellige variable, og i det tilfælde taler man om en **funktion af flere variable**. Denne type af funktioner viser sig at spille en helt central rolle i rigtig mange metoder inden for kunstig intelligens. Derfor vil vi i denne note behandle de vigtigste begreber i forbindelse med funktioner af flere variable.
 from: markdown+emoji
 format:
     html:
@@ -34,6 +33,8 @@ execute:
   echo: false
   warning: false
 ---
+
+En funktion kan godt afhænge af flere forskellige variable, og i det tilfælde taler man om en **funktion af flere variable**. Denne type af funktioner viser sig at spille en helt central rolle i rigtig mange metoder inden for kunstig intelligens. Derfor vil vi i denne note behandle de vigtigste begreber i forbindelse med funktioner af flere variable.
 
 ## Funktioner af én variabel
 
@@ -96,6 +97,47 @@ Det betyder, at punktet $P(1,-2,-7)$ ligger på grafen for $f$. Grafen for $f$ o
 Grafen for funktionen $f$ med forskrift $f(x,y)=2x^2-y^2+3xy+1$ samt punktet $P(1,-2,-7)$.
 :::
 
+
+Faktisk kender du allerede en særlig type af funktioner af to variable. Nemlig den slags funktioner, hvis graf er en plan. Som du måske husker, kan en plan gennem punktet $(x_0,y_0,z_0)$ og med normalvektor
+
+$$
+\vec n = 
+\begin{pmatrix}
+a \\
+b \\
+c
+\end{pmatrix}
+$$
+
+beskrives ved ligningen
+
+$$
+a(x-x_0)+b(y-y_0)+c(z-z_0)=0.
+$$
+
+En alternativ skrivemåde er
+
+$$
+ax+by+cz+d=0.
+$$
+Hvis $c \neq 0$ kan vi i denne ligning isolere $z$:
+
+$$
+z = -\frac{a}{c}x -\frac{b}{c}y-\frac{d}{c}.
+$$
+
+En ikke-lodret plan i rummet er derfor graf for en funktion af to variable med en forskrift på formen
+
+$$
+f(x,y)= -\frac{a}{c}x -\frac{b}{c}y-\frac{d}{c}.
+$$
+Og skrevet lidt simplere:
+
+$$
+f(x,y) = Ax+By+C,
+$$
+
+hvor $A=-a/c, B=-b/c$ og $C=-d/c$.
 
 Vi kan igen bruge \"maskine-metaforen\" for funktioner af to variable, som illustreret i @fig-maskine2.
 
@@ -172,7 +214,7 @@ Fra funktioner af én variabel ved vi, at nogle funktioner er differentiable. De
 Lad os forklare det lidt nærmere. Snitfunktionen $g(x)=f(x,y_0)$ er jo en \"almindelig\" funktion af én variabel $x$. Hvis $g$ er differentiabel, så kalder man $g'(x)$ for den *partielle afledede af $f$ med hensyn til $x$*. Notationen for den partielle afledede af $f$ med hensyn til $x$ er som regel en af følgende:
 
 $$
-g'(x)=f_x'(x,y_0)=\frac{\partial f}{\partial x}=\frac{\partial}{\partial x}f(x,y_0),
+g'(x)=f_x(x,y_0)=\frac{\partial f}{\partial x}=\frac{\partial}{\partial x}f(x,y_0),
 $$
 
 hvor $y_0$ her er en konstant.
@@ -185,23 +227,23 @@ $$
 Så vil den partielle afledede med hensyn til $x$ være
 
 $$
-f_x'(x,y_0)=2 \cdot 2x-0 + 3 \cdot 1 \cdot y_0 + 0 = 4x+3y_0.
+f_x(x,y_0)=2 \cdot 2x-0 + 3 \cdot 1 \cdot y_0 + 0 = 4x+3y_0.
 $$
 Bemærk her, at $y_0^2$ differentieret bliver $0$, fordi $y_0$ er en konstant, og en konstant, som er lagt til, bliver som bekendt $0$, når vi differentierer. Når vi skal differentiere udtrykket $3xy_0$, så er $y_0$ en konstant, som er ganget på, og derfor lader vi den stå, når vi differentierer (ligesom vi lader $3$-tallet stå og differentierer $x$, som giver $1$).
 
 Normalvis gider man ikke slæbe rundt på $y_0$ i ovenstående udtryk, fordi $y_0$ jo kan være en hvilken som helst værdi svarende til, at vi flytter det lodrette snit. Derfor skriver man som oftest bare 
 
 $$
-f_x'(x,y)=4x+3y.
+f_x(x,y)=4x+3y.
 $$
 
 
 Når vi finder den partielle afledede med hensyn til $x$, kan vi altså gøre det helt generelt, hvor vi bare tænker på $y$ som en konstant. 
 
-Tidligere fastholdt vi $y$ på værdien $-2$. Indsætter vi $y=-2$ i ovenstående udtryk for $f_x'(x,y)$ får vi
+Tidligere fastholdt vi $y$ på værdien $-2$. Indsætter vi $y=-2$ i ovenstående udtryk for $f_x(x,y)$ får vi
 
 $$
-f_x'(x,-2)=4x+3 \cdot (-2)=4x-6.
+f_x(x,-2)=4x+3 \cdot (-2)=4x-6.
 $$
 Men vi kunne lige så godt have differentieret snitfunktionen
 
@@ -212,12 +254,12 @@ Gør vi det, får vi
 $$
 g'(x)=4x-6,  
 $$
-der heldigvis svarer til udtrykket for $f_x'(x,-2)$, som vi netop har fundet.
+der heldigvis svarer til udtrykket for $f_x(x,-2)$, som vi netop har fundet.
 
 Helt tilsvarende definerer vi den *partielle afledede af $f$ med hensyn til $y$* ved at differentiere snitfunktionen $h(y)$ (såfremt denne snitfunktion er differentiabel):
 
 $$
-h'(y)=f_y'(x_0,y)=\frac{\partial f}{\partial y}=\frac{\partial}{\partial y}f(x_0,y).
+h'(y)=f_y(x_0,y)=\frac{\partial f}{\partial y}=\frac{\partial}{\partial y}f(x_0,y).
 $$
 Ser vi igen på
 $$
@@ -226,7 +268,7 @@ $$
 så vil den partielle afledede med hensyn til $y$ være
 
 $$
-f_y'(x_0,y)=0-2y+3x_0\cdot 1+0=3x_0-2y.
+f_y(x_0,y)=0-2y+3x_0\cdot 1+0=3x_0-2y.
 $$
 
 Her er $x_0$ en konstant, og derfor er $2x_0^2$ differentieret $0$, og $3x_0y$ differentieret med hensyn til $y$ bliver $3x_0$.
@@ -234,7 +276,7 @@ Her er $x_0$ en konstant, og derfor er $2x_0^2$ differentieret $0$, og $3x_0y$ d
 Igen vil vi som oftest bare skrive
 
 $$
-f_y'(x,y)=3x-2y.
+f_y(x,y)=3x-2y.
 $$
 
 ### Grafisk betydning af de partielle afledede
@@ -250,19 +292,19 @@ $$
 Den partielle afledede med hensyn til $x$ er så
 
 $$
-g'(x)=f_x'(x,y_0).
+g'(x)=f_x(x,y_0).
 $$
 Men nu må $g'(x_0)$ være hældningen for tangenten til grafen for snitfunktionen $g$ i punktet $(x_0,g(x_0))$. 
 
 Lad os illustrere det med vores eksempel hvor $f(x,y)= 2x^2-y^2+3xy+1$. Her er
 
 $$
-f_x'(x,y)=4x+3y.
+f_x(x,y)=4x+3y.
 $$
-Vi fandt tidligere, at $P(1,-2,-7)$ ligger på grafen for $f$. Ser vi på snitfunktionen $g(x)=f(x,-2)$, så ligger $P$ altså også på den tilsvarende snitkurve. <!-- -- se også @fig-graf_snitkurve_y --> Udregner vi $g'(1)=f_x'(1,-2)$, får vi
+Vi fandt tidligere, at $P(1,-2,-7)$ ligger på grafen for $f$. Ser vi på snitfunktionen $g(x)=f(x,-2)$, så ligger $P$ altså også på den tilsvarende snitkurve. <!-- -- se også @fig-graf_snitkurve_y --> Udregner vi $g'(1)=f_x(1,-2)$, får vi
 
 $$
-f_x'(1,-2)=4 \cdot 1 + 3 \cdot (-2) = 4-6=-2
+f_x(1,-2)=4 \cdot 1 + 3 \cdot (-2) = 4-6=-2
 $$
 
 Det betyder, at hvis vi tegner tangenten til snitkurven i $P$, så vil denne tangent have en hældning på $-2$, som illustreret i figuren herunder.
@@ -278,13 +320,13 @@ Helt tilsvarende kan vi fortolke den partielle afledede af $f$ med hensyn til $y
 
 
 $$
-f_y'(x,y)=3x-2y.
+f_y(x,y)=3x-2y.
 $$
 
 Så i $(1,-2)$ har vi
 
 $$
-f_y'(1,-2)= 3 \cdot 1 - 2 \cdot (-2)=3+4=7
+f_y(1,-2)= 3 \cdot 1 - 2 \cdot (-2)=3+4=7
 $$
 Altså vil tangenten til snitkurven hørende til snitfunktionen $h(y)=f(1,y)$ have en tangenthældning på $7$ i punktet $(-2,h(-2))$. Det er vist i figuren herunder.
 
@@ -308,7 +350,7 @@ Man definerer *gradienten* for en funktion $f$ af to variable, som den vektor hv
 $$
 \nabla f(x,y) = 
 \begin{pmatrix}
-f_x'(x,y) \\ f_y'(x,y)
+f_x(x,y) \\ f_y(x,y)
  \end{pmatrix}.
 $$
 
@@ -316,12 +358,12 @@ Vi ser her, at gradienten er en to-dimensionel vektor. Det betyder, at man kan t
 
 Lad os regne lidt på det i vores eksempel. Vi husker, at $f(x,y)=2x^2-y^2+3xy+1$ og vi fandt ovenfor, at
 $$
-f_x'(1,-2)=-2
+f_x(1,-2)=-2
 $$
 og
 
 $$
-f_y'(1,-2)=7.
+f_y(1,-2)=7.
 $$
 Det vil sige, at
 $$
@@ -370,7 +412,28 @@ f: \mathbb{R}^n \rightarrow \mathbb{R},
 $$ 
 hvor $n$'et her tydeliggør, at der er tale om en funktion af $n$ variable. 
 
-Grafen for $f$ består af alle de punkter $(x_1, x_2, \dots, x_n,y)$ i et $(n+1)$-dimensionalt koordinatsystem, hvor $y = f(x_1, x_2, \dots, x_n)$. Koordinatsystemer på $4$ dimensioner eller flere er svære at rumme i vores $3$-dimensionelle verden, så af den grund behøver vi ikke at bekymre os om, hvordan grafen for $f$ ser ud. 
+Det er faktisk ikke helt så svært at forestille sig funktioner af flere variable end to, hvis nedenstående eksempel illustrerer.
+
+::: {#exm-fortjeneste}
+
+En virksomhed producerer en bestem vare. Virksomhedens fortjeneste afhænger af en række faktorer. Fx antal solgte varer, elprisen, prisen på en bestemt råvarer (som bruges i produktionen) og antal sygedage blandt med arbejderne. Virksomheden har fundet ud af, at fortjenesten tilnærmelsesvist kan udregnes på følgende måde:
+
+$$
+\begin{aligned}
+\textrm{fortjeneste } = 7.2 \cdot \sqrt{\textrm{( antal solgte varer )}} -0.9 \cdot \textrm{( elprisen )} \\ -1.4 \cdot \textrm{( pris på råvarer )} -0.5 \cdot \textrm{(   antal sygedage)}^2
+\end{aligned}
+$$
+
+
+Det kan skrives som en funktion af fire variable
+$$
+f(x_1, x_2, x_3, x_4) = 7.2 \cdot \sqrt{x_1}-0.9 \cdot x_2 - 1.4 \cdot x_3 - 0.5 \cdot (x_4)^2,
+$$
+hvor $f(x_1,x_2,x_3,x_4)$ betegner fortjeneste, $x_1$ er antal solgte varer, $x_2$ er elprisen, $x_3$ er prisen på råvarer og $x_4$ er antal sygedage.
+
+:::
+
+Grafen for en funktion $f$ af $n$ variable består af alle de punkter $(x_1, x_2, \dots, x_n,y)$ i et $(n+1)$-dimensionalt koordinatsystem, hvor $y = f(x_1, x_2, \dots, x_n)$. Koordinatsystemer på $4$ dimensioner eller flere er svære at rumme i vores $3$-dimensionelle verden, så af den grund behøver vi ikke at bekymre os om, hvordan grafen for $f$ ser ud. 
 
 De partielle afledede defineres helt som før. Når man for eksempel skal finde den partielle afledede med hensyn $x_1$, så betragtes $x_2, x_3, \dots, x_n$ som konstanter, og man differentierer den tilsvarende snitfunktion med hensyn til $x_1$. De partielle afledede betegnes med
 

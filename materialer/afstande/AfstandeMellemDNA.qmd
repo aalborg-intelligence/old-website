@@ -1,6 +1,5 @@
 ---
 title: "Afstand mellem DNA- og RNA-strenge"
-description: "Hvordan måler man afstanden mellem DNA- og RNA-strenge?"
 image: "images/afstand_DNA.png"
 format:
     html: 
@@ -32,6 +31,8 @@ execute:
   echo: false
   warning: false
 ---
+
+Hvordan måler man afstanden mellem DNA- og RNA-strenge?
 
 RNA er strenge med bogstaverne U (uracil), G (guanin), C (cytosin), A,
 (adenin). DNA har ikke U, men i stedet T (thymin) og DNA er dobbelt. Bogstaverne U,

@@ -1,7 +1,6 @@
 ---
 title: "Clustering med K-means"
 image: "images/kmeansbil.jpg"
-description: "Clustering med K-means er en metode, som kan bruges til at opdele observationer i et antal grupper."
 date: ''
 format:
     html: 
@@ -31,6 +30,8 @@ title-block-author-single: "Forfatter"
 fig-cap-location: margin
 tbl-cap-location: margin
 ---
+
+Clustering med K-means er en metode, som kan bruges til at opdele observationer i et antal grupper.
 
 # K-means
 
