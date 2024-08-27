@@ -416,20 +416,21 @@ Det er faktisk ikke helt så svært at forestille sig funktioner af flere variab
 
 ::: {#exm-fortjeneste}
 
-En virksomhed producerer en bestem vare. Virksomhedens fortjeneste afhænger af en række faktorer. Fx antal solgte varer, elprisen, prisen på en bestemt råvarer (som bruges i produktionen) og antal sygedage blandt med arbejderne. Virksomheden har fundet ud af, at fortjenesten tilnærmelsesvist kan udregnes på følgende måde:
+En virksomhed producerer en bestem vare. Virksomhedens fortjeneste afhænger af en række faktorer. Fx antal solgte varer, løn til medarbejdere, elprisen, prisen på en bestemt råvarer (som bruges i produktionen) og antal sygedage blandt med arbejderne. Virksomheden har fundet ud af, at fortjenesten tilnærmelsesvist kan udregnes på følgende måde[^8]:
 
 $$
 \begin{aligned}
-\textrm{fortjeneste } = 7.2 \cdot \sqrt{\textrm{( antal solgte varer )}} -0.9 \cdot \textrm{( elprisen )} \\ -1.4 \cdot \textrm{( pris på råvarer )} -0.5 \cdot \textrm{(   antal sygedage)}^2
+\textrm{fortjeneste } = 7.2 \cdot \sqrt{\textrm{( antal solgte varer )}}- \textrm{( løn )} -0.9 \cdot \textrm{( elprisen )} \\ -1.4 \cdot \textrm{( pris på råvarer )} -0.5 \cdot \textrm{( antal sygedage )}^2
 \end{aligned}
 $$
 
+[^8]: Bemærk, at eksemplet er fiktivt og tjener kun som en illustration.
 
-Det kan skrives som en funktion af fire variable
+Det kan skrives som en funktion af fem variable
 $$
-f(x_1, x_2, x_3, x_4) = 7.2 \cdot \sqrt{x_1}-0.9 \cdot x_2 - 1.4 \cdot x_3 - 0.5 \cdot (x_4)^2,
+f(x_1, x_2, x_3, x_4,x_5) = 7.2 \cdot \sqrt{x_1}-x_2 -0.9 \cdot x_3 - 1.4 \cdot x_4 - 0.5 \cdot (x_5)^2,
 $$
-hvor $f(x_1,x_2,x_3,x_4)$ betegner fortjeneste, $x_1$ er antal solgte varer, $x_2$ er elprisen, $x_3$ er prisen på råvarer og $x_4$ er antal sygedage.
+hvor $f(x_1,x_2,x_3,x,x_4,x_5)$ betegner fortjeneste, $x_1$ er antal solgte varer, $x_2$ er løn til medarbejderne, $x_3$ er elprisen, $x_4$ er prisen på råvarer og $x_5$ er antal sygedage.
 
 :::
 
