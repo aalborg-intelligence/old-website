@@ -440,6 +440,7 @@ legend("bottomright",          # Position
        lwd = 2) 
 ```
 
+Man kan vise, at AUC har en konkret fortolkning. Hvis man tager et vilkårligt element fra den blå klasse og et fra den røde klasse, så vil AUC-værdien være sandsynligheden for, at $x$-værdien for den røde klasse er højere end $x$-værdien for den blå klasse. Hvis man prøver at gætte, hvilken af de to klasser der er rød ud fra $x$-værdien, er AUC altså sandsynligheden for, at man gætter rigtigt.
 
 ## Forskellige overvejelser
 
