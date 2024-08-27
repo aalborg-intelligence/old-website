@@ -26,7 +26,9 @@ title-block-author-single: "Forfatter"
 fig-cap-location: margin
 ---
 
-Når man skal vælge en god algoritme til at prædiktere klasser, har man brug for at kunne sammenligne, hvor godt forskellige algoritmer prædikterer. Man er derfor nødt til at have et mål for, hvor god en algoritme er til at forudsige klasser. Det mest oplagte er at tælle, hvor mange observationer algoritmen klassificerer forkert. Man kan så beregne, hvor stor en andel af alle observationerne, der klassificeres forkert. Denne andel kaldes *fejlklassifikationsraten*. Det er dog ikke altid det bedste mål at bruge. Det handler denne note om.
+Langt de fleste algoritmer, som vi behandler her på siden, handler om, hvordan AI kan bruges til klassifikation. Det kan være alt fra at prædiktere, om man vil stemme på rød eller blå blok ved næste valg baseret på svarene af en række spørgsmål til at prædiktere, om en patient har kræft baseret på forskellige diagnostiske test.   
+
+Når man skal vælge en god algoritme, som kan anvendes til den form for klassifikation, har man brug for at kunne sammenligne, hvor godt forskellige algoritmer prædikterer. Man er derfor nødt til at have et mål for, hvor god en algoritme er til at forudsige klasser (fx rød eller blå blok). Det mest oplagte er at tælle, hvor mange observationer algoritmen klassificerer forkert. Man kan så beregne, hvor stor en andel af alle observationerne, der klassificeres forkert. Denne andel kaldes *fejlklassifikationsraten*. Det er dog ikke altid det bedste mål at bruge. Det handler denne note om.
 
 Som eksempel ser vi på et lille dataeksempel med $20$ datapunkter, der kan have klasserne rød og blå, hvor rød er meget sjældnere end blå. Desuden er der målt en inputvariabel $x$. Vi ønsker at finde en algoritme, der kan prædiktere farven på en observation på baggrund af $x$. Datapunkternes klasser og $x$-værdier er angivet på @fig-data_eksempel. Ud fra figuren kunne det godt se ud til, at sandsynligheden for den røde klasse stiger, når $x$ stiger. Der er dog også flest blå med meget høje $x$-værdier.
 
@@ -393,7 +395,7 @@ plot(1-spe,sen,type="l",xlab="1 - specificitet",ylab="sensitivitet")
 abline(0,1)
 ```
 
-Vi vil gerne have både sensitivitet og specificitet til at være så tæt på $1$ som muligt. Det betyder derfor, at vi gerne vil have $1-\textrm{specificitet}$ så tæt på $0$ som muligt. Vi søger derfor samlet set et punkt på ROC-kurven, der ligger så tæt på punktet $(0,1)$ som muligt. Ud fra ROC-kurven kunne punktet $(0.176,0.667)$ ligne et godt bud. Ifølge @tbl-sensitivitet svarer det til en tærskelværdi på $t=15$.
+Vi vil gerne have både sensitivitet og specificitet til at være så tæt på $1$ som muligt. Det betyder derfor, at vi gerne vil have $1-\textrm{specificitet}$ så tæt på $0$ som muligt. Vi søger derfor samlet set et punkt på ROC-kurven, der ligger tæt på punktet $(0,1)$. Ud fra ROC-kurven kunne punktet $(0.176,0.667)$ ligne et godt bud. Ifølge @tbl-sensitivitet svarer det til en tærskelværdi på $t=15$.
 
 Til sammenligning kunne vi forestille os en algoritme, der laver en hel tilfældig prædiktion, hvor hver observation bliver klassificeret som rød med sandsynlighed $p$ og blå med sandsynlighed $1-p$ uden at tage højde for værdien af $x$. For sådan en algoritme er sandsynligheden for, at en sand rød prædikteres rød altså også $p$, så
 
