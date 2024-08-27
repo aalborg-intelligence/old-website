@@ -1,7 +1,7 @@
 ---
 title: "Opklar et mord!"
 image: "opklar_et_mord_filer/images/gerningssted2.jpg"
-description: "Der er blevet begået et mord på skolen i nat. Det er jeres opgave at opklare det!"
+description-meta: "Der er blevet begået et mord på skolen i nat. Det er jeres opgave at opklare det!"
 date: ''
 format:
     html:
@@ -38,7 +38,7 @@ execute:
   warning: false
 ---
 
-::: {.callout-tip collapse="true" appearance="minimal"}
+::: {.callout collapse="true" appearance="minimal"}
 ### Forudsætninger og tidsforbrug
 Forløbet kræver kendskab til:
 
@@ -46,6 +46,16 @@ Forløbet kræver kendskab til:
 + Optimering
 
 **Tidsforbrug:** Ca. 90 minutter.
+
+:::
+
+::: {.purpose}
+
+### Formål
+
+Der er blevet begået et mord på skolen i nat. Det er jeres opgave at opklare det ved hjælp af en række fingeraftryk, som I får stillet til rådighed!
+
+Formålet med forløbet er, at I lære lidt om, hvad kunstige neurale netværk er, og hvordan man ved hjælp af programmet \"Orange\" kan bruge sådan nogle netværk til at opklare en mordgåde. Hop med om bord hvis du tør!
 
 :::
 

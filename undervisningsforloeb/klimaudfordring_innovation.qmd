@@ -1,6 +1,6 @@
 ---
 title: "Miljø- og klimaudfodringer"
-description: 'Miljø- og klimaudfordringer er allesteds\-nærværende -- kan kunstig intelligens hjælpe med at løse verdens klimaudfordringer? I dette tværfaglige forløb med dansk arbejdes der med at skrive en populærvidenskabelig artikel, som præsenterer en mulig innovativ anvendelse af kunstig intelligens indenfor emnet ”klimaforandringer”.'
+description-meta: 'Miljø- og klimaudfordringer er allesteds\-nærværende -- kan kunstig intelligens hjælpe med at løse verdens klimaudfordringer? I dette tværfaglige forløb med dansk arbejdes der med at skrive en populærvidenskabelig artikel, som præsenterer en mulig innovativ anvendelse af kunstig intelligens indenfor emnet ”klimaforandringer”.'
 image: "klimaudfordring_innovation_filer/images/fn_verdensmaal.png"
 
 format:
@@ -37,13 +37,23 @@ execute:
   warning: false
 ---
 
-::: {.callout-tip collapse="true" appearance="minimal"}
+::: {.callout collapse="true" appearance="minimal"}
 ### Forudsætninger og tidsforbrug
 Forløbet er et tværfagligt samarbejde med dansk og kræver kendskab til:
 
 + Populærvidenskabelige artikler som genre.
 
 **Tidsforbrug:** ca. 4 x 90 minutter i *hvert* fag.
+
+:::
+
+::: {.purpose}
+
+### Formål
+
+Miljø- og klimaudfordringer er allesteds\-nærværende -- kan kunstig intelligens hjælpe med at løse verdens klimaudfordringer? I dette tværfaglige forløb med dansk arbejdes der med at skrive en populærvidenskabelig artikel, som præsenterer en mulig innovativ anvendelse af kunstig intelligens indenfor emnet ”klimaforandringer”.
+
+Formålet er derfor dels at forstå nogle af de metoder, som ligger bag AI og dels at være i stand til at videreformidle disse metoder i et letforståeligt sprog.
 
 :::
 
@@ -62,6 +72,13 @@ I skal overveje, hvor der i praksis er et område med betydning for klimakrisen 
 
  - At I får en overordnet forståelse for matematikken bag AI og kan formidle nogle af 
 de centrale idéer. 
+
+
+## Indhold og formål i dansk
+
+I dansk har eleverne fået en introduktion til faglig formidling med afsæt i den særlige udfordring, der ligger i at etablere god formidling af videnskab til den almene borger. De har læst eksempler på populærvidenskabelige artikler og SRP-opgaver, og anvendt fagets teori og metoder til at analysere teksterne med henblik på at konkretisere, hvad den gode faglige formidling indebærer. Dernæst har de produceret egne populærvidenskabelige artikler med særligt fokus på layout, sprog og kommunikationssituation, og afslutningsvis opstiller de en danskfaglig analyse af deres eget produkt.
+ 
+Bogen ”Del din viden” og Katinka Paludans speciale ”At fortælle om videnskab” har dannet teoretisk afsæt for arbejdet, og Paludan opstiller tre kriterier om den gode, faglige formidling, som har været rettesnor for elevernes egne produktioner. 
 
 
 ## Opgaveformulering

@@ -1,13 +1,6 @@
 ---
 title: "Hvem ligner du mest?"
-description: |
-  Evnen til at skelne mellem forskellige kategorier er helt central for os
-  som mennesker. Vi kan langt oftest kende forskel på et æble og en pære,
-  på en cykel og en knallert eller på om en person er en kvinde eller en
-  mand. Som regel kan vi endda med stor sikkerhed kende forskel blot med
-  et hurtigt blik og uden at se hele objektet, men en sjælden gang tager
-  vi dog fejl, hvilket kan føre til pinlige situationer.
-
+description-meta: "Evnen til at skelne mellem forskellige kategorier er helt central for os som mennesker. Vi kan langt oftest kende forskel på et æble og en pære, på en cykel og en knallert eller på om en person er en kvinde eller en mand. Men hvordan får man en computer til at gøre det samme?" 
 image: "hvem_ligner_du_mest_filer/image1.png"
 
 format:
@@ -39,13 +32,26 @@ execute:
   warning: false
 ---
 
-::: {.callout-tip collapse="true" appearance="minimal"}
+ 
+
+
+::: {.callout collapse="true" appearance="minimal"}
 ### Forudsætninger og tidsforbrug
 Forløbet kræver kendskab til:
 
-+ Afstand mellem to punkter
++ Afstand mellem to punkter.
 
 **Tidsforbrug:** Ca. 2 x 90 minutter.
+
+:::
+
+::: {.purpose}
+
+### Formål
+
+Evnen til at skelne mellem forskellige kategorier er helt central for os som mennesker. Vi kan langt oftest kende forskel på et æble og en pære, på en cykel og en knallert eller på om en person er en kvinde eller en mand. Men hvordan får man en computer til at gøre det samme? 
+
+Formålet med dette forløb er at lære lidt om nogle af de metoder, som ligger bag, når en computer skal lære at kende forskel på forskellige ting.
 
 :::
 

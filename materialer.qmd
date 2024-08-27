@@ -25,7 +25,7 @@ listing:
     - path: materialer/ROC/ROC.qmd
     - path: materialer/logistisk/log-reg.qmd
     - path: materialer/funktioner_af_flere_variable/funktioner_af_flere_variable.qmd
-    - path: materialer/retningsafledede/retningsafledede.qmd
+    - path: materialer/gradientnedstigning/gradientnedstigning.qmd
     - path: materialer/naivbayes/NaivBayes.qmd
     - path: materialer/kmeans/kmeans.qmd
     - path: materialer/krydsvalidering/krydsvalidering.qmd

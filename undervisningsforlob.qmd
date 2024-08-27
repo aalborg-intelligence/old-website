@@ -11,16 +11,17 @@ format:
       link-external-newwindow: true
 listing:
   id: main-listing-content
+  field-display-names:
+    description-meta: " "
   sort: false
   fields: 
     - image
     - title
-    - description
+    - description-meta
   contents: 
     - path: undervisningsforloeb/hvem_ligner_du_mest.qmd
     - path: undervisningsforloeb/kNN_forlob_overvaagning.qmd
     - path: undervisningsforloeb/polynomium.qmd
-    - path: undervisningsforloeb/klimaudfordring_innovation.qmd
   type: grid
   grid-columns: 2
   categories: true

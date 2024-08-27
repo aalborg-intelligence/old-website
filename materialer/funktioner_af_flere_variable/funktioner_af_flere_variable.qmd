@@ -217,7 +217,13 @@ $$
 g'(x)=f_x(x,y_0)=\frac{\partial f}{\partial x}=\frac{\partial}{\partial x}f(x,y_0),
 $$
 
-hvor $y_0$ her er en konstant.
+hvor $y_0$ her er en konstant. 
+
+Definitionen af den partielle afledede kan også skrives med den vante \"grænseværdi-notation\". Gør man det kommer det til at se sådan her ud:
+
+$$
+f_x(x,y_0) = \lim_{h \rightarrow 0} \frac{f(x+h,y_0)-f(x,y_0)}{h}
+$$
 
 Ser vi igen på vores eksempel, får vi
 
@@ -259,8 +265,17 @@ der heldigvis svarer til udtrykket for $f_x(x,-2)$, som vi netop har fundet.
 Helt tilsvarende definerer vi den *partielle afledede af $f$ med hensyn til $y$* ved at differentiere snitfunktionen $h(y)$ (såfremt denne snitfunktion er differentiabel):
 
 $$
-h'(y)=f_y(x_0,y)=\frac{\partial f}{\partial y}=\frac{\partial}{\partial y}f(x_0,y).
+h'(y)=f_y(x_0,y)=\frac{\partial f}{\partial y}=\frac{\partial}{\partial y}f(x_0,y)
 $$
+
+og med \"grænseværdi-notationen\" bliver det
+
+$$
+f_y(x_0,y) = 
+\lim_{h \rightarrow 0} \frac{f(x_0,y+h)-f(x_0,y)}{h}.
+$$
+$$
+
 Ser vi igen på
 $$
 f(x_0,y)= 2x_0^2-y^2+3x_0y+1,

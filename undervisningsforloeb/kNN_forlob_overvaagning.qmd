@@ -1,6 +1,6 @@
 ---
 title: "Overvågning i Monitorbian"
-description: 'Nogle lande overvåger deres borgere. Men hvordan gør man mon det? I dette forløb bliver I ansat af efterretningstjenesten i landet Monitorbian for at hjælpe dem med at overvåge deres borgere. Metoden, I skal bruge, kaldes for "k nærmeste naboer" (forkortet kNN), men det lærer I meget mere om her!'
+description-meta: 'Nogle lande overvåger deres borgere. Men hvordan gør man mon det? I dette forløb bliver I ansat af efterretningstjenesten i landet Monitorbian for at hjælpe dem med at overvåge deres borgere.'
 image: "kNN_forlob_overvaagning_filer/images/to_indbyggere.png"
 
 format:
@@ -35,7 +35,9 @@ execute:
   warning: false
 ---
 
-::: {.callout-tip collapse="true" appearance="minimal"}
+
+
+::: {.callout collapse="true" appearance="minimal"}
 ### Forudsætninger og tidsforbrug
 Forløbet kræver kendskab til:
 
@@ -47,6 +49,15 @@ Forløbet kræver kendskab til:
 
 :::
 
+::: {.purpose}
+
+### Formål
+
+Nogle lande overvåger deres borgere. Men hvordan gør man mon det? I dette forløb bliver I ansat af efterretningstjenesten i landet Monitorbian for at hjælpe dem med at overvåge deres borgere. 
+
+Formålet med forløbet er, at I skal lære at bruge den AI metode, som kaldes for "k nærmeste naboer". Så kom med til Monitorbian!
+
+:::
 
 ## Velkommen til Monitorbian
 

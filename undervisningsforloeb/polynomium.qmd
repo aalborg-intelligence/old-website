@@ -1,7 +1,7 @@
 ---
 title: "AI og rødder i andengradspolynomier"
 image: "polynomium_filer/antal_roedder.png"
-description: "Et andengradspolynomium kan have enten ingen, én eller to rødder -- og måske kan du ligefrem huske en metode til at bestemme antallet af rødder. Men kan man mon bruge kunstig intelligens til at bestemme antallet af rødder i et andengradspolynomium? Det vil vi undersøge i dette forløb."
+description-meta: "Et andengradspolynomium kan have enten ingen, én eller to rødder. I skal her lære om, hvordan man kan bruge kunstig intelligens til at bestemme antallet af rødder i et andengradspolynomium."
 date: ''
 format:
     html:
@@ -38,9 +38,7 @@ execute:
   warning: false
 ---
 
-
-
-::: {.callout-tip collapse="true" appearance="minimal"}
+::: {.callout collapse="true" appearance="minimal"}
 ### Forudsætninger og tidsforbrug
 Forløbet kræver kendskab til:
 
@@ -49,9 +47,22 @@ Forløbet kræver kendskab til:
 
 **Tidsforbrug:** Ca. 90 minutter.
 
+Vi anbefaler, at I i dette forløb arbejder i grupper på 3-4 elever.
+
 :::
 
-Vi anbefaler, at I i dette forløb arbejder i grupper på 3-4 elever.
+
+::: {.purpose}
+
+### Formål
+
+Et andengradspolynomium kan have enten ingen, én eller to rødder. Vi vil her undersøge,om man mon kan bruge kunstig intelligens til at bestemme antallet af rødder i et andengradspolynomium.
+
+Formålet er dog *ikke* at bruge eksisterende AI metoder til at bestemme antallet af rødder, men derimod at I selv får kendskab til, hvordan sådan nogle metoder fungerer. I skal altså lære lidt om nogle af de principper, der ligger bag diverse AI algoritmer. 
+
+:::
+
+
 
 ## Andengradspolynomier og rødder
 
@@ -86,47 +97,47 @@ $$
 
 Idéen er nu at undersøge, om vi kan bruge kunstig intelligens til at afgøre[^1], om et andengradspolynomium overhovedet har nogle rødder alene ude fra de tre koefficienter $a$, $b$ og $c$ -- og helt uden at kende noget til diskriminantformlen i (@eq-d)!
 
-Inden vi går i gang, vil vi starte med at indse, at i stedet for at løse ligningen
+Inden vi går i gang, vil vi starte med at indse, at i stedet for at løse ligningen 
 
 $$
-a x^2 + bx +c = 0
+A x^2 + Bx + C = 0, \quad \quad A \neq 0
 $${#eq-andengradsligning}
 
-Så kan vi lige så godt løse en ligning på formen
+(hvis du undrer dig, så er det med vilje, at vi lige nu bruger store bogstaver til koefficienterne), så kan vi lige så godt løse en ligning på formen
 
 $$
 x^2 + bx +c =0
 $$
-hvor altså $a=1$. Det virker måske som en forsimpling, men da vi har antaget, at $a \neq 0,$ så kan vi i ligningen i (@eq-andengradsligning) dividere igennem med $a$ og få
+hvor altså $a=1$. Det virker måske som en forsimpling, men da vi i (@eq-andengradsligning) har antaget, at $A \neq 0,$ så kan vi dividere igennem med $A$ og få
 
 $$
 \begin{aligned}
-\frac{a}{a} x^2 + \frac{b}{a} x + \frac{c}{a} &= \frac{0}{a} \quad \Leftrightarrow \\
-x^2 + \frac{b}{a} x + \frac{c}{a} &= 0
+\frac{A}{A} x^2 + \frac{B}{A} x + \frac{C}{A} &= \frac{0}{A} \quad \Leftrightarrow \\
+x^2 + \frac{B}{A} x + \frac{C}{A} &= 0.
 \end{aligned}
 $$
 
 Det betyder, at når vi skal bestemme rødder i andengradspolynomier, så er det tilstrækkeligt, at betragte andengradspolynomier med en forskrift på formen
 
 $$
-f(x)=x^2+bx+c
+f(x)=x^2+bx+c,
 $$
-fordi man simpelthen bare tager sit oprindelige andengradspolynomium og dividerer igennem med $a$. Lad os illustrere det med et eksempel.
+hvor $b=B/A$ og $c=C/A$. Man kan altså bare tage sit oprindelige andengradspolynomium $g(x)=Ax^2+Bx+C$ og dividerer igennem med $A$. Lad os illustrere det med et eksempel.
 
 ::: {#exm-a1}
 Betragt andengradspolynomiet med forskriften
 
 $$
-f(x)=-4x^2+8x+12
+g(x)=-4x^2+8x+12
 $$
-Her har vi $a=-4, b=8$ og $c=12$. Løser vi ligningen $f(x)=0$, finder vi ud af, at $f$ har to rødder nemlig $-1$ og $3$. Dividerer vi forskriften for $f$ igennem med $a=-4$ fås et nyt andengradspolynomium $g$ med forskrift
+Her har vi $A=-4, B=8$ og $C=12$. Løser vi ligningen $g(x)=0$, finder vi ud af, at $g$ har to rødder nemlig $-1$ og $3$. Dividerer vi forskriften for $g$ igennem med $A=-4$ fås et nyt andengradspolynomium $f$ med forskrift
 
 $$
-g(x)=x^2-2x-3
+f(x)=x^2-2x-3
 $$
-Her er koefficienterne $a=1, b=-2$ og $c=-3$. Men $g$ har præcis samme rødder som $f$ -- nemlig $-1$ og $3$. Dette ses også illustreret i @fig-samme-roedder, hvor grafen for $f$ og $g$ begge skærer $x$-aksen i $-1$ og $3$.
+Her er koefficienterne $a=1, b=-2$ og $c=-3$. Men $f$ har præcis samme rødder som $g$ -- nemlig $-1$ og $3$. Dette ses også illustreret i @fig-samme-roedder, hvor grafen for $g$ og $f$ begge skærer $x$-aksen i $-1$ og $3$.
 
-![Grafen for $f(x)=-4x^2+8x+12$ (den blå) og $g(x)=x^2-2x-3$ (den grønne), som begge skærer $x$-aksen samme sted. Det vil sige, at $f$ og $g$ har de samme rødder. I dette tilfælde $-1$ og $3$.](polynomium_filer/samme-roedder.png){#fig-samme-roedder}
+![Grafen for $g(x)=-4x^2+8x+12$ (den blå) og $f(x)=x^2-2x-3$ (den grønne), som begge skærer $x$-aksen samme sted. Det vil sige, at $g$ og $f$ har de samme rødder. I dette tilfælde $-1$ og $3$.](polynomium_filer/samme-roedder.png){#fig-samme-roedder}
 
 :::
 
@@ -146,39 +157,43 @@ Overvej følgende:
 :::
 
 For at bruge kunstig intelligens skal vi have lavet en masse eksempler på forskellige andengradspolynomier (det vil her sige med forskellige værdier af $b$ og $c$) samtidig med, at vi også finder ud af, om det tilhørende andengradspolynomium har rødder eller ej. 
-Den værdi, der angiver om et polynomium har rødder eller ej, kalder man for en *targetværdi*. 
-Tænk på det som en lille label du sætter på hvert eksempel, hvor du fortæller, hvad det rigtige svar er -- *"det er altså det her, jeg gerne vil have, at du lærer!"*. Samlet set kalder man de forskellige eksempler inklusiv targetværdien for *træningsdata*.
+Den værdi, der angiver om et polynomium har rødder eller ej, kalder man for en **targetværdi**. 
+Man kunne for eksempel gøre det ved at sige, at hvis et andengradspolynomium har én eller to rødder, så sætter vi targetværdien til $1$, og hvis et andengradspolynomium ikke har nogle rødder, så sætter vi targetværdien til $-1$. Tænk på det som en lille label du sætter på hvert eksempel, hvor du fortæller, hvad det rigtige svar er -- *"det er altså det her, jeg gerne vil have, at du lærer!"*. Samlet set kalder man de forskellige eksempler inklusiv targetværdien for **træningsdata**.
 
 
 ::: {.callout-note collapse="false" appearance="minimal"}
 ### Opgave 2: Træningsdata
 
-Alle i gruppen skal nu:
+**Alle** i gruppen skal nu:
 
-1. Finde et andengradspolynomium som ikke har nogle rødder (husk at $a=1$). Notér din værdi af $b$ og $c$ og sæt her targetværdien $t$ til $-1$.
-2. Finde et andengradspolynomium som har én eller to rødder (husk at $a=1$). Notér din værdi af $b$ og $c$ og sæt her targetværdien $t$ til $1$.
++ Finde et andengradspolynomium som ikke har nogle rødder (husk at $a=1$). Notér din værdi af $b$ og $c$ og sæt her targetværdien $t$ til $-1$.
++ Finde et andengradspolynomium som har én eller to rødder (husk at $a=1$). Notér din værdi af $b$ og $c$ og sæt her targetværdien $t$ til $1$.
 
-I skal nu indsætte jeres forskellige værdier for $b, c$ og $t$ i et regneark. I videoen herunder er det vist, hvordan man gør i GeoGebra:
+Når alle har gjort det, skal I:
 
-{{< video https://www.youtube.com/embed/n0UsAn2M7pw >}}
++ Indsætte jeres forskellige værdier for $b, c$ og $t$ i et regneark, som er opbygget på denne måde:
 
-Disse data er nu præcis det, man kalder for *træningsdata*.
+![](polynomium_filer/regneark.png)
 
-+ Indtast jeres værdier i et regnark, som det er vist i videoen.
-+ Indtegn dine værdier af $b$ og $c$ i et koordinatsystem, hvor værdien af $b$ er på $x$-aksen, og værdien af $c$ er på $y$-aksen. Hvis $(b,c)$-punktet svarer til et andegradspolynomium, som har rødder, farves punktet rødt og ellers farves det blåt. Dette er også vist i videoen ovenfor.
-
-<!-- Herunder er lavet et eksempel med $b=0$ og $c=-1$, som svarer til et andengradspolynomium med to rødder samt $b=2$ og $c=4$, som svarer til et andengradspolynomium uden rødder. -->
-<!-- ```{r echo=FALSE} -->
-<!-- library(ggplot2) -->
-<!-- ggplot(data.frame(b = c(0,2), c = c(-1,4), rødder = factor(c("ja", "nej")))) + -->
-<!--   geom_point(aes(x = b, y = c, col = rødder), cex=3) -->
-<!-- ``` -->
+Disse data er nu præcis det, man kalder for **træningsdata**.
 
 :::
 
+::: {.callout-note collapse="false" appearance="minimal"}
+### Opgave 3: Træningsdata, fortsat
+
+I skal nu:
+
++ Indtegn jeres værdier af $b$ og $c$ i et koordinatsystem, hvor værdien af $b$ er på $x$-aksen, og værdien af $c$ er på $y$-aksen. Hvis $(b,c)$-punktet svarer til et andegradspolynomium, som har rødder (det vil sige, at $t=1$), farves punktet rødt og ellers farves det blåt (det vil sige, at $t=-1$). I videoen herunder er det vist, hvordan man gør i GeoGebra:
+
+{{< video https://www.youtube.com/embed/n0UsAn2M7pw >}}
+
+:::
+
+
 ## Træning af kunstig intelligens
 
-En simpel metode inden for kunstig intelligens er at prøve at bestemme en ret linje, som kan bruges til at adskille de røde punkter fra de blå punkter i det punktplot, som I har lavet i opgave 2.
+En simpel metode inden for kunstig intelligens er at prøve at bestemme en ret linje, som kan bruges til at adskille de røde punkter fra de blå punkter i det punktplot, som I har lavet i opgave 3.
 
 Hvis man skal have en computer til at gøre det, så vil man typisk starte med en hel tilfældig ret linje med en ligning på formen 
 
@@ -194,7 +209,7 @@ $$
 Det vil altså sige, at $w_1$ er linjens hældning, og $w_0$ er linjens skæring med $y$-aksen.
 
 ::: {.callout-note collapse="false" appearance="minimal"}
-### Opgave 3: Bestemmelse af en linje som kan adskille de røde punkter fra de blå
+### Opgave 4: Bestemmelse af en linje som kan adskille de røde punkter fra de blå
 
 * I inputfeltet i GeoGebra skal du taste: `y=w1*x+w0`.
 * Når GeoGebra spørger, om du vil oprette skydere for `w0` og `w1`, svarer du \"Opret skydere\".
@@ -204,7 +219,7 @@ Det vil altså sige, at $w_1$ er linjens hældning, og $w_0$ er linjens skæring
 
 
 ::: {.callout-note collapse="false" appearance="minimal"}
-### Opgave 4: Flere træningsdata
+### Opgave 5: Flere træningsdata
 
 + Afgør om følgende andengradspolynomier har rødder og tilføj dem til dit træningsdata (husk ingen rødder svarer til at $t=-1$ og det tilhørende punkt farves blåt, mens én eller to rødder svarer til $t=1$ og punktet farves rødt):
 
@@ -219,7 +234,7 @@ f_6(x) &= x^2 + 2x + 2 \\
 \end{aligned}
 $$
 
-+ Kan det lade sig gøre at adskille de to grupper med den rette linje, du fandt i opgave 3?
++ Kan det lade sig gøre at adskille de to grupper med den rette linje, du fandt i opgave 4?
 + Hvis ikke kan du så bestemme en ny ret linje, som kan adskille de røde punkter fra de blå?
 
 :::
@@ -257,7 +272,7 @@ $$ {#eq-d2}
 Men vi kan ikke finde nogle værdier af $w_0$ og $w_1$, så udtrykket i (@eq-ligning_bc) kommer til at svare til udtrykket i (@eq-d2). Det er fordi, at i (@eq-ligning_bc) indgår der kun et $b$, mens der i (@eq-d2) indgår et $b^2$. Denne observation giver os imidlertid også en løsning på vores problem. I stedet for at lade træningsdata bestå af $b$- og $c$-værdier, så vil vi i stedet lade træningsdata bestå af $b^2$- og $c$-værdier! Det vil sige, at vi ud af $x$-aksen vil afsætte $b^2$ og op af $y$-aksen, vil vi afsætte $c.$
 
 ::: {.callout-note collapse="false" appearance="minimal"}
-### Opgave 5: Transformerede træningsdata
+### Opgave 6: Transformerede træningsdata
 
 + Brug dit regneark fra tidligere og udregn $b^2$. 
 
@@ -266,7 +281,7 @@ Men vi kan ikke finde nogle værdier af $w_0$ og $w_1$, så udtrykket i (@eq-lig
 + Hvilken linje kan du vælge til at adskille de to grupper?
 :::
 
-Idéen med at prøve at adskille to grupper af punkter med en ret linje bruges blandt andet i den AI-metode, som kaldes for [perceptroner](../materialer/perceptron/perceptron.qmd). Metoden kan bruges, når man gerne vil kunne adskille to grupper af punkter fra hinanden baseret på en række forskellige værdier -- disse værdier kalder man for *features*. Du kender måske kandidattests, hvor man på baggrund af svarene fra en række spørgsmål gerne vil kunne forudsige, om en person vil stemme på rød eller blå blok til det næste valg. Det kunne man for eksempel bruge en perceptron til at hjælpe med at afgøre, og det kan du læse meget mere om [her](../materialer/perceptron/perceptron.qmd#sec-kandidattest).
+Idéen med at prøve at adskille to grupper af punkter med en ret linje bruges blandt andet i den AI-metode, som kaldes for [perceptroner](../materialer/perceptron/perceptron.qmd). Metoden kan bruges, når man gerne vil kunne adskille to grupper af punkter fra hinanden baseret på en række forskellige værdier -- disse værdier kalder man for **features**. Du kender måske kandidattests, hvor man på baggrund af svarene fra en række spørgsmål gerne vil kunne forudsige, om en person vil stemme på rød eller blå blok til det næste valg. Det kunne man for eksempel bruge en perceptron til at hjælpe med at afgøre, og det kan du læse meget mere om [her](../materialer/perceptron/perceptron.qmd#sec-kandidattest).
 
 Hvis du vil prøve at bruge den metode på dine data om andengradspolynomier, kan du gøre det [her](https://apps01.math.aau.dk/adaline/).
 

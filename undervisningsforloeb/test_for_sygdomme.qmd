@@ -1,6 +1,6 @@
 ---
 title: "Test for sygdomme"
-description: "Når en sygdom er smitsom, vil vi ofte være interesseret i at teste for sygdommen, så eventuelt smittede personer undgår at smitte andre. Som eksempler kan nævnes det omfattende testprogram, vi så under Covid-19 pandemien. Seksuelt overførte sygdomme som for eksempel klamydia, vil også være genstand for test."
+description-meta: "Når en sygdom er smitsom, vil vi ofte være interesseret i at teste for sygdommen, så eventuelt smittede personer undgår at smitte andre. Som eksempler kan nævnes det omfattende testprogram, vi så under Covid-19 pandemien. Seksuelt overførte sygdomme som for eksempel klamydia, vil også være genstand for test."
 #image: ""
 format:
     html: 
@@ -34,7 +34,8 @@ execute:
   warning: false
 ---
 
-::: {.callout-tip collapse="true" appearance="minimal"}
+
+::: {.callout collapse="true" appearance="minimal"}
 ### Forudsætninger og tidsforbrug
 Forløbet kræver kendskab til:
 
@@ -42,6 +43,14 @@ Forløbet kræver kendskab til:
 + Betingede sandsynligheder
 
 **Tidsforbrug:** Ca. 2 x 90 minutter.
+
+:::
+
+::: {.purpose}
+
+### Formål
+
+*Skal udfyldes...*
 
 :::
 
