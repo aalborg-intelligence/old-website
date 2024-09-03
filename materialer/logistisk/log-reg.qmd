@@ -208,7 +208,7 @@ plot((1:100)/100, O((1:100)/100), type="l", xlim=c(0,1), ylim=c(0,10), xlab="p",
 ```
 
 Vi kan se på @fig-odds, at odds-funktionen $O$ er voksende.
-Det kan også let bevises ved at vise, at $O'(p)>0$ for alle værdier af $p$.
+Det kan også bevises ved at vise, at $O'(p)>0$ for alle værdier af $p$ (bonus spørgsmål i opgave 1).
 Vi ser desuden, at $O(p)$ altid er positiv, da både tæller og nævner er positive.
 Når $p$ nærmer sig $0$, nærmer tælleren sig $0$, mens nævneren nærmer sig $1$, så $O(p)$ går mod $0$.
 Når $p$ nærmer sig $1$, nærmer tælleren sig $1$, og nævneren nærmer sig $0$, så hele brøken $O(p)$ går mod uendelig.
@@ -229,8 +229,6 @@ Gambling odds er naturligvis også udregnet ud fra sandsynligheden for hændelse
 
 * Antag at oddsene er $O=3/2$. Hvad er den tilsvarende sandsynlighed?
 
-* Vis at oddsfunktionen $O(p)$ er voksende ved at differentiere og indse at $O'(p)>0$.
-
 Fodboldholdene AFC og BFC spiller mod hinanden.
 Der spilles med forlænget spilletid og straffesparkskonkurrence indtil, der er fundet en vinder.
 Det er dobbelt så sandsynligt, at AFC vinder som, at BFC vinder. 
@@ -238,6 +236,8 @@ Det er dobbelt så sandsynligt, at AFC vinder som, at BFC vinder.
 * Hvad er (de matematiske) odds for at AFC vinder? 
 
 * Hvad er sandsynligheden for at AFC vinder?
+
+* (Bonus) Vis at oddsfunktionen $O(p)$ er voksende ved at differentiere og indse at $O'(p)>0$.
 
 :::
 
@@ -429,12 +429,16 @@ Sammenlignet med den standard logistiske funktion får man altså en $S$-formet 
 
 I app'en herunder ser du grafen for $f(x)=\frac{1}{1+e^{-(ax+b)}}$.
 Hvis du trækker i skyderne for $a$ og $b$, kan du se, hvordan kurven ændrer form.
-Den stiplede linje har ligning $x=\frac{-b}{a}$ og svarer altså til den vandrette forskydning af grafen for den standard logistiske funktion.
+Den stiplede linje har ligning $x=\frac{-b}{a}$ og svarer altså til den vandrette forskydning af grafen for den standard logistiske funktion. På figuren er der desuden 9 punkter, som du kan få grafen til at passe bedst muligt med.
 
 {{< include _geogebra/_geogebra.qmd >}}
 
+::: {#fig-fortolk_a_og_b}
 ::: {#ggbApplet1}
 :::
+Eksperimenter med a og b for at forstå deres betydning for grafen. Når du har klikket på en skyder med musen, kan værdien også ændres med piletasterne, hvilket kan ske mere præcist.
+:::
+
 \
 
 I den logistiske regressionsmodel (@eq-p-logistisk) er $p(x)$ givet ved en generel logistisk funktion.
@@ -473,23 +477,23 @@ Hvis person 1 er har et blodtryk, der er 1mmHg højere end person 2, bliver forh
 
 ## Opgave 3
 
-Grafen for den generelle logitiske funktion med forskrift
-$$
-f(x)=\frac{1}{1+e^{-(ax+b)}}
-$$
-er stejlest, når funktionsværdien er $f(x)=1/2$. 
-
-* Hvilken værdi af $x$ svarer til en funktionsværdi på $1/2$ ($x$ kan udtrykkes ved hjælp af $a$ og $b$).
-
 I et (fiktivt) dataeksempel ser vi på sandsynligheden $p(x)$ for, at en kunde i et supermarked vælger at købe den økologiske mælk frem for den konventionelle som funktion af kundens årlige indtægt $x$ (i 100.000 kr).
 Vi kommer frem til følgende logistiske regressionsmodel
 $$
 \text{logit}(p(x))= -1.3+0.5x.
 $$
 
+* Hvor mange procent stiger odds for at vælge økologisk, når årsindtægten stiger med 100.000 kr (x vokser med 1)?
+
 * Tegn grafen for $p(x)$. 
 
-* Hvor mange procent stiger odds for at vælge økologisk, når årsindtægten stiger med 100.000kr?
+* Indse vha. @fig-fortolk_a_og_b, at grafen for den generelle logistiske funktion med forskrift
+$$
+f(x)=\frac{1}{1+e^{-(ax+b)}}
+$$
+er stejlest, når funktionsværdien er $f(x)=1/2$. 
+
+* Hvilken værdi af $x$ svarer til en funktionsværdi på $1/2$ (isoler $x$ udtrykt ved hjælp af $a$ og $b$)?
 
 :::
 
