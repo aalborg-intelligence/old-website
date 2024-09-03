@@ -1,6 +1,7 @@
 ---
 title: "Funktioner af flere variable"
 image: "images/maskine2.png"
+description-meta: "En funktion kan afhænge af flere forskellige variable end én, og denne type af funktioner viser sig at spille en helt central rolle i rigtig mange metoder inden for kunstig intelligens."
 from: markdown+emoji
 format:
     html:

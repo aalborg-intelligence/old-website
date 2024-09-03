@@ -1,6 +1,7 @@
 ---
 title: "Kunstige neurale netværk"
 image: "images/generelt_netvaerk.png"
+description-meta: "Denne note giver en grundig gennemgang af matematikken bag kunstige neurale netværk."
 date: ''
 format:
     html:

@@ -1,6 +1,7 @@
 ---
 title: "Sensitivitet, specificitet, ROC-kurver og AUC"
 image: "images/confusion_matrix.png"
+description-meta: "Når man skal vælge en god algoritme, som kan anvendes til en klassifikation, har man brug for at kunne sammenligne, hvor godt forskellige algoritmer prædikterer. Hvordan det kan gøres, kan du læse om her."
 date: ''
 format:
     html: 

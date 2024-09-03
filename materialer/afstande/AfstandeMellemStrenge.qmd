@@ -1,6 +1,7 @@
 ---
 title: "Afstande mellem ord"
 image: "images/hammingafstand.png"
+description-meta: "Hvordan måler man mon afstanden mellem ord -- altså sådan helt generelt?"
 format:
     html: 
       self-contained: true
@@ -31,8 +32,6 @@ execute:
   echo: false
   warning: false
 ---
-
-Hvordan måler man mon afstanden mellem ord -- altså sådan helt generelt?
 
 Et ord er en følge eller en *streng* af bogstaver eller tal. Det kunne for eksempel være *12DvbdN34fdg* eller *hnaikgoh* (nej, det behøver ikke give mening). Det kunne også være en [DNA-sekvens](AfstandeMellemDNA.qmd), et ord i en tekst eller noget helt andet[^1]. Man siger, at *længden* af en streng er antallet af bogstaver i strengen. 
 

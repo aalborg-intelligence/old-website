@@ -1,6 +1,7 @@
 ---
 title: "Naiv Bayes klassifier"
 image: "images/bayes_thm.png"
+description-meta: "Denne note handler om klassifikation ved hjælp af den metode, som kaldes for **naiv Bayes**."
 date: ''
 format:
     html: 

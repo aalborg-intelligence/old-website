@@ -1,6 +1,7 @@
 ---
 title: "Gradientnedstigning"
 image: "images/minMaxFunc.png"
+description-meta: "Her forklares hvad gradientnedstigning går ud på, og hvordan gradientnedstigning kan bruges i forbindelse med at bestemme minimum eller maksimum for en funktion. "
 date: ''
 format:
     html:

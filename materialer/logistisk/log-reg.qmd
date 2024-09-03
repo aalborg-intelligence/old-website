@@ -1,6 +1,7 @@
 ---
 title: "Logistisk regression"
 image: "data/figur_til_www_files/figure-html/log_reg_www-1.png"
+description-meta: "Logistisk regression er en metode, som kan bruges til klassifikation. Metoden har fællestræk med simple neurale netværk."
 date: ''
 format:
     html: 

@@ -1,6 +1,7 @@
 ---
 title: "Aktiveringsfunktioner"
 image: ""
+description-meta: "I opbygningen af kunstige neurale netværk er aktiveringsfunktioner helt centrale."
 from: markdown+emoji
 format:
     html:
