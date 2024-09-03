@@ -439,8 +439,6 @@ Den stiplede linje har ligning $x=\frac{-b}{a}$ og svarer altså til den vandret
 Eksperimenter med a og b for at forstå deres betydning for grafen. Når du har klikket på en skyder med musen, kan værdien også ændres med piletasterne, hvilket kan ske mere præcist.
 :::
 
-\
-
 I den logistiske regressionsmodel (@eq-p-logistisk) er $p(x)$ givet ved en generel logistisk funktion.
 Det var en generel logistisk funktion, der blev brugt til at lave den S-formede kurve på @fig-S.
 
@@ -457,6 +455,16 @@ er en eksponentiel udvikling med fremskrivningsfaktor $a_{ny}=e^a$.
 Derved vil odds for sygdom stige med $r=e^a-1$ procent, hver gang blodtrykket stiger med $1$mmHg.
 Hvis $a$ er positiv, er $e^a>1$, og oddsene vokser altså eksponentielt.
 Hvis derimod $a$ er negativ, er $e^a<1$, og dermed aftager oddsene eksponentielt. 
+
+Har vi f.eks. en logit model 
+$$
+\text{logit}(p(x))= -2 + 0.2x.
+$$
+så er den procentvist vækst i odds, når x vokser med 1
+$$
+r = e^a-1 = e^{0.2}-1 \approx `{r} exp(0.2)-1`.
+$$
+Altså vokser odds med ca. 22%, når x vokser med 1 i modellen.
 
 I forbindelse med logistisk regression kaldes $e^a$ også for *odds-ratioen*.
 For at forstå hvorfor, kan vi forestille os to patienter, en med blodtryk $x_1$ og en med blodtryk $x_2$.
