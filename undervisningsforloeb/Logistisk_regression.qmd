@@ -67,8 +67,6 @@ Forløbet er inddelt i 6 dele + et eksamensspørgsmål med en cirka tidsangivels
 
 Til sidst er der en kort lærervejledning, som elever kan ignorere.
 
-::: {.callout-note collapse="true" appearance="minimal"}
-
 ## Del 1 - logistisk regression
 Forventet tid ca. 90 min.
 
@@ -77,8 +75,6 @@ Forventet tid ca. 90 min.
 * Genskab figur 1 i materialet ud fra de første 100 punkter og overvej, hvorfor det er en dårlig ide at bruge alle 2000 punkter.
 * Inddel de 2000 datapunkter i intervaller som vist i tabel 1 i materialet. Dette kan f.eks. gøres vha. pivottabel i Excel som beskrevet nedenfor.
 * Lav lineær regression ud fra data i tabel 1 og genskab derved figur 3. Husk at bruge midtpunktet af hvert interval.
-
-:::
 
 ::: {.callout-note collapse="true" appearance="minimal"}
 
@@ -103,8 +99,6 @@ Herefter skal det se således ud:
 
 :::
 
-::: {.callout-note collapse="true" appearance="minimal"}
-
 ## Del 2 - Odds og første bevis
 Forventet tid ca. 90 min
 
@@ -112,19 +106,12 @@ Forventet tid ca. 90 min
 * Lav de tilhørende opgaver i materialet, dog ikke bonus opgaven.
 * Lærergennemgang af, at $O(p)$ er voksende vha. differentiation og monotoni.
 
-:::
-
-::: {.callout-note collapse="true" appearance="minimal"}
-
 ## Del 3 - Den logistiske regressionsmodel
 Forventet tid ca. 45 min
 
 * Læs afsnittet "Den logistiske regressionsmodel" i materialet.
 * Lav de tilhørende opgaver i materialet.
 
-:::
-
-::: {.callout-note collapse="true" appearance="minimal"}
 
 ## Del 4 - Logit og andet bevis
 Forventet tid ca. 60 min
@@ -132,9 +119,6 @@ Forventet tid ca. 60 min
 * Repetition af, hvad en invers funktion er.
 * Læs afsnittet i materialet med fokus på at kunne isolere $p(x)$ i $logit(x)$.
 
-:::
-
-::: {.callout-note collapse="true" appearance="minimal"}
 
 ## Del 5 - Fortolkning
 Forventet tid ca. 60 min
@@ -142,9 +126,6 @@ Forventet tid ca. 60 min
 * Læs det meste af afsnittet "Fortolkning af parametrene i den logistiske regressionsmodel" i materialet. Stop efter eksemplet, der ender med en vækst på 22%.
 * Lav de tilhørende opgaver i materialet.
 
-:::
-
-::: {.callout-note collapse="true" appearance="minimal"}
 
 ## Del 6 - Maximum Likelihood Estimation
 Forventet tid ca. 120 min
@@ -154,10 +135,6 @@ Forventet tid ca. 120 min
 * Anvend igen Excel arket med de 2000 datapunkter, og benyt problemløsning i Excel til at vise, at $a=0,022$ og $b=-3,9$ optimerer løsningen.
 * Lav de tilhørende opgaver i materialet.
 
-:::
-
-::: {.callout-note collapse="true" appearance="minimal"}
-
 ## Eksamensspørgsmål: Differentialregning og logistisk regression
 Forventet tid ca. 90 min
 
@@ -166,8 +143,6 @@ Differentialregning og logistisk regression
 * Forklar om logistisk regression, herunder odds.
 * Differentier $O(x)= {p \over (1-p)}$ og vis derved, at $O(x)$ er voksende.
 *	Isolerer $p(x)$ i $logit(p)$.
-
-:::
 
 ::: {.callout-note collapse="true" appearance="minimal"}
 
@@ -186,6 +161,5 @@ I del 5 er det ikke nødvendigt, at eleverne forstår alle detaljer, en rimelig 
 I del 5 kan man godt lade eleverne læse hele afsnittet, men den sidste del er ikke så central, og ligner meget et kendt bevis fra eksponentielle udviklinger.
 
 I del 6 anvendes black-box, men der kan f.eks. sammenlignes med Newton-Raphsons metode til bestemmelse af nulpunkter.
-
 
 :::
