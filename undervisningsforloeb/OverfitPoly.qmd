@@ -1,7 +1,7 @@
 ---
 title: "Overfitting og krydsvalidering med polynomiel regression"
 description-meta: 'Introduktion til begreberne overfitting og krydsvalidering vha. polynomiel regression'
-image: "kNN_forlob_overvaagning_filer/images/to_indbyggere.png"
+image: "OverfitPoly_filer/3gradsregression6af8.png"
 
 format:
     html: 
@@ -71,7 +71,7 @@ Vi ønsker ud fra disse data at opstille en model, som for nye observationer kan
 
 Når man opstiller en model, kan man nogle gange bygge på en forventning eller fysisk model, men andre gange har man som udgangspunkt ikke nogen bestemt ide, hvilket er tilfældet her. Vi vil derfor forsøge at modellere data vha. et polynomium, hvor vi så skal undersøge, hvilken grad af polynomiet, der ser ud til at kunne klare opgaven bedst. Her ses f.eks. resultatet af regression med et 3. gradspolynomium.
 
-![3. gradsregression på alle 8 datapunkter.](OverfitPoly/3gradsregression.png){#fig-3grads}
+![3. gradsregression på alle 8 datapunkter.](OverfitPoly_filer/3gradsregression.png){#fig-3grads}
 
 ## Opgave 1
 *	Overvej og diskuter hvad den højeste grad er, man kan lave polynomiel regression med, når der er 8 punkter? 
@@ -91,7 +91,7 @@ Den metode, vi vil anvende, kaldes for krydsvalidering. Vi vil lave regressionen
 
 Her er vist et eksempel, lavet med Maple, men det samme kan gøres i andre værktøjer, hvor punkt 3 og 4 er fjernet inden regressionen, og den lodrette afstand fra hver af de to punkter til grafen er beregnet.
 
-![3. gradsregression på 6 af de 8  datapunkter.](OverfitPoly\3gradsregression6af8.png){#fig-3grads6af8}
+![3. gradsregression på 6 af de 8  datapunkter.](OverfitPoly_filer/3gradsregression6af8.png){#fig-3grads6af8}
 
 Som det ses af figuren, ligger det 3. punkt ca. 24 under grafen fra regressionen uden punkt 3 og 4, mens det 4. punkt ligger ca. 13 under. Beregningerne viser de præcise værdier.
 
