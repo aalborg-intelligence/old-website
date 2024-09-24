@@ -667,7 +667,7 @@ I denne video forklarer vi perceptron learning algoritmen.
 {{< video https://www.youtube.com/embed/xCeSZgdU3jc >}}
 
 
-# Det kan gøres smartere med "Adaline" {#sec-ADALINE}
+# Det kan gøres smartere med ADALINE {#sec-ADALINE}
 
 Det er faktisk lidt noget rod. Altså det her med, at perceptron learning
 algoritmen ikke kan finde meningsfulde værdier af vægtene, hvis de røde
@@ -800,9 +800,9 @@ tilfælde 2. Hvis vi skal tage højde for det i vores
 opdateringsalgoritme, så må vi altså væk fra den meget simple måde, at
 definere fejlen på og i stedet se på fejlen som:
 $error = t - (w_0 + w_1 \cdot x_1 + \cdots + w_n \cdot x_n)$. Dette er
-præcis, hvad man gør i ADAPTIVE LINEAR neuroner (Adaline).
+præcis, hvad man gør i ADAPTIVE LINEAR neuroner (ADALINE).
 
-For at forstå læringsalgoritmen i Adaline må vi først indføre en
+For at forstå læringsalgoritmen i ADALINE må vi først indføre en
 tabsfunktion, som skal give et samlet mål for, hvor god/dårlig
 perceptronen klassificerer alle træningsdata for givne værdier af
 vægtene. Men først er vi nødt til at indføre lidt ny notation, så vi kan
@@ -857,9 +857,9 @@ tabsfunktionen give en stor værdi. Se det er faktisk hele humlen. Vi
 skal finde de værdier af vægtene $w_0, w_1, \dots, w_n$, som minimerer
 tabsfunktionen!
 
-## VIDEO: Perceptron Learning versus Adaline
+## VIDEO: Perceptron Learning versus ADALINE
 
-I denne video forklarer vi idéen bag Adaline og indfører tabsfunktionen.
+I denne video forklarer vi idéen bag ADALINE og indfører tabsfunktionen.
 
 {{< video https://www.youtube.com/embed/QF3WRIe5v6U >}}
 
@@ -1103,16 +1103,16 @@ vægtene, hver gang man får et nyt træningseksempel til rådighed og så
 eventuelt slette træningseksemplet igen, når vægtene er blevet
 opdateret. Det er både hurtigere og mere pladsbesparende. 
 
-## VIDEO: Adaline
+## VIDEO: ADALINE
 
-I denne video forklarer vi, hvad gradientnedstigning går ud på, og hvordan gradientnedstigning bruges til at opdatere vægtene i Adaline. 
+I denne video forklarer vi, hvad gradientnedstigning går ud på, og hvordan gradientnedstigning bruges til at opdatere vægtene i ADALINE. 
 
 {{< video https://www.youtube.com/embed/4YMzpNP4wnA >}}
 
 
 # Det kan gøres *endnu* smartere med simple neurale netværk!
 
-I det foregående har vi set på, hvordan Adaline algoritmen forsøger at minimere tabsfunktionen 
+I det foregående har vi set på, hvordan ADALINE algoritmen forsøger at minimere tabsfunktionen 
 
 $$
 \begin{aligned}
