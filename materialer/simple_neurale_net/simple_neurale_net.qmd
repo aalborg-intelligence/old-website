@@ -64,7 +64,28 @@ Værdien $t$ kaldes for en **targetværdi**, fordi det er denne værdi, vi gerne
 
 Et datasæt bestående af både inputværdierne $x_1$, $x_2$ og den tilhørende targetværdi $t$ kaldes for et **træningsdatasæt**. I figur **REF** ses et fiktivt eksempel på sådan et træninsdatasæt. Her er et punkt farvet blåt, hvis targetværdien er $1$ (det vil sige, at tilbudet aktiveres) og rødt, hvis targetværdien er $0$ (og tilbudet ikke aktiveres).
 
-** FIGUR **
+```{r}
+#| echo: false
+#| message: false
+library(ggplot2)
+N <- 100
+set.seed(42)
+alder <- 13 + round(70*rbeta(N, 2, 3))
+mu_forbrug <- ifelse(alder<40, 70*alder, 3000)
+forbrug <- round(rnorm(N, mu_forbrug, sd = 800))
+mu <- -2*scale(alder) + 2*scale(forbrug)
+prob <- exp(mu)/(1+exp(mu))
+dat <- data.frame(Alder = alder, Forbrug = forbrug, prob, 
+                  Aktiveret = factor(ifelse(rbinom(N, size = 1, prob = prob), "Ja", "Nej")))
+# summary(dat)
+dat |> ggplot(aes(Alder, Forbrug, color = Aktiveret, shape = Aktiveret)) +
+  geom_point(size = 2)
+# source("adaline.R")
+# out <- adaline(Aktiveret ~ Alder + Forbrug, data = dat)
+# out$w
+#          bias         Alder       Forbrug 
+# -0.2975679652 -0.0374751270  0.0007693097 
+```
 
 For at forudsige -- eller med et fint ord: at **prædiktere** -- om tilbudet aktiveres aktiveres eller ej, vil vi bruge en såkaldt **sigmoid**-funktion. Forskriften for sigmoid-funktionen er
 
