@@ -1,7 +1,7 @@
 ---
 title: "Simple neurale netværk"
 image: "images/sigmoid.png"
-description-meta: "Fra perceptroner til generelle neurale netværk. Her behandles **simple neurale netværk** (også kaldt for **Sigmoid neuroner**), som er en udvidelse af den klassiske perceptron og dermed en trædesten på vej mod at forstå generelle neurale netværk."
+description-meta: "Fra perceptroner til generelle neurale netværk. Her behandles simple neurale netværk (også kaldt for sigmoid neuroner), som er en udvidelse af den klassiske perceptron og dermed en trædesten på vej mod at forstå generelle neurale netværk."
 from: markdown+emoji
 format:
     html:
