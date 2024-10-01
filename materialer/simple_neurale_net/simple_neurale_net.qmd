@@ -40,7 +40,7 @@ Vi vil her beskrive **simple neurale netværk** (også kaldt for **Sigmoid neuro
 
 ## Medlemsapp til Good Food
 
-Lad os tage udgangspunkt i et fiktivt eksempel. Vi forestiller os, at dagligvare kæden Good Food er ved at udvikle en ny medlemsapp, som kunderne kan hente og bruge til at aktivere forskellige tilbud, når de handler i Good Food. Når kunderne opretter en profil i app'en oplyser de deres navn, fødselsdato og køn. Samtidig registrer app'en løbende, hvilke køb kunden foretager, hvilken ugedag de handler med videre. For at undgå at app'en bliver for uoverskuelig for kunderne, skal app'en kun vise et begrænset udvalg af tilbud, som kunden kan aktivere. For eksempel skal en midaldrende mand, som i den seneste måned har købt for 10000 kr. i app'en, have vist nogle andre tilbud end en teenagepige, som kun sjældent handler i Good Food.
+Lad os tage udgangspunkt i et fiktivt eksempel. Vi forestiller os, at dagligvare kæden Good Food er ved at udvikle en ny medlemsapp, som kunderne kan hente og bruge til at aktivere forskellige tilbud, når de handler i Good Food. Når kunderne opretter en profil i app'en, oplyser de deres navn, fødselsdato og køn. Samtidig registrer app'en løbende, hvilke køb kunden foretager, hvilken ugedag de handler med videre. For at undgå at app'en bliver for uoverskuelig for kunderne, skal app'en kun vise et begrænset udvalg af tilbud, som kunden kan aktivere. For eksempel skal en midaldrende mand, som i den seneste måned har købt for 10000 kr. i app'en, have vist nogle andre tilbud end en teenagepige, som kun sjældent handler i Good Food.
 
 ![](images/dagligvarer.jpg){width=75% fig-align='center'}
 
@@ -50,7 +50,7 @@ Good Food sætter derfor en undersøgelse i gang. Om alle deres kunder, som har 
 * $x_1$: kundens alder målt i år
 * $x_2$: kundens forbrug i Good Food den seneste måned målt i kr.
 
-Disse to værdier $x_1$ og $x_2$ kaldes for inputværdier. Samtidig har de i en periode for hver kunde registreret, om kunden har aktiveret et særligt tilbud. Denne information gemmes på denne måde:
+Disse to værdier $x_1$ og $x_2$ kaldes for inputværdier. Samtidig har de i en periode for hver kunde registreret, om kunden har aktiveret et bestemt tilbud. Denne information gemmes på denne måde:
 
 $$
 t=
@@ -62,7 +62,7 @@ $$
 
 Værdien $t$ kaldes for en **targetværdi**, fordi det er denne værdi, vi gerne i fremtiden vil kunne forudsige baseret på kundens alder og forbrug. Hvis Good Food kan forudsige, om en given kunde med stor sandsynlighed vil aktivere et bestemt tilbud, så vil det være en god idé at vise lige præcis dét tilbud fremfor et alternativ, som kunden måske er mindre tilbøjelig til at aktivere.
 
-Et datasæt bestående af både inputværdierne $x_1$, $x_2$ og den tilhørende targetværdi $t$ kaldes for et **træningsdatasæt**. I @fig-alder_vs_forbrug ses et fiktivt eksempel på sådan et træninsdatasæt. Her er et punkt farvet rødt, hvis targetværdien er $1$ (det vil sige, at tilbudet aktiveres) og blåt, hvis targetværdien er $0$ (og tilbudet ikke aktiveres).
+Et datasæt, som for hver kunde består af inputværdierne $x_1$, $x_2$ og den tilhørende targetværdi $t$, kaldes for et **træningsdatasæt**. I @fig-alder_vs_forbrug ses et fiktivt eksempel på sådan et træningsdatasæt. Her er et punkt farvet rødt, hvis targetværdien er $1$ (det vil sige, at tilbudet er aktiveret) og blåt, hvis targetværdien er $0$ (og tilbudet er ikke aktiveret).
 
 ```{r}
 #| echo: false
@@ -91,7 +91,7 @@ fig
 # -0.2975679652 -0.0374751270  0.0007693097 
 ```
 
-For at forudsige -- eller med et fint ord: at **prædiktere** -- om tilbudet aktiveres eller ej, vil vi prøve, om vi kan beregne en værdi $o$ ($o$ kaldes også for **outputværdien**), som kunne være et bud på sandsynligheden for, at en kunde med en given alder og et givent forbrug vil aktivere tilbudet. En smart måde at modellere en sandsynligheden på er at bruge en såkaldt **sigmoid**-funktion. Forskriften for sigmoid-funktionen er
+For at forudsige -- eller med et fint ord: at **prædiktere** -- om tilbudet aktiveres eller ej, vil vi prøve, om vi kan beregne en værdi $o$ ($o$ kaldes også for **outputværdien**), som kunne være et bud på sandsynligheden for, at en kunde med en given alder og et givent forbrug vil aktivere tilbudet. En måde at modellere en sandsynligheden på er at bruge en såkaldt **sigmoid**-funktion. Forskriften for sigmoid-funktionen er
 
 $$
 \sigma(x)=\frac{1}{1+e^{-x}}
@@ -119,18 +119,18 @@ Her kaldes $w_0, w_1$ og $w_2$ for vægte, og opgaven bliver nu, at finde værdi
 
 Det er her, at træningsdata kommer i spil, fordi vi for en lang række af inputværdier $x_1$ og $x_2$ jo faktisk  ved, om tilbudet  blev aktiveret eller ej (husk på at den oplysning er gemt i targetværdien $t$). 
 
-Forestil dig for en stund at vi på en eller anden måde har bestemt værdier af $w_0, w_1$ og $w_2$. Vi kan nu sammenligne værdien af $o$ (vores pt bedste bud på sandsynligheden) og targetværdien (som er den værdi, vi gerne vil kunne forudsige). Hvis $t=0$ vil vi også gerne have, at $o$ er tæt på $0$, og omvendt hvis $t=1$ vil vi gerne have, at $o$ er tæt på $1$. Det vil sige, at differencen
+Forestil dig for en stund at vi på en eller anden måde har bestemt værdier af $w_0, w_1$ og $w_2$. Vi kan nu sammenligne værdien af $o$ (vores pt bedste bud på sandsynligheden) og targetværdien (som er den værdi, vi gerne vil kunne forudsige). Hvis $t=0$ vil vi også gerne have, at $o$ er tæt på $0$, og omvendt hvis $t=1$ vil vi gerne have, at $o$ er tæt på $1$. Det vil sige, at differensen 
 
 $$
 t-o = t-\sigma(w_0 + w_1 \cdot x_1 + w_2 \cdot x_2)
 $$
-ønskes tæt på $0$. Nu kan differencen både være positiv og negativ, og for at slippe for fortegn vælger vi i stedet at se på den kvadrerede difference:
+ønskes tæt på $0$. Nu kan differensen både være positiv og negativ, og for at slippe for fortegn vælger vi i stedet at se på den kvadrerede differens:
 $$
 \left ( t-\sigma(w_0 + w_1 \cdot x_1 + w_2 \cdot x_2) \right )^2
 $$
 
 
-Der er ikke bare ét, men rigtig mange træningsdata og derfor vælger man, at summere (det vil sige, \"at lægge sammen\") alle disse kvadrerede differencer:
+Der er ikke bare ét, men rigtig mange træningsdata og derfor vælger man, at summere (det vil sige, \"at lægge sammen\") alle disse kvadrerede differenser:
 
 $$
 E = \frac{1}{2} \sum \left ( t-\sigma(w_0 + w_1 \cdot x_1 + w_2 \cdot x_2) \right )^2,
@@ -138,14 +138,14 @@ $$
 
 hvor der altså her summeres over alle træningsdata. Vi har lige ganget med $\frac{1}{2}$ foran. Det kan virke lidt mærkeligt, men du ser fidusen senere. 
 
-Hvis vægtene $w_0, w_1$ og $w_2$ er valgt, så sigmoid-funktionen er god til at prædiktere om tilbudet aktiveres eller ej, så vil ovenstående udtryk være tæt på $0$. Det vil sige, at hvis $E$ er tæt på $0$, så har vi valgte gode værdier af vægtene, mens hvis $E$ er langt væk fra $0$, så har vi valgt mindre gode værdier af vægtene (i forhold til det overordnede ønske om at være i stand til at prædiktere om tilbudet aktiveres eller ej). Denne funktion $E$, som jo afhænger af vægtene $w_0, w_1$ og $w_2$, kaldes for en **tabsfunktion** (eller på engelsk **error function**). 
+Hvis vægtene $w_0, w_1$ og $w_2$ er valgt, så sigmoid-funktionen er god til at prædiktere, om tilbudet aktiveres eller ej, så vil ovenstående udtryk være tæt på $0$. Det vil sige, at hvis $E$ er tæt på $0$, så har vi valgte gode værdier af vægtene, mens hvis $E$ er langt væk fra $0$, så har vi valgt mindre gode værdier af vægtene (i forhold til det overordnede ønske om at være i stand til at prædiktere om tilbudet aktiveres eller ej). Denne funktion $E$, som jo afhænger af vægtene $w_0, w_1$ og $w_2$, kaldes for en **tabsfunktion** (eller på engelsk **error function**). 
 
-Nu er vægtene jo ikke givet på forhånd, men det er lige præcis tabsfunktionen, man bruger til at bestemme \"gode\" værdier af vægtene. Det gøres helt enkelt ved at bestemme de værdier af vægtene, som minimerer tabsfunktionen. Det er altså et optimeringsproblem, vi står overfor. Hvordan det løses, kan du læse om i næste afsnit.
+Nu er vægtene jo ikke givet på forhånd, men det er lige præcis tabsfunktionen, man bruger til at bestemme \"gode\" værdier af vægtene. Det gøres ved at bestemme de værdier af vægtene, som minimerer tabsfunktionen. Det er altså et optimeringsproblem, vi står overfor. Hvordan det løses, kan du læse om i næste afsnit.
 
 
 ## Hvordan bestemmes vægtene?
 
-Inden vi går i gang med at finde ud af, hvordan vægtene bestemmes, så tabsfunktionen bliver så lille som mulig, vil vi lige gør det lidt mere generelt. For det første har man i virkelighedens verden sjældent kun to inputværdier $x_1$ og $x_2$. Vi siger derfor helt generelt, at vi har $n$ inputværdier $x_1, x_2, \cdots, x_n$. Det betyder, at outputværdien $o$ nu beregnes sådan her:
+Inden vi går i gang med at finde ud af, hvordan vægtene bestemmes, så værdien af tabsfunktionen bliver så lille som mulig, vil vi lige gør det lidt mere generelt. For det første har man i virkelighedens verden sjældent kun to inputværdier $x_1$ og $x_2$. Vi siger derfor helt generelt, at vi har $n$ inputværdier $x_1, x_2, \cdots, x_n$. Det betyder, at outputværdien $o$ nu beregnes sådan her:
 
 $$
 o = \sigma (w_0 + w_1 \cdot x_1 + w_2 \cdot x_2 + \cdots + w_n \cdot x_n).
