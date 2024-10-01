@@ -88,13 +88,14 @@ Vi inddeler blodtrykket i intervaller af længde 25 og tæller op, hvor mange sy
 ```{r}
 #| tbl-cap: Tabel over syge og raske inden for forskellige blodtryksintervaller.
 #| label: tbl-blodtryk
+#| classes: .hover
 interval <- cut(x, breaks = seq(75, 300, by=25), right = TRUE)
 tabel_data <- table(interval, y)
 tabel <- data.frame(Blodtryk = rownames(tabel_data), Rask = tabel_data[,1], Syg = tabel_data[,2])
 tabel$total <- rowSums(tabel_data)
 tabel$`Andel syge` <- round(tabel$Syg/tabel$total, 3)
 tabel |> subset(select = -total) |> 
-  knitr::kable(, row.names = FALSE)
+  knitr::kable(row.names = FALSE, align = "rrrc")
 ```
 ```{r}
 # Tal til teksten
