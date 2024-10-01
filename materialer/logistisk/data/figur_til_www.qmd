@@ -9,6 +9,7 @@ datadir <- here::here("materialer", "logistisk", "data")
 dat_navn <- file.path(datadir, "blodtryk.xlsx")
 dat <- readxl::read_xlsx(dat_navn)
 dat <- head(dat, n = 200)
+names(dat) <- c("x", "y")
 fit <- glm(y~x, family = binomial(), data = dat)
 a_mle <- coef(fit)[2]
 b_mle <- coef(fit)[1]

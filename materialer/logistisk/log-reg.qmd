@@ -54,7 +54,7 @@ I datasættet har vi genereret en masse mennesker med ekstremt højt eller lavt 
 #| fig-cap: Her ses et plot af data med blodtryk på $x$-aksen og sygdomsstatus på $y$-aksen.
 #| label: fig-data
 set.seed(1)
-x<-runif(2000,80,300)
+x<-round(runif(2000,80,300))
 u<-runif(2000,0,1)
 b=-4.07#-4.24470
 a=0.023#0.02368
@@ -62,8 +62,8 @@ p = function(x,a,b){exp(a*x + b)/(1+exp(a*x+ b))}
 px <- p(x,a,b)
 y <- as.numeric(u<px)
 # writexl::write_xlsx(
-#   data.frame(x, y),
-#   path = here::here("materialer", "logistisk", "data", "blodtryk.xlsx")
+ # data.frame(blodtryk = x, syg = y),
+ # path = here::here("materialer", "logistisk", "data", "blodtryk.xlsx")
 # )
 fit <- glm(y~x, family = binomial())
 a_mle <- coef(fit)[2]
@@ -85,28 +85,32 @@ Vi vil nu se på, hvordan man kan modellere denne funktion.
 
 For at få en idé om, hvordan $p(x)$ kunne se ud, kigger vi på datasættet fra før.
 Vi inddeler blodtrykket i intervaller af længde 25 og tæller op, hvor mange syge og raske der er inden for hvert interval. 
-
-| Blodtryk | Rask | Syg | Andel syge |
-|  :----:   | :----:   | :----:   | :----:   |
-|  ]75,100] | 173 | 24  | 0.122  | 
-| ]100,125] | 194 | 42  | 0.178  | 
-| ]125,150] | 145 | 62  | 0.300  |
-| ]150,175] | 156 | 100 | 0.391  | 
-| ]175,200] | 98  | 132 | 0.574  | 
-| ]200,225] | 57  | 135 | 0.703  |
-| ]225,250] | 47  | 178 | 0.791  | 
-| ]250,275] | 25  | 203 | 0.890  | 
-| ]275,300] | 19  | 210 |  0.917 |
-
-: Tabel over syge og raske inden for forskellige blodtryksintervaller. {#tbl-blodtryk}
+```{r}
+#| tbl-cap: Tabel over syge og raske inden for forskellige blodtryksintervaller.
+#| label: tbl-blodtryk
+interval <- cut(x, breaks = seq(75, 300, by=25), right = TRUE)
+tabel_data <- table(interval, y)
+tabel <- data.frame(Blodtryk = rownames(tabel_data), Rask = tabel_data[,1], Syg = tabel_data[,2])
+tabel$total <- rowSums(tabel_data)
+tabel$`Andel syge` <- round(tabel$Syg/tabel$total, 3)
+tabel |> subset(select = -total) |> 
+  knitr::kable(, row.names = FALSE)
+```
+```{r}
+# Tal til teksten
+rask2 <- tabel$Rask[2]
+syg2 <- tabel$Syg[2]
+total2 <- tabel$total[2]
+andel2 <- tabel$`Andel syge`[2]
+```
 
 Desuden har vi beregnet, hvor stor en andel af patienterne inden for hvert interval, der lider af hjerte-kar-sygdom.
 Dette bruges som et estimat for sandsynligheden for hjerte-kar-sygdom i den gruppe.
-For eksempel er der 194 raske og 42 syge personer med et blodtryk i intervallet $]100,125]$.
-Sammenlagt er der $194+42=236$ personer i dette interval.
+For eksempel er der `{r} rask2` raske og `{r} syg2` syge personer med et blodtryk i intervallet `{r} tabel$Blodtryk[2]`.
+Sammenlagt er der $`{r} rask2`+`{r} syg2` = `{r} total2`$ personer i dette interval.
 Andelen af syge i denne gruppe er derfor
 $$
-\frac{42}{236} \approx 0.178.
+\frac{`{r} syg2`}{`{r} total2`} \approx `{r} andel2`.
 $$
 På @fig-p-plot har vi tegnet disse andele ind i et koordinatsystem.
 For hvert blodtryksinterval er midtpunktet for intervallet indtegnet som $x$-værdien, og andelen af syge er indtegnet som den tilhørende $y$-værdi[^8].

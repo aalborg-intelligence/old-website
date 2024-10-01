@@ -2,6 +2,7 @@
 datadir <- here::here("materialer", "logistisk", "data")
 dat_navn <- file.path(datadir, "blodtryk.xlsx")
 dat <- readxl::read_xlsx(dat_navn)
+names(dat) <- c("x", "y")
 
 ## Log-likelihood
 fit <- glm(y~x, family = binomial(), data = dat)
