@@ -23,7 +23,7 @@ listing:
     - path: undervisningsforloeb/kNN_forlob_overvaagning.qmd
     - path: undervisningsforloeb/polynomium.qmd
     - path: undervisningsforloeb/OverfitPoly.qmd
-    - path: undervisningsforloeb/logistiskregression.qmd 
+    - path: undervisningsforloeb/logistisk_regression.qmd 
     - path: undervisningsforloeb/aktiveringsfunktioner.qmd 
   type: grid
   grid-columns: 2
