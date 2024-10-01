@@ -1,7 +1,7 @@
 ---
 title: "Overfitting og krydsvalidering med polynomiel regression"
 description-meta: 'Introduktion til begreberne overfitting og krydsvalidering vha. polynomiel regression'
-image: "OverfitPoly_filer/3gradsregression6af8udenkode.png"
+image: "OverfitPoly_filer/biograf.jpg"
 
 format:
     html: 

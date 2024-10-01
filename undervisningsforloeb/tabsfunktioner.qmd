@@ -1,5 +1,5 @@
 ---
-title: "Aktiveringsfunktioner"
+title: "Tabsfunktioner"
 image: ""
 description-meta: "I opbygningen af kunstige neurale netværk er aktiveringsfunktioner helt centrale. Og aktiveringsfunktioner skal differentieres -- det handler dette forløb om."
 from: markdown+emoji
@@ -57,6 +57,9 @@ I opbygningen af kunstige neurale netværk er aktiveringsfunktioner helt central
 Når man skal træne en [perceptron](../perceptron/perceptron.qmd), et [simpelt neuralt netværk](../simple_neurale_net/simple_neurale_net.qmd) eller et helt [generelt neuralt netværk](../neurale_net/neurale_net.qmd), skal man kunne differentiere de aktiveringsfunktioner, som indgår. I dette forløb vil vi arbejde med nogle af de mange forskellige aktiveringsfunktioner, som anvendes i den virkelige verden. Vi skal se på grafer og værdimængde -- og så skal vi mest af alt differentiere dem!
 
 :::
+
+## Under udarbejdelse!
+Husk henvisning til forløb om aktiveringsfunktioner
 
 ## Tabsfunktion, targetværdier og aktiveringsfunktioner
 
@@ -162,7 +165,7 @@ $$
 
 Grafen for Sigmoid-funktionen ses i @fig-sigmoid.
 
-![Grafen for sigmoid-funktionen.](images/sigmoid.png){width=75% #fig-sigmoid}
+![Grafen for sigmoid-funktionen.](aktiveringsfunktioner/sigmoid.png){width=75% #fig-sigmoid}
 
 Det ser på @fig-sigmoid ud som om, at værdimængden for $f$ er $(0,1)$. Hvis du vil have et lidt bedre argument for det, kan du læse i boksen herunder.
 
@@ -174,7 +177,7 @@ Vi vil her argumentere for, at værdimængden for $f$ er $(0,1)$.
 
 På figuren herunder ses grafen for $e^{-x}$.
 
-![](images/exp_minusx.png){width=50% fig-align="center"}
+![](aktiveringsfunktioner/exp_minusx.png){width=50% fig-align="center"}
 
 Da $e^{-x}$ er en aftagende eksponentialfunktion vil
 
@@ -281,11 +284,11 @@ x & \textrm{hvis } x \geq 0 \\
 $$ {#eq-numerisk_x}
 Det betyder for eksempel at $|7|=7$ og $|-7|=7$. Grafen for $|x|$ ses i @fig-numerisk_x.
 
-![Grafen for $|x|$.](images/numerisk_x.png){width=75% #fig-numerisk_x}
+![Grafen for $|x|$.](aktiveringsfunktioner/numerisk_x.png){width=75% #fig-numerisk_x}
 
 Grafen for softsign-funktionen $f$ ses i @fig-softsign.
 
-![Grafen for softsign-funktionen.](images/softsign.png){width=75% #fig-softsign}
+![Grafen for softsign-funktionen.](aktiveringsfunktioner/softsign.png){width=75% #fig-softsign}
 
 Da den numeriske værdi af $x$ indgår i forskriften, kunne man få den tanke, at $f$ måske hverken er kontinuert eller differentiabel i $0$. For eksempel kan man i @fig-numerisk_x se, at $|x|$ ikke er differentiabel i $0$. 
 
@@ -413,7 +416,7 @@ $$
 
 Grafen for hyperbolsk tangens er vist i @fig-tanh.
 
-![Grafen for hyperbolsk tangens.](images/tanh.png){width=75% #fig-tanh}
+![Grafen for hyperbolsk tangens.](aktiveringsfunktioner/tanh.png){width=75% #fig-tanh}
 
 Ifølge figuren ser det ud til, at $Vm(f)=(-1,1)$. Det argumenterer vi nærmere for i boksen herunder.
 
@@ -423,7 +426,7 @@ Ifølge figuren ser det ud til, at $Vm(f)=(-1,1)$. Det argumenterer vi nærmere 
 
 På figuren herunder ses grafen for den voksende eksponentialfunktion $e^x$ (blå) og for den aftagende eksponentialfunktion $e^{-x}$ (grøn).
 
-![](images/exp_plusminusx.png){width=50% fig-align="center"}
+![](aktiveringsfunktioner/exp_plusminusx.png){width=50% fig-align="center"}
 
 Her ses det, at for store positive værdier af $x$ er $e^{-x} \approx 0$. Det vil sige, at for store positive værdier af $x$ er
 
@@ -504,7 +507,7 @@ x & \textrm{hvis } x > 0 \\
 $$
 og grafen for ReLU-funktionen ses i @fig-ReLU.
 
-![Grafen for ReLU-funktionen.](images/ReLU.png){width=75% #fig-ReLU}
+![Grafen for ReLU-funktionen.](aktiveringsfunktioner/ReLU.png){width=75% #fig-ReLU}
 
 Værdimængden for ReLU-funktionen er $[0, \infty)$.
 
@@ -529,13 +532,13 @@ I tabellen herunder finder du et overblik over de forskellige aktiveringsfunktio
 
 | Navn | $f(x)$ | Graf | $Vm(f)$ | $f'(x)$ |
 |:------:|:------:|:------:|:------:|:------:|:------:|
-| Sigmoid | $\frac{1}{1+e^{-x}}$ | ![](images/sigmoid.png) | $(0,1)$ | $f(x)\cdot(1-f(x))$ |
-| Softsign | $\frac{x}{1+|x|}$ | ![](images/softsign.png) | $(-1,1)$ | $(1-|f(x)|)^2$ | 
-| Hyperbolsk tangens | $\frac{e^x-e^{-x}}{e^x+e^{-x}}$ | ![](images/tanh.png) | $(-1,1)$ | $1-\left ( \tanh(x) \right )^2$| 
+| Sigmoid | $\frac{1}{1+e^{-x}}$ | ![](aktiveringsfunktioner/sigmoid.png) | $(0,1)$ | $f(x)\cdot(1-f(x))$ |
+| Softsign | $\frac{x}{1+|x|}$ | ![](aktiveringsfunktioner/softsign.png) | $(-1,1)$ | $(1-|f(x)|)^2$ | 
+| Hyperbolsk tangens | $\frac{e^x-e^{-x}}{e^x+e^{-x}}$ | ![](aktiveringsfunktioner/tanh.png) | $(-1,1)$ | $1-\left ( \tanh(x) \right )^2$| 
 | ReLU | $\begin{cases}
 x & \textrm{hvis } x > 0 \\ 
 0 & \textrm{hvis } x \leq 0 \\ 
-\end{cases}$ | ![](images/ReLU.png) | $[0,\infty)$ | $\begin{cases}
+\end{cases}$ | ![](aktiveringsfunktioner/ReLU.png) | $[0,\infty)$ | $\begin{cases}
 1 & \textrm{hvis } x > 0 \\ 
 0 & \textrm{hvis } x \leq 0 \\ 
 \end{cases}$| 
