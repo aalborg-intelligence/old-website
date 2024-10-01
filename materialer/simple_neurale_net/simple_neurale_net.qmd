@@ -1,7 +1,7 @@
 ---
 title: "Simple neurale netværk"
 image: "images/sigmoid.png"
-description-meta: "Fra perceptroner til generelle neurale netværk. Her behandles simple neurale netværk, som er en udvidelse af den klassiske perceptron og dermed en trædesten på vej mod at forstå generelle neurale netværk."
+description-meta: "Fra perceptroner til generelle neurale netværk. Her behandles **simple neurale netværk** (også kaldt for **Sigmoid neuroner**), som er en udvidelse af den klassiske perceptron og dermed en trædesten på vej mod at forstå generelle neurale netværk."
 from: markdown+emoji
 format:
     html:
@@ -36,7 +36,7 @@ execute:
 ---
 
 
-Vi vil her beskrive **simple neurale netværk**, som er en udvidelse af den klassiske perceptron og dermed en trædesten på vej mod at forstå generelle neurale netværk.
+Vi vil her beskrive **simple neurale netværk** (også kaldt for **Sigmoid neuroner**), som er en udvidelse af den klassiske perceptron og dermed en trædesten på vej mod at forstå generelle neurale netværk.
 
 ## Medlemsapp til Good Food
 
@@ -60,13 +60,15 @@ t=
 \end{cases}
 $$
 
-Værdien $t$ kaldes for en **targetværdi**, fordi det er denne værdi, vi gerne vil kunne forudsige. Hvis Good Food kan forudsige, om en given kunde med stor sandsynlighed vil aktivere et bestemt tilbud, så vil det være en god idé at vise lige præcis dét tilbud fremfor et alternativ, som kunden måske er mindre tilbøjelig til at aktivere.
+Værdien $t$ kaldes for en **targetværdi**, fordi det er denne værdi, vi gerne i fremtiden vil kunne forudsige baseret på kundens alder og forbrug. Hvis Good Food kan forudsige, om en given kunde med stor sandsynlighed vil aktivere et bestemt tilbud, så vil det være en god idé at vise lige præcis dét tilbud fremfor et alternativ, som kunden måske er mindre tilbøjelig til at aktivere.
 
-Et datasæt bestående af både inputværdierne $x_1$, $x_2$ og den tilhørende targetværdi $t$ kaldes for et **træningsdatasæt**. I figur **REF** ses et fiktivt eksempel på sådan et træninsdatasæt. Her er et punkt farvet blåt, hvis targetværdien er $1$ (det vil sige, at tilbudet aktiveres) og rødt, hvis targetværdien er $0$ (og tilbudet ikke aktiveres).
+Et datasæt bestående af både inputværdierne $x_1$, $x_2$ og den tilhørende targetværdi $t$ kaldes for et **træningsdatasæt**. I @fig-alder_vs_forbrug ses et fiktivt eksempel på sådan et træninsdatasæt. Her er et punkt farvet rødt, hvis targetværdien er $1$ (det vil sige, at tilbudet aktiveres) og blåt, hvis targetværdien er $0$ (og tilbudet ikke aktiveres).
 
 ```{r}
 #| echo: false
 #| message: false
+#| fig-cap: Fiktivt datasæt som viser 100 Good Food kunders alder og forbrug. Hvert punkt, som repræsenterer en kunde, er farvet rødt, hvis kunden har aktiveret tilbudet og blåt ellers.
+#| label: fig-alder_vs_forbrug
 library(ggplot2)
 N <- 100
 set.seed(42)
@@ -78,8 +80,10 @@ prob <- exp(mu)/(1+exp(mu))
 dat <- data.frame(Alder = alder, Forbrug = forbrug, prob, 
                   Aktiveret = factor(ifelse(rbinom(N, size = 1, prob = prob), "Ja", "Nej")))
 # summary(dat)
-dat |> ggplot(aes(Alder, Forbrug, color = Aktiveret, shape = Aktiveret)) +
+fig <- ggplot(dat, aes(Alder, Forbrug, color = Aktiveret, shape = Aktiveret)) +
+  theme_minimal() +
   geom_point(size = 2)
+fig
 # source("adaline.R")
 # out <- adaline(Aktiveret ~ Alder + Forbrug, data = dat)
 # out$w
@@ -87,7 +91,7 @@ dat |> ggplot(aes(Alder, Forbrug, color = Aktiveret, shape = Aktiveret)) +
 # -0.2975679652 -0.0374751270  0.0007693097 
 ```
 
-For at forudsige -- eller med et fint ord: at **prædiktere** -- om tilbudet aktiveres aktiveres eller ej, vil vi bruge en såkaldt **sigmoid**-funktion. Forskriften for sigmoid-funktionen er
+For at forudsige -- eller med et fint ord: at **prædiktere** -- om tilbudet aktiveres eller ej, vil vi prøve, om vi kan beregne en værdi $o$ ($o$ kaldes også for **outputværdien**), som kunne være et bud på sandsynligheden for, at en kunde med en given alder og et givent forbrug vil aktivere tilbudet. En smart måde at modellere en sandsynligheden på er at bruge en såkaldt **sigmoid**-funktion. Forskriften for sigmoid-funktionen er
 
 $$
 \sigma(x)=\frac{1}{1+e^{-x}}
@@ -103,22 +107,22 @@ $$
 \sigma: \mathbb{R} \rightarrow (0,1).
 $$
 
-Da værdimængden er $(0,1)$, kan sigmoid-funktionen bruges til at modellere sandsynligheden for om tilbudet aktiveres. Spørgsmålet er nu, hvordan man gør det.
+Da værdimængden er $(0,1)$, kan sigmoid-funktionen netop bruges til at modellere sandsynligheden for om tilbudet aktiveres. Spørgsmålet er nu, hvordan man gør det.
 
-For det første skal sigmoid-funktionen selvfølgelig på en eller anden måde afhænge af vores inputværdier $x_1$ og $x_2$. Det kan man gøre på mange måder, men en ofte anvendt metode er, at \"sende\" en linearkombination af inputværdierne ind i sigmoid-funktionen:
+For det første skal sigmoid-funktionen selvfølgelig på en eller anden måde afhænge af vores inputværdier $x_1$ og $x_2$. Det kan man gøre på mange måder, men en ofte anvendt metode er, at \"sende\" en linearkombination af inputværdierne ind i sigmoid-funktionen, så outputværdien $o$ beregnes sådan her:
 
 $$
-\sigma(w_0 + w_1 \cdot x_1 + w_2 \cdot x_2).
-$$
+o = \sigma(w_0 + w_1 \cdot x_1 + w_2 \cdot x_2).
+$$ {#eq-output}
 
-Her kaldes $w_0, w_1$ og $w_2$ for vægte, og opgaven bliver nu, at finde værdier af disse vægte sådan at sigmoid-funktionen for givne værdier af $x_1$ og $x_2$ bliver god til at prædiktere om tilbudet aktiveres eller ej. 
+Her kaldes $w_0, w_1$ og $w_2$ for vægte, og opgaven bliver nu, at finde værdier af disse vægte sådan, at outputværdien $o$ for givne værdier af $x_1$ og $x_2$ bliver god til at modellere sandsynligheden for, om tilbudet aktiveres eller ej. 
 
 Det er her, at træningsdata kommer i spil, fordi vi for en lang række af inputværdier $x_1$ og $x_2$ jo faktisk  ved, om tilbudet  blev aktiveret eller ej (husk på at den oplysning er gemt i targetværdien $t$). 
 
-Forestil dig for en stund at vi på en eller anden måde har bestemt værdier af $w_0, w_1$ og $w_2$. Vi kan nu sammenligne værdien af sigmoid-funktionen (vores pt bedste bud på sandsynligheden) og targetværdien (som er den værdi, vi gerne vil kunne forudsige). Hvis $t=0$ vil vi også gerne have, at sigmoid-funktionen er tæt på $0$, og omvendt hvis $t=1$ vil vi gerne have, at sigmoid-funktionen er tæt på $1$. Det vil sige, at differencen
+Forestil dig for en stund at vi på en eller anden måde har bestemt værdier af $w_0, w_1$ og $w_2$. Vi kan nu sammenligne værdien af $o$ (vores pt bedste bud på sandsynligheden) og targetværdien (som er den værdi, vi gerne vil kunne forudsige). Hvis $t=0$ vil vi også gerne have, at $o$ er tæt på $0$, og omvendt hvis $t=1$ vil vi gerne have, at $o$ er tæt på $1$. Det vil sige, at differencen
 
 $$
-t-\sigma(w_0 + w_1 \cdot x_1 + w_2 \cdot x_2)
+t-o = t-\sigma(w_0 + w_1 \cdot x_1 + w_2 \cdot x_2)
 $$
 ønskes tæt på $0$. Nu kan differencen både være positiv og negativ, og for at slippe for fortegn vælger vi i stedet at se på den kvadrerede difference:
 $$
@@ -141,10 +145,10 @@ Nu er vægtene jo ikke givet på forhånd, men det er lige præcis tabsfunktione
 
 ## Hvordan bestemmes vægtene?
 
-Inden vi går i gang med at finde ud af, hvordan vægtene bestemmes, så tabsfunktionen bliver så lille som mulig, vil vi lige gør det lidt mere generelt. For det første har man i virkelighedens verden sjældent kun to inputværdier $x_1$ og $x_2$. Vi siger derfor helt generelt, at vi har $n$ inputværdier $x_1, x_2, \cdots, x_n$. Det betyder, at sigmoid-funktionen nu kommer til at se sådan her ud:
+Inden vi går i gang med at finde ud af, hvordan vægtene bestemmes, så tabsfunktionen bliver så lille som mulig, vil vi lige gør det lidt mere generelt. For det første har man i virkelighedens verden sjældent kun to inputværdier $x_1$ og $x_2$. Vi siger derfor helt generelt, at vi har $n$ inputværdier $x_1, x_2, \cdots, x_n$. Det betyder, at outputværdien $o$ nu beregnes sådan her:
 
 $$
-\sigma (w_0 + w_1 \cdot x_1 + w_2 \cdot x_2 + \cdots + w_n \cdot x_n).
+o = \sigma (w_0 + w_1 \cdot x_1 + w_2 \cdot x_2 + \cdots + w_n \cdot x_n).
 $$
 
 Samtidig forestiller vi os, at vi har $M$ træningsdata. Det vil sige, $M$ forskellige sæt af inputværdier med tilhørende targetværdi. Det kan opskrives sådan her:
@@ -170,7 +174,7 @@ $$
 
 Det er en [funktion af flere variable](../funktioner_af_flere_variable/funktioner_af_flere_variable.qmd). I princippet kan man bestemme minimum ved at sætte alle de partielle afledede lig med $0$ og dernæst overbevise sig selv om, at man har fundet et minimum. Det vil give et ligningssystem med $n+1$ ligninger, som alle er koblet med hinanden. Det viser sig, at være en beregningsmæssig tung opgave at løse dette ligningssystem analytisk. Derfor bruger man i stedet for den metode, som kaldes for [gradientnedstigning](../gradientnedstigning/graditentnedstigning.qmd). Gradientnedstigning går ud på først at vælge tilfældige værdier af vægtene $w_0, w_1, \cdots, w_n$. Det viser sig så, at den negative gradient vil pege i den retning, hvor funktionsværdien falder mest. Derfor er idéen at bevæge sig et lille stykke i den negative gradients retning -- fordi vi så kommer lidt tættere på minimum. Når vi har gjort det, beregner vi gradienten igen, og bevæger os igen et lille stykke i den negative gradients retning. Det forsætter vi med indtil værdien af tabsfunktionen ikke ændrer sig særlig meget, hvilket svarer til, at vi har fundet minimum.  
 
-Opdateringen af vægtene kan illustreres sådan her:
+Når vi for alle vægtene bevæger os et lille stykke i den negative gradients retning, kan opdateringen af vægtene skrives sådan her:
 
 $$
 \begin{aligned}
@@ -241,13 +245,13 @@ $$
 \end{aligned}
 $$
 
-For at gøre det lidt mere læsevenligt definerer vi
+Nu kaldte vi jo $\sigma(w_0 + w_1 \cdot x_1 + w_2 \cdot x_2)$ for outputværdien $o$ (se (@eq-output)). For at gøre ovenstående lidt mere læsevenligt vil vi derfor kalde outputværdien hørende til det $m$'te træningseksempel for $o_m$:
 
 $$
 o_m = \sigma(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n})
 $$
 
-Her står $o_m$ for outputværdien hørende til det $m$'te træningseksempel. Vi får så
+Vi får så
 
 $$
 \begin{aligned}
@@ -256,7 +260,7 @@ $$
 \end{aligned}
 $$
 
-Indsættes dette i (@eq-partiel) og bruger at 
+Indsættes dette i (@eq-partiel) samtidig med at vi bruger, at 
 
 $$o_m = \sigma(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n})$$ 
 
@@ -293,15 +297,22 @@ hvor $o_m = \sigma(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n})$.
 
 I praktisk vil man som sagt blive ved med at opdatere vægtene, indtil værdien af tabsfunktionen ikke ændrer sig særlig meget. 
 
-Når vi på den måde har bestemt værdien af vægtene, kan vi bruge sigmoid-funktionen til at forudsige, om en kunde vil aktivere tilbudet eller ej. Det vil vi gøre på denne måde:
+Når vi på den måde har bestemt værdien af vægtene, kan vi bruge outputværdien $o$ til at forudsige, om en kunde vil aktivere tilbudet eller ej. Det vil vi gøre på denne måde:
 
 $$
 \textrm{Kunden aktiverer tilbudet: }
 \begin{cases}
-\textrm{JA} & \textrm{hvis } \sigma(w_0 + w_1\cdot x_1 + \cdots + w_n \cdot x_n) \geq 0.5\\
-\textrm{NEJ} & \textrm{hvis } \sigma(w_0 + w_1\cdot x_1 + \cdots + w_n \cdot x_n) < 0.5\\
+\textrm{JA} & \textrm{hvis } o \geq 0.5\\
+\textrm{NEJ} & \textrm{hvis } o < 0.5\\
 \end{cases}
+$$ {#eq-pred}
+
+hvor
+
 $$
+o = \sigma(w_0 + w_1\cdot x_1 + \cdots + w_n \cdot x_n).
+$$
+Bemærk, at når vi tænker på $o$ som sandsynligheden for, at kunden vil aktivere tilbudet, så giver det god mening, at vi vil prædiktere, at kunden vil aktivere tilbudet, hvis $o \geq 0.5$ og ellers ikke.
 
 Skillelinjen, som afgører, om vi prædikterer, at kunden aktiverer tilbudet eller ej, går ved
 
@@ -333,13 +344,56 @@ w_0 + w_1\cdot x_1 + w_2 \cdot x_2 = 0.
 $$
 Det er lige præcis ligningen for en ret linje. Hvis vi i vores eksempel prøver at finde vægtene ved hjælp af gradientnedstigning, som beskrevet ovenfor, så ender vi med
 
-** LIGNING MED KONKRETE VÆGTE **.
+$$
+w_0 = -0.298, \quad  w_1 = -0.0375 \quad \textrm{ og } \quad  w_2=0.000769 
+$$
+Det giver ligningen
+$$
+-0.298 - 0.0375\cdot x_1 + 0.000769\cdot x_2=0
+$$
+hvilket også kan omskrives til
 
-Indtegnes denne linje i *FIG REF* fås:
+$$
+x_2 = 48.7 \cdot x_1 +387
+$$
 
-** FIGUR **
+eller måske den lidt mere velkendte skrivemåde:
 
-Det ses nu **BLA BLA**.
+$$
+y = 48.7 \cdot x+387
+$$
+
+
+Indtegnes denne linje sammen med datasættet fra Good Food får vi:
+
+```{r}
+#| echo: false
+#| message: false
+#| fig-cap: Fiktivt datasæt som viser 100 Good Food kunders alder og forbrug. Hvert punkt, som repræsenterer en kunde, er farvet rødt, hvis kunden har aktiveret tilbudet og blåt ellers. Samtidig er den linje indtegnet, som fås ved at bruge et simpelt neuralt netværk på data.
+#| label: fig-alder_vs_forbrug2
+w0 <-  -0.2975679652
+w1 <- -0.0374751270
+w2 <- 0.0007693097
+fig + geom_abline(slope=-w1/w2,intercept=-w0/w2,size=1)
+# source("adaline.R")
+# out <- adaline(Aktiveret ~ Alder + Forbrug, data = dat)
+# out$w
+#          bias         Alder       Forbrug 
+# -0.2975679652 -0.0374751270  0.0007693097 
+```
+
+Det vil nu være sådan, at for alle punkter $(x_1,x_2)$, som ligger over linjen i @fig-alder_vs_forbrug2, vil
+
+$$
+-0.298 - 0.0375\cdot x_1 + 0.000769\cdot x_2 > 0.
+$$
+Det vil sige, at (se eventuelt @fig-sigmoid)
+$$
+o = \sigma (-0.298 - 0.0375\cdot x_1 + 0.000769\cdot x_2) > 0.5.
+$$
+Ifølge (@eq-pred) betyder det, at for alle punkter, som ligger over linjen, vil vi prædiktere, at den tilhørende kunde, vil aktivere tilbudet. Og det omvendte gælder så selvfølgelig for alle punkter, som ligger under linjen: her vil vi prædiktere, at de tilhørende kunder *ikke* aktiverer tilbudet.
+
+
 
 ## Aktiviteringsfunktioner
 
@@ -372,6 +426,8 @@ $$
 \end{aligned}
 $$
 
+Denne outputværdi kan selvsagt ikke fortolkes som en sandsynlighed, men blot som en angivelse af, om vi forventer, at et nyt punkt er rødt eller blåt (altså om den ukendte targetværdi er $-1$ eller $1$).
+
 Der er ikke knyttet nogen tabsfunktion til perceptron learning algoritmen, men den $i$'te vægt opdateres på denne måde:
 $$
 w_i \leftarrow w_i +  \eta \cdot  (t-o) \cdot x_i
@@ -392,35 +448,88 @@ $$
 \end{aligned}
 $$
 
+Igen kan outputværdien her ikke fortolkes som en sandsynlighed.
+
 I ADALINE bestemmes vægtene ved at minimere tabsfunktionen:
 
 $$
 \begin{aligned}
 E(w_0, w_1, \dots, w_n) = \frac{1}{2} \sum_{m=1}^{M} \left (t_m-
-(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n}) \right)^2
+(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n}) \right)^2.
 \end{aligned}
-$$ {eq-tab_ADALINE}
+$$ {#eq-tab_ADALINE}
 
-Gør man det bliver opdateringsreglerne
+Gør man det, bliver opdateringsreglerne
 
 $$
 w_i \leftarrow w_i + \eta \cdot  \sum_{m=1}^{M} \left (t_m-
-(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n}) \right) \cdot \left (x_{m,i} \right)
+(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n}) \right) \cdot \left (x_{m,i} \right).
 $$
 
-Ser vi på tabsfunktionen i (@eq-tab_ADALINE) .... NOGET om identiteten som aktiveringsfunktion
 
 ### Simple neurale netværk
 
+I det simple neurale netværk er targetværdierne $0$ eller $1$:
+
+$$
+t \in \{0,1\}.
+$$
+Her beregner vi en outputværdi $o$ som 
+
+$$
+o = \sigma(w_0 + w_1 \cdot x_1 + \cdots + w_n \cdot x_n).
+$$
+
+Hvis vi sammenligner med reglen i (@eq-pred) vil vi sige, at hvis denne outputværdi $o \geq 0.5$, så vil vi prædiktere[^3], at den ukendte targetværdi er $1$ og $0$ ellers. Her kan man altså tænke på $o$, som sandsynligheden for, at den ukendte targetværdi er $1$.
+
+I det simple neurale netværk er tabsfunktionen 
+$$
+\begin{aligned}
+E(w_0, w_1, &\dots, w_n) \\ &= \frac{1}{2} \sum_{m=1}^{M} \left (t_m-
+\sigma(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n}) \right)^2
+\\ &= \frac{1}{2} \sum_{m=1}^{M} \left (t_m-
+o_m \right)^2,
+\end{aligned}
+$$ {#eq-tabsfunktion_sigmoid}
+
+hvor $o_m = \sigma(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n})$.
+
+Opdateringsreglen for den $i$'te vægt er:
+$$
+w_i \leftarrow w_i + \eta \cdot \sum_{m=1}^{M} \left (t_m-o_m \right) \cdot o_m\cdot (1-o_m) \cdot x_{m,i}.
+$$
+
+
+Ser vi på tabsfunktionen for ADALINE i (@eq-tab_ADALINE) og sammenligner den med tabsfunktionen for det simple neurale netværk i (@eq-tabsfunktion_sigmoid), kan vi se, at i ADALINE bruges sigmoid-funktionen ikke som aktiveringsfunktion. I stedet bruges den funktion $f$, som man kalder for **identiteten**. Den har forskrift
+$$
+f(x)=x.
+$$
+
+Forskellen på ADALINE og det simple neurale netværk er altså, at aktivieringsfunktionen i ADALINE er identiteten, mens den i det simple neurale netværk er sigmoid-funktionen.
+
+
 ### Generelle neurale netværk
+
+Et generelt neuralt netværk består egentlig bare af en masse simple neurale netværk, som er sat sammen. Det kunne se sådan her ud:
+
+![Et generelt kunstigt neuralt netværk (som dog stadig er forholdsvist simpelt!).](../neurale_net/images/simple_NN_noweights.png){#fig-simple_NN_noweights}
+
+Her repræsenterer de fire lilla cirkler fire inputværdier $x_1, x_2, x_3$ og $x_4$. De fire grønne cirkler i midten svarer til en neuron -- altså et simpelt neuralt netværk -- som det er beskrevet her. Den blå cirkel svarer til den outputværdi, som netværket ender med at beregne. Hver pil i figuren svarer til en vægt, som skal beregnes. Man siger, at det netværk, som er illustreret på @fig-simple_NN_noweights har **to skjulte lag** (svarende til de to søjler med grønne cirkler), fordi der er to lag af neuroner fra input til output. Til sammenligning har et simpelt neuralt netværk ingen skjulte lag, fordi man direkte fra inputværdierne beregner outputværdien. Når mængden af skjulte lag bliver tilpas stor, taler man om **deep learning**.
+
+Tabsfunktion og opdateringsregler bliver noget mere kompliceret for generelle neurale netværk, men du kan læse meget mere om det i vores note om [kunstige neurale netværk](../neurale_net/neurale_net.qmd).
+
+Men alt i alt kan man altså tænke på det simple neurale netværk, som byggesten til det generelle neurale netværk.
+
 
 ### Samlet skematisk overblik
 
+I tabellen herunder finder du et samlet overblik over perceptron learning algoritmen, ADALINE, simple neurale netværk og generelle neurale netværk.
+
 | AI metode | Skal data være lineært separable | Aktiveringsfunktion | Graf | Targetværdi | Antal skjulte lag |
 |:------|:------:|:------|:------:|:------:|:------:|
-| Perceptron learning algoritmen | Ja | Trappefunktion | ![](images/trappe.png) | $\{-1,1\}$ | $0$ |
+| Perceptron learning algoritmen | Ja | Ingen | -- | $\{-1,1\}$ | $0$ |
 | ADALINE | Nej | Identiteten | ![](images/identiteten.png) | $\{-1,1\}$ | $0$ |
-| Simple neurale netværk | Nej | Sigmoid | ![](images/sigmoid.png) | $\{0,1\}$ | $0$ |
+| Simple neurale netværk | Nej | Sigmoid eller andre | ![](images/sigmoid.png) | $\{0,1\}$ | $0$ |
 | Generelle neurale netværk | Nej | Sigmoid eller andre | ![](images/sigmoid.png) | $\{0,1\}$ | $\geq 1$ |
 
 
@@ -434,5 +543,5 @@ Ser vi på tabsfunktionen i (@eq-tab_ADALINE) .... NOGET om identiteten som akti
 
 [^2]: Som i perceptron learning algoritmen er det ikke så afgørende om det lige præcis er $\pm 1$. Det vigtige er bare, at targetværdierne er symmetriske omkring $0$ (så det kunne for eksempel også være $\pm \frac{1}{2}$ eller $\pm 2$).
 
-
+[^3]: Der er faktisk ingen, som siger, at vi skal skære ved $0.5$. Hvis man er i gang med at screene for en meget alvorlig sygdom, som det er vigtigt at opdage hurtigt, kunne der være god grund til at vælge en lavere værdi end $0.5$. 
 

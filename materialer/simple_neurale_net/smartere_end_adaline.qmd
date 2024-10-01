@@ -197,10 +197,10 @@ $$ {#eq-ny_tabsfunktion}
 
 Bemærk, at problemet med de to skalaer nu er løst. Targetværdien er enten $0$ eller $1$ samtidig med, at $\sigma(w_0 + w_1 \cdot x_{m,1} + \cdots + w_n \cdot x_{m,n})$ også ligger mellem $0$ og $1$. Vi sammenligner altså ikke længere pærer med bananer! Den \"perceptron\", som minimerer tabsfunktionen i (@eq-ny_tabsfunktion), er netop det, vi kalder for et **simpelt neuralt netværk**.
 
-I noten om [simple neurale netværk](simple_neurale_net.qmd) beskrev vi, hvordan vi kan tænke på værdi 
+I noten om [simple neurale netværk](simple_neurale_net.qmd) beskrev vi, hvordan vi kan tænke på outputværdien 
 
 $$
-\sigma(w_0 + w_1 \cdot x_1 + \cdots + w_n \cdot x_n)
+o = \sigma(w_0 + w_1 \cdot x_1 + \cdots + w_n \cdot x_n)
 $$
 
 som en sandsynlighed for at punktet $P(x_1, x_2, \dots, x_n)$ er blåt. Det gjorde vi på denne måde:
@@ -208,10 +208,16 @@ som en sandsynlighed for at punktet $P(x_1, x_2, \dots, x_n)$ er blåt. Det gjor
 $$
 \textrm{Nyt punkt }=
 \begin{cases}
-\textrm{blåt} & \textrm{hvis } \sigma(w_0 + w_1 \cdot x_1 + \cdots + w_n \cdot x_n) \geq 0.5\\
-\textrm{rødt} & \textrm{hvis } \sigma(w_0 + w_1 \cdot x_1 + \cdots + w_n \cdot x_n) < 0.5\\
+\textrm{blåt} & \textrm{hvis } o \geq 0.5\\
+\textrm{rødt} & \textrm{hvis } o < 0.5\\
 \end{cases}
 $$ {#eq-pred}
+
+hvor 
+
+$$
+o = \sigma(w_0 + w_1 \cdot x_1 + \cdots + w_n \cdot x_n).
+$$
 
 Vi argumenterede også for, at skillelinjen, for hvornår et punkt $(x_1, x_2, \dots, x_n)$ er blåt eller rødt, kan beskrives ved ligningen
 
@@ -237,7 +243,7 @@ $$
 $$
 Udregner vi 
 $$
-\sigma(-6.046 - 16.69x_1+10.94x_2)
+o = \sigma(-6.046 - 16.69x_1+10.94x_2)
 $$
 får vi altså sandsynligheden for at et punkt er blåt. Gør vi det fås resultatet i nedenstående tabel:
 
@@ -251,7 +257,7 @@ får vi altså sandsynligheden for at et punkt er blåt. Gør vi det fås result
 | $0.1$ | $-0.1$ | $0$ | $0.00$ |
 | $1$ | $-1$ | $0$ | $0.00$ |
 
-Der er her fin overensstemmelse mellem targetværdien og den beregnede sandsynlighed. Læg også mærke til at det ekstreme punkt har en beregnet sandsynlighed på $0.00$ og dermed bliver prædikteret til klart at være et *ikke* blåt -- det vil sige et rødt -- punkt.
+Der er her fin overensstemmelse mellem targetværdien og den beregnede sandsynlighed (outputværdien $o$). Læg også mærke til at det ekstreme punkt har en beregnet sandsynlighed på $0.00$ og dermed bliver prædikteret til klart at være et *ikke* blåt -- det vil sige et rødt -- punkt.
 
 [^1]: Her er alle startvægte sat til $0$, learning rate er på $0.1$, stop-kriterie er på $0.000001$ og maksimalt antal iterationer er sat til $50000$.
 
