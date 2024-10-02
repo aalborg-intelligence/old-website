@@ -6,7 +6,7 @@ project:
     - "*.zip"
 
 website:
-  title: "AI - Aalborg Intelligence"
+    title: "AI - Aalborg Intelligence - OLD VERSION!"
   description: "Gymnasieundervisning i kunstig intelligens"
   navbar:
     right:
