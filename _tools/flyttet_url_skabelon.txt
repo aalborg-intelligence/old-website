@@ -1,0 +1,13 @@
+---
+format:
+    html: 
+      self-contained: true
+      link-external-newwindow: true
+      toc: false
+      anchor-sections: false
+---
+
+# Vi er flyttet til <https://aimat.dk>
+
+### Direkte link til siden du forsøger at tilgå:
+
