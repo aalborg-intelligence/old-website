@@ -1,25 +1,15 @@
 ---
-title: "Om os"
 format:
     html: 
       self-contained: true
-      toc: true
-      toc-title: Indhold
-      toc-location: left
+      link-external-newwindow: true
+      toc: false
+      anchor-sections: false
 ---
 
-Projektet Aalborg Intelligence, som er finansieret af Novo Nordisk Fonden, er forankret på Institut for Matematiske Fag på Aalborg Universitet (AAU), og inkluderer en repræsentant fra de fem gymnasier i Aalborg.
+# Vi er flyttet til <https://aimat.dk>
 
-### Forskere fra AAU
+### Direkte link til siden du forsøger at tilgå:
 
-- Lektor Ege Rubak (projektleder)
-- Lektor Lisbeth Fajstrup
-- Lektor Anne Marie Svane
 
-## Gymnasielærere
-
-- Malene Cramer Engebjerg (Aalborghus Gymnasium)
-- Allan Frendrup (Nørresundby Gymnasium)
-- Nikolaj Hess-Nielsen (Aalborg Katedralskole)
-- Mette Kristensen (Hasseris Gymnasium)
-- Jan B. Sørensen (Aalborg City Gymnasium)
+### <https://aimat.dk/about.html>

@@ -1,50 +1,15 @@
-```{=html}
-<head>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta charset="utf-8"/>
-<script src="https://cdn.geogebra.org/apps/deployggb.js"></script>
-</head>
-```
+---
+format:
+    html: 
+      self-contained: true
+      link-external-newwindow: true
+      toc: false
+      anchor-sections: false
+---
 
-```{=html}
-<!-- 
-Alle geogebra filer placeres i mappen _geogebra
-Erstat XXX med nr på app og erstat YYY med navn på ggb-fil -->
-<script>
-var parametersXXX = {
-"id": "ggbAppletXXX",
-"width":550,
-"height":550,
-"prerelease":false,
-"borderColor":null,
-"showMenuBar":false,
-"showAlgebraInput":false,
-"showToolBar":false,
-"showToolBarHelp":false,
-"showResetIcon":true,
-"enableLabelDrags":false,
-"enableShiftDragZoom":true,
-"enableRightClick":false,
-"errorDialogsActive":false,
-"useBrowserForJS":false,
-"capturingThreshold":null,
-"language":"da",
-// use this instead of ggbBase64 to load a .ggb file
-"filename":"_geogebra/YYY.ggb",
-};
-var appletXXX = new GGBApplet(parametersXXX, true);
-</script>
-```
+# Vi er flyttet til <https://aimat.dk>
 
-```{=html}
+### Direkte link til siden du forsøger at tilgå:
 
-<script>
-window.onload = function() {
-  appletXXX.inject('ggbAppletXXX');
-  // indsæt her hvis der er flere apps på samme side
-  // appletZZZ.inject('ggbAppletZZZ');
-  }
-</script>
 
-```
-
+### <https://aimat.dk/_tools/_geogebra_skabelon.html>

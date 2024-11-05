@@ -1,107 +1,15 @@
-```{=html}
-<head>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta charset="utf-8"/>
-<script src="https://cdn.geogebra.org/apps/deployggb.js"></script>
-</head>
-```
+---
+format:
+    html: 
+      self-contained: true
+      link-external-newwindow: true
+      toc: false
+      anchor-sections: false
+---
 
-```{=html}
-<script>
-var parameters1 = {
-"id": "ggbApplet",
-"width":550,
-"height":550,
-"showMenuBar":false,
-"showAlgebraInput":false,
-"showToolBar":false,
-"perspective": "G",
-"showToolBarHelp":false,
-"showResetIcon":false,
-"enableLabelDrags":false,
-"enableShiftDragZoom":false,
-"enableRightClick":false,
-"errorDialogsActive":false,
-"useBrowserForJS":false,
-"allowStyleBar":false,
-"preventFocus":false,
-"showZoomButtons":false,
-"capturingThreshold":3,
-// add code here to run when the applet starts
-"appletOnLoad":function(api){ /* api.evalCommand('Segment((1,2),(3,4))');*/ },
-"showFullscreenButton":true,
-"scale":1,
-"disableAutoScale":false,
-"allowUpscale":false,
-"clickToLoad":false,
-"appName":"classic",
-"buttonRounding":0.7,
-"buttonShadows":false,
-"language":"da",
-// use this instead of ggbBase64 to load a material from geogebra.org
-// "material_id":"RHYH3UQ8",
-// use this instead of ggbBase64 to load a .ggb file
-"filename":"_geogebra/opgave2.ggb",
-};
-// is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
-var views1 = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
-var applet1 = new GGBApplet(parameters1, '5.0', views1);
-</script>
-```
+# Vi er flyttet til <https://aimat.dk>
 
-```{=html}
-<script>
-var parameters2 = {
-"id": "ggbApplet2",
-"width":550,
-"height":550,
-"showMenuBar":false,
-"showAlgebraInput":false,
-"showToolBar":false,
-"perspective": "G",
-"showToolBarHelp":false,
-"showResetIcon":false,
-"enableLabelDrags":false,
-"enableShiftDragZoom":false,
-"enableRightClick":false,
-"errorDialogsActive":false,
-"useBrowserForJS":false,
-"allowStyleBar":false,
-"preventFocus":false,
-"showZoomButtons":false,
-"capturingThreshold":3,
-// add code here to run when the applet starts
-"appletOnLoad":function(api){ /* api.evalCommand('Segment((1,2),(3,4))');*/ },
-"showFullscreenButton":true,
-"scale":1,
-"disableAutoScale":false,
-"allowUpscale":false,
-"clickToLoad":false,
-"appName":"classic",
-"buttonRounding":0.7,
-"buttonShadows":false,
-"language":"da",
-// use this instead of ggbBase64 to load a material from geogebra.org
-// "material_id":"RHYH3UQ8",
-// use this instead of ggbBase64 to load a .ggb file
-"filename":"_geogebra/opgave5.ggb",
-};
-// is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
-var views2 = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
-var applet2 = new GGBApplet(parameters2, '5.0', views2);
-window.onload = function() {
-  applet1.inject('ggbApplet1');
-  applet2.inject('ggbApplet2');
-  }
-</script>
-```
+### Direkte link til siden du forsøger at tilgå:
 
-```{=html}
-<script>
-window.onload = function() {
-  applet1.inject('ggbApplet1');
-  applet2.inject('ggbApplet2');
-  }
-</script>
-```
 
+### <https://aimat.dk/undervisningsforloeb/_geogebra/_hvem_ligner_du_mest_geogebra.html>

@@ -1,58 +1,15 @@
 ---
-title: "ADALINE perceptron app"
-image: "../materialer/perceptron/images/perceptron.png"
-description: '[Her](https://apps01.math.aau.dk/adaline/) kan du træne en percepton ved at bruge de opdateringsregler, som kaldes for [ADALINE](../materialer/perceptron/perceptron.qmd#sec-ADALINE). Samtidig laves der også 5-folds [krydsvalidering](../materialer/krydsvalidering/krydsvalidering.qmd#sec-krydsvalidering).'
-date: ''
 format:
     html: 
       self-contained: true
-      toc: true
-      toc-title: Indhold
-      toc-location: left
-      related-formats-title: "Andre formater"
       link-external-newwindow: true
-    # pdf: default
-reference-location: margin
-nocite: | 
-  @*
-editor_options: 
-  chunk_output_type: console
-crossref:
-  fig-prefix: figur   # (default is "Figure")
-  tbl-prefix: tabel    # (default is "Table")
-  exm-prefix: eksempel
-  eq-prefix: ''
-  fig-title: Figur
-  exm-title: Eksempel
-  tbl-title: Tabel
-label:
-    fig: Figur
-title-block-author-single: "Forfatter"
-fig-cap-location: margin
+      toc: false
+      anchor-sections: false
 ---
 
-### Gør følgende
+# Vi er flyttet til <https://aimat.dk>
 
-+ Upload data (.xlsx eller .csv format).
+### Direkte link til siden du forsøger at tilgå:
 
-+ Vælg den kolonne som angiver targetværdien (skal være kodet +/- 1).
 
-+ Vælg de forklarende variable (feature-/input-værdier).
-
-+ Ændr eventuelt på startvægte, learning rate, stopkriterium og/eller det maksimale iterationer -- eller behold default værdierne.
-
-+ Vælg antal af fold i $k$-folds krydsvalidering (default er 5).
-
-+ Tryk på \"Kør ADALINE!\"
-
-### Output fra algoritmen
-
-+ Information om hvad du har valgt som features og targetværdi.
-
-+ Værdien af de estimerede vægte.
-
-+ En figur, som viser, hvordan vægtene har ændret sig for hver iteration. Hvis graferne for alle vægtene er fladet ud, er det tegn på, at algoritmen er konvergeret.
-
-+ Resultatet af krydsvalidering her angivet som klassifikationsnøjagtigheden (den gennemsnitlige andel som er klassificeret korrekt ved $k$-folds krydsvalidering).
-
-+ Til sidst en tabel med data.
+### <https://aimat.dk/apps/perceptron_app.html>

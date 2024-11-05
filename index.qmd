@@ -1,32 +1,10 @@
 ---
-title: "AI - Aalborg Intelligence"
-
 format:
     html: 
       self-contained: true
-      toc: true
-      toc-title: Indhold
-      toc-location: left
-listing:
-  id: main-listing-content
-  sort: false
-  contents:
-    - "undervisningsforlob.qmd"
-    - "materialer.qmd"
-    - "sro.qmd"
-    - "srp.qmd"
-    - "apps.qmd"
-    - "referencer.qmd"
-  type: grid
-  grid-columns: 2
+      link-external-newwindow: true
+      toc: false
+      anchor-sections: false
 ---
 
-Her på sitet finder du materiale og undervisningsforløb om kunstig intelligens rettet mod danske gymnasieelever.
-
-::: {#main-listing-content}
-:::
-
-Projektet "AI - Aalborg Intelligence" er finansieret af Novo Nordisk Fonden og løber frem til 2026.
-
-Siden her er i et tidligt stadie med ganske få tilgængelige materialer på nuværende tidspunkt (2023), og mere materiale tilføjes løbende.
-
+# Vi er flyttet til <https://aimat.dk>

@@ -1,10 +1,15 @@
 ---
-title: "For lærerne"
-description: "Information til lærerne om materialet og mulige elevforløb"
+format:
+    html: 
+      self-contained: true
+      link-external-newwindow: true
+      toc: false
+      anchor-sections: false
 ---
 
-Her kommer information om hvordan materialerne kan bruges i forskellige typer forløb i gymnasiet.
+# Vi er flyttet til <https://aimat.dk>
 
-Vi har på nuværende tidspunkt erfaring med SRO i matematik og samfundsfag samt forskellige typer af SRP.
-Kontakt [Ege Rubak](mailto:rubak@math.aau.dk) for nærmere information.
+### Direkte link til siden du forsøger at tilgå:
 
+
+### <https://aimat.dk/teacher.html>

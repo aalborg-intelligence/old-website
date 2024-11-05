@@ -1,37 +1,15 @@
 ---
-title: "Referencer"
-description: "Diverse referencer til andre AI materialer."
-image: "images/image11.jpg"
-
 format:
     html: 
       self-contained: true
-      toc: true
-      toc-title: Indhold
-      toc-location: left
       link-external-newwindow: true
+      toc: false
+      anchor-sections: false
 ---
 
+# Vi er flyttet til <https://aimat.dk>
+
+### Direkte link til siden du forsøger at tilgå:
 
 
-![](images/COLOURBOX47937745_referencer.jpg)
-
-### Websider
-
-+ DTU har lavet et undervisningsmateriale, som handler om, hvordan kunstig intelligens kan bruges til at genkende lyde: [Regn lyden ud](https://regnlydenud.dtu.dk/)
-
-+ Online kursus hvor man lærer helt grundlæggende om kunstig intelligens (men ikke så matematisk som materialet her på siden): [Elements of AI](https://www.elementsofai.dk/)
-
-+ Danske Gymnasier har afholdt en konference om betydningen af AI og ChatGPT. [Her på siden kan man genhøre oplæg fra blandt andet Vincent Hendricks, Stefan Herman m.fl.](https://danskegymnasier.dk/se-eller-gense-konference-om-betydning-af-ai-og-chatgpt/)
-
-+ Den Store Danske har skrevet lidt om, hvad kunstig intelligens er - herunder også et historisk oprids af udviklingen inden for kunstig intelligens. [Kunstig intelligens](https://denstoredanske.lex.dk/kunstig_intelligens)
-
-+ På siden [dataekspeditioner](https://www.dataekspeditioner.dk/) findes en række forløb hvoraf flere omhandler AI.
-
-### Videoer
-+ 3Blue1Brown har lavet en række fine videoer, som forklarer, hvad et kunstigt neuralt netværk er, og hvordan det trænes (på engelsk): [Neural networks](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi)
-
-### Bøger
-+ Online bog om kunstige neurale netværk af Michael Nielsen (på engelsk): [Neural networks and deep learning](http://neuralnetworksanddeeplearning.com/index.html)
-
-
+### <https://aimat.dk/referencer.html>
